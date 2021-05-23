@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Container from '../components/container'
-import FancyLink from '../components/fancyLink'
+import FancyLink from '../components/fancy-link'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 
