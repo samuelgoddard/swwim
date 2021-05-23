@@ -1,0 +1,56 @@
+/* Greycliff */
+@font-face {
+  font-family: 'Greycliff';
+  src: url('../public/fonts/GreycliffCF-Light.woff2') format('woff2'),
+      url('../public/fonts/GreycliffCF-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Greycliff';
+  src: url('../public/fonts/GreycliffCF-Regular.woff2') format('woff2'),
+      url('../public/fonts/GreycliffCF-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Greycliff';
+  src: url('../public/fonts/GreycliffCF-Medium.woff2') format('woff2'),
+      url('../public/fonts/GreycliffCF-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Greycliff';
+  src: url('../public/fonts/GreycliffCF-DemiBold.woff2') format('woff2'),
+      url('../public/fonts/GreycliffCF-DemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Greycliff';
+  src: url('../public/fonts/GreycliffCF-Bold.woff2') format('woff2'),
+      url('../public/fonts/GreycliffCF-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Baton Turbo */
+
+@font-face {
+  font-family: 'Baton Turbo';
+  src: url('../public/fonts/BatonTurbo-Bold.woff2') format('woff2'),
+      url('../public/fonts/BatonTurbo-Bold.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
