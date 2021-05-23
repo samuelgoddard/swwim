@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Button from './button'
 import Container from './container'
@@ -6,18 +7,25 @@ import Logo from './logo'
 export default function Footer() {
   return (
     <footer className="bg-blue-dark bg-noise text-white">
-      <div className="bg-blue-light py-8 md:py-12 2xl:py-16">
+      <div className="bg-blue-light bg-noise py-6 2xl:py-8">
         <Container>
-          <div className="flex flex-wrap items-center">
-            <span className="block w-full md:w-auto text-xl md:text-2xl 2xl:text-3xl font-bold">Soak up the latest from Swwim</span>
+          <div className="flex flex-wrap items-center relative z-10">
+            <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <span className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</span></span>
             
-            <span className="md:ml-auto block w-full md:w-auto text-base md:text-xl 2xl:text-2xl font-medium">@weswwim</span>
+            
+            <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
+              <span className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</span>
+
+              <div className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
+                <Logo width="w-8/12" />
+              </div>
+            </div>
           </div>
         </Container>  
       </div>
 
       <Container>
-        <div className="py-8 md:py-12 2xl:py-16">
+        <div className="py-8 md:py-12 2xl:py-16 relative z-10">
           <div className="flex flex-wrap items-center pb-6 md:pb-10 2xl:pb-12">
             <Link href="/">
               <a aria-label="Navigate to the home page" className="block py-2 ring-white">
@@ -31,15 +39,15 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap">
-            <div className="w-full md:w-7/12 lg:w-5/12">
-              <span className="block text-2xl md:text-3xl 2xl:text-4xl mb-4 md:mb-6">
-                <span className="block font-bold">Got a project?</span>
-                <span className="block font-medium">Start a conversation</span>
+            <div className="w-full md:w-7/12 lg:w-5/12 min-h-full flex flex-wrap">
+              <span className="block mb-4 md:mb-6 w-full">
+                <span className="block text-2xl md:text-3xl 2xl:text-4xl font-bold">Got a project?</span>
+                <span className="block text-2xl md:text-3xl 2xl:text-4xl font-medium mb-4 md:mb-6">Start a conversation</span>
+                
+                <Button white overrideClasses="mb-12 md:mb-12 lg:mb-56 2xl:mb-64 text-blue-dark" href="/">Contact Us</Button>
               </span>
 
-              <Button white overrideClasses="mb-12 md:mb-12 lg:mb-56 2xl:mb-64 text-blue-dark" href="/">Contact Us</Button>
-
-              <div className="hidden md:block lg:flex flex-wrap lg:space-x-6">
+              <div className="hidden md:block lg:flex flex-wrap lg:space-x-6 w-full self-end">
                 <span className="block opacity-60">&copy; { new Date().getFullYear() } Swwim</span>              
                 <Link href="/"><a className="block opacity-60 hover:opacity-100 focus:opacity-100">Legal Information</a></Link>
                 <span className="block opacity-60">Site by Joel &amp; Sam</span>
@@ -76,12 +84,20 @@ export default function Footer() {
                   <span className="block opacity-60">Portsmouth</span>
                   <span className="block opacity-60">PO30 132</span>
                 </div>
+
+                <img src="/images/drink.webp" alt="placeholder" className="hidden md:block max-w-[300px] w-1/2 md:w-8/12 ml-auto md:mt-8 lg:mt-16 2xl:mt-20 2xl:-mr-16 md:-mb-3 2xl:-mb-6" />
               </div>
               
-              <div className="block md:hidden">
-                <span className="block text-sm opacity-60 mb-1">&copy; { new Date().getFullYear() } Swwim</span>
-                <Link href="/"><a className="block text-sm opacity-60 hover:opacity-100 focus:opacity-100 mb-1">Legal Information</a></Link>
-                <span className="block text-sm opacity-60 mb-1">Site by Joel &amp; Sam</span>
+              <div className="flex md:hidden items-end">
+                <div className="">
+                  <span className="block text-sm opacity-60 mb-1">&copy; { new Date().getFullYear() } Swwim</span>
+                  <Link href="/"><a className="block text-sm opacity-60 hover:opacity-100 focus:opacity-100 mb-1">Legal Information</a></Link>
+                  <span className="block text-sm opacity-60 mb-1">Site by Joel &amp; Sam</span>
+                </div>
+
+                <div className="block md:hidden w-5/12 md:w-full ml-auto -mb-3">
+                  <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
+                </div>
               </div>
             </div>
           </div>

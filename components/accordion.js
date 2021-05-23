@@ -1,5 +1,3 @@
-import Cross from '../icons/cross'
-
 export default function Accordion({ children, heading, index, open }) {
   return(
     <div className={`border-b border-blue ${ index == '01' ? 'border-t' : ''}`}>
@@ -10,7 +8,7 @@ export default function Accordion({ children, heading, index, open }) {
             <div className="flex flex-wrap -mx-3">
               <span className="block text-xl md:text-4xl 2xl:text-5xl font-display uppercase mb-0 pb-0 px-3 flex-1">{heading}</span>
               <div className="px-3 ml-auto">
-                <Cross width="w-4 md:w-6 2xl:w-8" extraClasses="transform rotate-45 mt-[6px] md:mt-1" />
+                <svg className="w-4 md:w-6 2xl:w-8 transform rotate-45 mt-[6px] md:mt-1" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.305 27.132L26.354 2.084M26.354 27.132L1.306 2.083" stroke="#1658B3" strokeWidth="3.24"/></svg>
               </div>
             </div>
           </div>

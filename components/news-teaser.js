@@ -1,7 +1,7 @@
 export default function NewsTeaser({ heading, author,  }) {
   return(
     <div className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16">
-      <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-5 md:mb-0">
+      <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-3 md:mb-0">
         <img src="https://placedog.net/620/420" alt="placeholder" className="w-full hidden md:block" />
         <img src="https://placedog.net/620/340" alt="placeholder" className="w-full block md:hidden" />
       </div>

@@ -11,7 +11,7 @@ export default function Button({ href, children, white, opaque, narrow, override
   }
 
   if (narrow) {
-    spacing = 'px-3 py-2'
+    spacing = 'px-4 md:px-4 py-2'
   }
   return (
     <Link href={href}>
