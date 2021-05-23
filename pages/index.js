@@ -18,6 +18,7 @@ import Plant3 from '../icons/plant-3'
 import PalmTree from '../icons/palm-tree'
 import FancyLink from '../components/fancy-link'
 import Accordion from '../components/accordion'
+import NewsTeaser from '../components/news-teaser'
 
 export default function Home() {
   return (
@@ -179,7 +180,7 @@ export default function Home() {
         className="bg-white text-blue py-10 md:py-16 2xl:py-20 overflow-hidden"
       >
         <Container>
-          <div className="relative">
+          <motion.div variants={fade} className="relative z-10">
             <Plant2 width="w-[24%] md:w-[20%]" extraClasses="text-pink absolute top-0 right-0 mr-[-14%]  md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0" />
 
             <Plant3 width="w-[65%] md:w-[40%] 2xl:w-[35%]" extraClasses="text-pink absolute top-0 left-0 ml-[-32%] md:ml-[-18%] 2xl:ml-[-13%] mt-[50%] md:mt-[25%] xl:mt-[20%] z-0" />
@@ -246,8 +247,34 @@ export default function Home() {
                 </ol>
               </Accordion>
             </div>
-          </div>
+          </motion.div>
         </Container>
+      </motion.section>
+
+      <motion.section
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="bg-blue bg-noise text-white py-10 md:py-16 2xl:py-20"
+      >
+        <motion.div variants={fade} className="relative z-10">
+          <Container>
+
+            <div className="flex flex-wrap items-center mb-3 md:mb-5 relative z-10">
+              <div className="w-auto">
+                <span className="text-base font-display uppercase block mb-1 md:mb-2">News</span>
+                <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0">Latest<span className="block">Poolside</span></h2>
+              </div>
+              <div className="ml-auto w-auto">
+                <FancyLink href="#" label="View all news" />
+              </div>
+            </div>
+
+            <NewsTeaser heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+            <NewsTeaser heading="Why Audio Social Has The Best Chat #Clubhouse" />
+            <NewsTeaser heading="4 Truffle Tips To Up Your TikTok Game #BizGuide" />
+          </Container>
+        </motion.div>
       </motion.section>
 
       <Footer />
