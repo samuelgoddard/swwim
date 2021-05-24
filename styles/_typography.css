@@ -98,3 +98,91 @@ details ::marker {
   display: none;
 }
 ::marker{ display:none; } summary{ list-style: none }
+
+.embla {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__viewport.is-draggable {
+  cursor: move;
+  cursor: grab;
+}
+
+.embla__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.embla__container {
+  display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-left: -4vw;
+}
+
+@screen md {
+  .embla__container {
+    margin-left: -35vw;
+  } 
+}
+
+.embla__slide {
+  position: relative;
+  padding-left: 6vw;
+}
+
+@screen md {
+  .embla__slide {
+    padding-left: 4vw;
+  }
+}
+
+@screen 2xl {
+  .embla__slide {
+    padding-left: 5rem;
+  }
+}
+
+.embla__slide:nth-child(odd) {
+  min-width: 45%;
+  padding-top: 12vw;
+}
+
+@screen md {
+  .embla__slide:nth-child(odd) {
+    min-width: 25%;
+    padding-top: 8vw;
+  }
+}
+
+.embla__slide:nth-child(even) {
+  min-width: 42%;
+}
+
+@screen md {
+  .embla__slide:nth-child(even) {
+    min-width: 22%;
+  }
+}
+
+.embla__slide__inner {
+  position: relative;
+  overflow: hidden;
+  height: 50vw;
+}
+
+@screen md {
+  .embla__slide__inner {
+    position: relative;
+    overflow: hidden;
+    height: 35vw;
+  }
+}

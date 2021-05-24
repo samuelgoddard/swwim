@@ -15,7 +15,7 @@ export default function Home() {
     <Layout>
       <Head>
           <link rel="icon" href="/favicon.ico" />
-          <title>Nextjs boilerplate - Home</title>
+          <title>We Rise By Lifting Others - Swwim</title>
           <meta
           name="description"
           content="nextJS boilerplate"
@@ -228,7 +228,6 @@ export default function Home() {
                 <span className="block mx-px">f</span>
                 <span className="block mx-px mt-[-3px]">e</span>
                 <span className="block mx-px">r</span>
-
               </span>
               <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0">Our Services</h2>
               
@@ -381,9 +380,9 @@ export default function Home() {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white py-10 md:py-16 2xl:py-20"
+        className="bg-blue bg-noise text-white"
       >
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fade} className="relative z-10 py-10 md:py-16 2xl:py-20">
           <Container>
 
             <div className="flex flex-wrap items-center mb-3 md:mb-5 relative z-10">
@@ -406,9 +405,11 @@ export default function Home() {
             <NewsTeaser heading="4 Truffle Tips To Up Your TikTok Game #BizGuide" />
           </Container>
         </motion.div>
-      </motion.section>
 
-      <Footer />
+        <motion.div variants={fade} className="relative z-10">
+          <Footer />
+        </motion.div>
+      </motion.section>
     </Layout>
   )
 }

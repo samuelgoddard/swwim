@@ -57,14 +57,18 @@ export default function Header() {
 
                 <div className="flex flex-wrap items-center relative z-50 w-full mb-auto pb-8 xl:pb-12 max-w-2xl 2xl:pr-8">
                   <Link href="/">
-                    <a aria-label="Navigate to the home page" className="block py-2 ring-white">
+                    <a onClick={() => setMenuIsOpen(false)} aria-label="Navigate to the home page" className="block py-2 ring-white">
                       <Logo width="w-24 md:w-32 2xl:w-40" />
                     </a>
                   </Link>
 
                   <div className="ml-auto">
                     <div className="flex items-center space-x-1">
-                      <Button white overrideClasses="hidden md:inline-block" href="/">Contact Us</Button>
+                      <Link href="/">
+                        <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center block font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue">
+                          Contact Us
+                        </a>
+                      </Link>
                       <button
                         onClick={() => setMenuIsOpen(false)}
                         className="rounded-full text-center block font-bold px-4 md:px-4 py-2 bg-transparent text-white ring-blue"
@@ -82,8 +86,8 @@ export default function Header() {
                 <nav className="mb-auto w-full relative z-50">
                   <ul>
                     <li className="block mb-3 md:mb-8 2xl:mb-10">
-                      <Link href="/">
-                        <a className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                      <Link href="/about">
+                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
                           <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">01</span>
                           <span className="block">About</span>
                         </a>
@@ -91,7 +95,7 @@ export default function Header() {
                     </li>
                     <li className="block mb-3 md:mb-8 lg:mb-10">
                       <Link href="/">
-                        <a className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
                           <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">02</span>
                           <span className="block">Case Studies</span>
                         </a>
@@ -99,7 +103,7 @@ export default function Header() {
                     </li>
                     <li className="block mb-3 md:mb-8 lg:mb-10">
                       <Link href="/">
-                        <a className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
                           <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">03</span>
                           <span className="block">News</span>
                         </a>
