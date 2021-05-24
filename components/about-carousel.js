@@ -39,7 +39,7 @@ export default function AboutCarousel() {
       <div className="embla">
         <div className="embla__viewport" ref={viewportRef}>
           <div className="embla__container">
-            {slides.map((i) => (
+            {slides.map((e, i) => (
               <div key={i} className="embla__slide">
                 <div className="embla__slide__inner">
                   <div className="embla__slide__img">
