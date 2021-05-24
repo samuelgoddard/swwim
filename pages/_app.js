@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence exitBeforeEnter initial={false}>
       <Component {...pageProps} key={router.asPath} />
     </AnimatePresence>
   )
