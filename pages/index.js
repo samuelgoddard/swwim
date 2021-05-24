@@ -40,7 +40,7 @@ export default function Home() {
             </div>
 
             <div className="block md:hidden md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 md:absolute bottom-0 left-0 z-10 mb-5">
-              <Image height={280} width={500} src="https://placedog.net/500/280" alt="Placeholder Dog" layout="responsive" className="md:absolute md:inset-0 w-full md:h-full md:object-cover md:object-center" />
+              <Image height={280} width={500} src="https://placedog.net/500/280" alt="Placeholder Dog" layout="responsive" className="md:absolute md:inset-0 w-full md:h-full md:object-cover md:object-center" priority={true} />
             </div>
 
             <div className="relative mb-8 md:mb-6 2xl:mb-8">
