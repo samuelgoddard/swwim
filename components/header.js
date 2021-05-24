@@ -53,7 +53,7 @@ export default function Header() {
             >  
             </button>
             <div className="w-11/12 md:w-8/12 lg:w-1/2 h-full ml-auto">
-              <div className="pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 px-8 md:px-8 2xl:px-20 bg-blue bg-noise text-white h-full flex flex-wrap">
+              <div className="pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 px-6 md:px-8 2xl:px-20 bg-blue bg-noise text-white h-full flex flex-wrap">
 
                 <div className="flex flex-wrap items-center relative z-50 w-full mb-auto pb-8 xl:pb-12 max-w-2xl 2xl:pr-8">
                   <Link href="/">
@@ -65,7 +65,7 @@ export default function Header() {
                   <div className="ml-auto">
                     <div className="flex items-center space-x-1">
                       <Link href="/">
-                        <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center block font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue">
+                        <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center block font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue hidden md:block">
                           Contact Us
                         </a>
                       </Link>
@@ -106,6 +106,14 @@ export default function Header() {
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
                           <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">03</span>
                           <span className="block">News</span>
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
+                      <Link href="/">
+                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">04</span>
+                          <span className="block">Contact</span>
                         </a>
                       </Link>
                     </li>
