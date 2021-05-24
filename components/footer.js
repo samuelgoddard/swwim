@@ -85,7 +85,10 @@ export default function Footer() {
                   <span className="block opacity-60">PO30 132</span>
                 </div>
 
-                <img src="/images/drink.webp" alt="placeholder" className="hidden md:block max-w-[300px] w-1/2 md:w-8/12 ml-auto md:mt-8 lg:mt-16 2xl:mt-20 2xl:-mr-16 md:-mb-3 2xl:-mb-6" />
+                
+                <div className="hidden md:block max-w-[300px] w-1/2 md:w-8/12 ml-auto md:mt-8 lg:mt-16 2xl:mt-20 2xl:-mr-16 md:-mb-3 2xl:-mb-6">
+                  <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
+                </div>
               </div>
               
               <div className="flex md:hidden items-end">
