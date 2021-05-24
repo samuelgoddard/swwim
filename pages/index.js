@@ -45,7 +45,7 @@ export default function Home() {
               </div>
 
               <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 absolute bottom-0 left-0 z-10">
-                <img src="https://placedog.net/500/280" alt="placeholder" className="absolute inset-0 w-full h-full object-cover object-center" />
+                <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" />
               </div>
               
               <span className="block font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none relative z-10">Delivering</span>
@@ -127,18 +127,24 @@ export default function Home() {
                       <p className="text-lg opacity-70 mb-4 md:mb-6">Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
 
                       <FancyLink href="#" />
-                      
-                      <img src="https://placedog.net/540/580" alt="placeholder" className="w-8/12 max-w-md mx-auto mt-0 md:mt-24 xl:mt-32 hidden md:block" />
+
+                      <div className="w-8/12 max-w-md mx-auto mt-0 md:mt-24 xl:mt-32 hidden md:block">
+                        <Image width={540} height={580} layout="responsive" src="https://placedog.net/540/580" alt="Placeholder Dog" className="w-full" />
+                      </div>
                     </div>
                   </div>
                   <div className="w-full md:w-5/12 xl:w-1/2 md:px-6 ml-auto">
                     <div className="flex flex-wrap -mx-4 md:mx-0">
                       <div className="w-1/2 md:w-full px-4 md:px-0">
-                        <img src="https://placedog.net/540/680" alt="placeholder" className="w-full max-w-md ml-auto" />
+                        <div className="w-full max-w-md ml-auto">
+                          <Image width={540} height={680} layout="responsive" src="https://placedog.net/540/680" alt="Placeholder Dog" className="w-full" />
+                        </div>
                       </div>
 
                       <div className="w-1/2 md:w-full px-4 md:px-0 mt-16 md:mt-24 lg:mt-32 relative">
-                        <img src="https://placedog.net/540/690" alt="placeholder" className="w-full max-w-md mr-auto" />
+                        <div className="w-full max-w-md mr-auto">
+                          <Image width={540} height={690} layout="responsive" src="https://placedog.net/540/690" alt="Placeholder Dog" className="w-full" />
+                        </div>
 
                         <div className="absolute bottom-0 mb-6 left-0 w-[30vw] h-[30vw] ml-[-15vw] lg:-ml-40 flex flex-wrap items-center justify-center max-w-xs max-h-[20rem]">
                           <div className="absolute bottom-0 left-0 w-full animate-spin-slow">
@@ -357,7 +363,10 @@ export default function Home() {
               </div>
               
               <div className="flex flex-wrap items-center xl:absolute bottom-0 left-0 mt-4 xl:mt-0 xl:ml-[39%] xl:mb-[2.3%]">
-                <img src="https://placedog.net/320/320" alt="placeholder" className="w-12 md:w-16 h-12 md:h-16 rounded-full border-blue border-2" />
+                <div className="w-12 md:w-16 h-12 md:h-16 rounded-full border-blue border-2">
+                  <Image width={320} height={320} layout="responsive" src="https://placedog.net/320/320" alt="Placeholder Dog" className="w-full rounded-full" />
+                </div>
+
                 <div className="ml-3 md:ml-5 pl-3 md:pl-5 border-l-2 border-blue flex-1">
                   <span className="block md:text-lg leading-snug"><span className="font-bold">Laura Farrand</span>, Head of PR</span>
                   <span className="block leading-snug text-sm md:text-base">Givenchy Perfumes</span>

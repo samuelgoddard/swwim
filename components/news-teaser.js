@@ -1,9 +1,10 @@
+import Image from "next/image";
+
 export default function NewsTeaser({ heading, author,  }) {
   return(
     <div className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16">
       <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-3 md:mb-0">
-        <img src="https://placedog.net/620/420" alt="placeholder" className="w-full hidden md:block" />
-        <img src="https://placedog.net/620/340" alt="placeholder" className="w-full block md:hidden" />
+        <Image width={620} height={420} layout="responsive" src="https://placedog.net/620/420" alt="Placeholder Dog" className="w-full" />
       </div>
       <div className="w-full md:w-7/12 md:px-3 2xl:px-5">
         <div className="flex flex-wrap items-start min-h-full">
@@ -21,7 +22,9 @@ export default function NewsTeaser({ heading, author,  }) {
             </div>
             <span className="font-display text-sm ml-auto flex flex-wrap items-center">
               <span className="block">By Amber</span>
-              <img src="https://placedog.net/320/320" alt="placeholder" className="w-10 h-10 rounded-full border-white border-2 ml-3" />
+              <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
+                <Image width={320} height={320} layout="responsive" src="https://placedog.net/320/320" alt="Placeholder Dog" className="w-full rounded-full" />
+              </div>
             </span>
           </div>
         </div>
