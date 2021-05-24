@@ -40,13 +40,12 @@ export default function Home() {
             </div>
 
             <div className="block mb-5">
-              <Image 
-                height={500} 
-                width={900} 
-                src="https://placedog.net/1200/800" 
-                alt="Placeholder Dog" 
-                layout="responsive" 
-                priority={true} 
+              <Image
+                alt="Mountains"
+                src="/images/mountains.jpeg"
+                layout="responsive"
+                width={700}
+                height={475}
               />
             </div>
 
