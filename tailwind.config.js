@@ -46,8 +46,5 @@ module.exports = {
         }
       }
     },
-  },
-  variants: {
-    extend: {},
   }
 }

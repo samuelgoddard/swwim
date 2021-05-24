@@ -39,24 +39,13 @@ export default function Home() {
               <span className="block font-medium">Dive right in</span>
             </div>
 
-            <div className="block mb-5">
-              <Image
-                alt="Mountains"
-                src="/images/mountains.jpeg"
-                layout="responsive"
-                width={700}
-                height={475}
-                priority={true}
-              />
-            </div>
-
             <div className="relative mb-8 md:mb-6 2xl:mb-8">
               <div className="w-[30%] md:w-[20%] absolute top-0 left-0 mt-[6%] ml-[65%] md:mt-[10%] md:ml-[46%] z-20">
-                <Image height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" />
+                <Image height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" priority />
               </div>
 
               <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 absolute bottom-0 left-0 z-10">
-                <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" />
+                <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority />
               </div>
               
               <span className="block font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none relative z-10">Delivering</span>
