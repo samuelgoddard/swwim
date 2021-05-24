@@ -51,6 +51,7 @@ export default function AboutCarousel() {
                         height={550}
                         layout="responsive"
                         className="w-full"
+                        priority
                       />
                     ) : (
                       <Image
@@ -60,6 +61,7 @@ export default function AboutCarousel() {
                         height={800}
                         layout="responsive"
                         className="w-full"
+                        priority
                       />
                     )}
                   </div>

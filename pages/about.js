@@ -48,7 +48,7 @@ export default function About() {
                 <h1 className="block font-display uppercase text-[8.5vw] md:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">the team behind making communicating your brand a balmy breeze.</h1>
                 
                 <div className="absolute bottom-0 right-0 w-[40%] md:w-[32%] mr-[13%] md:mr-[4%] lg:mr-[6%] 2xl:mr-[7%] mb-[-3%] md:mb-[-2%] 2xl:mb-[-3%]">
-                  <Image width={369} height={150} layout="responsive" src="/icons/about-header-squiggle.svg" alt="Squiggle Underline" className="w-full" />
+                  <Image width={369} height={150} layout="responsive" src="/icons/about-header-squiggle.svg" alt="Squiggle Underline" className="w-full" priority />
                 </div>
               </div>
             </div>
