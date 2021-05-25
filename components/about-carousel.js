@@ -44,25 +44,29 @@ export default function AboutCarousel() {
                 <div className="embla__slide__inner">
                   <div className="embla__slide__img">
                     { (i%2 == 0) ? (
-                      <Image
-                        src="https://placedog.net/900/550"
-                        alt="Placeholder dog"
-                        width={900}
-                        height={550}
-                        layout="responsive"
-                        className="w-full"
-                        priority
-                      />
+                      <div className="bg-blue-dark">
+                        <Image
+                          src="https://placedog.net/900/550"
+                          alt="Placeholder dog"
+                          width={900}
+                          height={550}
+                          layout="responsive"
+                          className="w-full"
+                          priority
+                        />
+                      </div>
                     ) : (
-                      <Image
-                        src="https://placedog.net/550/800"
-                        alt="Placeholder dog"
-                        width={550}
-                        height={800}
-                        layout="responsive"
-                        className="w-full"
-                        priority
-                      />
+                      <div className="bg-blue-dark">
+                        <Image
+                          src="https://placedog.net/550/800"
+                          alt="Placeholder dog"
+                          width={550}
+                          height={800}
+                          layout="responsive"
+                          className="w-full"
+                          priority
+                        />
+                      </div>
                     )}
                   </div>
                 </div>

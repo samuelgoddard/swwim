@@ -5,16 +5,24 @@ import Container from './container'
 import Logo from './logo'
 import Button from './button'
 
-export default function Header() {
+export default function Header({ theme }) {
 
   const [menuIsOpen, setMenuIsOpen] = useState(false)
 
+  let themeColors = 'bg-blue text-white'
+  let themeButtonColors = 'bg-white text-blue'
+
+  if (theme == 'white') {
+    themeColors = 'bg-white text-blue'
+    themeButtonColors = 'bg-blue text-white'
+  }
+
   return (
-    <header className="pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 bg-blue bg-noise text-white">
+    <header className={`pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 bg-noise ${themeColors}`}>
       <Container>
         <div className="flex flex-wrap items-center relative z-10">
           <div className="flex flex-wrap items-center">
-            <div className="md:border-r border-white border-opacity-30 mr-5 pr-5">
+            <div className={`md:border-r border-opacity-30 mr-5 pr-5 ${ theme == 'white' ? 'border-blue' : 'border-white' }`}>
               <Link href="/">
                 <a aria-label="Navigate to the home page" className="block py-2 ring-white">
                   <Logo width="w-24 md:w-32 2xl:w-40" />
@@ -27,10 +35,14 @@ export default function Header() {
 
           <div className="ml-auto">
             <div className="flex items-center space-x-1">
-              <Button white overrideClasses="hidden md:inline-block" href="/">Contact Us</Button>
+              {/* <Button white overrideClasses="hidden md:inline-block" href="/">Contact Us</Button> */}
+
+              <Link href="/">
+                <a className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-blue text-white ring-blue hidden md:inline-block ${themeButtonColors}`}>Contact Us</a>
+              </Link>
               <button
                 onClick={() => setMenuIsOpen(!menuIsOpen)}
-                className="rounded-full text-center inline-block font-bold px-4 md:px-4 py-2 bg-transparent text-white ring-blue"
+                className={`rounded-full text-center inline-block font-bold px-4 md:px-4 py-2 bg-transparent ring-blue ${theme == 'white' ? 'text-blue' : 'text-white'}`}
               >
                 <div className="flex items-center">
                   <span className="block mr-2">Menu</span>
@@ -65,7 +77,7 @@ export default function Header() {
                   <div className="ml-auto">
                     <div className="flex items-center space-x-1">
                       <Link href="/">
-                        <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center block font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue hidden md:block">
+                        <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue hidden md:block">
                           Contact Us
                         </a>
                       </Link>
@@ -88,15 +100,15 @@ export default function Header() {
                     <li className="block mb-3 md:mb-8 2xl:mb-10">
                       <Link href="/about">
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">01</span>
+                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
                           <span className="block">About</span>
                         </a>
                       </Link>
                     </li>
                     <li className="block mb-3 md:mb-8 lg:mb-10">
-                      <Link href="/">
+                      <Link href="/case-studies">
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">02</span>
+                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
                           <span className="block">Case Studies</span>
                         </a>
                       </Link>
@@ -104,7 +116,7 @@ export default function Header() {
                     <li className="block mb-3 md:mb-8 lg:mb-10">
                       <Link href="/">
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">03</span>
+                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
                           <span className="block">News</span>
                         </a>
                       </Link>
@@ -112,7 +124,7 @@ export default function Header() {
                     <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
                       <Link href="/">
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px]">04</span>
+                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
                           <span className="block">Contact</span>
                         </a>
                       </Link>

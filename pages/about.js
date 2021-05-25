@@ -6,9 +6,6 @@ import Footer from '../components/footer'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
-import FancyLink from '../components/fancy-link'
-import Accordion from '../components/accordion'
-import NewsTeaser from '../components/news-teaser'
 import AboutCarousel from '../components/about-carousel'
 
 export default function About() {
@@ -125,7 +122,7 @@ export default function About() {
               {Array.from(Array(5), (e, i) => {
                 return (
                   <div className="w-full mb-3 md:mb-5 2xl:mb-8" key={i}>
-                    <div className="border-blue border-2 mb-3 md:mb-4">
+                    <div className="border-blue border-2 mb-3 md:mb-4 bg-pink">
                       <Image width={520} height={660} layout="responsive" src="https://placedog.net/520/660" alt="Placeholder Dog" className="w-full" />
                     </div>
 
@@ -165,7 +162,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full bg-blue">
             <Image width={1000} height={600} layout="responsive" src="https://placedog.net/1000/600" alt="Placeholder Dog" className="w-full" />
           </div>
         </motion.div>

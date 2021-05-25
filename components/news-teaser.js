@@ -4,7 +4,14 @@ export default function NewsTeaser({ heading, author,  }) {
   return(
     <div className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16">
       <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-3 md:mb-0">
-        <Image width={620} height={420} layout="responsive" src="https://placedog.net/620/420" alt="Placeholder Dog" className="w-full" />
+        <div className="bg-blue-dark">
+          <div className="block md:hidden">
+            <Image width={620} height={320} layout="responsive" src="https://placedog.net/620/320" alt="Placeholder Dog" className="w-full" />
+          </div>
+          <div className="hidden md:block">
+            <Image width={620} height={420} layout="responsive" src="https://placedog.net/620/420" alt="Placeholder Dog" className="w-full" />
+          </div>
+        </div>
       </div>
       <div className="w-full md:w-7/12 md:px-3 2xl:px-5">
         <div className="flex flex-wrap items-start min-h-full">

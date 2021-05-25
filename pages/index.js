@@ -44,7 +44,7 @@ export default function Home() {
                 <Image height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" priority />
               </div>
 
-              <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 absolute bottom-0 left-0 z-10">
+              <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 absolute bottom-0 left-0 z-10 bg-blue-dark">
                 <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority />
               </div>
               
@@ -128,7 +128,7 @@ export default function Home() {
 
                       <FancyLink href="#" />
 
-                      <div className="w-8/12 max-w-md mx-auto mt-0 md:mt-24 xl:mt-32 hidden md:block">
+                      <div className="w-8/12 max-w-md mx-auto mt-0 md:mt-24 xl:mt-32 hidden md:block bg-blue-dark">
                         <Image width={540} height={580} layout="responsive" src="https://placedog.net/540/580" alt="Placeholder Dog" className="w-full" />
                       </div>
                     </div>
@@ -136,13 +136,13 @@ export default function Home() {
                   <div className="w-full md:w-5/12 xl:w-1/2 md:px-6 ml-auto">
                     <div className="flex flex-wrap -mx-4 md:mx-0">
                       <div className="w-1/2 md:w-full px-4 md:px-0">
-                        <div className="w-full max-w-md ml-auto">
+                        <div className="w-full max-w-md ml-auto bg-blue-dark">
                           <Image width={540} height={680} layout="responsive" src="https://placedog.net/540/680" alt="Placeholder Dog" className="w-full" />
                         </div>
                       </div>
 
                       <div className="w-1/2 md:w-full px-4 md:px-0 mt-16 md:mt-24 lg:mt-32 relative">
-                        <div className="w-full max-w-md mr-auto">
+                        <div className="w-full max-w-md mr-auto bg-blue-dark">
                           <Image width={540} height={690} layout="responsive" src="https://placedog.net/540/690" alt="Placeholder Dog" className="w-full" />
                         </div>
 
