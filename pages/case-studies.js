@@ -34,35 +34,42 @@ export default function CaseStudiesLanding() {
       >
         <motion.div variants={fade} className="relative z-10">
           <Container>
-            <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-48 2xl:mx-64">
-              <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
-                <span className="block mx-px">C</span>
-                <span className="block mx-px mt-[-3px]">a</span>
-                <span className="block mx-px">s</span>
-                <span className="block mx-px mt-[-3px]">e</span>
-                <span className="block mx-px">&nbsp;</span>
-                <span className="block mx-px mt-[-3px]">S</span>
-                <span className="block mx-px">t</span>
-                <span className="block mx-px mt-[-3px]">u</span>
-                <span className="block mx-px">d</span>
-                <span className="block mx-px mt-[-3px]">i</span>
-                <span className="block mx-px">e</span>
-                <span className="block mx-px mt-[-3px]">s</span>
-              </span>
+            <div className="relative overflow-visible">
 
-              <div className="relative">
-                <h1 className="block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Something about Case Studies.</h1>
-                
-                <div className="absolute bottom-0 right-0 w-[60%] md:w-[42%] 2xl:w-[43%] mr-[20%] md:mr-[18%] lg:mr-[18%] 2xl:mr-[16%] mb-[-5%] md:mb-[-3%] 2xl:mb-[-4%]">
-                  <Image width={359} height={113} layout="responsive" src="/icons/case-studies-header-squiggle.svg" alt="Squiggle Underline" className="w-full" priority />
+              <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0">
+                <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full" />
+              </div>
+
+              <div className="w-[55%] md:w-[40%] 2xl:w-[35%] absolute top-0 left-0 ml-[-32%] md:ml-[-18%] 2xl:ml-[-13%] mt-[0%] md:mt-[0%] xl:mt-[0%] z-0">
+                <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full" />
+              </div>
+
+              <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-48 2xl:mx-64">
+                <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
+                  <span className="block mx-px">C</span>
+                  <span className="block mx-px mt-[-3px]">a</span>
+                  <span className="block mx-px">s</span>
+                  <span className="block mx-px mt-[-3px]">e</span>
+                  <span className="block mx-px">&nbsp;</span>
+                  <span className="block mx-px mt-[-3px]">S</span>
+                  <span className="block mx-px">t</span>
+                  <span className="block mx-px mt-[-3px]">u</span>
+                  <span className="block mx-px">d</span>
+                  <span className="block mx-px mt-[-3px]">i</span>
+                  <span className="block mx-px">e</span>
+                  <span className="block mx-px mt-[-3px]">s</span>
+                </span>
+
+                <div className="relative">
+                  <h1 className="block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Something about Case Studies</h1>
+                  
+                  <div className="absolute bottom-0 right-0 w-[60%] md:w-[42%] 2xl:w-[43%] mr-[20%] md:mr-[18%] lg:mr-[18%] 2xl:mr-[16%] mb-[-5%] md:mb-[-3%] 2xl:mb-[-4%]">
+                    <Image width={359} height={113} layout="responsive" src="/icons/case-studies-header-squiggle.svg" alt="Squiggle Underline" className="w-full" priority />
+                  </div>
                 </div>
               </div>
             </div>
-          </Container>
-        </motion.div>
-
-        <motion.div variants={fade} className="relative z-10">
-          <Container>
+          
             <div className="border-t border-current mb-12 md:mb-16 2xl:mb-24 relative z-10">
               {caseStudies.map((item, i) => {
                 return (

@@ -400,9 +400,9 @@ export default function Home() {
               </div>
             </div>
 
-            <NewsTeaser heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
-            <NewsTeaser heading="Why Audio Social Has The Best Chat #Clubhouse" />
-            <NewsTeaser heading="4 Truffle Tips To Up Your TikTok Game #BizGuide" />
+            <NewsTeaser theme="blue" heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+            <NewsTeaser theme="blue" heading="Why Audio Social Has The Best Chat #Clubhouse" />
+            <NewsTeaser theme="blue" heading="4 Truffle Tips To Up Your TikTok Game #BizGuide" />
           </Container>
         </motion.div>
 

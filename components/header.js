@@ -37,7 +37,7 @@ export default function Header({ theme }) {
             <div className="flex items-center space-x-1">
               {/* <Button white overrideClasses="hidden md:inline-block" href="/">Contact Us</Button> */}
 
-              <Link href="/">
+              <Link href="/contact">
                 <a className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-blue text-white ring-blue hidden md:inline-block ${themeButtonColors}`}>Contact Us</a>
               </Link>
               <button
@@ -76,7 +76,7 @@ export default function Header({ theme }) {
 
                   <div className="ml-auto">
                     <div className="flex items-center space-x-1">
-                      <Link href="/">
+                      <Link href="/contact">
                         <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue hidden md:block">
                           Contact Us
                         </a>
@@ -114,7 +114,7 @@ export default function Header({ theme }) {
                       </Link>
                     </li>
                     <li className="block mb-3 md:mb-8 lg:mb-10">
-                      <Link href="/">
+                      <Link href="/news">
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
                           <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
                           <span className="block">News</span>
@@ -122,10 +122,10 @@ export default function Header({ theme }) {
                       </Link>
                     </li>
                     <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
-                      <Link href="/">
+                      <Link href="/contact">
                         <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
                           <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
-                          <span className="block">Contact</span>
+                          <span className="block">Contact Us</span>
                         </a>
                       </Link>
                     </li>

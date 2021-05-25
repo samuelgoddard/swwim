@@ -1,6 +1,14 @@
 import Image from "next/image";
 
-export default function NewsTeaser({ heading, author,  }) {
+export default function NewsTeaser({ heading, author, theme }) {
+
+  let arrowForeground = '#FFFFFF'
+  let arrowBackground = '#1658B3'
+
+  if (theme === 'blue') {
+    arrowForeground = '#1658B3'
+    arrowBackground = '#FFFFFF'
+  }
   return(
     <div className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16">
       <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-3 md:mb-0">
@@ -18,7 +26,7 @@ export default function NewsTeaser({ heading, author,  }) {
           <div className="w-full flex flex-wrap items-start pb-5">
             <h3 className="block text-2xl md:text-3xl lg:text-4xl font-display w-10/12 xl:w-7/12 pr-8 md:pr-16 md:pt-2">{heading}</h3>
 
-            <svg className="w-10 ml-auto" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21.5" r="21" fill="#fff"/><path d="M12.227 20.603H27.86v2.017H12.227v-2.017z" fill="#1658B3"/><path d="M23.523 28.37l-1.413-1.413 5.346-5.345-5.346-5.345 1.413-1.412 6.757 6.757-6.757 6.758z" fill="#1658B3"/></svg>
+            <svg className="w-10 ml-auto" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21.5" r="21" fill={arrowBackground}/><path d="M12.227 20.603H27.86v2.017H12.227v-2.017z" fill={arrowForeground}/><path d="M23.523 28.37l-1.413-1.413 5.346-5.345-5.346-5.345 1.413-1.412 6.757 6.757-6.757 6.758z" fill={ arrowForeground }/></svg>
           </div>
 
           <div className="w-full flex flex-wrap items-end md:items-center mt-auto md:pb-2">

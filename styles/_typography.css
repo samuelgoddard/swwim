@@ -186,3 +186,12 @@ details ::marker {
     height: 35vw;
   }
 }
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder {
+  color: #D8D8D8;
+  opacity: 0.4;
+}
