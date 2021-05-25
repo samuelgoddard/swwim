@@ -73,7 +73,7 @@ export default function Contact() {
           <div className="mt-auto w-full">
             <Container>
               <div className="mx-8 mb-8 md:mb-0 md:mx-20 xl:mx-32 2xl:mx-40">
-                <span className="block font-bold uppercase mb-4 text-lg tracking-widest">Dear swwim...</span>
+                <span className="block font-bold uppercase mb-6 2xl:mb-8 text-lg tracking-widest">Dear swwim...</span>
                 <form>
                   <textarea
                     className="bg-transparent text-white font-sans text-xl md:text-2xl 2xl:text-3xl w-full ring-white mb-0 md:mb-12 2xl:mb-20"
