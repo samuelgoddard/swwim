@@ -38,6 +38,9 @@ module.exports = {
           DEFAULT: '#1658B3',
           'dark': '#0D3C88'
         },
+        brown: {
+          DEFAULT: '#A1551F'
+        },
         pink: {
           DEFAULT: '#EEE1D9'
         },

@@ -10,11 +10,31 @@ body {
   @apply mb-6;
 }
 
-.content > ol {
-  @apply list-decimal list-inside font-medium;
+.content > ul {
+  @apply list-inside;
 
   > li {
-    @apply mb-1;
+    @apply mb-5 relative pl-8;
+  }
+
+  > li:before {
+    content: ' ';
+    @apply w-2 h-2 block bg-brown absolute top-0 left-0 mt-3 transform rotate-45 ml-1;
+  }
+}
+
+.content > ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+
+  > li {
+    @apply mb-5 relative;
+    counter-increment: my-awesome-counter;
+  }
+
+  > li:before {
+    content: "0" counter(my-awesome-counter);
+    @apply block text-brown font-medium text-lg mb-1;
   }
 }
 
@@ -23,6 +43,32 @@ body {
 
   &:hover, &:focus {
     @apply underline;
+  }
+}
+
+.content > * + * {
+  @apply mt-5;
+}
+
+@screen md {
+  .content > * + * {
+    @apply mt-8;
+  }
+}
+
+.content--large {
+  @apply text-base;
+}
+
+@screen md {
+  .content--large {
+    @apply text-lg 
+  }
+}
+
+@screen 2xl {
+  .content--large {
+    @apply text-xl; 
   }
 }
 
@@ -35,11 +81,33 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
 }
   
 .content > h1, .content > .h1 {
-  @apply text-4xl;
+  @apply text-3xl font-display;
+}
+
+@screen md {
+  .content > h1, .content > .h1 {
+    @apply text-4xl;
+  } 
 }
   
 .content > h2, .content > .h2 {
-  @apply text-3xl;
+  @apply text-2xl font-display;
+}
+
+@screen md {
+  .content > h2, .content > .h2 {
+    @apply text-3xl;
+  } 
+}
+
+.content > h3, .content > .h3 {
+  @apply text-xl font-display;
+}
+
+@screen md {
+  .content > h3, .content > .h3 {
+    @apply text-2xl;
+  } 
 }
 
 .ring-white {
