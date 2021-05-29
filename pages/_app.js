@@ -19,6 +19,11 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <DefaultSeo
+        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
+        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
+        noindex={true}
+        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
+        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
         title="Swwim - Social, Digital &amp; Content Creation"
         description="We specialise in influencer marketing, social media, content creation and copywriting. Our experience spans lifestyle, health and beauty and home and interiors."
         openGraph={{
