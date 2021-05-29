@@ -12,7 +12,7 @@ export default function About() {
   return (
     <Layout>
       <NextSeo
-        title="About - Swwim"
+        title="About"
       />
 
       <Header />

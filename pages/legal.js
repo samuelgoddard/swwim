@@ -11,7 +11,7 @@ export default function Legal() {
   return (
     <Layout>
       <NextSeo
-        title="Legal - Swwim"
+        title="Legal"
       />
 
       <Header />

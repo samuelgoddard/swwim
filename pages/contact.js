@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <Layout>
       <NextSeo
-        title="Contact - Swwim"
+        title="Contact"
       />
 
       <motion.section

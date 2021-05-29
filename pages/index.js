@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <Layout>
       <NextSeo
-        title="Swwim - Social, Digital &amp; Content Creation"
+        title="Social, Digital &amp; Content Creation"
       />
 
       <Header />

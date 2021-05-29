@@ -13,7 +13,7 @@ export default function NewsSlug() {
   return (
     <Layout>
       <NextSeo
-        title="Example Article - Swwim"
+        title="Example Article"
       />
 
       <Header />

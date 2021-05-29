@@ -13,7 +13,7 @@ export default function CaseStudiesLanding() {
   return (
     <Layout>
       <NextSeo
-        title="Case Studies - Swwim"
+        title="Case Studies"
       />
 
       <Header theme="white" />

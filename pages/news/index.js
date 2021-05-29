@@ -16,7 +16,7 @@ export default function NewsLanding() {
   return (
     <Layout>
       <NextSeo
-        title="Latest Poolside - Swwim"
+        title="Latest Poolside"
       />
 
       <Header theme="white" />
