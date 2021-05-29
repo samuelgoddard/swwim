@@ -1,24 +1,17 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/layout'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 
 export default function Contact() {
   return (
     <Layout>
-      <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <title>Contact - Swwim</title>
-          <meta
-          name="description"
-          content="nextJS boilerplate"
-          />
-          <meta name="og:title" content="Website Title" />
-          <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <NextSeo
+        title="Contact - Swwim"
+      />
 
       <motion.section
         initial="initial"

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import Layout from '../../components/layout'
@@ -8,20 +7,14 @@ import Container from '../../components/container'
 import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 import NewsCarousel from '../../components/news-carousel'
+import { NextSeo } from 'next-seo'
 
 export default function NewsSlug() {
   return (
     <Layout>
-      <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <title>News Article - Swwim</title>
-          <meta
-          name="description"
-          content="nextJS boilerplate"
-          />
-          <meta name="og:title" content="Website Title" />
-          <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <NextSeo
+        title="Example Article - Swwim"
+      />
 
       <Header />
       

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/layout'
 import Header from '../components/header'
@@ -7,22 +6,15 @@ import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 import CaseTeaser from '../components/case-teaser'
-
 import { caseStudies } from '../helpers/fake-data'
+import { NextSeo } from 'next-seo'
 
 export default function CaseStudiesLanding() {
   return (
     <Layout>
-      <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <title>Case Studies - Swwim</title>
-          <meta
-          name="description"
-          content="nextJS boilerplate"
-          />
-          <meta name="og:title" content="Website Title" />
-          <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <NextSeo
+        title="Case Studies - Swwim"
+      />
 
       <Header theme="white" />
 

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../../components/layout'
 import Header from '../../components/header'
@@ -8,24 +7,17 @@ import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 import NewsTeaser from '../../components/news-teaser'
 import NewsTeaserStacked from '../../components/news-teaser-stacked'
-
 import { caseStudies } from '../../helpers/fake-data'
 import Button from '../../components/button'
 import Logo from '../../components/logo'
+import { NextSeo } from 'next-seo'
 
 export default function NewsLanding() {
   return (
     <Layout>
-      <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <title>Latest Poolside - Swwim</title>
-          <meta
-          name="description"
-          content="nextJS boilerplate"
-          />
-          <meta name="og:title" content="Website Title" />
-          <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <NextSeo
+        title="Latest Poolside - Swwim"
+      />
 
       <Header theme="white" />
       
