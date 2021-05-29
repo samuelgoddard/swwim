@@ -44,12 +44,12 @@ export default function Footer() {
                 <span className="block text-2xl md:text-3xl 2xl:text-4xl font-bold">Got a project?</span>
                 <span className="block text-2xl md:text-3xl 2xl:text-4xl font-medium mb-4 md:mb-6">Start a conversation</span>
                 
-                <Button white overrideClasses="mb-12 md:mb-12 lg:mb-56 2xl:mb-64 text-blue-dark" href="/">Contact Us</Button>
+                <Button white overrideClasses="mb-12 md:mb-12 lg:mb-56 2xl:mb-64 text-blue-dark" href="/contact">Contact Us</Button>
               </span>
 
               <div className="hidden md:block lg:flex flex-wrap lg:space-x-6 w-full self-end">
                 <span className="block opacity-60">&copy; { new Date().getFullYear() } Swwim</span>              
-                <Link href="/"><a className="block opacity-60 hover:opacity-100 focus:opacity-100">Legal Information</a></Link>
+                <Link href="/legal"><a className="block opacity-60 hover:opacity-100 focus:opacity-100 ring-white">Legal Information</a></Link>
                 <span className="block opacity-60">Site by Joel &amp; Sam</span>
               </div>
             </div>
@@ -59,9 +59,9 @@ export default function Footer() {
                   <span className="block text-lg md:text-xl 2xl:text-2xl font-bold mb-3 md:mb-6">Browse</span>
                   <nav>
                     <ul>
-                      <li className="block mb-1"><Link href="/"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">About</a></Link></li>
-                      <li className="block mb-1"><Link href="/"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">Case Studies</a></Link></li>
-                      <li className="block mb-1"><Link href="/"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">Blog</a></Link></li>
+                      <li className="block mb-1"><Link href="/about"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">About</a></Link></li>
+                      <li className="block mb-1"><Link href="/case-studies"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">Case Studies</a></Link></li>
+                      <li className="block mb-1"><Link href="/news"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">News</a></Link></li>
                     </ul>
                   </nav>
                 </div>
@@ -94,7 +94,7 @@ export default function Footer() {
               <div className="flex md:hidden items-end">
                 <div className="">
                   <span className="block text-sm opacity-60 mb-1">&copy; { new Date().getFullYear() } Swwim</span>
-                  <Link href="/"><a className="block text-sm opacity-60 hover:opacity-100 focus:opacity-100 mb-1">Legal Information</a></Link>
+                  <Link href="/legal"><a className="block text-sm opacity-60 hover:opacity-100 focus:opacity-100 mb-1 ring-white">Legal Information</a></Link>
                   <span className="block text-sm opacity-60 mb-1">Site by Joel &amp; Sam</span>
                 </div>
 

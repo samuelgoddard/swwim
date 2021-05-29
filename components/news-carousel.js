@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import Image from 'next/image'
 import { useEmblaCarousel } from 'embla-carousel/react'
+import NewsTeaserStacked from './news-teaser-stacked';
 
-export default function AboutCarousel() {
+export default function NewsCarousel() {
   const [viewportRef, embla] = useEmblaCarousel({
     containScroll: "keepSnaps",
+    align: 'start',
     dragFree: true,
     loop: true
   });
@@ -16,7 +17,7 @@ export default function AboutCarousel() {
     embla
   ]);
 
-  const slides = Array.from(Array(10).keys());
+  const slides = Array.from(Array(12).keys());
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -36,38 +37,14 @@ export default function AboutCarousel() {
 
   return(
     <>
-      <div className="embla embla--staggered">
+      <div className="embla embla--news">
         <div className="embla__viewport" ref={viewportRef}>
           <div className="embla__container">
             {slides.map((e, i) => (
               <div key={i} className="embla__slide">
                 <div className="embla__slide__inner">
                   <div className="embla__slide__img">
-                    { (i%2 == 0) ? (
-                      <div className="bg-blue-dark">
-                        <Image
-                          src="https://placedog.net/900/550"
-                          alt="Placeholder dog"
-                          width={900}
-                          height={550}
-                          layout="responsive"
-                          className="w-full"
-                          priority
-                        />
-                      </div>
-                    ) : (
-                      <div className="bg-blue-dark">
-                        <Image
-                          src="https://placedog.net/550/800"
-                          alt="Placeholder dog"
-                          width={550}
-                          height={800}
-                          layout="responsive"
-                          className="w-full"
-                          priority
-                        />
-                      </div>
-                    )}
+                      <NewsTeaserStacked heading="5 Brands You'll Want To Have On Your Radar... #TruffleShoutOuts" />
                   </div>
                 </div>
               </div>

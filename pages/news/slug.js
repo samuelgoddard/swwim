@@ -7,8 +7,7 @@ import Footer from '../../components/footer'
 import Container from '../../components/container'
 import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
-import NewsTeaser from '../../components/news-teaser'
-import { caseStudies } from '../../helpers/fake-data'
+import NewsCarousel from '../../components/news-carousel'
 
 export default function NewsSlug() {
   return (
@@ -206,7 +205,41 @@ export default function NewsSlug() {
             <div className="w-full md:w-7/12 xl:w-1/2 content content--large">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
+
+            <div className="w-full md:w-7/12 xl:w-1/2 pt-8 md:pt-12 2xl:pt-16 mb-8 md:mb-12 2xl:mb-16">
+              <div className="mb-8 md:mb-12 2xl:mb-16">
+                <span className="font-display uppercase text-sm opacity-60 block self-end mt-auto">Share</span>
+              </div>
+
+              <div className="flex flex-wrap items-center border-t border-blue border-opacity-25 pt-8 md:pt-12 2xl:pt-16">
+                <div className="flex w-full md:w-auto order-2 md:order-1">
+                  <Link href="/news">
+                    <a className="flex flex-wrap space-x-3 items-center ring-white">
+                      <svg className="w-8 transform -rotate-90" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+                      <span className="block font-bold">Back to Articles</span>
+                    </a>
+                  </Link>
+                </div>
+
+                <span className="font-display md:ml-auto flex flex-wrap items-center order-1 md:order-2 mb-3 md:mb-0">
+                  <span className="block">By Amber</span>
+                  <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
+                    <Image width={320} height={320} layout="responsive" src="https://placedog.net/320/320" alt="Placeholder Dog" className="w-full rounded-full" />
+                  </div>
+                </span>
+              </div>
+            </div>
+
+            <div className="w-full mb-8 md:mb-12 2xl:mb-16 z-10">
+              <span className="block font-display uppercase text-[20vw] md:text-[21.75vw] 2xl:text-[336px] leading-none relative text-center">SWWIM©</span>
+            </div>
           </Container>
+
+          <div className="w-full z-10 border-t border-blue border-opacity-20 pt-12 md:pt-24 2xl:pt-32 mb-8 md:mb-12">
+            <span className="block text-center mb-8 md:mb-12 2xl:mb-16 font-display text-[6.45vw] md:text-[4.55vw] lg:text-[4.25vw] 2xl:text-[70px] leading-none relative z-10">Continue Reading</span>
+
+            <NewsCarousel />
+          </div>
         </motion.div>
       </motion.section>
 

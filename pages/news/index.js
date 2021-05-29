@@ -7,8 +7,11 @@ import Container from '../../components/container'
 import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 import NewsTeaser from '../../components/news-teaser'
+import NewsTeaserStacked from '../../components/news-teaser-stacked'
 
 import { caseStudies } from '../../helpers/fake-data'
+import Button from '../../components/button'
+import Logo from '../../components/logo'
 
 export default function NewsLanding() {
   return (
@@ -87,12 +90,114 @@ export default function NewsLanding() {
               </div>
             </div>
           
-            <div className="mb-12 md:mb-16 2xl:mb-24 relative z-10 overflow-x-hidden">
+            <div className="mb-8 md:mb-12 2xl:mb-16 relative z-10 overflow-x-hidden">
               {caseStudies.map((item, i) => {
                 return (
                   <NewsTeaser key={i} heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
                 )
               })}
+            </div>
+
+            <div className="flex flex-wrap w-full mb-3 md:mb-16 2xl:mb-20">
+              <div className="w-full md:w-8/12 lg:w-9/12">
+                <div className="flex flex-wrap -mx-3 md:-mx-6">
+                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
+                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  </div>
+                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
+                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="w-full md:w-4/12 lg:w-3/12">
+                <div className="md:pl-12 w-full">
+                  <div className="w-full bg-blue-dark text-white p-5 md:p-6 2xl:p-10 mb-5 md:mb-8 2xl:mb-12">
+                    <div className="bg-blue bg-noise mx-auto w-24 md:w-32 h-24 md:h-32 flex items-center justify-center mb-3 md:mb-5">
+                      <Logo width="w-8/12" />
+                    </div>
+
+                    <span className="w-full md:w-auto text-sm md:text-lg 2xl:text-xl font-medium block text-center">@weswwim</span>
+                  </div>
+
+                  <div className="w-full hidden md:block">
+                    <div className="w-10/12 mx-auto">
+                      <Image width={210} height={105} layout="responsive" src="/icons/soak-up.svg" alt="Soak Up The Latest handwritten text" className="w-full" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Container>
+
+          <div className="mt-4 2xl:mt-8 relative z-10 overflow-hidden">
+            <div className="relative flex overflow-x-hidden font-display uppercase text-5xl md:text-[5.5vw] xl:text-[4.5vw] 2xl:text-[80px]">
+              <div className="animate-marquee whitespace-nowrap">
+                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">&bull;</span>
+                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">&bull;</span>
+                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">&bull;</span>
+              </div>
+
+              <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
+              <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">&bull;</span>
+                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">&bull;</span>
+                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">&bull;</span>
+              </div>
+            </div>
+          </div>
+
+          <Container>
+            <div className="flex flex-wrap w-full mb-12 md:mb-16 2xl:mb-20 relative overflow-visible pt-8 md:pt-16 2xl:pt-24">
+              <div className="w-[80%] md:w-[45%] 2xl:w-[45%] absolute top-0 left-0 ml-[-28%] md:ml-[-20%] md:mt-[-0%] 2xl:mt-[-5%] z-0">
+                <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full" />
+              </div>
+
+              <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[100%] md:mt-[30%] z-0">
+                <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-12" />
+              </div>
+
+              <div className="w-full md:w-4/12 lg:w-3/12 mb-8 md:mb-0 relative z-10">
+                <div className="md:pr-12 w-full">
+                  <div className="w-full bg-brown text-white p-5 md:p-6 2xl:p-10">
+                    <span className="block font-display uppercase text-xl md:text-2xl 2xl:text-3xl text-center mb-5 md:mb-8">See how we can help your business grow today</span>
+
+                    <div className="flex items-center justify-center">
+                      <Button white overrideClasses="text-black" href="/contact">Contact Us</Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full md:w-8/12 lg:w-9/12 relative z-10">
+                <div className="flex flex-wrap -mx-3 md:-mx-6">
+                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
+                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  </div>
+                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
+                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full mb-12 md:mb-24 2xl:mb-32">
+              <div className="flex flex-wrap -mx-3 md:-mx-6">
+                <div className="w-1/2 md:w-1/3 px-3 md:px-6 mb-5 md:mb-0">
+                  <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                </div>
+                <div className="w-1/2 md:w-1/3 px-3 md:px-6 mb-5 md:mb-0">
+                  <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                </div>
+                <div className="w-1/2 md:w-1/3 px-3 md:px-6 mb-5 md:mb-0">
+                  <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                </div>
+              </div>
             </div>
             
             <ul className="flex flex-wrap items-center justify-center mb-12 md:mb-16 2xl:mb-24">

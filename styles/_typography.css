@@ -66,6 +66,28 @@ body {
   }
 }
 
+.content--fancy-first {
+  p:first-of-type {
+    @apply block font-bold font-sans text-xl leading-snug relative mb-5;
+  }
+}
+
+@screen md {
+  .content--fancy-first {
+    p:first-of-type {
+      @apply text-2xl mb-8;
+    }
+  }
+}
+
+@screen 2xl {
+  .content--fancy-first {
+    p:first-of-type {
+      @apply text-3xl mb-12;
+    }
+  }
+}
+
 @screen 2xl {
   .content--large {
     @apply text-xl; 
@@ -193,65 +215,94 @@ details ::marker {
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  margin-left: -4vw;
-}
 
-@screen md {
-  .embla__container {
-    margin-left: -35vw;
-  } 
+  @screen md {
+    margin-left: -0vw;
+  }
 }
 
 .embla__slide {
   position: relative;
-  padding-left: 6vw;
-}
+  min-width: 85%;
+  padding-left: 2rem;
 
-@screen md {
-  .embla__slide {
-    padding-left: 4vw;
+  @screen md {
+    min-width: 45%;
+  }
+
+  @screen lg {
+    min-width: 31%;
+  }
+
+  @screen 3xl {
+    min-width: 29%;
   }
 }
 
-@screen 2xl {
-  .embla__slide {
-    padding-left: 5rem;
+.embla--staggered {
+  .embla__container {
+    margin-left: -4vw;
+    @screen md {
+      margin-left: -4vw;
+    }
   }
-}
 
-.embla__slide:nth-child(odd) {
-  min-width: 45%;
-  padding-top: 12vw;
-}
+  @screen md {
+    .embla__container {
+      margin-left: -35vw;
+    } 
+  }
 
-@screen md {
+  .embla__slide {
+    position: relative;
+    padding-left: 6vw;
+  }
+
+  @screen md {
+    .embla__slide {
+      padding-left: 4vw;
+    }
+  }
+
+  @screen 2xl {
+    .embla__slide {
+      padding-left: 5rem;
+    }
+  }
   .embla__slide:nth-child(odd) {
-    min-width: 25%;
-    padding-top: 8vw;
+    min-width: 45%;
+    padding-top: 12vw;
   }
-}
 
-.embla__slide:nth-child(even) {
-  min-width: 42%;
-}
+  @screen md {
+    .embla__slide:nth-child(odd) {
+      min-width: 25%;
+      padding-top: 8vw;
+    }
+  }
 
-@screen md {
   .embla__slide:nth-child(even) {
-    min-width: 22%;
+    min-width: 42%;
   }
-}
 
-.embla__slide__inner {
-  position: relative;
-  overflow: hidden;
-  height: 50vw;
-}
+  @screen md {
+    .embla__slide:nth-child(even) {
+      min-width: 22%;
+    }
+  }
 
-@screen md {
   .embla__slide__inner {
     position: relative;
     overflow: hidden;
-    height: 35vw;
+    height: 50vw;
+  }
+
+  @screen md {
+    .embla__slide__inner {
+      position: relative;
+      overflow: hidden;
+      height: 35vw;
+    }
   }
 }
 
