@@ -72,7 +72,6 @@ export default function Footer() {
                     <ul>
                       <li className="block mb-1"><a href="mailto:hello@weswimm.co.uk" className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">hello@weswwim.co.uk</a></li>
                       <li className="block mb-1"><a href="tel:+4477777777" className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">+44 7777 7777</a></li>
-                      <li className="block mb-1"><Link href="/"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">Blog</a></Link></li>
                     </ul>
                   </nav>
                 </div>
