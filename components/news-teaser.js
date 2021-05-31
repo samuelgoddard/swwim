@@ -1,24 +1,24 @@
+import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
-export default function NewsTeaser({ heading, author, theme }) {
-
-  let arrowForeground = '#FFFFFF'
-  let arrowBackground = '#1658B3'
+const NewsTeaser = React.forwardRef(({heading, author, theme }, ref) => {
+  let arrowForeground = '#FFFFFF';
+  let arrowBackground = '#1658B3';
 
   if (theme === 'blue') {
-    arrowForeground = '#1658B3'
-    arrowBackground = '#FFFFFF'
+    arrowForeground = '#1658B3';
+    arrowBackground = '#FFFFFF';
   }
-  return(
+  return (
     <Link href="/news/slug">
-      <a className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16">
+      <a className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16 group">
         <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-3 md:mb-0">
-          <div className="bg-blue-dark">
-            <div className="block md:hidden">
+          <div className="bg-blue-dark overflow-hidden">
+            <div className="block md:hidden transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500" ref={ref}>
               <Image width={620} height={320} layout="responsive" src="https://placedog.net/620/320" alt="Placeholder Dog" className="w-full" />
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500" ref={ref}>
               <Image width={620} height={420} layout="responsive" src="https://placedog.net/620/420" alt="Placeholder Dog" className="w-full" />
             </div>
           </div>
@@ -49,4 +49,6 @@ export default function NewsTeaser({ heading, author, theme }) {
       </a>
     </Link>
   )
-}
+})
+
+export default NewsTeaser

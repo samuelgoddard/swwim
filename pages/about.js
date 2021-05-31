@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Layout from '../components/layout'
 import Header from '../components/header'
@@ -7,8 +8,40 @@ import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 import AboutCarousel from '../components/about-carousel'
 import { NextSeo } from 'next-seo';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+
+  const revealRefs = useRef(null);
+
+  revealRefs.current = [];
+
+  useEffect(() => {
+    revealRefs.current.forEach((el, index) => {
+      gsap.fromTo(el, {
+        autoAlpha: 0
+      }, {
+        duration: 0.35, 
+        autoAlpha: 1,
+        ease: "power2.easeInOut",
+        scrollTrigger: {
+          trigger: el,
+          start: 'top center+=400',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    });
+  }, []);
+
+  const fadeRevealRefs = el => {
+    if (el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el);
+    }
+  };
+
   return (
     <Layout>
       <NextSeo
@@ -28,9 +61,9 @@ export default function About() {
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
               <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
                 <span className="block mx-px">A</span>
-                <span className="block mx-px mt-[-3px]">b</span>
+                <span className="block mx-px animate--letter-float">b</span>
                 <span className="block mx-px">o</span>
-                <span className="block mx-px mt-[-3px]">u</span>
+                <span className="block mx-px animate--letter-float">u</span>
                 <span className="block mx-px">t</span>
               </span>
 
@@ -54,7 +87,17 @@ export default function About() {
                 <h2 className="block font-bold text-xl md:text-[2.75vw] 2xl:text-[38px] leading-snug relative mb-5 md:mb-8 2xl:mb-10">Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies.</h2>
 
                 <div className="w-full mb-8 md:mb-10 2xl:mb-16">
-                  <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full" />
+                  <div className="relative flex overflow-x-hidden">
+                    <div className="animate-marquee whitespace-nowrap w-full">
+                      <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full ml-[3px]" />
+                    </div>
+
+                    <div className="absolute top-0 animate-marquee2 whitespace-nowrap w-full">
+                      <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full" />
+                    </div>
+                  </div>
+
+
                 </div>
 
                 <div className="flex flex-wrap md:-mx-6">
@@ -76,7 +119,9 @@ export default function About() {
               </div>
 
               <div className="w-[55%] md:w-[35%] lg:w-[30%] 2xl:w-[33%] absolute bottom-0 right-0 mr-[-16%] md:mr-[-10%] lg:mr-[-8%] mb-[-18%] md:mb-[-13%] lg:mb-[-12%] 2xl:mr-[-13%] z-0 transform -rotate-12">
-                <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform" />
+                <div className="animate--wave--slow origin-bottom-left" ref={fadeRevealRefs}>
+                  <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform" />
+                </div>
               </div>
             </div>
           </Container>
@@ -116,7 +161,9 @@ export default function About() {
                 return (
                   <div className="w-full mb-3 md:mb-5 2xl:mb-8" key={i}>
                     <div className="border-blue border-2 mb-3 md:mb-4 bg-pink">
-                      <Image width={520} height={660} layout="responsive" src="https://placedog.net/520/660" alt="Placeholder Dog" className="w-full" />
+                      <div ref={fadeRevealRefs}>
+                        <Image width={520} height={660} layout="responsive" src="https://placedog.net/520/660" alt="Placeholder Dog" className="w-full"/>
+                      </div>
                     </div>
 
                     <span className="text-lg md:text-xl 2xl:text-2xl font-display block mb-0 pb-0 leading-tight">Becky Shepherd</span>
@@ -127,7 +174,9 @@ export default function About() {
             </div>
 
             <div className="w-[80%] md:w-[60%] 2xl:w-[50%] absolute top-0 md:bottom-0 left-0 ml-[-28%] md:ml-[-20%] mt-[4%] md:mt-[6%] 2xl:mt-[4%] z-0">
-              <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full" />
+              <div className="animate--wave--slow" ref={fadeRevealRefs}>
+                <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full" />
+              </div>
             </div>
           </motion.div>
         </Container>
@@ -156,7 +205,9 @@ export default function About() {
           </div>
 
           <div className="w-full bg-blue">
-            <Image width={1000} height={600} layout="responsive" src="https://placedog.net/1000/600" alt="Placeholder Dog" className="w-full" />
+            <div ref={fadeRevealRefs}>
+              <Image width={1000} height={600} layout="responsive" src="https://placedog.net/1000/600" alt="Placeholder Dog" className="w-full image-fade" />
+            </div>
           </div>
         </motion.div>
 

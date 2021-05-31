@@ -295,6 +295,10 @@ details ::marker {
     position: relative;
     overflow: hidden;
     height: 50vw;
+
+    img {
+      @apply transition ease duration-700;
+    }
   }
 
   @screen md {
@@ -306,6 +310,14 @@ details ::marker {
   }
 }
 
+.embla.is--active {
+  .embla__slide__inner {
+    img {
+      @apply transform scale-125 origin-center;
+    }
+  }
+}
+
 textarea {
   resize: none;
 }
@@ -313,4 +325,110 @@ textarea {
 textarea::placeholder {
   color: #D8D8D8;
   opacity: 0.4;
+}
+
+.circle {
+  pointer-events: none;
+}
+
+.cursor-follow {
+  @apply w-32 h-32 rounded-full bg-white fixed top-0 left-0 z-30 opacity-0 uppercase font-display text-xl text-blue flex items-center justify-center;
+
+  transition: opacity 0.35s ease 0.1s, background-color 0.3s ease, color 0.3s ease, width 0.3s ease, height 0.3s ease;
+
+  .arrows {
+    @apply opacity-0;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.cursor-follow.is--active {
+  @apply border-4 border-white bg-transparent text-transparent w-20 h-20;
+  transition: opacity 0.1s ease, background-color 0.3s ease, color 0.3s ease, width 0.3s ease, height 0.3s ease !important;
+
+  .arrows {
+    @apply opacity-100;
+  }
+}
+
+.image-fade {
+  @apply transition ease-in-out duration-1000;
+}
+
+/* Custom Animations */
+
+.animate--wiggle {
+  animation: wiggle 4.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.animate--wave {
+  animation: wave 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.animate--wave--slow {
+  animation: waveSlow 25s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.animate--float {
+  animation: bounce 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.animate--letter-float {
+  animation: letterBounce 4.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.animate--stagger {
+  animation-delay: 1.5s;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(4deg); }
+  40% { transform: rotate(-4deg); }
+  60% { transform: rotate(4deg); }
+  80% { transform: rotate(-4deg); }
+  100% { transform: rotate(4deg); }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(14deg); }
+  40% { transform: rotate(-7deg); }
+  60% { transform: rotate(12deg); }
+  80% { transform: rotate(-12deg); }
+  100% { transform: rotate(6deg); }
+}
+
+@keyframes waveSlow {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(3deg); }
+  40% { transform: rotate(-1deg); }
+  60% { transform: rotate(3deg); }
+  80% { transform: rotate(-2deg); }
+  100% { transform: rotate(1deg); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0px); }
+  50% { transform: translatey(-10px) rotate(2deg); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes letterBounce {
+  0% { transform: translateY(3px); }
+  50% { transform: translatey(-3px) }
+  100% { transform: translateY(3px); }
 }

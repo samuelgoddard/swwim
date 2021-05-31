@@ -17,7 +17,9 @@ module.exports = {
     extend: {
       animation: {
         marquee: 'marquee 30s linear infinite',
+        'marquee-fast': 'marquee 12.5s linear infinite',
         marquee2: 'marquee2 30s linear infinite',
+        'marquee2-fast': 'marquee2 12.5s linear infinite',
         'spin-slow': 'spin 10s linear infinite',
       },
       keyframes: {

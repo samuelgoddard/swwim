@@ -4,10 +4,12 @@ import Link from "next/link";
 export default function NewsTeaserStacked({ heading, author, theme, supporting }) {
   return(
     <Link href="/news/slug">
-      <a className="flex flex-wrap text-current">
+      <a className="flex flex-wrap text-current group">
         <div className="w-full mb-5">
-          <div className="bg-blue-dark">
-            <Image width={620} height={350} layout="responsive" src="https://placedog.net/620/350" alt="Placeholder Dog" className="w-full" />
+          <div className="bg-blue-dark overflow-hidden">
+            <div className="transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
+              <Image width={620} height={350} layout="responsive" src="https://placedog.net/620/350" alt="Placeholder Dog" className="w-full" />
+            </div>
           </div>
         </div>
 

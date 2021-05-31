@@ -94,7 +94,9 @@ export default function NewsSlug() {
             <div className="w-full flex flex-wrap my-8 md:my-12 2xl:my-16 md:-mx-4 2xl:-mx-10">
               <div className="w-full md:w-7/12 lg:w-8/12 md:px-4 2xl:px-10">
                 <figure>
-                  <Image width={720} height={420} layout="responsive" src="https://placedog.net/720/420" alt="Placeholder Dog" className="w-full" />
+                  <div className="bg-blue">
+                    <Image width={720} height={420} layout="responsive" src="https://placedog.net/720/420" alt="Placeholder Dog" className="w-full" />
+                  </div>
                   <figcaption className="opacity-60 md:text-lg leading-tight block font-medium mt-2">Carousel Caption - Aenean lacinia bibendum nulla sed consectetur.</figcaption>
                 </figure>
               </div>
@@ -158,7 +160,9 @@ export default function NewsSlug() {
             <div className="w-full flex flex-wrap my-8 md:my-12 2xl:my-16 md:-mx-4 2xl:-mx-10">
               <div className="w-full md:w-7/12 lg:w-8/12 md:px-4 2xl:px-10">
                 <figure>
-                  <Image width={720} height={420} layout="responsive" src="https://placedog.net/720/420" alt="Placeholder Dog" className="w-full" />
+                  <div className="bg-blue">
+                    <Image width={720} height={420} layout="responsive" src="https://placedog.net/720/420" alt="Placeholder Dog" className="w-full" />
+                  </div>
                   <figcaption className="opacity-60 md:text-lg leading-tight block font-medium mt-2">Carousel Caption - Aenean lacinia bibendum nulla sed consectetur.</figcaption>
                 </figure>
               </div>

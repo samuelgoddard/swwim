@@ -3,18 +3,30 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Container from './container'
 import Logo from './logo'
-import Button from './button'
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function Header({ theme }) {
 
+  const popupNavVariant = {
+    initial: { opacity: 0 },
+    isOpen: { opacity: 1, transition: { type: "easeInOut", duration: 0.35 }},
+    exit: { opacity: 0, transition: { type: "easeInOut", duration: 0.35 }}
+  };
+
+  const navSlideVariant = {
+    initial: { x: "100%" },
+    isOpen: { x: "0%", transition: { type: "easeInOut", duration: 0.35 }},
+    exit: { x: "100%", transition: { type: "easeInOut", duration: 0.35 }}
+  };
+  
   const [menuIsOpen, setMenuIsOpen] = useState(false)
 
   let themeColors = 'bg-blue text-white'
-  let themeButtonColors = 'bg-white text-blue'
+  let themeButtonColors = 'bg-white text-blue hover:text-white'
 
   if (theme == 'white') {
     themeColors = 'bg-white text-blue'
-    themeButtonColors = 'bg-blue text-white'
+    themeButtonColors = 'bg-blue text-white hover:text-white'
   }
 
   return (
@@ -38,7 +50,10 @@ export default function Header({ theme }) {
               {/* <Button white overrideClasses="hidden md:inline-block" href="/">Contact Us</Button> */}
 
               <Link href="/contact">
-                <a className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-blue text-white ring-blue hidden md:inline-block ${themeButtonColors}`}>Contact Us</a>
+                <a className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-blue text-white ring-blue hidden md:inline-block group relative overflow-hidden transition-colors ease-in-out duration-500 ${themeButtonColors}`}>
+                  <span className="block relative z-10">Contact Us</span>
+                  <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                </a>
               </Link>
               <button
                 onClick={() => setMenuIsOpen(!menuIsOpen)}
@@ -55,105 +70,124 @@ export default function Header({ theme }) {
       </Container>
 
       {/* Popup Menu */}
-      {menuIsOpen && (
-        <div className="fixed inset-0 w-full h-full bg-black bg-opacity-80 z-40">
-          <div className="flex flex-wrap h-full">
-            <button
-              className="w-1/12 md:w-4/12 lg:w-1/2 h-full focus:border-none focus:outline-none hover:border-none hover:outline-none"
-              onClick={() => setMenuIsOpen(false)}
-              aria-label="Close Menu"
-            >  
-            </button>
-            <div className="w-11/12 md:w-8/12 lg:w-1/2 h-full ml-auto">
-              <div className="pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 px-6 md:px-8 2xl:px-20 bg-blue bg-noise text-white h-full flex flex-wrap">
+      <AnimatePresence>
+        {menuIsOpen && (
+          <div className="fixed inset-0 w-full h-full z-40">
+            <motion.div 
+              initial={"initial"}
+              animate={"isOpen"}
+              exit={"exit"}
+              variants={popupNavVariant}
+              className="fixed inset-0 w-full h-full bg-black bg-opacity-80 z-40"
+            ></motion.div>
 
-                <div className="flex flex-wrap items-center relative z-50 w-full mb-auto pb-8 xl:pb-12 max-w-2xl 2xl:pr-8">
-                  <Link href="/">
-                    <a onClick={() => setMenuIsOpen(false)} aria-label="Navigate to the home page" className="block py-2 ring-white">
-                      <Logo width="w-24 md:w-32 2xl:w-40" />
-                    </a>
-                  </Link>
+            <div className="flex flex-wrap h-full relative z-50">
+              <button
+                className="w-1/12 md:w-4/12 lg:w-1/2 h-full focus:border-none focus:outline-none hover:border-none hover:outline-none"
+                onClick={() => setMenuIsOpen(false)}
+                aria-label="Close Menu"
+              >  
+              </button>
+              
+              <motion.div 
+                initial={"initial"}
+                animate={"isOpen"}
+                exit={"exit"}
+                variants={navSlideVariant}
+                className="w-11/12 md:w-8/12 lg:w-1/2 h-full ml-auto"
+              >
+                <div className="pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 px-6 md:px-8 2xl:px-20 bg-blue bg-noise text-white h-full flex flex-wrap">
 
-                  <div className="ml-auto">
-                    <div className="flex items-center space-x-1">
-                      <Link href="/contact">
-                        <a onClick={() => setMenuIsOpen(false)} className="rounded-full text-center font-bold px-4 md:px-6 py-2 bg-white text-blue ring-blue hidden md:block">
-                          Contact Us
-                        </a>
-                      </Link>
-                      <button
-                        onClick={() => setMenuIsOpen(false)}
-                        className="rounded-full text-center block font-bold px-4 md:px-4 py-2 bg-transparent text-white ring-blue"
-                        aria-label="Close Menu"
-                      >
-                        <div className="flex items-center">
-                          <span className="block mr-2">Close</span>
-                          <svg className="w-4 transform mt-[3px]" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.305 27.132L26.354 2.084M26.354 27.132L1.306 2.083" stroke="currentColor" strokeWidth="3.24"/></svg>
-                        </div>
-                      </button>
+                  <div className="flex flex-wrap items-center relative z-50 w-full mb-auto pb-8 xl:pb-12 max-w-2xl 2xl:pr-8">
+                    <Link href="/">
+                      <a onClick={() => setMenuIsOpen(false)} aria-label="Navigate to the home page" className="block py-2 ring-white">
+                        <Logo width="w-24 md:w-32 2xl:w-40" />
+                      </a>
+                    </Link>
+
+                    <div className="ml-auto">
+                      <div className="flex items-center space-x-1">
+                        <Link href="/contact">
+                          <a onClick={() => setMenuIsOpen(false)} className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-white text-blue hover:text-white ring-blue hidden md:inline-block group relative overflow-hidden transition-colors ease-in-out duration-500`}>
+                            <span className="block relative z-10">Contact Us</span>
+                            <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                          </a>
+                        </Link>
+
+                        <button
+                          onClick={() => setMenuIsOpen(false)}
+                          className="rounded-full text-center block font-bold px-4 md:px-4 py-2 bg-transparent text-white ring-blue"
+                          aria-label="Close Menu"
+                        >
+                          <div className="flex items-center">
+                            <span className="block mr-2">Close</span>
+                            <svg className="w-4 transform mt-[3px]" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.305 27.132L26.354 2.084M26.354 27.132L1.306 2.083" stroke="currentColor" strokeWidth="3.24"/></svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <nav className="mb-auto w-full relative z-50">
+                    <ul>
+                      <li className="block mb-3 md:mb-8 2xl:mb-10">
+                        <Link href="/">
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
+                            <span className="block">Home</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="block mb-3 md:mb-8 2xl:mb-10">
+                        <Link href="/about">
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
+                            <span className="block">About</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="block mb-3 md:mb-8 lg:mb-10">
+                        <Link href="/case-studies">
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
+                            <span className="block">Case Studies</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="block mb-3 md:mb-8 lg:mb-10">
+                        <Link href="/news">
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
+                            <span className="block">News</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
+                        <Link href="/contact">
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
+                            <span className="block">Contact Us</span>
+                          </a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
+
+                  <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
+                    <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+
+                    <div className="block max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">
+                      <div className="w-7/12 md:w-9/12 2xl:w-full ml-auto">
+                        <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <nav className="mb-auto w-full relative z-50">
-                  <ul>
-                    <li className="block mb-3 md:mb-8 2xl:mb-10">
-                      <Link href="/">
-                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
-                          <span className="block">Home</span>
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-3 md:mb-8 2xl:mb-10">
-                      <Link href="/about">
-                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
-                          <span className="block">About</span>
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-3 md:mb-8 lg:mb-10">
-                      <Link href="/case-studies">
-                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
-                          <span className="block">Case Studies</span>
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-3 md:mb-8 lg:mb-10">
-                      <Link href="/news">
-                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
-                          <span className="block">News</span>
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
-                      <Link href="/contact">
-                        <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                          <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
-                          <span className="block">Contact Us</span>
-                        </a>
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
-
-                <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
-                  <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
-
-                  <div className="block max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">
-                    <div className="w-7/12 md:w-9/12 2xl:w-full ml-auto">
-                      <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </header>
   )
 }
