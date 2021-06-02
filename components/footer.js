@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Button from './button'
 import Container from './container'
 import Logo from './logo'
+import Socials from './socials'
 
 export default function Footer() {
   return (
@@ -10,15 +11,15 @@ export default function Footer() {
       <div className="bg-blue-light bg-noise py-6 2xl:py-8">
         <Container>
           <div className="flex flex-wrap items-center relative z-10">
-            <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <span className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</span></span>
+            <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</a></span>
             
             
             <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
-              <span className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</span>
+              <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</a>
 
-              <div className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
+              <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
                 <Logo width="w-8/12" />
-              </div>
+              </a>
             </div>
           </div>
         </Container>  
@@ -44,7 +45,13 @@ export default function Footer() {
                 <span className="block text-2xl md:text-3xl 2xl:text-4xl font-bold">Got a project?</span>
                 <span className="block text-2xl md:text-3xl 2xl:text-4xl font-medium mb-4 md:mb-6">Start a conversation</span>
                 
-                <Button white overrideClasses="mb-12 md:mb-12 lg:mb-56 2xl:mb-64 text-blue-dark" href="/contact">Contact Us</Button>
+                <div className="mb-12 md:mb-12 lg:mb-56 2xl:mb-64">
+                  <Button white overrideClasses="mb-5 text-blue-dark" href="/contact">Contact Us</Button>
+                  
+                  <div className="mb-auto">
+                    <Socials />
+                  </div>
+                </div>
               </span>
 
               <div className="hidden md:block lg:flex flex-wrap lg:space-x-6 w-full self-end">

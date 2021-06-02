@@ -27,9 +27,9 @@ export default function Legal() {
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
               <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
                 <span className="block mx-px">L</span>
-                <span className="block mx-px mt-[-3px]">e</span>
+                <span className="block mx-px animate--letter-float">e</span>
                 <span className="block mx-px">g</span>
-                <span className="block mx-px mt-[-3px]">a</span>
+                <span className="block mx-px animate--letter-float">a</span>
                 <span className="block mx-px">l</span>
               </span>
 

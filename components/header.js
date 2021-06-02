@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Container from './container'
 import Logo from './logo'
 import { motion, AnimatePresence } from "framer-motion"
+import Socials from './socials'
 
 export default function Header({ theme }) {
 
@@ -132,40 +133,40 @@ export default function Header({ theme }) {
                     <ul>
                       <li className="block mb-3 md:mb-8 2xl:mb-10">
                         <Link href="/">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
                             <span className="block">Home</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block mb-3 md:mb-8 2xl:mb-10">
                         <Link href="/about">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
                             <span className="block">About</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block mb-3 md:mb-8 lg:mb-10">
                         <Link href="/case-studies">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
                             <span className="block">Case Studies</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block mb-3 md:mb-8 lg:mb-10">
                         <Link href="/news">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
                             <span className="block">News</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
                         <Link href="/contact">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
-                            <span className="block font-sans text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
+                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                            <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
                             <span className="block">Contact Us</span>
                           </a>
                         </Link>
@@ -174,10 +175,16 @@ export default function Header({ theme }) {
                   </nav>
 
                   <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
-                    <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                    <div className="w-auto mt-auto">
+                      <div className="md:mb-3">
+                        <Socials />
+                      </div>
 
-                    <div className="block max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">
-                      <div className="w-7/12 md:w-9/12 2xl:w-full ml-auto">
+                      <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                    </div>
+
+                    <div className="hidden md:block md:max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">
+                      <div className="w-5/12 md:w-9/12 2xl:w-full md:ml-auto">
                         <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
                       </div>
                     </div>

@@ -78,7 +78,7 @@ export default function AboutCarousel() {
   return(
     <>
       <div className="embla embla--staggered circle-container group">
-        <div className="circle cursor-follow group-hover:opacity-100 tracking-wide">
+        <div className="circle cursor-follow group-hover:opacity-100 tracking-wide hidden md:flex">
           <div className="arrows absolute top-0 left-0 right-0 bottom-0 w-full flex items-center">
             <svg className="w-4 absolute -ml-8" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.953 1.915L2.99 10.982.97 9.071 9.935 0l2.02 1.915z" fill="#fff"/><path d="M2.915 6.864l9.038 9.04-1.94 1.942L.97 8.806l1.944-1.942z" fill="#fff"/></svg>
 
