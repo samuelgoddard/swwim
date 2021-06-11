@@ -9,13 +9,38 @@ import { motion } from 'framer-motion'
 import FancyLink from '../components/fancy-link'
 import Accordion from '../components/accordion'
 import NewsTeaser from '../components/news-teaser'
-import { NextSeo } from 'next-seo';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { NextSeo } from 'next-seo'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import SanityPageService from '../services/SanityPageService'
+import BlockContentWrapper from '../components/block-content-wrapper'
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+const query = `{
+  "home": *[_type == "home"][0]{
+    title
+  },
+  "services": *[_type == "service"] {
+    title,
+    content,
+    icon {
+      asset->
+    }
+  },
+  "clients": *[_type == "client"] {
+    title,
+    logo {
+      asset->
+    }
+  }
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function Home(initialData) {
+  const { data: { home, services, clients }  } = pageService.getPreviewHook(initialData)()
+
   const revealRefs = useRef(null);
   const wavyTextRefs = useRef(null);
   const svgDrawRefs = useRef(null);
@@ -111,6 +136,9 @@ export default function Home() {
         className="bg-blue bg-noise text-white pb-8 md:pb-12 2xl:pb-16"
       >
         <motion.div variants={fade} className="relative z-10">
+
+          {/* {JSON.stringify(home)}
+          {JSON.stringify(services)} */}
           <Container>
             <div className="flex space-x-3 items-center mb-3">
               <svg className="w-8 transform rotate-180" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
@@ -198,7 +226,7 @@ export default function Home() {
                         <h1 className="font-display uppercase block text-3xl md:text-5xl 2xl:text-6xl mb-0 pb-0 pr-8 md:pr-12 2xl:pr-16 relative z-10">We Rise By<br/>Lifting Overs</h1>
 
                         <div className="opacity-40 -ml-4 -mt-6 md:-mt-8 2xl:-mt-10 relative z-0">
-                          <svg className="w-full" viewBox="0 0 531 66" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clipRule="evenodd" d="M195.428.048c-29.893 2.527-59.819 5.47-88.75 10.611-29.055 5.162-56.873 12.63-80.897 23.52-5.988 2.715-12.078 5.588-17.146 8.888-5.444 3.544-9.877 7.977-8.32 12.886 2.636 8.293 19.525 10.11 31.641 10.045 32.537-.177 64.717-3.95 95.709-9.515 30.517-5.48 60.043-12.605 89.734-19.4 15.079-3.45 30.215-6.822 45.556-9.865 6.587-1.307 13.311-2.856 20.123-3.71a58.428 58.428 0 012.531-.258c-1.069.088.145-.003.566-.028a106.957 106.957 0 018.102-.148c1.052.022 2.105.058 3.153.113.197.01 1.71.109 1.195.07-.468-.036.858.08 1.126.108.988.104 1.968.23 2.932.392.381.064.758.137 1.134.21.182.034.358.077.536.115.638.136-1.05-.346-.078-.008.665.23 1.825.742.939.291.365.186.755.223.252.115-.266-.055-.34-.274-.102-.048.475.456-.29-.523-.167-.232.238.566-.062-.402-.043-.192.003.03.212-.687-.018-.048-.169.464.496-.427-.012.013-.191.165-.946.833-.36.394-2.739 2.056-5.806 2.998-9.905 4.169-4.296 1.23-8.708 2.319-12.935 3.633-8.683 2.7-17.992 6.965-16.594 13.35.945 4.308 5.725 7.488 12.611 9.071 7.071 1.625 15.623 1.088 22.848.1 15.184-2.078 28.387-7.273 43.307-9.795a561.98 561.98 0 0151.144-6.242c17.54-1.33 35.229-1.868 52.907-1.499 17.764.371 35.577 1.338 53.341.455 8.77-.437 17.47-1.294 25.892-2.792 6.357-1.129 3.646-6.93-2.754-5.792-16.557 2.943-33.798 3.16-50.972 2.792-17.328-.37-34.559-1.084-51.907-.569-17.511.52-34.98 1.83-52.168 3.838a566.073 566.073 0 00-25.015 3.484c-7.497 1.216-14.597 2.864-21.682 4.731-6.945 1.83-13.845 3.76-21.178 5.027-6.208 1.073-14.009 2.043-20.291.629-2.253-.507-4.308-1.42-5.211-2.726-.199-.289-.339-.6-.468-.902-.078-.18-.247-1.028-.183-.49-.033-.272-.029-.544-.031-.817 0-.047.046-.495-.016-.126-.067.41.094-.285.132-.368.11-.248.234-.492.374-.736.299-.526-.299.26.188-.219.265-.261.529-.521.805-.78.119-.11.256-.218.39-.323-.311.242-.231.163.056-.02a25.57 25.57 0 012.21-1.282c.19-.095 1.039-.506.83-.41-.386.176.28-.12.289-.124.35-.147.704-.292 1.062-.435 7.416-2.934 16.34-4.31 23.707-7.249 3.91-1.559 8.47-3.76 9.66-6.567 1.101-2.6-1.154-4.926-4.961-6.262-3.659-1.282-8.168-1.668-12.339-1.914-4.181-.246-8.439-.22-12.61.063-5.617.381-10.822 1.42-16.19 2.43a1059.907 1059.907 0 00-22.382 4.486c-29.549 6.237-58.46 13.434-87.943 19.77-29.306 6.3-59.322 11.738-90.316 14.383a463.74 463.74 0 01-23.245 1.38c-6.928.241-14.261.59-21.113.05-2.58-.203-5.47-.593-7.69-1.188-2.285-.612-4.024-1.33-5.141-2.504-3.12-3.273 1.939-7.115 5.867-9.508 10.074-6.135 22.375-11.252 34.839-15.616 12.363-4.33 25.465-7.92 38.978-10.864 27.652-6.024 56.699-9.58 85.784-12.339 7.135-.677 14.283-1.304 21.437-1.91 2.771-.233 4.294-2.269 3.617-3.693-.816-1.724-3.591-2.333-6.371-2.099z" fill="#01295F" /></svg>
+                          <svg className="w-full" viewBox="0 0 531 66" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M195.428.048c-29.893 2.527-59.819 5.47-88.75 10.611-29.055 5.162-56.873 12.63-80.897 23.52-5.988 2.715-12.078 5.588-17.146 8.888-5.444 3.544-9.877 7.977-8.32 12.886 2.636 8.293 19.525 10.11 31.641 10.045 32.537-.177 64.717-3.95 95.709-9.515 30.517-5.48 60.043-12.605 89.734-19.4 15.079-3.45 30.215-6.822 45.556-9.865 6.587-1.307 13.311-2.856 20.123-3.71a58.428 58.428 0 012.531-.258c-1.069.088.145-.003.566-.028a106.957 106.957 0 018.102-.148c1.052.022 2.105.058 3.153.113.197.01 1.71.109 1.195.07-.468-.036.858.08 1.126.108.988.104 1.968.23 2.932.392.381.064.758.137 1.134.21.182.034.358.077.536.115.638.136-1.05-.346-.078-.008.665.23 1.825.742.939.291.365.186.755.223.252.115-.266-.055-.34-.274-.102-.048.475.456-.29-.523-.167-.232.238.566-.062-.402-.043-.192.003.03.212-.687-.018-.048-.169.464.496-.427-.012.013-.191.165-.946.833-.36.394-2.739 2.056-5.806 2.998-9.905 4.169-4.296 1.23-8.708 2.319-12.935 3.633-8.683 2.7-17.992 6.965-16.594 13.35.945 4.308 5.725 7.488 12.611 9.071 7.071 1.625 15.623 1.088 22.848.1 15.184-2.078 28.387-7.273 43.307-9.795a561.98 561.98 0 0151.144-6.242c17.54-1.33 35.229-1.868 52.907-1.499 17.764.371 35.577 1.338 53.341.455 8.77-.437 17.47-1.294 25.892-2.792 6.357-1.129 3.646-6.93-2.754-5.792-16.557 2.943-33.798 3.16-50.972 2.792-17.328-.37-34.559-1.084-51.907-.569-17.511.52-34.98 1.83-52.168 3.838a566.073 566.073 0 00-25.015 3.484c-7.497 1.216-14.597 2.864-21.682 4.731-6.945 1.83-13.845 3.76-21.178 5.027-6.208 1.073-14.009 2.043-20.291.629-2.253-.507-4.308-1.42-5.211-2.726-.199-.289-.339-.6-.468-.902-.078-.18-.247-1.028-.183-.49-.033-.272-.029-.544-.031-.817 0-.047.046-.495-.016-.126-.067.41.094-.285.132-.368.11-.248.234-.492.374-.736.299-.526-.299.26.188-.219.265-.261.529-.521.805-.78.119-.11.256-.218.39-.323-.311.242-.231.163.056-.02a25.57 25.57 0 012.21-1.282c.19-.095 1.039-.506.83-.41-.386.176.28-.12.289-.124.35-.147.704-.292 1.062-.435 7.416-2.934 16.34-4.31 23.707-7.249 3.91-1.559 8.47-3.76 9.66-6.567 1.101-2.6-1.154-4.926-4.961-6.262-3.659-1.282-8.168-1.668-12.339-1.914-4.181-.246-8.439-.22-12.61.063-5.617.381-10.822 1.42-16.19 2.43a1059.907 1059.907 0 00-22.382 4.486c-29.549 6.237-58.46 13.434-87.943 19.77-29.306 6.3-59.322 11.738-90.316 14.383a463.74 463.74 0 01-23.245 1.38c-6.928.241-14.261.59-21.113.05-2.58-.203-5.47-.593-7.69-1.188-2.285-.612-4.024-1.33-5.141-2.504-3.12-3.273 1.939-7.115 5.867-9.508 10.074-6.135 22.375-11.252 34.839-15.616 12.363-4.33 25.465-7.92 38.978-10.864 27.652-6.024 56.699-9.58 85.784-12.339 7.135-.677 14.283-1.304 21.437-1.91 2.771-.233 4.294-2.269 3.617-3.693-.816-1.724-3.591-2.333-6.371-2.099z" fill="#01295F" /></svg>
                         </div>
                       </div>
                       
@@ -315,60 +343,17 @@ export default function Home() {
             </div>
 
             <div className="relative z-10">
-              <Accordion heading="Content Strategy" index="01" open>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
-
-                <ol>
-                  <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
-                  <li>Tristique Magna Ultricies Parturient.</li>
-                  <li>Aenean Amet Condimentum Magna</li>
-                </ol>
-              </Accordion>
-              <Accordion heading="Social Media Management" index="02">
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
-
-                <ol>
-                  <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
-                  <li>Tristique Magna Ultricies Parturient.</li>
-                  <li>Aenean Amet Condimentum Magna</li>
-                </ol>
-              </Accordion>
-              <Accordion heading="Social Advertising" index="03">
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
-
-                <ol>
-                  <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
-                  <li>Tristique Magna Ultricies Parturient.</li>
-                  <li>Aenean Amet Condimentum Magna</li>
-                </ol>
-              </Accordion>
-              <Accordion heading="Influencer Marketing" index="04">
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
-
-                <ol>
-                  <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
-                  <li>Tristique Magna Ultricies Parturient.</li>
-                  <li>Aenean Amet Condimentum Magna</li>
-                </ol>
-              </Accordion>
-              <Accordion heading="Content Creation" index="05">
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
-
-                <ol>
-                  <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
-                  <li>Tristique Magna Ultricies Parturient.</li>
-                  <li>Aenean Amet Condimentum Magna</li>
-                </ol>
-              </Accordion>
-              <Accordion heading="Copywriting" index="06">
-                <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus.</p>
-
-                <ol>
-                  <li>Nullam id dolor id nibh ultricies vehicula ut id elit.</li>
-                  <li>Tristique Magna Ultricies Parturient.</li>
-                  <li>Aenean Amet Condimentum Magna</li>
-                </ol>
-              </Accordion>
+              {services.map((service, i) => {
+                return (
+                  <Accordion
+                    heading={service.title}
+                    index={`0${i + 1}`} { ...( i == 0 && { open: true })}
+                    icon={service.icon.asset.url} 
+                  >
+                    <BlockContentWrapper text={service.content} />
+                  </Accordion>
+                )
+              })}
             </div>
           </motion.div>
         </Container>
@@ -394,10 +379,10 @@ export default function Home() {
                 <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full" />
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 border-r border-b border-blue mb-16 md:mb-24 2xl:mb-32 relative z-20">
-                {Array.from(Array(8), (e, i) => {
+                {clients.map((client, i) => {
                   return (
                     <div className="bg-white border-l border-t border-blue flex items-center justify-center py-16 md:py-[4.35rem] lg:py-[5.25rem]" key={i}>
-                      <svg ref={fadeRevealRefs} className="w-16 lg:w-24" viewBox="0 0 115 118" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M100.401 48.003c-4 .025-6.494.173-10.173 1.012 2.888 2.115 5.786 4.217 8.684 6.318 5.325 3.863 10.648 7.725 15.91 11.659-5.704 8.568-16.668 14.396-25.582 15.73-2.716-3.902-4.642-8.57-6-13.804-2.716 3.901-11.878 12.741-25.83 12.741-15.111 0-23.136-8.84-25.828-12.741-1.358 5.235-3.284 9.902-6 13.803C16.668 81.388 5.679 75.585 0 66.991c5.803-4.369 11.694-8.637 17.583-12.904 2.331-1.689 4.662-3.377 6.986-5.072-3.703-.84-6.173-.987-10.198-1.012.184-1.338.427-2.705.666-4.051.34-1.91.671-3.776.816-5.456l.574.056c1.28.128 2.248.225 3.5-.056.447-.093 4.497-2.962 9.572-6.558 1.66-1.176 3.43-2.43 5.22-3.69-9.903-18.939-21.385-7.284-21.385-7.284C10.371 8.47 23.83 0 23.83 0c9.111 6.568 15.013 18.15 17.457 23.656 3.803-2.618 7.137-4.79 8.989-5.778l.372-.196c1.877-.99 3.935-2.073 5.95-2.397.246-.025.493-.05.764-.05 0 0 .593 0 .84.05 2.07.333 4.161 1.445 6.1 2.475l.221.118c1.852.987 5.186 3.185 8.989 5.778C75.955 18.149 81.857 6.593 90.969 0c0 0 13.482 8.47 10.494 20.964 0 0-11.482-11.655-21.384 7.285 1.79 1.26 3.559 2.513 5.22 3.69 5.075 3.595 9.124 6.464 9.571 6.557 1.26.283 2.253.183 3.534.054l.54-.054c.147 1.699.476 3.589.812 5.52.23 1.326.464 2.67.645 3.987zM57.337 77.239h.074c14.569-.024 26.446-12.1 27.335-27.36H45.583l-6.568-15.926-1.507.642 6.618 15.285h-1.901l-8.593-10.248-1.235 1.062 8 9.186h-10.37c.864 15.26 12.766 27.36 27.31 27.36z" fill="#1658B3"/><path d="M30.002 107.143h2.667l1.901 6.395h.025v-6.395h2.148v9.852h-2.617l-2.025-6.791h-.025v6.791h-2.074v-9.852z" fill="#1658B3"/><path fillRule="evenodd" clipRule="evenodd" d="M38.52 112.081c0 3.136.42 5.112 3.457 5.112 3.285 0 3.458-2.396 3.458-5.112s-.173-5.111-3.458-5.111c-3.037 0-3.456 1.975-3.456 5.111zm4.52 0c0 2.692-.149 3.556-1.087 3.556-.914 0-1.037-.864-1.037-3.556 0-2.716.123-3.58 1.037-3.58.938 0 1.086.889 1.086 3.58zM46.966 112.081c0 3.136.42 5.112 3.457 5.112 3.284 0 3.457-2.396 3.457-5.112s-.173-5.111-3.457-5.111c-3.037 0-3.457 1.975-3.457 5.111zm4.543 0c0 2.692-.148 3.556-1.086 3.556-.914 0-1.062-.864-1.037-3.556 0-2.716.123-3.58 1.037-3.58.938 0 1.086.889 1.086 3.58zM59.09 107.143h-3.432v9.827h3.186c3.062 0 3.506-1.654 3.506-5.235 0-3.407-.963-4.592-3.26-4.592zm-.518 8.148h-.593v-6.42h.642c1.21 0 1.408.642 1.408 3.037 0 2.963-.395 3.383-1.457 3.383z" fill="#1658B3"/><path d="M64.103 107.143h2.32v7.975h3.359v1.877h-5.68v-9.852zM71.042 107.143h5.68v1.876h-3.359v1.976h3.16v1.876h-3.16v2.247h3.531v1.877h-5.852v-9.852zM80.4 113.983v.345c0 .741.197 1.309 1.012 1.309s1.037-.617 1.037-1.161c0-2.123-4.222-.938-4.222-4.617 0-1.581.84-2.889 3.235-2.889 2.32 0 3.136 1.16 3.136 2.691v.222h-2.223c0-.469-.05-.814-.197-1.037-.148-.247-.37-.345-.692-.345-.568 0-.913.345-.913 1.061 0 2.05 4.222 1.013 4.222 4.495 0 2.222-1.234 3.136-3.358 3.136-1.68 0-3.235-.519-3.235-2.568v-.642H80.4zM18.644 87.215h3.802v6.37h.025l3.556-6.37h4.099l-4.223 6.963 4.741 9.186h-4.272l-2.913-6.1-1.013 1.581v4.519h-3.802v-16.15z" fill="#1658B3"/><path fillRule="evenodd" clipRule="evenodd" d="M40.25 87.215h-4.74l-4.1 16.149h3.926l.568-3.087h3.852l.593 3.087h3.926l-4.025-16.15zm-2.47 2.938h.05l1.383 7.186h-2.766l1.334-7.186zM46.423 87.215h5.901c2.766 0 4.593 1.284 4.593 3.975 0 1.877-.987 3.359-2.543 3.63v.05c1.21.172 2.988.691 2.988 4 0 1.901-.84 4.469-5.334 4.469h-5.605V87.215zm3.803 6.445h1.037c1.308 0 1.852-.741 1.852-1.902 0-.84-.445-1.753-1.828-1.753h-1.061v3.655zm1.16 6.889H50.201v-4.37h1.234c1.186 0 2 .69 2 2.271 0 1.136-.518 2.099-2.049 2.099z" fill="#1658B3"/><path d="M70.746 98.03c0 3.161-.914 5.655-5.31 5.655-4.42 0-5.308-2.494-5.308-5.655V87.215h3.803V99.14c0 1.26.493 2.025 1.506 2.025 1.012 0 1.506-.74 1.506-2.025V87.215h3.803V98.03zM76.129 90.277h-3.383v-3.062H83.34v3.062h-3.407v13.087h-3.803V90.277z" fill="#1658B3"/><path fillRule="evenodd" clipRule="evenodd" d="M84.772 95.29c0 5.136.69 8.395 5.679 8.395 5.383 0 5.68-3.926 5.68-8.395 0-4.47-.297-8.396-5.68-8.396-5.013 0-5.68 3.26-5.68 8.396zm7.432 0c0 4.42-.247 5.852-1.778 5.852-1.481 0-1.704-1.432-1.728-5.852 0-4.42.247-5.853 1.728-5.853 1.556 0 1.778 1.408 1.778 5.853z" fill="#1658B3"/></svg>
+                      <img ref={fadeRevealRefs} src={client.logo.asset.url} alt={client.title} className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%]" />
                     </div>
                   )
                 })}
@@ -498,4 +483,11 @@ export default function Home() {
       </motion.section>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const props = await pageService.fetchQuery(context)
+  return { 
+    props
+  };
 }
