@@ -8,7 +8,7 @@ import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 import NewsCarousel from '../../components/news-carousel'
 import { NextSeo } from 'next-seo'
-import SanityPageService from '../../services/SanityPageService'
+import SanityPageService from '../../services/sanityPageService'
 import ImageWrapper from '../../helpers/image-wrapper'
 import spacetime from 'spacetime'
 

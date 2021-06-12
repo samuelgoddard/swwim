@@ -9,7 +9,7 @@ import NewsTeaser from '../../components/news-teaser'
 import NewsTeaserStacked from '../../components/news-teaser-stacked'
 import Button from '../../components/button'
 import Logo from '../../components/logo'
-import SanityPageService from '../../services/SanityPageService'
+import SanityPageService from '../../services/sanityPageService'
 import { ArticleJsonLd, NextSeo } from 'next-seo'
 
 const query = `{

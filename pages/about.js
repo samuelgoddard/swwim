@@ -10,7 +10,7 @@ import AboutCarousel from '../components/about-carousel'
 import { NextSeo } from 'next-seo';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import SanityPageService from '../services/SanityPageService'
+import SanityPageService from '../services/sanityPageService'
 import ImageWrapper from '../helpers/image-wrapper'
 
 gsap.registerPlugin(ScrollTrigger);
