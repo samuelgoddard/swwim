@@ -155,7 +155,7 @@ export default function NewsSlug(initialData) {
                     </div>
                   </div>
                 </div>
-                {heroImage.asset && (
+                {heroImage?.asset && (
                   <div className="w-full md:w-1/2 md:px-6 2xl:px-10">
                     <Image
                       width={heroImage.asset.metadata.dimensions.width}
