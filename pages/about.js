@@ -10,10 +10,43 @@ import AboutCarousel from '../components/about-carousel'
 import { NextSeo } from 'next-seo';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import SanityPageService from '../services/SanityPageService'
+import ImageWrapper from '../helpers/image-wrapper'
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function About() {
+const query = `{
+  "about": *[_type == "about"][0]{
+    seo {
+      ...,
+      shareGraphic {
+        asset->
+      }
+    },
+    title,
+    introText,
+    values,
+    heroImageCarousel[] {
+      asset->
+    },
+    inPageImage {
+      asset->
+    }
+  },
+  "team": *[_type == "team"] | order(order asc) {
+    firstName,
+    secondName,
+    jobTitle,
+    image {
+      asset->
+    }
+  }
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function About(initialData) {
+  const { data: { about, team }  } = pageService.getPreviewHook(initialData)()
 
   const revealRefs = useRef(null);
 
@@ -77,14 +110,14 @@ export default function About() {
             </div>
           </Container>
 
-          <div className="mb-3 md:mb-6">
-            <AboutCarousel />
+          <div className="mb-5 md:mb-12 2xl:mb-16">
+            <AboutCarousel images={about.heroImageCarousel} />
           </div>
 
           <Container>
             <div className="relative z-10 overflow-visible pb-24 md:pb-32 lg:pb-36 xl:pb-48 2xl:pb-56">
               <div className="md:mx-[10%] lg:mx-32 xl:mx-40 2xl:mx-56">
-                <h2 className="block font-bold text-xl md:text-[2.75vw] 2xl:text-[38px] leading-snug relative mb-5 md:mb-8 2xl:mb-10">Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies.</h2>
+                <h2 className="block font-bold text-xl md:text-[2.75vw] 2xl:text-[38px] leading-snug relative mb-5 md:mb-8 2xl:mb-10">{about.introText}</h2>
 
                 <div className="w-full mb-8 md:mb-10 2xl:mb-16">
                   <div className="relative flex overflow-x-hidden">
@@ -101,20 +134,14 @@ export default function About() {
                 </div>
 
                 <div className="flex flex-wrap md:-mx-6">
-                  <div className="w-10/12 md:w-1/3 pb-6 md:pb-0 md:px-6">
-                    <span className="text-lg md:text-xl 2xl:text-2xl font-display uppercase block mb-2 md:mb-4 pb-0">Stay True</span>
-                    <p className="text-sm leading-relaxed block font-medium">Maecenas sed diam eget risus varius blandit sit amet non magna. Fringilla Sollicitudin Nullam</p>
-                  </div>
-
-                  <div className="w-10/12 md:w-1/3 pb-6 md:pb-0 md:px-6">
-                    <span className="text-lg md:text-xl 2xl:text-2xl font-display uppercase block mb-2 md:mb-4 pb-0">Be Passionate</span>
-                    <p className="text-sm leading-relaxed block font-medium">Maecenas sed diam eget risus varius blandit sit amet non magna. Fringilla Sollicitudin Nullam</p>
-                  </div>
-
-                  <div className="w-10/12 md:w-1/3 pb-6 md:pb-0 md:px-6">
-                    <span className="text-lg md:text-xl 2xl:text-2xl font-display uppercase block mb-2 md:mb-4 pb-0">Work Hard</span>
-                    <p className="text-sm leading-relaxed block font-medium">Maecenas sed diam eget risus varius blandit sit amet non magna. Fringilla Sollicitudin Nullam</p>
-                  </div>
+                  {about.values?.map((value, i) => {
+                    return (
+                      <div key={i} className="w-10/12 md:w-1/3 pb-6 md:px-6">
+                        <span className="text-lg md:text-xl 2xl:text-2xl font-display uppercase block mb-2 md:mb-4 pb-0">{value.heading}</span>
+                        <p className="text-sm leading-relaxed block font-medium opacity-90">{value.text}</p>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
 
@@ -157,17 +184,27 @@ export default function About() {
             </div>
 
             <div className="grid gap-4 md:gap-6 grid-cols-2 md:grid-cols-3 mb-16 md:mb-24 2xl:mb-32 relative z-20 md:mx-16 2xl:mx-24">
-              {Array.from(Array(5), (e, i) => {
+              {team?.map((person, i) => {
                 return (
                   <div className="w-full mb-3 md:mb-5 2xl:mb-8" key={i}>
                     <div className="border-blue border-2 mb-3 md:mb-4 bg-pink">
-                      <div ref={fadeRevealRefs}>
-                        <Image width={520} height={660} layout="responsive" src="https://placedog.net/520/660" alt="Placeholder Dog" className="w-full"/>
-                      </div>
+                      {person.image && (
+                        <div ref={fadeRevealRefs}>
+                          <ImageWrapper
+                            image={person.image.asset}
+                            className="w-full"
+                            baseWidth={520}
+                            baseHeight={660}
+                            alt={`${person.firstName} ${person.secondName}`}
+                          />
+                        </div>
+                      )}
                     </div>
 
-                    <span className="text-lg md:text-xl 2xl:text-2xl font-display block mb-0 pb-0 leading-tight">Becky Shepherd</span>
-                    <span className="text-base font-medium block leading-tight">Director</span>
+                    <span className="text-lg md:text-xl 2xl:text-2xl font-display block mb-0 pb-0 leading-tight">{person.firstName } { person.secondName }</span>
+                    {person.jobTitle && (
+                      <span className="text-base font-medium block leading-tight">{person.jobTitle}</span>
+                    )}
                   </div>
                 )
               })}
@@ -203,12 +240,19 @@ export default function About() {
               </div>
             </div>
           </div>
-
-          <div className="w-full bg-blue">
-            <div ref={fadeRevealRefs}>
-              <Image width={1000} height={600} layout="responsive" src="https://placedog.net/1000/600" alt="Placeholder Dog" className="w-full image-fade" />
+          
+          {about.inPageImage && (
+            <div className="w-full bg-blue">
+              <div ref={fadeRevealRefs}>
+                <ImageWrapper
+                  image={about.inPageImage.asset}
+                  className="w-full"
+                  baseWidth={1200}
+                  baseHeight={600}
+                />
+              </div>
             </div>
-          </div>
+          )}
         </motion.div>
 
         <motion.div variants={fade} className="relative z-10">
@@ -217,4 +261,11 @@ export default function About() {
       </motion.section>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const props = await pageService.fetchQuery(context)
+  return { 
+    props
+  };
 }

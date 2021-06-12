@@ -10,6 +10,10 @@ body {
   @apply mb-6;
 }
 
+.content--fancy-first > p:first-of-type {
+  @apply text-red-500;
+}
+
 .content > ul {
   @apply list-inside;
 
@@ -20,6 +24,12 @@ body {
   > li:before {
     content: ' ';
     @apply w-2 h-2 block bg-brown absolute top-0 left-0 mt-3 transform rotate-45 ml-1;
+  }
+}
+
+.content--dark > ul {
+  > li:before {
+    @apply bg-white;
   }
 }
 
@@ -35,6 +45,12 @@ body {
   > li:before {
     content: "0" counter(my-awesome-counter);
     @apply block text-brown font-medium text-lg mb-1;
+  }
+}
+
+.content--dark > ol {
+  > li:before {
+    @apply text-white;
   }
 }
 
@@ -84,6 +100,32 @@ body {
   .content--fancy-first {
     p:first-of-type {
       @apply text-3xl mb-12;
+    }
+  }
+}
+
+.content--fancy-first-inpage {
+  p:first-of-type {
+    @apply block font-bold font-sans text-lg leading-snug relative opacity-100;
+  }
+
+  p {
+    @apply opacity-75;
+  }
+}
+
+@screen md {
+  .content--fancy-first-inpage {
+    p:first-of-type {
+      @apply text-xl;
+    }
+  }
+}
+
+@screen 2xl {
+  .content--fancy-first-inpage {
+    p:first-of-type {
+      @apply text-2xl;
     }
   }
 }
@@ -266,18 +308,18 @@ details ::marker {
 
   @screen 2xl {
     .embla__slide {
-      padding-left: 5rem;
+      padding-left: 6rem;
     }
   }
   .embla__slide:nth-child(odd) {
     min-width: 45%;
-    padding-top: 12vw;
+    padding-top: 10vw;
   }
 
   @screen md {
     .embla__slide:nth-child(odd) {
       min-width: 25%;
-      padding-top: 8vw;
+      padding-top: 6vw;
     }
   }
 

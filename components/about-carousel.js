@@ -2,8 +2,9 @@ import React, { useEffect, useState, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { useEmblaCarousel } from 'embla-carousel/react'
 import { gsap } from 'gsap';
+import ImageWrapper from '../helpers/image-wrapper';
 
-export default function AboutCarousel() {
+export default function AboutCarousel({ images }) {
   var ease = 0.08;
   const container = useRef(null);
   const circle = useRef(null);
@@ -20,8 +21,6 @@ export default function AboutCarousel() {
   const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [
     embla
   ]);
-
-  const slides = Array.from(Array(10).keys());
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -88,32 +87,27 @@ export default function AboutCarousel() {
         </div>
         <div className="embla__viewport" ref={viewportRef}>
           <div className="embla__container">
-            {slides.map((e, i) => (
+            {images?.map((e, i) => (
               <div key={i} className="embla__slide">
                 <div className="embla__slide__inner">
                   <div className="embla__slide__img">
                     { (i%2 == 0) ? (
                       <div className="bg-blue-dark">
-                        <Image
-                          src="https://placedog.net/900/550"
-                          alt="Placeholder dog"
-                          width={900}
-                          height={550}
-                          layout="responsive"
+                        <ImageWrapper
+                          image={e.asset}
                           className="w-full"
+                          baseWidth={900}
+                          baseHeight={650}
                           priority
                         />
                       </div>
                     ) : (
                       <div className="bg-blue-dark">
-                        <Image
-                          src="https://placedog.net/550/800"
-                          alt="Placeholder dog"
-                          width={550}
-                          height={800}
-                          layout="responsive"
+                        <ImageWrapper
+                          image={e.asset}
                           className="w-full"
-                          priority
+                          baseWidth={550}
+                          baseHeight={850}
                         />
                       </div>
                     )}

@@ -7,12 +7,40 @@ import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 import NewsTeaser from '../../components/news-teaser'
 import NewsTeaserStacked from '../../components/news-teaser-stacked'
-import { caseStudies } from '../../helpers/fake-data'
 import Button from '../../components/button'
 import Logo from '../../components/logo'
-import { NextSeo } from 'next-seo'
+import SanityPageService from '../../services/SanityPageService'
+import { ArticleJsonLd, NextSeo } from 'next-seo'
 
-export default function NewsLanding() {
+const query = `{
+  "news": *[_type == "news"] {
+    heroImage {
+      asset -> {
+        ...
+      }
+    },
+    categories[]-> {
+      title
+    },
+    author-> {
+      firstName,
+      image {
+        asset -> {
+          ...
+        }
+      }
+    },
+    title,
+    slug {
+      current
+    }
+  }
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function NewsLanding(initialData) {
+  const { data: { news }  } = pageService.getPreviewHook(initialData)()
   return (
     <Layout>
       <NextSeo
@@ -85,9 +113,17 @@ export default function NewsLanding() {
             </div>
           
             <div className="mb-8 md:mb-12 2xl:mb-16 relative z-10 overflow-x-hidden">
-              {caseStudies.map((item, i) => {
+              {news.map((article, i) => {
                 return (
-                  <NewsTeaser key={i} heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  <NewsTeaser
+                    key={i}
+                    image={article.heroImage.asset}
+                    href={`/news/${article.slug.current}`}
+                    heading={article.title}
+                    category={article.categories ? article.categories[0].title : null}
+                    date={article.date ?? null}
+                    author={article.author ?? null}
+                  />
                 )
               })}
             </div>
@@ -218,4 +254,11 @@ export default function NewsLanding() {
       </motion.section>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const props = await pageService.fetchQuery(context)
+  return { 
+    props
+  };
 }
