@@ -63,25 +63,29 @@ export default function CaseStudySlug(initialData) {
             <div className="w-full md:w-1/2 md:pt-32 2xl:pt-40 flex items-center">
             </div>
             <div className="w-full md:w-1/2 relative">
-              <div className="block md:hidden bg-blue">
-                <ImageWrapper
-                  image={images[0]}
-                  className="w-full"
-                  baseWidth={620}
-                  baseHeight={620}
-                  alt={title}
-                />
-              </div>
-              <div className="hidden md:block bg-blue">
-                <ImageWrapper
-                  image={images[0]}
-                  className="w-full h-full object-cover max-h-screen"
-                  baseWidth={730}
-                  baseHeight={1000}
-                  alt={title}
-                  fill="cover"
-                />
-              </div>
+              {images?.length > 0 && (
+                <>
+                  <div className="block md:hidden bg-blue">
+                    <ImageWrapper
+                      image={images[0]}
+                      className="w-full"
+                      baseWidth={620}
+                      baseHeight={620}
+                      alt={title}
+                    />
+                  </div>
+                  <div className="hidden md:block bg-blue">
+                    <ImageWrapper
+                      image={images[0]}
+                      className="w-full h-full object-cover max-h-screen"
+                      baseWidth={730}
+                      baseHeight={1000}
+                      alt={title}
+                      fill="cover"
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
