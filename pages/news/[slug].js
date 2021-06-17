@@ -12,35 +12,33 @@ import SanityPageService from '../../services/sanityPageService'
 import ImageWrapper from '../../helpers/image-wrapper'
 import spacetime from 'spacetime'
 
-const query = `{
-  "article": *[_type == "news" && slug.current == $slug][0]{
-    seo {
-      ...,
-      shareGraphic {
-        asset->
-      }
-    },
-    heroImage {
+const query = `*[_type == "news" && slug.current == $slug][0]{
+  seo {
+    ...,
+    shareGraphic {
+      asset->
+    }
+  },
+  heroImage {
+    asset -> {
+      ...
+    }
+  },
+  categories[]-> {
+    title
+  },
+  author-> {
+    firstName,
+    lastName,
+    image {
       asset -> {
         ...
       }
-    },
-    categories[]-> {
-      title
-    },
-    author-> {
-      firstName,
-      lastName,
-      image {
-        asset -> {
-          ...
-        }
-      }
-    },
-    date,
-    introText,
-    title
+    }
   },
+  date,
+  introText,
+  title,
   "contact": *[_type == "contact"][0] {
     title,
     email,
@@ -56,18 +54,18 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { article, contact }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, categories, author, date, introText, title, contact }  } = pageService.getPreviewHook(initialData)()
 
-  let d = spacetime(article.date)
+  let d = spacetime(date)
   return (
     <Layout>
       <NextSeo
-        title={article.seo?.metaTitle ? article.seo?.metaTitle : article.title }
-        description={article.seo?.metaDesc ? article.seo?.metaDesc : article.introText}
+        title={seo?.metaTitle ? seo?.metaTitle : title }
+        description={seo?.metaDesc ? seo?.metaDesc : introText}
         openGraph={{
           images: [
             {
-              url: article.seo?.shareGraphic?.asset.url ?? null,
+              url: seo?.shareGraphic?.asset.url ?? null,
               width: 1200,
               height: 630
             },
@@ -98,19 +96,19 @@ export default function NewsSlug(initialData) {
 
               <div className="relative mb-12 md:mb-20 lg:mb-24 2xl:mb-24 w-11/12 md:w-10/12">
                 <h1 className="block font-display text-[8.45vw] md:text-[4.55vw] lg:text-[4.25vw] 2xl:text-[70px] leading-none relative z-10 text-left align-middle">
-                  {article.title}
-                  {article.author && (
+                  {title}
+                  {author && (
                     <span className="block lg:inline-block align-middle mt-2 lg:mt-0 lg:ml-6">
                       <span className="font-display md:ml-auto flex flex-wrap items-center order-1 md:order-2 mb-3 md:mb-0 text-base">
-                        <span className="block">By {article.author.firstName}</span>
-                        { article.author.image && (
+                        <span className="block">By {author.firstName}</span>
+                        { author.image && (
                           <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
                             <ImageWrapper
-                              image={article.author.image.asset}
+                              image={author.image.asset}
                               className="rounded-full"
                               baseWidth={350}
                               baseHeight={350}
-                              alt={article.author.firstName}
+                              alt={author.firstName}
                             />
                           </div>
                         )}
@@ -126,19 +124,19 @@ export default function NewsSlug(initialData) {
                     <div className="self-start mb-auto w-full">
                       <div className="w-full flex flex-wrap items-end md:items-center pb-3 md:pb-5 md:pt-5 border-b border-white mb-4 md:mb-6 2xl:mb-8">
                         <div className="md:flex md:flex-wrap">
-                          {article.categories?.map((cat, i) => (
+                          {categories?.map((cat, i) => (
                             <span key={i} className="font-display uppercase text-sm mb-1 md:mb-0 mr-3 md:mr-5 block">{cat.title}</span>
                           ))}
                           
-                          {article.date && (
-                            <span className={`font-display uppercase text-sm mb-1 md:mb-0 opacity-60 mr-3 md:mr-6 block ${article.categories ? '2xl:px-10' : '2xl:pr-10'}`}>{d.unixFmt('dd.MM.yy')}</span>
+                          {date && (
+                            <span className={`font-display uppercase text-sm mb-1 md:mb-0 opacity-60 mr-3 md:mr-6 block ${categories ? '2xl:px-10' : '2xl:pr-10'}`}>{d.unixFmt('dd.MM.yy')}</span>
                           )}
                         </div>
                         <span className="ml-auto font-display text-sm mb-1 md:mb-0 block">2 Minute Read</span>
                       </div>
                       
-                      {article.introText && (
-                        <p className="block font-bold text-xl md:text-xl lg:text-2xl xl:text-3xl w-full self-start mb-auto pb-10">{article.introText}</p>
+                      {introText && (
+                        <p className="block font-bold text-xl md:text-xl lg:text-2xl xl:text-3xl w-full self-start mb-auto pb-10">{introText}</p>
                       )}
                     </div>
                     
@@ -166,13 +164,13 @@ export default function NewsSlug(initialData) {
                     </div>
                   </div>
                 </div>
-                {article.heroImage?.asset && (
+                {heroImage?.asset && (
                   <div className="w-full md:w-1/2 md:px-6 2xl:px-10">
                     <Image
-                      width={article.heroImage.asset.metadata.dimensions.width}
-                      height={article.heroImage.asset.metadata.dimensions.height}
-                      layout="responsive" src={article.heroImage.asset.url}
-                      alt={article.heroImage.asset.originalFileName}
+                      width={heroImage.asset.metadata.dimensions.width}
+                      height={heroImage.asset.metadata.dimensions.height}
+                      layout="responsive" src={heroImage.asset.url}
+                      alt={heroImage.asset.originalFileName}
                       className="w-full"
                       priority
                     />
@@ -334,17 +332,17 @@ export default function NewsSlug(initialData) {
                   </Link>
                 </div>
                 
-                { article.author && (
+                { author && (
                   <span className="font-display md:ml-auto flex flex-wrap items-center order-1 md:order-2 mb-3 md:mb-0">
-                    <span className="block">By {article.author.firstName}</span>
-                    { article.author.image && (
+                    <span className="block">By {author.firstName}</span>
+                    { author.image && (
                       <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
                         <ImageWrapper
-                          image={article.author.image.asset}
+                          image={author.image.asset}
                           className="rounded-full"
                           baseWidth={350}
                           baseHeight={350}
-                          alt={article.author.firstName}
+                          alt={author.firstName}
                         />
                       </div>
                     )}

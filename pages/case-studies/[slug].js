@@ -9,19 +9,23 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
 import ImageWrapper from '../../helpers/image-wrapper'
 
-const query = `{
-  "caseStudy": *[_type == "caseStudy" && slug.current == $slug][0]{
-    title,
-    about,
-    images[] {
+const query = `*[_type == "caseStudy" && slug.current == $slug][0]{
+  seo {
+    ...,
+    shareGraphic {
       asset->
-    },
-    deliverables[]-> {
-      title
-    },
-    slug {
-      current
     }
+  },
+  title,
+  about,
+  images[] {
+    asset->
+  },
+  deliverables[]-> {
+    title
+  },
+  slug {
+    current
   },
   "contact": *[_type == "contact"][0] {
     title,
@@ -33,17 +37,28 @@ const query = `{
       url
     }
   }
-}`
+}
+`
 
 const pageService = new SanityPageService(query)
 
 export default function CaseStudySlug(initialData) {
-  const { data: { caseStudy, contact }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, title, about, images, deliverables, slug, contact }  } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
       <NextSeo
-        title="Case Studies Title"
+        title={seo?.metaTitle ? seo?.metaTitle : title }
+        description={seo?.metaDesc ? seo?.metaDesc : about}
+        openGraph={{
+          images: [
+            {
+              url: seo?.shareGraphic?.asset.url ?? null,
+              width: 1200,
+              height: 630
+            },
+          ]
+        }}
       />
 
       <Header theme="white" contact={contact} pinned />
@@ -61,20 +76,20 @@ export default function CaseStudySlug(initialData) {
             <div className="w-full md:w-1/2 relative">
               <div className="block md:hidden bg-blue">
                 <ImageWrapper
-                  image={caseStudy.images[0]}
+                  image={images[0]}
                   className="w-full"
                   baseWidth={620}
                   baseHeight={620}
-                  alt={caseStudy.title}
+                  alt={title}
                 />
               </div>
               <div className="hidden md:block bg-blue">
                 <ImageWrapper
-                  image={caseStudy.images[0]}
+                  image={images[0]}
                   className="w-full h-full object-cover max-h-screen"
                   baseWidth={730}
                   baseHeight={1000}
-                  alt={caseStudy.title}
+                  alt={title}
                   fill="cover"
                 />
               </div>
@@ -92,27 +107,27 @@ export default function CaseStudySlug(initialData) {
                     </a>
                   </Link>
 
-                  <h1 className="font-display block text-[42px] md:text-[5.7vw] 2xl:text-[85px] leading-none mb-5 md:mb-8 2xl:mb-12 pb-0">{caseStudy.title}</h1>
+                  <h1 className="font-display block text-[42px] md:text-[5.7vw] 2xl:text-[85px] leading-none mb-5 md:mb-8 2xl:mb-12 pb-0">{title}</h1>
 
                   <div className="mb-5 md:mb-8">
                     <span className="block font-bold text-lg md:text-xl mb-1 xl:text-2xl">Deliverables:</span>
 
                     <p className="block max-w-lg md:text-lg">
-                    {caseStudy.deliverables.map((item, i) => {
+                    {deliverables.map((item, i) => {
                       return (
                         <span key={i}>
-                          {item.title}{i !== caseStudy.deliverables.length - 1 && (<>,&nbsp;</>)}
+                          {item.title}{i !== deliverables.length - 1 && (<>,&nbsp;</>)}
                         </span>
                       )
                     })}
                     </p>
                   </div>
 
-                  {caseStudy.about && (
+                  {about && (
                     <div className="mb-5 md:mb-8">
                       <span className="block font-bold text-lg md:text-xl xl:text-2xl mb-1">About:</span>
 
-                      <p className="block max-w-lg">{caseStudy.about}</p>
+                      <p className="block max-w-lg">{about}</p>
                     </div>
                   )}
                 </div>
