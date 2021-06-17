@@ -91,27 +91,52 @@ export default function AboutCarousel({ images }) {
               <div key={i} className="embla__slide">
                 <div className="embla__slide__inner">
                   <div className="embla__slide__img">
-                    { (i%2 == 0) ? (
-                      <div className="bg-blue-dark">
-                        <ImageWrapper
-                          image={e.asset}
-                          className="w-full"
-                          baseWidth={900}
-                          baseHeight={650}
-                          priority={i !== 0 || i !== 1 || i !== 5}
-                        />
-                      </div>
-                    ) : (
-                      <div className="bg-blue-dark">
-                        <ImageWrapper
-                          image={e.asset}
-                          className="w-full"
-                          baseWidth={550}
-                          baseHeight={850}
-                          priority={i !== 0 || i !== 1 || i !== 5}
-                        />
-                      </div>
-                    )}
+                    <div className="block md:hidden">
+                      { (i%2 == 0) ? (
+                        <div className="bg-blue-dark">
+                          <ImageWrapper
+                            image={e.asset}
+                            className="w-full"
+                            baseWidth={600}
+                            baseHeight={400}
+                            priority
+                          />
+                        </div>
+                      ) : (
+                        <div className="bg-blue-dark">
+                          <ImageWrapper
+                            image={e.asset}
+                            className="w-full"
+                            baseWidth={300}
+                            baseHeight={550}
+                            priority
+                          />
+                        </div>
+                      )}
+                    </div>
+                    <div className="hidden md:block">
+                      { (i%2 == 0) ? (
+                        <div className="bg-blue-dark">
+                          <ImageWrapper
+                            image={e.asset}
+                            className="w-full"
+                            baseWidth={900}
+                            baseHeight={650}
+                            priority
+                          />
+                        </div>
+                      ) : (
+                        <div className="bg-blue-dark">
+                          <ImageWrapper
+                            image={e.asset}
+                            className="w-full"
+                            baseWidth={550}
+                            baseHeight={850}
+                            priority
+                          />
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
