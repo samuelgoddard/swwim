@@ -104,7 +104,6 @@ export default function NewsLanding(initialData) {
                   <span className="mx-1">&bull;</span>
                   <span className="mx-1">Swwim News</span>
                   <span className="mx-1">&bull;</span>
-                  
                 </div>
 
                 <div className="absolute top-0 animate-marquee2 whitespace-nowrap">

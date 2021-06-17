@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Accordion({ children, heading, index, open, icon}) {
   return(
     <div className={`border-b border-blue ${ index == '01' ? 'border-t' : ''}`}>
@@ -8,7 +10,13 @@ export default function Accordion({ children, heading, index, open, icon}) {
             <div className="flex-1 md:w-2/3 ml-auto">
               <div className="flex flex-wrap items-center -mx-3">
                 { icon && (
-                  <img className="w-8 md:w-10 xl:w-14 ml-5 md:ml-0 mr-1 md:mr-3 xl:mr-5" src={icon} alt={`${heading} Icon`} />
+                  <Image
+                    src={icon.url}
+                    width={icon.metadata.dimensions.width}
+                    height={icon.metadata.dimensions.height}
+                    alt={`${heading} Icon`}
+                    className="w-8 md:w-10 xl:w-14 ml-5 md:ml-0 mr-1 md:mr-3 xl:mr-5"
+                  />
                 )}
 
                 <span className="block text-xl md:text-4xl 2xl:text-5xl font-display uppercase leading-tight mb-0 pb-0 px-3 flex-1 mt-[6px] md:mt-0">{heading}</span>

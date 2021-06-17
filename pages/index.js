@@ -447,7 +447,7 @@ export default function Home(initialData) {
                     key={i}
                     heading={service.title}
                     index={`0${i + 1}`} { ...( i == 0 && { open: true })}
-                    icon={service.icon.asset.url} 
+                    icon={service.icon.asset} 
                   >
                     <BlockContentWrapper text={service.content} />
                   </Accordion>
@@ -481,7 +481,14 @@ export default function Home(initialData) {
                 {clients.map((client, i) => {
                   return (
                     <div className="bg-white border-l border-t border-blue flex items-center justify-center py-16 md:py-[4.35rem] lg:py-[5.25rem]" key={i}>
-                      <img ref={fadeRevealRefs} src={client.logo.asset.url} alt={client.title} className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%]" />
+                      <Image
+                        ref={fadeRevealRefs}
+                        src={client.logo.asset.url}
+                        width={client.logo.asset.metadata.dimensions.width}
+                        height={client.logo.asset.metadata.dimensions.height}
+                        alt={client.title}
+                        className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%]"
+                      />
                     </div>
                   )
                 })}
