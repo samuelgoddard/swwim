@@ -98,7 +98,7 @@ export default function AboutCarousel({ images }) {
                           className="w-full"
                           baseWidth={900}
                           baseHeight={650}
-                          priority={i !== 0 || i !== 1 || i !== 5 ? true : false}
+                          priority={i !== 0 || i !== 1 || i !== 5}
                         />
                       </div>
                     ) : (
@@ -108,7 +108,7 @@ export default function AboutCarousel({ images }) {
                           className="w-full"
                           baseWidth={550}
                           baseHeight={850}
-                          priority={i !== 0 || i !== 1 || i !== 5 ? true : false}
+                          priority={i !== 0 || i !== 1 || i !== 5}
                         />
                       </div>
                     )}
