@@ -38,23 +38,13 @@ const query = `*[_type == "news" && slug.current == $slug][0]{
   },
   date,
   introText,
-  title,
-  "contact": *[_type == "contact"][0] {
-    title,
-    email,
-    phoneNumber,
-    address,
-    socialLinks[] {
-      title,
-      url
-    }
-  }
+  title
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, categories, author, date, introText, title, contact }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, categories, author, date, introText, title }  } = pageService.getPreviewHook(initialData)()
 
   let d = spacetime(date)
   return (
@@ -73,7 +63,7 @@ export default function NewsSlug(initialData) {
         }}
       />
 
-      <Header contact={contact} />
+      <Header />
 
       <motion.section
         initial="initial"
@@ -370,7 +360,7 @@ export default function NewsSlug(initialData) {
         exit="exit"
       >
         <motion.div variants={fade} className="relative z-10 overflow-hidden">
-          <Footer contact={contact} />
+          <Footer />
         </motion.div>
       </motion.section>
     </Layout>

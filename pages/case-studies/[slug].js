@@ -26,19 +26,8 @@ const query = `*[_type == "caseStudy" && slug.current == $slug][0]{
   },
   slug {
     current
-  },
-  "contact": *[_type == "contact"][0] {
-    title,
-    email,
-    phoneNumber,
-    address,
-    socialLinks[] {
-      title,
-      url
-    }
   }
-}
-`
+}`
 
 const pageService = new SanityPageService(query)
 
@@ -61,7 +50,7 @@ export default function CaseStudySlug(initialData) {
         }}
       />
 
-      <Header theme="white" contact={contact} pinned />
+      {/* <Header theme="white" contact={contact} pinned /> */}
 
       <motion.section
         initial="initial"
@@ -74,7 +63,7 @@ export default function CaseStudySlug(initialData) {
             <div className="w-full md:w-1/2 md:pt-32 2xl:pt-40 flex items-center">
             </div>
             <div className="w-full md:w-1/2 relative">
-              <div className="block md:hidden bg-blue">
+              {/* <div className="block md:hidden bg-blue">
                 <ImageWrapper
                   image={images[0]}
                   className="w-full"
@@ -92,7 +81,7 @@ export default function CaseStudySlug(initialData) {
                   alt={title}
                   fill="cover"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -109,19 +98,21 @@ export default function CaseStudySlug(initialData) {
 
                   <h1 className="font-display block text-[42px] md:text-[5.7vw] 2xl:text-[85px] leading-none mb-5 md:mb-8 2xl:mb-12 pb-0">{title}</h1>
 
-                  <div className="mb-5 md:mb-8">
-                    <span className="block font-bold text-lg md:text-xl mb-1 xl:text-2xl">Deliverables:</span>
+                  { deliverables?.length > 0 && (
+                    <div className="mb-5 md:mb-8">
+                      <span className="block font-bold text-lg md:text-xl mb-1 xl:text-2xl">Deliverables:</span>
 
-                    <p className="block max-w-lg md:text-lg">
-                    {deliverables.map((item, i) => {
-                      return (
-                        <span key={i}>
-                          {item.title}{i !== deliverables.length - 1 && (<>,&nbsp;</>)}
-                        </span>
-                      )
-                    })}
-                    </p>
-                  </div>
+                      <p className="block max-w-lg md:text-lg">
+                      {deliverables.map((item, i) => {
+                        return (
+                          <span key={i}>
+                            {item.title}{i !== deliverables.length - 1 && (<>,&nbsp;</>)}
+                          </span>
+                        )
+                      })}
+                      </p>
+                    </div>
+                  )}
 
                   {about && (
                     <div className="mb-5 md:mb-8">

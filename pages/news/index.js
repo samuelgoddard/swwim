@@ -157,7 +157,7 @@ export default function NewsLanding(initialData) {
               </div>
               
               <div className="w-full md:w-4/12 lg:w-3/12">
-                {contact.socialLinks.map((item, i) => {
+                {contact?.socialLinks.map((item, i) => {
                   return (
                     <div key={i}>
                       {item.title == 'instagram' || item.title == 'Instagram' && (

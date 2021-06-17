@@ -176,14 +176,18 @@ export default function Header({ theme, contact, pinned }) {
 
                   <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
                     <div className="w-auto mt-auto">
-                      {contact.socialLinks && (
-                        <div className="md:mb-3">
-                          <Socials links={contact.socialLinks} />
-                        </div>
-                      )}
+                      {contact && (
+                        <>
+                          {contact?.socialLinks && (
+                            <div className="md:mb-3">
+                              <Socials links={contact.socialLinks} />
+                            </div>
+                          )}
 
-                      {contact.email && (
-                        <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                          {contact?.email && (
+                            <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                          )}
+                        </>
                       )}
                     </div>
 

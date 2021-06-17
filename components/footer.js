@@ -8,7 +8,7 @@ import Socials from './socials'
 export default function Footer({ contact }) {
   return (
     <footer className="bg-blue-dark bg-noise text-white">
-      {contact.socialLinks.map((item, i) => {
+      {contact?.socialLinks.map((item, i) => {
         return (
           <div key={i}>
             {item.title == 'instagram' || item.title == 'Instagram' && (
@@ -55,10 +55,14 @@ export default function Footer({ contact }) {
                 
                 <div className="mb-12 md:mb-12 lg:mb-56 2xl:mb-64">
                   <Button white overrideClasses="mb-5 text-blue-dark" href="/contact">Contact Us</Button>
-                  {contact.socialLinks && (
-                    <div className="mb-auto">
-                      <Socials links={contact.socialLinks} />
-                    </div>
+                  {contact && (
+                    <>
+                      {contact.socialLinks && (
+                        <div className="mb-auto">
+                          <Socials links={contact.socialLinks} />
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </span>
@@ -86,10 +90,10 @@ export default function Footer({ contact }) {
                   <span className="block text-lg md:text-xl 2xl:text-2xl font-bold mb-3 md:mb-6">Contact</span>
                   <nav>
                     <ul>
-                      {contact.email && (
+                      {contact?.email && (
                         <li className="block mb-1"><a href={`mailto:${contact.email}`} className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">{contact.email}</a></li>
                       )}
-                      {contact.phoneNumber && (
+                      {contact?.phoneNumber && (
                         <li className="block mb-1"><a href={`tel:${contact.phoneNumber}`} className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">{contact.phoneNumber}</a></li>
                       )}
                     </ul>
@@ -97,7 +101,7 @@ export default function Footer({ contact }) {
                 </div>
 
                 <div className="w-full lg:w-1/3 mb-5 lg:mb-0">
-                  {contact.address && (
+                  {contact?.address && (
                     <>
                       <span className="block text-lg md:text-xl 2xl:text-2xl font-bold mb-3 md:mb-6">Swwim HQ</span>
                       <span className="block opacity-60">{contact.address}</span>
