@@ -50,7 +50,7 @@ export default function CaseStudySlug(initialData) {
         }}
       />
 
-      {/* <Header theme="white" contact={contact} pinned /> */}
+      <Header theme="white" pinned />
 
       <motion.section
         initial="initial"
@@ -63,7 +63,7 @@ export default function CaseStudySlug(initialData) {
             <div className="w-full md:w-1/2 md:pt-32 2xl:pt-40 flex items-center">
             </div>
             <div className="w-full md:w-1/2 relative">
-              {/* <div className="block md:hidden bg-blue">
+              <div className="block md:hidden bg-blue">
                 <ImageWrapper
                   image={images[0]}
                   className="w-full"
@@ -81,7 +81,7 @@ export default function CaseStudySlug(initialData) {
                   alt={title}
                   fill="cover"
                 />
-              </div> */}
+              </div>
             </div>
           </div>
 
