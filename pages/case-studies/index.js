@@ -1,22 +1,51 @@
 import Image from 'next/image'
-import Layout from '../components/layout'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Container from '../components/container'
-import { fade } from "../helpers/transitions"
+import Layout from '../../components/layout'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import Container from '../../components/container'
+import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
-import CaseTeaser from '../components/case-teaser'
-import { caseStudies } from '../helpers/fake-data'
+import CaseTeaser from '../../components/case-teaser'
 import { NextSeo } from 'next-seo'
+import SanityPageService from '../../services/sanityPageService'
 
-export default function CaseStudiesLanding() {
+const query = `{
+  "cases": *[_type == "caseStudy"] {
+    title,
+    about,
+    images[] {
+      asset->
+    },
+    deliverables[]-> {
+      title
+    },
+    slug {
+      current
+    }
+  },
+  "contact": *[_type == "contact"][0] {
+    title,
+    email,
+    phoneNumber,
+    address,
+    socialLinks[] {
+      title,
+      url
+    }
+  }
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function CaseStudiesLanding(initialData) {
+  const { data: { cases, contact }  } = pageService.getPreviewHook(initialData)()
   return (
     <Layout>
       <NextSeo
         title="Case Studies"
       />
 
-      <Header theme="white" />
+      <Header theme="white" contact={contact} />
 
       <motion.section
         initial="initial"
@@ -67,14 +96,15 @@ export default function CaseStudiesLanding() {
             </div>
           
             <div className="border-t border-current mb-12 md:mb-16 2xl:mb-24 relative z-10">
-              {caseStudies.map((item, i) => {
+              {cases.map((item, i) => {
                 return (
                   <CaseTeaser
+                    href={`/case-studies/${item.slug.current}`}
                     key={i}
                     index={`0${i + 1}`}
                     heading={item.title}
-                    image={item.image}
-                    tags={item.tags}
+                    image={item.images[0]}
+                    tags={item.deliverables}
                   />
                 )
               })}
@@ -119,9 +149,16 @@ export default function CaseStudiesLanding() {
         </motion.div>
 
         <motion.div variants={fade} className="relative z-10">
-          <Footer />
+          <Footer contact={contact} />
         </motion.div>
       </motion.section>
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const props = await pageService.fetchQuery(context)
+  return { 
+    props
+  };
 }

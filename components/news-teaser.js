@@ -4,7 +4,7 @@ import Link from "next/link";
 import ImageWrapper from '../helpers/image-wrapper'
 import spacetime from 'spacetime'
 
-const NewsTeaser = React.forwardRef(({href, heading, image, author, theme, category, date}, ref) => {
+const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, theme, category, date}, ref) => {
   let arrowForeground = '#FFFFFF';
   let arrowBackground = '#1658B3';
 
@@ -16,7 +16,7 @@ const NewsTeaser = React.forwardRef(({href, heading, image, author, theme, categ
   let d = spacetime(date)
   return (
     <Link href={href}>
-      <a className="flex flex-wrap text-current md:-mx-3 2xl:-mx-5 border-b border-current py-8 md:py-10 2xl:py-16 group">
+      <a className={`flex flex-wrap text-current md:-mx-3 2xl:-mx-5 py-8 md:py-10 2xl:py-16 group ${noBorder ? '' : 'border-b border-current' }`}>
         <div className="w-full md:w-5/12 md:px-3 2xl:px-5 mb-3 md:mb-0">
           <div className="bg-blue-dark overflow-hidden">
 

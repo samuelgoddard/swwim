@@ -6,7 +6,7 @@ import Logo from './logo'
 import { motion, AnimatePresence } from "framer-motion"
 import Socials from './socials'
 
-export default function Header({ theme }) {
+export default function Header({ theme, contact, pinned }) {
 
   const popupNavVariant = {
     initial: { opacity: 0 },
@@ -31,7 +31,7 @@ export default function Header({ theme }) {
   }
 
   return (
-    <header className={`pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 bg-noise ${themeColors}`}>
+    <header className={`pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 ${themeColors} ${pinned ? 'absolute top-0 left-0 right-0 w-full z-20 bg-opacity-0' : 'bg-noise'}`}>
       <Container>
         <div className="flex flex-wrap items-center relative z-10">
           <div className="flex flex-wrap items-center">
@@ -176,11 +176,15 @@ export default function Header({ theme }) {
 
                   <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
                     <div className="w-auto mt-auto">
-                      <div className="md:mb-3">
-                        <Socials />
-                      </div>
+                      {contact.socialLinks && (
+                        <div className="md:mb-3">
+                          <Socials links={contact.socialLinks} />
+                        </div>
+                      )}
 
-                      <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                      {contact.email && (
+                        <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                      )}
                     </div>
 
                     <div className="hidden md:block md:max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">

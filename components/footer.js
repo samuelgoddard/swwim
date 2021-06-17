@@ -5,25 +5,33 @@ import Container from './container'
 import Logo from './logo'
 import Socials from './socials'
 
-export default function Footer() {
+export default function Footer({ contact }) {
   return (
     <footer className="bg-blue-dark bg-noise text-white">
-      <div className="bg-blue-light bg-noise py-6 2xl:py-8">
-        <Container>
-          <div className="flex flex-wrap items-center relative z-10">
-            <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</a></span>
-            
-            
-            <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
-              <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</a>
+      {contact.socialLinks.map((item, i) => {
+        return (
+          <div key={i}>
+            {item.title == 'instagram' || item.title == 'Instagram' && (
+              <div className="bg-blue-light bg-noise py-6 2xl:py-8">
+                <Container>
+                  <div className="flex flex-wrap items-center relative z-10">
+                    <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</a></span>
+                    
+                    
+                    <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
+                      <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</a>
 
-              <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
-                <Logo width="w-8/12" />
-              </a>
-            </div>
+                      <a href={item.url} target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
+                        <Logo width="w-8/12" />
+                      </a>
+                    </div>
+                  </div>
+                </Container>  
+              </div>
+            )}
           </div>
-        </Container>  
-      </div>
+        )
+      })}
 
       <Container>
         <div className="py-8 md:py-12 2xl:py-16 relative z-10">
@@ -47,10 +55,11 @@ export default function Footer() {
                 
                 <div className="mb-12 md:mb-12 lg:mb-56 2xl:mb-64">
                   <Button white overrideClasses="mb-5 text-blue-dark" href="/contact">Contact Us</Button>
-                  
-                  <div className="mb-auto">
-                    <Socials />
-                  </div>
+                  {contact.socialLinks && (
+                    <div className="mb-auto">
+                      <Socials links={contact.socialLinks} />
+                    </div>
+                  )}
                 </div>
               </span>
 
@@ -77,18 +86,23 @@ export default function Footer() {
                   <span className="block text-lg md:text-xl 2xl:text-2xl font-bold mb-3 md:mb-6">Contact</span>
                   <nav>
                     <ul>
-                      <li className="block mb-1"><a href="mailto:hello@weswimm.co.uk" className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">hello@weswwim.co.uk</a></li>
-                      <li className="block mb-1"><a href="tel:+4477777777" className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">+44 7777 7777</a></li>
+                      {contact.email && (
+                        <li className="block mb-1"><a href={`mailto:${contact.email}`} className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">{contact.email}</a></li>
+                      )}
+                      {contact.phoneNumber && (
+                        <li className="block mb-1"><a href={`tel:${contact.phoneNumber}`} className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">{contact.phoneNumber}</a></li>
+                      )}
                     </ul>
                   </nav>
                 </div>
 
                 <div className="w-full lg:w-1/3 mb-5 lg:mb-0">
-                  <span className="block text-lg md:text-xl 2xl:text-2xl font-bold mb-3 md:mb-6">Swwim HQ</span>
-
-                  <span className="block opacity-60">Victory Business Centre</span>
-                  <span className="block opacity-60">Portsmouth</span>
-                  <span className="block opacity-60">PO30 132</span>
+                  {contact.address && (
+                    <>
+                      <span className="block text-lg md:text-xl 2xl:text-2xl font-bold mb-3 md:mb-6">Swwim HQ</span>
+                      <span className="block opacity-60">{contact.address}</span>
+                    </>
+                  )}
                 </div>
 
                 

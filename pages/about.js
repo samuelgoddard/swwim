@@ -40,13 +40,23 @@ const query = `{
     image {
       asset->
     }
+  },
+  "contact": *[_type == "contact"][0] {
+    title,
+    email,
+    phoneNumber,
+    address,
+    socialLinks[] {
+      title,
+      url
+    }
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function About(initialData) {
-  const { data: { about, team }  } = pageService.getPreviewHook(initialData)()
+  const { data: { about, team, contact }  } = pageService.getPreviewHook(initialData)()
 
   const revealRefs = useRef(null);
 
@@ -81,7 +91,7 @@ export default function About(initialData) {
         title="About"
       />
 
-      <Header />
+      <Header contact={contact} />
 
       <motion.section
         initial="initial"
@@ -256,7 +266,7 @@ export default function About(initialData) {
         </motion.div>
 
         <motion.div variants={fade} className="relative z-10">
-          <Footer />
+          <Footer contact={contact} />
         </motion.div>
       </motion.section>
     </Layout>

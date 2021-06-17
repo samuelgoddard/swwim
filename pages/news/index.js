@@ -10,7 +10,7 @@ import NewsTeaserStacked from '../../components/news-teaser-stacked'
 import Button from '../../components/button'
 import Logo from '../../components/logo'
 import SanityPageService from '../../services/sanityPageService'
-import { ArticleJsonLd, NextSeo } from 'next-seo'
+import { NextSeo } from 'next-seo'
 
 const query = `{
   "news": *[_type == "news"] {
@@ -34,34 +34,50 @@ const query = `{
     slug {
       current
     }
+  },
+  "contact": *[_type == "contact"][0] {
+    title,
+    email,
+    phoneNumber,
+    address,
+    socialLinks[] {
+      title,
+      url
+    }
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function NewsLanding(initialData) {
-  const { data: { news }  } = pageService.getPreviewHook(initialData)()
+  const { data: { news, contact }  } = pageService.getPreviewHook(initialData)()
   return (
     <Layout>
       <NextSeo
         title="Latest Poolside"
       />
 
-      <Header theme="white" />
-      
+      <Header theme="white" contact={contact} />
+      <motion.section
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="absolute top-0 left-0 right-0 w-full overflow-visible z-10"
+      >
+        <motion.div variants={fade} className="w-[260px] md:w-[420px] xl:w-[500px] 2xl:w-[580px] absolute top-0 left-0 ml-[15%] md:ml-[35%] xl:ml-[40%] 2xl:ml-[45%] mt-[-200px] md:mt-[-300px] 2xl:mt-[-200px] z-0 transform rotate-6">
+          <div className="animate--wave--slow origin-top-left">
+            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
+          </div>
+        </motion.div>
+      </motion.section>
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
         className="bg-white bg-noise text-blue"
       >
-        <motion.div variants={fade} className="w-[260px] md:w-[420px] xl:w-[500px] 2xl:w-[580px] absolute top-0 left-0 ml-[15%] md:ml-[35%] xl:ml-[40%] 2xl:ml-[45%] mt-[-200px] md:mt-[-300px] 2xl:mt-[-400px] z-0 transform rotate-6">
-          <div className="animate--wave--slow origin-top-left">
-            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
-          </div>
-        </motion.div>
-
-        <motion.div variants={fade} className="relative z-10 overflow-hidden">
+        <motion.div variants={fade} className="relative z-20 overflow-hidden">
           <Container>
             <div className="relative overflow-visible">
               <div className="relative mb-12 md:mb-20 lg:mb-24 2xl:mb-24 mx-[3%] md:mx-[10%] lg:mx-48 2xl:mx-64">
@@ -141,21 +157,29 @@ export default function NewsLanding(initialData) {
               </div>
               
               <div className="w-full md:w-4/12 lg:w-3/12">
-                <div className="md:pl-12 w-full">
-                  <div className="w-full bg-blue-dark text-white p-5 md:p-6 2xl:p-10 mb-5 md:mb-8 2xl:mb-12">
-                    <div className="bg-blue bg-noise mx-auto w-24 md:w-32 h-24 md:h-32 flex items-center justify-center mb-3 md:mb-5">
-                      <Logo width="w-8/12" />
-                    </div>
+                {contact.socialLinks.map((item, i) => {
+                  return (
+                    <>
+                      {item.title == 'instagram' || item.title == 'Instagram' && (
+                        <div className="md:pl-12 w-full">
+                          <div className="w-full bg-blue-dark text-white p-5 md:p-6 2xl:p-10 mb-5 md:mb-8 2xl:mb-12">
+                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="bg-blue bg-noise mx-auto w-24 md:w-32 h-24 md:h-32 flex items-center justify-center mb-3 md:mb-5">
+                              <Logo width="w-8/12" />
+                            </a>
 
-                    <span className="w-full md:w-auto text-sm md:text-lg 2xl:text-xl font-medium block text-center">@weswwim</span>
-                  </div>
+                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto text-sm md:text-lg 2xl:text-xl font-medium block text-center">@weswwim</a>
+                          </div>
 
-                  <div className="w-full hidden md:block">
-                    <div className="w-10/12 mx-auto animate--float">
-                      <Image width={210} height={105} layout="responsive" src="/icons/soak-up.svg" alt="Soak Up The Latest handwritten text" className="w-full" />
-                    </div>
-                  </div>
-                </div>
+                          <div className="w-full hidden md:block">
+                            <div className="w-10/12 mx-auto animate--float">
+                              <Image width={210} height={105} layout="responsive" src="/icons/soak-up.svg" alt="Soak Up The Latest handwritten text" className="w-full" />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  )
+                })}
               </div>
             </div>
           </Container>
@@ -249,7 +273,7 @@ export default function NewsLanding(initialData) {
         </motion.div>
 
         <motion.div variants={fade} className="relative z-10 overflow-hidden">
-          <Footer />
+          <Footer contact={contact} />
         </motion.div>
       </motion.section>
     </Layout>

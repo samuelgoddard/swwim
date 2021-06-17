@@ -76,12 +76,22 @@ const query = `{
     },
     date
   }[0...3],
+  "contact": *[_type == "contact"][0] {
+    title,
+    email,
+    phoneNumber,
+    address,
+    socialLinks[] {
+      title,
+      url
+    }
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
-  const { data: { home, services, clients, news }  } = pageService.getPreviewHook(initialData)()
+  const { data: { home, services, clients, news, contact }  } = pageService.getPreviewHook(initialData)()
 
   const revealRefs = useRef(null);
   const wavyTextRefs = useRef(null);
@@ -169,7 +179,7 @@ export default function Home(initialData) {
         title="Social, Digital &amp; Content Creation"
       />
     
-      <Header />
+      <Header contact={contact} />
 
       <motion.section
         initial="initial"
@@ -572,6 +582,7 @@ export default function Home(initialData) {
                   category={article.categories ? article.categories[0].title : null}
                   date={article.date ?? null}
                   author={article.author ?? null}
+                  noBorder={i === news.length - 1}
                 />
               )
             })}
@@ -579,7 +590,7 @@ export default function Home(initialData) {
         </motion.div>
 
         <motion.div variants={fade} className="relative z-10">
-          <Footer />
+          <Footer contact={contact} />
         </motion.div>
       </motion.section>
     </Layout>
