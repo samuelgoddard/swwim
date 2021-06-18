@@ -4,7 +4,7 @@ import ImageWrapper from "../helpers/image-wrapper";
 export default function CaseTeaser({ heading, image, tags, index, href }) {
   return(
     <Link href={href}>
-      <a className="flex flex-wrap text-current border-b border-current pt-6 pb-4 md:py-12 2xl:py-14 md:-mx-8">
+      <a className="flex flex-wrap text-current border-b border-current pt-6 pb-4 md:py-12 2xl:py-14 md:-mx-8 group">
         <div className="flex flex-wrap w-full md:px-8 2xl:px-12">
           <div className="w-full md:w-1/2 md:px-8 flex flex-wrap order-2 md:order-1">
             <div className="w-10 md:w-full self-end mb-auto">
@@ -42,10 +42,10 @@ export default function CaseTeaser({ heading, image, tags, index, href }) {
                   />
                 </div>
 
-                <div className="hidden md:block bg-blue">
+                <div className="hidden md:block bg-blue overflow-hidden">
                   <ImageWrapper
                     image={image}
-                    className="w-full"
+                    className="w-full transform ease-in-out duration-500 group-hover:scale-105 group-focus:scale-105"
                     baseWidth={720}
                     baseHeight={720}
                     alt={heading}

@@ -443,12 +443,13 @@ export default function Home(initialData) {
             <div className="relative z-10">
               {services.map((service, i) => {
                 return (
-                  <Accordion
-                    key={i}
-                    heading={service.title}
-                    index={`0${i + 1}`} { ...( i == 0 && { open: true })}
-                    icon={service.icon.asset} 
-                  >
+                <Accordion
+                  key={i}
+                  heading={service.title}
+                  index={`0${i + 1}`}
+                  { ...( i == 0 && { openOverride: true })}
+                  icon={service.icon.asset} 
+                >
                     <BlockContentWrapper text={service.content} />
                   </Accordion>
                 )
@@ -480,15 +481,16 @@ export default function Home(initialData) {
               <div className="grid grid-cols-2 md:grid-cols-4 border-r border-b border-blue mb-16 md:mb-24 2xl:mb-32 relative z-20">
                 {clients.map((client, i) => {
                   return (
-                    <div className="bg-white border-l border-t border-blue flex items-center justify-center py-16 md:py-[4.35rem] lg:py-[5.25rem]" key={i}>
-                      <Image
-                        ref={fadeRevealRefs}
-                        src={client.logo.asset.url}
-                        width={client.logo.asset.metadata.dimensions.width}
-                        height={client.logo.asset.metadata.dimensions.height}
-                        alt={client.title}
-                        className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%]"
-                      />
+                    <div className="bg-white border-l border-t border-blue flex items-center justify-center p-[10vw] md:p-[3.35rem] lg:p-[5.25rem]" key={i}>
+                      <div ref={fadeRevealRefs}>
+                        <Image
+                          src={client.logo.asset.url}
+                          width={client.logo.asset.metadata.dimensions.width}
+                          height={client.logo.asset.metadata.dimensions.height}
+                          alt={client.title}
+                          className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%]"
+                        />
+                      </div>
                     </div>
                   )
                 })}
@@ -559,7 +561,7 @@ export default function Home(initialData) {
         exit="exit"
         className="bg-blue bg-noise text-white"
       >
-        <motion.div variants={fade} className="relative z-10 py-10 md:py-16 2xl:py-20">
+        <motion.div variants={fade} className="relative z-10 pt-10 md:pt-16 2xl:pt-20">
           <Container>
 
             <div className="flex flex-wrap items-center mb-3 md:mb-5 relative z-10">

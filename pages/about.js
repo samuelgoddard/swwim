@@ -31,7 +31,10 @@ const query = `{
     },
     inPageImage {
       asset->
-    }
+    },
+    instagramImages[] {
+      asset->
+    },
   },
   "team": *[_type == "team"] | order(order asc) {
     firstName,
@@ -218,6 +221,24 @@ export default function About(initialData) {
                   </div>
                 )
               })}
+
+              <div className="w-full mb-3 md:mb-5 2xl:mb-8">
+                <div className="border-blue border-2 mb-3 md:mb-4 bg-pink">
+                  <div ref={fadeRevealRefs}>
+                    <Image
+                      src={'/images/person-fallback.jpg'}
+                      className="w-full"
+                      width={520}
+                      height={660}
+                      layout="responsive"
+                      alt="Think you're fit?"
+                    />
+                  </div>
+                </div>
+
+                <span className="text-lg md:text-xl 2xl:text-2xl font-display block mb-0 pb-0 leading-tight">Think you're fit?</span>
+                <span className="text-base font-medium block leading-tight">Email us at <a className="underline" href="mailto:careers@weswwim.com">careers@weswwim.com</a></span>
+              </div>
             </div>
 
             <div className="w-[80%] md:w-[60%] 2xl:w-[50%] absolute top-0 md:bottom-0 left-0 ml-[-28%] md:ml-[-20%] mt-[4%] md:mt-[6%] 2xl:mt-[4%] z-0">
@@ -263,6 +284,104 @@ export default function About(initialData) {
               </div>
             </div>
           )}
+
+          <div className="w-full relative">
+
+          <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0 animate--float" ref={fadeRevealRefs}>
+            <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full" />
+          </div>
+
+          <div className="w-[65%] md:w-[40%] 2xl:w-[35%] absolute top-0 left-0 ml-[-32%] md:ml-[-18%] 2xl:ml-[-13%] mt-[5%] md:mt-[0%] xl:mt-[0%] z-0 animate--float" ref={fadeRevealRefs}>
+            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
+          </div>
+            <Container>
+              <div className="relative pt-40 pb-32 md:pb-48 md:pt-56 xl:pb-64 xl:pt-80">
+                {/* Top Left */}
+                <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute top-0 top-[10%] left-0 bg-pink border-2 border-blue" ref={fadeRevealRefs}>
+                  <ImageWrapper
+                    image={about.instagramImages[0].asset}
+                    className="w-full h-full"
+                    baseWidth={650}
+                    baseHeight={650}
+                    fill="cover"
+                  />
+                </div>
+
+                {/* Bottom Left */}
+                <div className="w-[15vw] md:w-[12vw] h-[15vw] md:h-[12vw] 2xl:w-[155px] 2xl:h-[155px] absolute bottom-0 bottom-[10%] left-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
+                  <ImageWrapper
+                    image={about.instagramImages[1].asset}
+                    className="w-full h-full"
+                    baseWidth={650}
+                    baseHeight={650}
+                    fill="cover"
+                  />
+                </div>
+
+                {/* Bottom Right */}
+                <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute bottom-0 bottom-[10%] right-0 border-2 border-blue bg-pink" ref={fadeRevealRefs}>
+                  <ImageWrapper
+                    image={about.instagramImages[2].asset}
+                    className="w-full h-full"
+                    baseWidth={650}
+                    baseHeight={650}
+                    fill="cover"
+                  />
+                </div>
+
+                {/* Top Right */}
+                <div className="w-[16vw] md:w-[14vw] h-[16vw] md:h-[14vw] 2xl:w-[190px] 2xl:h-[190px] absolute top-0 top-[10%] right-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
+                  <ImageWrapper
+                    image={about.instagramImages[3].asset}
+                    className="w-full h-full"
+                    baseWidth={650}
+                    baseHeight={650}
+                    fill="cover"
+                  />
+                </div>
+
+                {/* Just keep swimming */}
+                <div className="absolute bottom-0 mb-6 left-0 w-[28vw] h-[28vw] ml-[-20vw] lg:-ml-40 flex flex-wrap items-center justify-center max-w-xs max-h-[20rem]">
+                  <div className="absolute bottom-0 left-0 w-full animate-spin-slow" ref={fadeRevealRefs}>
+                    <Image width={301} height={304} layout="responsive" src="/icons/just-keep-swimming-dark.svg" alt="Just Keep Swimming" className="w-full" />
+                  </div>
+
+                  <div className="w-4/12" ref={fadeRevealRefs}>
+                    <Image width={112} height={96} layout="responsive" src="/icons/camera.svg" alt="Camera Illustration" className="w-full" />
+                  </div>
+                </div>
+
+                <div className="transform -rotate-2 mb-4 md:mb-6 xl:mb-8">
+                  <span className="text-base font-display uppercase flex mb-1 md:mb-2 items-center justify-center">
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">I</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">n</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">s</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">t</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">a</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">g</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">r</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">a</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">m</span>
+                  </span>
+                </div>
+
+                <span className="text-center block uppercase text-4xl md:text-5xl xl:text-6xl font-display mb-4 md:mb-6">Soak up the latest</span>
+
+                <div className="mx-auto flex justify-center">
+                  <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferrer" className={`rounded-full text-center inline-block font-bold group relative overflow-hidden transition-colors ease-in-out duration-500 bg-blue text-white px-5 md:px-8 py-3 md:py-4 font-display text-lg`}>
+                    <span className="block relative z-10">@weswwim</span>
+                    <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                  </a>
+                </div>
+
+                <div className="flex justify-center">
+                  <div className="w-32 md:w-40 -mr-20 md:-mr-24 xl:-mr-32">
+                    <Image width={167} height={102} layout="responsive" src="/icons/dive-in.svg" alt="Dive In in handwritten text" className="w-full" />
+                  </div>
+                </div>
+              </div>
+            </Container>
+          </div>
         </motion.div>
 
         <motion.div variants={fade} className="relative z-10">
