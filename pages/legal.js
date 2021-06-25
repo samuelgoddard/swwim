@@ -1,13 +1,14 @@
+import { useContext } from 'react'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import BlockContentWrapper from '../components/block-content-wrapper'
 import SanityPageService from '../services/sanityPageService'
 import { NextSeo } from 'next-seo'
+import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
+import LegalTabs from '../components/legal-tabs'
 
 const query = `{
   "legal": *[_type == "legal"] {
@@ -37,21 +38,24 @@ export default function Legal(initialData) {
 
       <Header contact={contact} />
 
+      <div data-scroll-container id="scroll-container">
+      <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white overflow-hidden"
+        className="bg-blue bg-noise text-white overflow-hidden pt-24 md:pt-32 xl:pt-40"
       >
         <motion.div variants={fade} className="relative z-10">
           <Container>
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
               <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
-                <span className="block mx-px">L</span>
+                <span className="block mx-px animate--letter-float delay-75">L</span>
                 <span className="block mx-px animate--letter-float">e</span>
-                <span className="block mx-px">g</span>
+                <span className="block mx-px animate--letter-float delay-75">g</span>
                 <span className="block mx-px animate--letter-float">a</span>
-                <span className="block mx-px">l</span>
+                <span className="block mx-px animate--letter-float delay-75">l</span>
               </span>
 
               <div className="relative">
@@ -62,27 +66,7 @@ export default function Legal(initialData) {
 
           <Container>
             <div className="relative z-10 overflow-visible pb-12 md:pb-32 2xl:pb-40">
-              <Tabs selectedTabClassName="bg-white block text-blue px-2">
-                <TabList className="md:mx-[10%] lg:mx-32 xl:mx-40 2xl:mx-56 flex flex-wrap mb-8 md:mb-10 2xl:mb-12 font-bold">
-
-                  {legal.map((item, i) => {
-                    return (
-                      <Tab key={i} className="border-b border-white mr-5 px-1 block cursor-pointer">{item.title}</Tab>
-                    )
-                  })}
-                </TabList>
-
-                {/* Terms */}
-                {legal.map((item, i) => {
-                  return (
-                    <TabPanel key={i}>
-                      <div className="md:mx-[10%] lg:mx-32 xl:mx-40 2xl:mx-56 content content--fancy-first content--large">
-                        <BlockContentWrapper text={item.content} />
-                      </div>
-                    </TabPanel>
-                  )
-                })}
-              </Tabs>
+              <LegalTabs items={legal}></LegalTabs>
             </div>
           </Container>
         </motion.div>
@@ -91,6 +75,8 @@ export default function Legal(initialData) {
           <Footer contact={contact} />
         </motion.div>
       </motion.section>
+      </SmoothScrollProvider>
+      </div>
     </Layout>
   )
 }

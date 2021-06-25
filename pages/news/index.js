@@ -11,6 +11,7 @@ import Button from '../../components/button'
 import Logo from '../../components/logo'
 import SanityPageService from '../../services/sanityPageService'
 import { NextSeo } from 'next-seo'
+import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 
 const query = `{
   "news": *[_type == "news"] {
@@ -58,6 +59,9 @@ export default function NewsLanding(initialData) {
       />
 
       <Header theme="white" contact={contact} />
+      <div data-scroll-container id="scroll-container">
+      <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+      
       <motion.section
         initial="initial"
         animate="enter"
@@ -75,7 +79,7 @@ export default function NewsLanding(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue"
+        className="bg-white bg-noise text-blue pt-24 md:pt-32 xl:pt-40"
       >
         <motion.div variants={fade} className="relative z-20 overflow-hidden">
           <Container>
@@ -275,6 +279,8 @@ export default function NewsLanding(initialData) {
           <Footer contact={contact} />
         </motion.div>
       </motion.section>
+      </SmoothScrollProvider>
+      </div>
     </Layout>
   )
 }

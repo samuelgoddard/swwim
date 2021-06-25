@@ -11,8 +11,8 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
 import ImageWrapper from '../../helpers/image-wrapper'
 import spacetime from 'spacetime'
-import BodyRenderer from '../../components/body-renderer'
 import EditorialContentWrapper from '../../components/editorial-content-wrapper'
+import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 
 const query = `*[_type == "news" && slug.current == $slug][0]{
   seo {
@@ -68,11 +68,14 @@ export default function NewsSlug(initialData) {
 
       <Header />
 
+      <div data-scroll-container id="scroll-container">
+      <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white pb-8 md:pb-16 2xl:pb-24"
+        className="bg-blue bg-noise text-white pb-8 md:pb-16 2xl:pb-24 pt-24 md:pt-32 xl:pt-40"
       >
         <motion.div variants={fade} className="relative z-10 overflow-hidden">
           <Container>
@@ -265,6 +268,8 @@ export default function NewsSlug(initialData) {
           <Footer />
         </motion.div>
       </motion.section>
+      </SmoothScrollProvider>
+      </div>
     </Layout>
   )
 }

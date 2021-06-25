@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Container from './container'
 import Logo from './logo'
 import { motion, AnimatePresence } from "framer-motion"
 import Socials from './socials'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Header({ theme, contact, pinned }) {
+
+  const { scroll } = useContext(SmoothScrollContext)
 
   const popupNavVariant = {
     initial: { opacity: 0 },
@@ -30,15 +37,47 @@ export default function Header({ theme, contact, pinned }) {
     themeButtonColors = 'bg-blue text-white hover:text-white'
   }
 
+  // useEffect(() => {    
+  //   scroll.on("scroll", ScrollTrigger.update);
+
+  //   ScrollTrigger.scrollerProxy("#scroll-container", {
+  //     scrollTop(value) {
+  //       return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+  //     },
+  //     getBoundingClientRect() {
+  //       return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  //     },
+  //     pinType: document.querySelector("#scroll-container").style.transform ? "transform" : "fixed"
+  //   });
+
+  //   gsap.fromTo('.header', {
+  //     autoAlpha: 0
+  //   }, {
+  //     duration: 0.35, 
+  //     autoAlpha: 1,
+  //     ease: "power2.easeInOut",
+  //     scrollTrigger: {
+  //       scroller: "#scroll-container",
+  //       start: 'top 0',
+  //       scrub: true,
+  //       end: 9999,
+  //       toggleClass: {className: 'bg-bg-red-500', targets: '.header'}
+  //     }
+  //   });
+
+  //   ScrollTrigger.addEventListener("refresh", () => scroll.update());
+  //   ScrollTrigger.refresh();
+  // }, [scroll]);
+
   return (
-    <header className={`pt-8 pb-12 md:pt-12 md:pb-16 2xl:pt-16 2xl:pb-20 ${themeColors} ${pinned ? 'absolute top-0 left-0 right-0 w-full z-20 bg-opacity-0' : 'bg-noise'}`}>
+    <header className={`pt-3 pb-3 md:pt-4 md:pb-4 xl:pt-5 xl:pb-5 fixed top-0 left-0 right-0 z-30 header ${themeColors} ${pinned ? 'absolute top-0 left-0 right-0 w-full z-20 bg-opacity-0' : 'bg-noise'}`}>
       <Container>
         <div className="flex flex-wrap items-center relative z-10">
           <div className="flex flex-wrap items-center">
             <div className={`md:border-r border-opacity-30 mr-5 pr-5 ${ theme == 'white' ? 'border-blue' : 'border-white' }`}>
               <Link href="/">
                 <a aria-label="Navigate to the home page" className="block py-2 ring-white">
-                  <Logo width="w-24 md:w-32 2xl:w-40" />
+                  <Logo width="w-24 md:w-32 xl:w-40" />
                 </a>
               </Link>
             </div>

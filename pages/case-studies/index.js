@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import CaseTeaser from '../../components/case-teaser'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
+import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 
 const query = `{
   "cases": *[_type == "caseStudy"] {
@@ -47,11 +48,13 @@ export default function CaseStudiesLanding(initialData) {
 
       <Header theme="white" contact={contact} />
 
+      <div data-scroll-container id="scroll-container">
+      <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue overflow-hidden"
+        className="bg-white bg-noise text-blue overflow-hidden pt-24 md:pt-32 xl:pt-40"
       >
         <motion.div variants={fade} className="relative z-10">
           <Container>
@@ -71,17 +74,17 @@ export default function CaseStudiesLanding(initialData) {
 
               <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-48 2xl:mx-64">
                 <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
-                  <span className="block mx-px">C</span>
+                  <span className="block mx-px animate--letter-float--delay">C</span>
                   <span className="block mx-px animate--letter-float">a</span>
-                  <span className="block mx-px">s</span>
+                  <span className="block mx-px animate--letter-float--delay">s</span>
                   <span className="block mx-px animate--letter-float">e</span>
-                  <span className="block mx-px">&nbsp;</span>
+                  <span className="block mx-px animate--letter-float--delay">&nbsp;</span>
                   <span className="block mx-px animate--letter-float">S</span>
-                  <span className="block mx-px">t</span>
+                  <span className="block mx-px animate--letter-float--delay">t</span>
                   <span className="block mx-px animate--letter-float">u</span>
-                  <span className="block mx-px">d</span>
+                  <span className="block mx-px animate--letter-float--delay">d</span>
                   <span className="block mx-px animate--letter-float">i</span>
-                  <span className="block mx-px">e</span>
+                  <span className="block mx-px animate--letter-float--delay">e</span>
                   <span className="block mx-px animate--letter-float">s</span>
                 </span>
 
@@ -152,6 +155,8 @@ export default function CaseStudiesLanding(initialData) {
           <Footer contact={contact} />
         </motion.div>
       </motion.section>
+      </SmoothScrollProvider>
+      </div>
     </Layout>
   )
 }

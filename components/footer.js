@@ -1,11 +1,20 @@
+import { useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from './button'
 import Container from './container'
 import Logo from './logo'
 import Socials from './socials'
+import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
 
 export default function Footer({ contact }) {
+  const { scroll } = useContext(SmoothScrollContext)
+
+  const goToTop = event => {
+    event.preventDefault()
+    scroll && scroll.scrollTo(0)
+  }
+
   return (
     <footer className="bg-blue-dark bg-noise text-white">
       {contact?.socialLinks.map((item, i) => {
@@ -42,9 +51,9 @@ export default function Footer({ contact }) {
               </a>
             </Link>
 
-            <a href="#" className="block rounded-full ml-auto ring-white transform hover:scale-125 transition ease-in-out duration-300">
+            <button onClick={goToTop} className="block rounded-full ml-auto ring-white transform hover:scale-125 transition ease-in-out duration-300">
               <svg className="w-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
-            </a>
+            </button>
           </div>
 
           <div className="flex flex-wrap">

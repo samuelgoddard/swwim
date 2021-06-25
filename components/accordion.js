@@ -1,12 +1,20 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Image from "next/image";
+import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
 
 export default function Accordion({ children, heading, index, icon, openOverride}) {
   const [open, setOpen] = useState(openOverride)
 
+  const { scroll } = useContext(SmoothScrollContext)
+  
+  function openToggle() {
+    setTimeout(() => scroll.update(), 50);
+    setOpen(!open)
+  }
+
   return(
     <div className={`border-b border-blue w-full ${ index == '01' ? 'border-t' : ''}`}>
-      <button className="block w-full text-left focus:outline-none focus:border-none wiggle-on-hover-container" onClick={() => setOpen(!open)}>
+      <button className="block w-full text-left focus:outline-none focus:border-none wiggle-on-hover-container" onClick={() => openToggle()}>
         <div className="py-6 md:py-10 2xl:py-12 cursor-pointer ring-blue">
           <div className="flex flex-wrap items-center">
             <span className="block stroke stroke--thin text-2xl md:text-3xl font-bold mt-[0px] md:-mt-1 md:w-1/3 pr-2">{index}</span>

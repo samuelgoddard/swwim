@@ -12,6 +12,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SanityPageService from '../services/sanityPageService'
 import ImageWrapper from '../helpers/image-wrapper'
+import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,22 +66,22 @@ export default function About(initialData) {
 
   revealRefs.current = [];
 
-  useEffect(() => {
-    revealRefs.current.forEach((el, index) => {
-      gsap.fromTo(el, {
-        autoAlpha: 0
-      }, {
-        duration: 0.35, 
-        autoAlpha: 1,
-        ease: "power2.easeInOut",
-        scrollTrigger: {
-          trigger: el,
-          start: 'top center+=400',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   revealRefs.current.forEach((el, index) => {
+  //     gsap.fromTo(el, {
+  //       autoAlpha: 0
+  //     }, {
+  //       duration: 0.35, 
+  //       autoAlpha: 1,
+  //       ease: "power2.easeInOut",
+  //       scrollTrigger: {
+  //         trigger: el,
+  //         start: 'top center+=400',
+  //         toggleActions: 'play none none reverse'
+  //       }
+  //     });
+  //   });
+  // }, []);
 
   const fadeRevealRefs = el => {
     if (el && !revealRefs.current.includes(el)) {
@@ -96,21 +97,24 @@ export default function About(initialData) {
 
       <Header contact={contact} />
 
+      <div data-scroll-container id="scroll-container">
+      <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white overflow-hidden"
+        className="bg-blue bg-noise text-white overflow-hidden pt-24 md:pt-32 xl:pt-40"
       >
         <motion.div variants={fade} className="relative z-10">
           <Container>
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
               <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
-                <span className="block mx-px">A</span>
+                <span className="block mx-px animate--letter-float--delay">A</span>
                 <span className="block mx-px animate--letter-float">b</span>
-                <span className="block mx-px">o</span>
+                <span className="block mx-px animate--letter-float--delay">o</span>
                 <span className="block mx-px animate--letter-float">u</span>
-                <span className="block mx-px">t</span>
+                <span className="block mx-px animate--letter-float--delay">t</span>
               </span>
 
               <div className="relative">
@@ -179,14 +183,14 @@ export default function About(initialData) {
             <div className="flex flex-wrap justify-center">
               <div className="inline-block mb-8 md:mb-12 2xl:mb-16 relative z-10 max-w-xs md:max-w-xl 2xl:max-w-2xl mx-auto">
                 <span className="text-base font-display uppercase flex mb-1 md:mb-2 justify-center">
-                  <span className="block mx-px">T</span>
-                  <span className="block mx-px mt-[-3px]">h</span>
-                  <span className="block mx-px">e</span>
-                  <span className="block mx-px mt-[-3px]">&nbsp;</span>
-                  <span className="block mx-px">T</span>
-                  <span className="block mx-px mt-[-3px]">e</span>
-                  <span className="block mx-px">a</span>
-                  <span className="block mx-px mt-[-3px]">m</span>
+                  <span className="block animate--letter-float--delay">T</span>
+                  <span className="block animate--letter-float">h</span>
+                  <span className="block animate--letter-float--delay">e</span>
+                  <span className="block animate--letter-float">&nbsp;</span>
+                  <span className="block animate--letter-float--delay">T</span>
+                  <span className="block animate--letter-float">e</span>
+                  <span className="block animate--letter-float--delay">a</span>
+                  <span className="block animate--letter-float">m</span>
                 </span>
                 <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">A Group Of Like Minded Individuals</h3>
                 
@@ -353,15 +357,15 @@ export default function About(initialData) {
 
                 <div className="transform -rotate-2 mb-4 md:mb-6 xl:mb-8">
                   <span className="text-base font-display uppercase flex mb-1 md:mb-2 items-center justify-center">
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">I</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">n</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">s</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">t</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">a</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">g</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">r</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px animate--letter-float">a</span>
-                    <span className="block text-lg md:text-xl xl:text-2xl transform -rotate-12 mx-px">m</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform animate--letter-float--delay">I</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform mx-px animate--letter-float">n</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform animate--letter-float--delay">s</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform mx-px animate--letter-float">t</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform animate--letter-float--delay">a</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform mx-px animate--letter-float">g</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform animate--letter-float--delay">r</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform mx-px animate--letter-float">a</span>
+                    <span className="block text-lg md:text-xl xl:text-2xl transform animate--letter-float--delay">m</span>
                   </span>
                 </div>
 
@@ -388,6 +392,8 @@ export default function About(initialData) {
           <Footer contact={contact} />
         </motion.div>
       </motion.section>
+      </SmoothScrollProvider>
+      </div>
     </Layout>
   )
 }

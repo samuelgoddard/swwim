@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useContext, useRef } from 'react';
 import Image from 'next/image'
 import Layout from '../components/layout'
 import Header from '../components/header'
@@ -9,12 +9,14 @@ import { motion } from 'framer-motion'
 import FancyLink from '../components/fancy-link'
 import Accordion from '../components/accordion'
 import NewsTeaser from '../components/news-teaser'
+import ScrollToContent from '../components/scroll-to-content'
 import { NextSeo } from 'next-seo'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import SanityPageService from '../services/sanityPageService'
 import BlockContentWrapper from '../components/block-content-wrapper'
 import ImageWrapper from '../helpers/image-wrapper';
+import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,6 +95,13 @@ const pageService = new SanityPageService(query)
 export default function Home(initialData) {
   const { data: { home, services, clients, news, contact }  } = pageService.getPreviewHook(initialData)()
 
+  // function goToContent(event) {
+  //   event.preventDefault()
+  //   scroll && scroll.scrollTo(500)
+
+  //   setTimeout(() => scroll && scroll.update(), 250);
+  // }
+  
   const revealRefs = useRef(null);
   const wavyTextRefs = useRef(null);
   const svgDrawRefs = useRef(null);
@@ -101,59 +110,58 @@ export default function Home(initialData) {
   wavyTextRefs.current = [];
   svgDrawRefs.current = [];
 
-  // Standard Opacity Reveal
-  useEffect(() => {
-    revealRefs.current.forEach((el, index) => {
-      gsap.fromTo(el, {
-        autoAlpha: 0
-      }, {
-        duration: 0.35, 
-        autoAlpha: 1,
-        ease: "power2.easeInOut",
-        scrollTrigger: {
-          trigger: el,
-          start: 'top center+=400',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   revealRefs.current.forEach((el, index) => {
+  //     gsap.fromTo(el, {
+  //       autoAlpha: 0
+  //     }, {
+  //       duration: 0.35, 
+  //       autoAlpha: 1,
+  //       ease: "power2.easeInOut",
+  //       scrollTrigger: {
+  //         trigger: el,
+  //         start: 'top center+=400',
+  //         toggleActions: 'play none none reverse'
+  //       }
+  //     });
+  //   });
+  // }, []);
 
   // Wavey Text Reveals
-  useEffect(() => {
-    wavyTextRefs.current.forEach((el, index) => {
-      gsap.fromTo(el, {
-        y: -2
-      }, {
-        duration: 1, 
-        y: 4,
-        ease: "power2.easeInOut",
-        scrollTrigger: {
-          trigger: el,
-          start: 'top center+=300',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   wavyTextRefs.current.forEach((el, index) => {
+  //     gsap.fromTo(el, {
+  //       y: -2
+  //     }, {
+  //       duration: 1, 
+  //       y: 4,
+  //       ease: "power2.easeInOut",
+  //       scrollTrigger: {
+  //         trigger: el,
+  //         start: 'top center+=300',
+  //         toggleActions: 'play none none reverse'
+  //       }
+  //     });
+  //   });
+  // }, []);
   
   // SVG Draw Reveal
-  useEffect(() => {
-    svgDrawRefs.current.forEach((el, index) => {
-      gsap.fromTo(el, {
-        y: -2
-      }, {
-        duration: 1, 
-        y: 4,
-        ease: "power2.easeInOut",
-        scrollTrigger: {
-          trigger: el,
-          start: 'top center+=300',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   svgDrawRefs.current.forEach((el, index) => {
+  //     gsap.fromTo(el, {
+  //       y: -2
+  //     }, {
+  //       duration: 1, 
+  //       y: 4,
+  //       ease: "power2.easeInOut",
+  //       scrollTrigger: {
+  //         trigger: el,
+  //         start: 'top center+=300',
+  //         toggleActions: 'play none none reverse'
+  //       }
+  //     });
+  //   });
+  // }, []);
 
   const fadeRevealRefs = el => {
     if (el && !revealRefs.current.includes(el)) {
@@ -173,29 +181,27 @@ export default function Home(initialData) {
     }
   };
 
-  return (
+  return (    
     <Layout>
       <NextSeo
         title="Social, Digital &amp; Content Creation"
       />
-    
+
       <Header contact={contact} />
+
+      <div data-scroll-container id="scroll-container">
+      <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
 
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white pb-8 md:pb-12 2xl:pb-16"
+        className="bg-blue bg-noise text-white pb-8 md:pb-12 2xl:pb-16 pt-24 md:pt-32 xl:pt-40"
       >
         <motion.div variants={fade} className="relative z-10">
 
-          {/* {JSON.stringify(home)}
-          {JSON.stringify(services)} */}
           <Container>
-            <div className="flex space-x-3 items-center mb-3">
-              <svg className="w-8 transform rotate-180" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
-              <span className="block font-medium">Dive right in</span>
-            </div>
+            <ScrollToContent />
 
             <div className="relative mb-8 md:mb-6 2xl:mb-8">
               <div className="w-[30%] md:w-[20%] absolute top-0 left-0 mt-[6%] ml-[65%] md:mt-[10%] md:ml-[46%] z-20 animate--wiggle">
@@ -230,7 +236,7 @@ export default function Home(initialData) {
               </span>
             </div>
 
-            <div className="border-t border-b border-white py-4 md:py-6 mb-12 md:mb-16 2xl:mb-24 relative z-10 overflow-hidden">
+            <div className="border-t border-b border-white py-4 md:py-6 relative z-10 overflow-hidden">
               <div className="relative flex overflow-x-hidden font-display uppercase md:text-[2vw] 2xl:text-3xl">
                 <div className="animate-marquee whitespace-nowrap">
                   <span className="mx-1">Brand Strategy</span>
@@ -262,7 +268,7 @@ export default function Home(initialData) {
           </Container>
           
           <Container overflowHidden>
-            <div className="relative mb-16 md:mb-32 2xl:mb-40">
+            <div className="relative mb-16 md:mb-32 2xl:mb-40 pt-20 md:pt-24 2xl:pt-32" id="intro-area">
               <div className="w-[38%] md:w-[40%] absolute top-auto md:top-0 bottom-0 z-20 md:bottom-auto right-0 mb-28 md:mb-0 md:mt-[25%] max-w-xs -mr-16 md:-mr-28 2xl:-mr-6 hidden md:block animate--float" ref={fadeRevealRefs}>
                 <Image width={279} height={418} layout="responsive" src="/icons/unicorn-left.svg" alt="Unicorn Illustration" className="w-full" />
               </div>
@@ -277,13 +283,13 @@ export default function Home(initialData) {
                     <div className="max-w-xl">
                       <div className="inline-block mb-2 md:mb-4">
                       <span className="text-base md:text-lg font-display uppercase mb-2 md:mb-3 flex">
-                        <span className="block transform skew-x-6">W</span>
-                        <span className="block transform skew-x-6" ref={addWavyTextRefs}>e</span>
-                        <span className="block transform skew-x-6">l</span>
-                        <span className="block transform skew-x-6 mt-px" ref={addWavyTextRefs}>c</span>
-                        <span className="block transform skew-x-6">o</span>
-                        <span className="block transform skew-x-6" ref={addWavyTextRefs}>m</span>
-                        <span className="block transform skew-x-6">e</span>
+                        <span className="block transform animate--letter-float--delay">W</span>
+                        <span className="block transform animate--letter-float" ref={addWavyTextRefs}>e</span>
+                        <span className="block transform animate--letter-float--delay">l</span>
+                        <span className="block transform animate--letter-float" ref={addWavyTextRefs}>c</span>
+                        <span className="block transform animate--letter-float--delay">o</span>
+                        <span className="block transform animate--letter-float" ref={addWavyTextRefs}>m</span>
+                        <span className="block transform animate--letter-float--delay">e</span>
                       </span>
                         <h1 className="font-display uppercase block text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl mb-0 pb-0 pr-12 md:pr-10 lg:pr-32 2xl:pr-24 relative z-10">{home.welcomeHeading}</h1>
 
@@ -419,19 +425,19 @@ export default function Home(initialData) {
             
             <div className="inline-block mb-8 md:mb-16 2xl:mb-24 relative z-10">
               <span className="text-base font-display uppercase flex mb-1 md:mb-2">
-                <span className="block mx-px">W</span>
+                <span className="block mx-px animate--letter-float--delay">W</span>
                 <span className="block mx-px animate--letter-float">h</span>
-                <span className="block mx-px">a</span>
+                <span className="block mx-px animate--letter-float--delay">a</span>
                 <span className="block mx-px animate--letter-float">t</span>
-                <span className="block mx-px">&nbsp;</span>
+                <span className="block mx-px animate--letter-float--delay">&nbsp;</span>
                 <span className="block mx-px animate--letter-float">w</span>
-                <span className="block mx-px">e</span>
+                <span className="block mx-px animate--letter-float--delay">e</span>
                 <span className="block mx-px animate--letter-float">&nbsp;</span>
-                <span className="block mx-px">O</span>
+                <span className="block mx-px animate--letter-float--delay">O</span>
                 <span className="block mx-px animate--letter-float">f</span>
-                <span className="block mx-px">f</span>
+                <span className="block mx-px animate--letter-float--delay">f</span>
                 <span className="block mx-px animate--letter-float">e</span>
-                <span className="block mx-px">r</span>
+                <span className="block mx-px animate--letter-float--delay">r</span>
               </span>
               <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0">Our Services</h2>
               
@@ -463,13 +469,13 @@ export default function Home(initialData) {
             <div className="relative overflow-visible pt-24 md:pt-40 2xl:pt-48">
               <div className="text-center mb-6 md:mb-12 relative z-10">
                 <span className="text-base font-display uppercase mb-1 md:mb-2 flex flex-wrap justify-center">
-                  <span className="block mx-px">C</span>
+                  <span className="block mx-px animate--letter-float--delay">C</span>
                   <span className="block mx-px animate--letter-float">l</span>
-                  <span className="block mx-px">i</span>
+                  <span className="block mx-px animate--letter-float--delay">i</span>
                   <span className="block mx-px animate--letter-float">e</span>
-                  <span className="block mx-px">n</span>
+                  <span className="block mx-px animate--letter-float--delay">n</span>
                   <span className="block mx-px animate--letter-float">t</span>
-                  <span className="block mx-px">s</span>
+                  <span className="block mx-px animate--letter-float--delay">s</span>
                 </span>
 
                 <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0">Working With The Best</h2>
@@ -567,9 +573,9 @@ export default function Home(initialData) {
             <div className="flex flex-wrap items-center mb-3 md:mb-5 relative z-10">
               <div className="w-auto">
                 <span className="text-base font-display uppercase mb-1 md:mb-2 flex">
-                  <span className="block mx-px">N</span>
+                  <span className="block mx-px animate--letter-float animate--letter-float--delay">N</span>
                   <span className="block mx-px animate--letter-float">e</span>
-                  <span className="block mx-px">w</span>
+                  <span className="block mx-px animate--letter-float animate--letter-float--delay">w</span>
                   <span className="block mx-px animate--letter-float">s</span>
                 </span>
                 <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0">Latest<span className="block">Poolside</span></h2>
@@ -602,6 +608,8 @@ export default function Home(initialData) {
           <Footer contact={contact} />
         </motion.div>
       </motion.section>
+      </SmoothScrollProvider>
+    </div>
     </Layout>
   )
 }
@@ -609,6 +617,6 @@ export default function Home(initialData) {
 export async function getStaticProps(context) {
   const props = await pageService.fetchQuery(context)
   return { 
-    props
+    props: props
   };
 }
