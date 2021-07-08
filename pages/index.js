@@ -223,7 +223,9 @@ export default function Home(initialData) {
         <motion.div variants={fadeDelay} className="relative z-10">
 
           <Container>
-            <ScrollToContent />
+            <div className="mb-3">
+              <ScrollToContent />
+            </div>
 
             <div className="relative mb-8 md:mb-6 2xl:mb-8">
               <div className="w-[30%] md:w-[20%] absolute top-0 left-0 mt-[6%] ml-[65%] md:mt-[10%] md:ml-[46%] z-20 animate--wiggle">
@@ -270,32 +272,36 @@ export default function Home(initialData) {
             </div>
 
             <div className="border-t border-b border-white py-4 md:py-6 relative z-10 overflow-hidden">
-              <div className="relative flex overflow-x-hidden font-display uppercase md:text-[2vw] 2xl:text-3xl">
-                <div className="animate-marquee whitespace-nowrap">
-                  <span className="mx-1">Brand Strategy</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Events</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Influencer Marketing</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Content Creation</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Copy Writing</span>
-                  <span className="mx-1">&bull;</span>
-                </div>
+              <div className="overflow-hidden">
+                <motion.div variants={textReveal}>
+                  <div className="relative flex overflow-x-hidden font-display uppercase md:text-[2vw] 2xl:text-3xl">  
+                    <div className="animate-marquee whitespace-nowrap">
+                      <span className="mx-1">Brand Strategy</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Events</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Influencer Marketing</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Content Creation</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Copy Writing</span>
+                      <span className="mx-1">&bull;</span>
+                    </div>
 
-                <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
-                  <span className="mx-1">Brand Strategy</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Events</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Influencer Marketing</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Content Creation</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Copy Writing</span>
-                  <span className="mx-1">&bull;</span>
-                </div>
+                    <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
+                      <span className="mx-1">Brand Strategy</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Events</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Influencer Marketing</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Content Creation</span>
+                      <span className="mx-1">&bull;</span>
+                      <span className="mx-1">Copy Writing</span>
+                      <span className="mx-1">&bull;</span>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </Container>
@@ -398,7 +404,16 @@ export default function Home(initialData) {
               <div className="flex flex-wrap mb-3 md:mb-16 2xl:mb-24">
                 <div className="w-10/12 md:ml-auto">
                   <div className="relative">
-                    <h2 className="relative z-10 block font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none md:text-right">Just getting on <span className="stroke">with it</span></h2>
+                    <h2 className="relative z-10 font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none md:text-right hidden md:block">
+                      <span className="block overflow-hidden">
+                        <motion.span variants={textReveal} className="block">Just getting</motion.span>
+                      </span>
+                      <span className="block overflow-hidden">
+                        <motion.span variants={textReveal} className="block">on <span className="stroke">with it</span></motion.span>
+                      </span>
+                    </h2>
+
+                    <h2 className="relative z-10 block md:hidden font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none md:text-right">Just getting on <span className="stroke">with it</span></h2>
 
                     <div className="w-5/12 md:w-4/12 absolute bottom-0 right-0 mr-[73%] md:mr-[49%] 2xl:mr-[53%] -mb-2 xl:-mb-5 z-0" ref={fadeRevealRefs}>
                       <Image width={417} height={220} layout="responsive" src="/icons/circle-squiggle.svg" alt="Circle Illustration" className="w-full" />

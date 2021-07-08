@@ -131,13 +131,17 @@ export default function About(initialData) {
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
-              <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
-                <span className="block mx-px animate--letter-float--delay">A</span>
-                <span className="block mx-px animate--letter-float">b</span>
-                <span className="block mx-px animate--letter-float--delay">o</span>
-                <span className="block mx-px animate--letter-float">u</span>
-                <span className="block mx-px animate--letter-float--delay">t</span>
-              </span>
+              <div className="block overflow-hidden mb-4 md:mb-6 2xl:mb-8">
+                <motion.div variants={textRevealSmallDelay} className="block">
+                  <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex justify-center">
+                    <span className="block mx-px animate--letter-float--delay">A</span>
+                    <span className="block mx-px animate--letter-float">b</span>
+                    <span className="block mx-px animate--letter-float--delay">o</span>
+                    <span className="block mx-px animate--letter-float">u</span>
+                    <span className="block mx-px animate--letter-float--delay">t</span>
+                  </span>
+                </motion.div>
+              </div>
 
               <div className="relative">
                 <h1 className="font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center block md:hidden">the team behind making communicating your brand a balmy breeze.</h1>

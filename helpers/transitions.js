@@ -62,7 +62,7 @@ export const textReveal = {
 	initial: { y: "100%" },
   enter: { 
     y: 0,
-    transition: { duration: 1, ease: [0.83, 0, 0.17, 1], delay: 0.75 }
+    transition: { duration: 1, ease: [0.83, 0, 0.17, 1], delay: 0.95 }
   },
 	exit: {
     y: "100%",
