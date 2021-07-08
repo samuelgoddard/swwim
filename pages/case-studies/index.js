@@ -3,7 +3,8 @@ import Layout from '../../components/layout'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Container from '../../components/container'
-import { fade } from "../../helpers/transitions"
+import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../../helpers/transitions"
+import Logo from '../../components/logo'
 import { motion } from 'framer-motion'
 import CaseTeaser from '../../components/case-teaser'
 import { NextSeo } from 'next-seo'
@@ -46,6 +47,27 @@ export default function CaseStudiesLanding(initialData) {
         title="Case Studies"
       />
 
+      <motion.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="fixed inset-0 z-[100] pointer-events-none"
+      >
+        <motion.div variants={revealInLogoNoDelay} className="absolute inset-0 w-full h-full text-white flex items-center justify-center pointer-events-none z-[110]">
+          <div className="overflow-hidden">
+            <motion.div variants={revealInLogoMoveNoDelay}>
+              <Logo width="w-32 md:w-48 xl:w-56" />
+            </motion.div>
+          </div>
+        </motion.div>
+        
+        <motion.div variants={revealInNoDelay} className="absolute inset-0 w-full h-full bg-blue-dark text-white overflow-visible">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full text-blue-dark absolute top-0 left-0 right-0 mt-[-20vw] will-change">
+          <path fill="currentColor" fill-opacity="1" d="M0,224L48,192C96,160,192,96,288,106.7C384,117,480,203,576,224C672,245,768,203,864,170.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        </motion.div>
+      </motion.div>
+
       <Header theme="white" contact={contact} active="case-studies" />
 
       <div data-scroll-container id="scroll-container">
@@ -56,7 +78,7 @@ export default function CaseStudiesLanding(initialData) {
         exit="exit"
         className="bg-white bg-noise text-blue overflow-hidden pt-24 md:pt-32 xl:pt-40"
       >
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
             <div className="relative overflow-visible">
 
@@ -73,23 +95,34 @@ export default function CaseStudiesLanding(initialData) {
               </div>
 
               <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-48 2xl:mx-64">
-                <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
-                  <span className="block mx-px animate--letter-float--delay">C</span>
-                  <span className="block mx-px animate--letter-float">a</span>
-                  <span className="block mx-px animate--letter-float--delay">s</span>
-                  <span className="block mx-px animate--letter-float">e</span>
-                  <span className="block mx-px animate--letter-float--delay">&nbsp;</span>
-                  <span className="block mx-px animate--letter-float">S</span>
-                  <span className="block mx-px animate--letter-float--delay">t</span>
-                  <span className="block mx-px animate--letter-float">u</span>
-                  <span className="block mx-px animate--letter-float--delay">d</span>
-                  <span className="block mx-px animate--letter-float">i</span>
-                  <span className="block mx-px animate--letter-float--delay">e</span>
-                  <span className="block mx-px animate--letter-float">s</span>
-                </span>
+                <div className="overflow-hidden mb-4 md:mb-6 2xl:mb-8">
+                  <motion.span variants={textRevealSmallDelay} className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex justify-center">
+                    <span className="block mx-px animate--letter-float--delay">C</span>
+                    <span className="block mx-px animate--letter-float">a</span>
+                    <span className="block mx-px animate--letter-float--delay">s</span>
+                    <span className="block mx-px animate--letter-float">e</span>
+                    <span className="block mx-px animate--letter-float--delay">&nbsp;</span>
+                    <span className="block mx-px animate--letter-float">S</span>
+                    <span className="block mx-px animate--letter-float--delay">t</span>
+                    <span className="block mx-px animate--letter-float">u</span>
+                    <span className="block mx-px animate--letter-float--delay">d</span>
+                    <span className="block mx-px animate--letter-float">i</span>
+                    <span className="block mx-px animate--letter-float--delay">e</span>
+                    <span className="block mx-px animate--letter-float">s</span>
+                  </motion.span>
+                </div>
 
                 <div className="relative">
-                  <h1 className="block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Something about Case Studies</h1>
+                  <h1 className="block md:hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Something about Case Studies</h1>
+
+                  <h1 className="hidden md:block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">
+                    <span className="block overflow-hidden">
+                      <motion.span variants={textRevealSmallDelay} className="block">something about</motion.span>
+                    </span>
+                    <span className="block overflow-hidden">
+                      <motion.span variants={textRevealSmallDelay} className="block">case studies</motion.span>
+                    </span>
+                  </h1>
                   
                   <div className="absolute bottom-0 right-0 w-[60%] md:w-[42%] 2xl:w-[43%] mr-[20%] md:mr-[18%] lg:mr-[18%] 2xl:mr-[16%] mb-[-5%] md:mb-[-3%] 2xl:mb-[-4%]">
                     <Image width={359} height={113} layout="responsive" src="/icons/case-studies-header-squiggle.svg" alt="Squiggle Underline" className="w-full" priority />
@@ -151,7 +184,7 @@ export default function CaseStudiesLanding(initialData) {
           </Container>
         </motion.div>
 
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Footer contact={contact} />
         </motion.div>
       </motion.section>

@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Layout from '../../components/layout'
 import Header from '../../components/header'
 import Container from '../../components/container'
-import { fade } from "../../helpers/transitions"
+import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../../helpers/transitions"
+import Logo from '../../components/logo'
 import { motion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
@@ -50,6 +51,27 @@ export default function CaseStudySlug(initialData) {
         }}
       />
 
+      <motion.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="fixed inset-0 z-[100] pointer-events-none"
+      >
+        <motion.div variants={revealInLogoNoDelay} className="absolute inset-0 w-full h-full text-white flex items-center justify-center pointer-events-none z-[110]">
+          <div className="overflow-hidden">
+            <motion.div variants={revealInLogoMoveNoDelay}>
+              <Logo width="w-32 md:w-48 xl:w-56" />
+            </motion.div>
+          </div>
+        </motion.div>
+        
+        <motion.div variants={revealInNoDelay} className="absolute inset-0 w-full h-full bg-blue-dark text-white overflow-visible">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full text-blue-dark absolute top-0 left-0 right-0 mt-[-20vw] will-change">
+          <path fill="currentColor" fill-opacity="1" d="M0,224L48,192C96,160,192,96,288,106.7C384,117,480,203,576,224C672,245,768,203,864,170.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        </motion.div>
+      </motion.div>
+
       <Header theme="white" pinned active="case-studies" />
 
       <motion.section
@@ -58,7 +80,7 @@ export default function CaseStudySlug(initialData) {
         exit="exit"
         className="bg-white bg-noise text-blue overflow-hidden w-full min-h-screen"
       >
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="relative z-10">
           <div className="flex flex-wrap md:max-h-screen md:fixed md:inset-0 md:z-0">
             <div className="w-full md:w-1/2 md:pt-32 2xl:pt-40 flex items-center">
             </div>

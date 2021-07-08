@@ -18,7 +18,7 @@ export const fadeDelay = {
   },
 	exit: {
     opacity: 0,
-		transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.15 }
+		transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.5 }
 	}
 }
 
@@ -30,7 +30,7 @@ export const fadeSmallDelay = {
   },
 	exit: {
     opacity: 0,
-		transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.15 }
+		transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 1 }
 	}
 }
 

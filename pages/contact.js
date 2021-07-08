@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Layout from '../components/layout'
 import Container from '../components/container'
-import { fade } from "../helpers/transitions"
+import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../helpers/transitions"
+import Logo from '../components/logo'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
@@ -13,6 +14,27 @@ export default function Contact() {
         title="Contact"
       />
 
+      <motion.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="fixed inset-0 z-[100] pointer-events-none"
+      >
+        <motion.div variants={revealInLogoNoDelay} className="absolute inset-0 w-full h-full text-white flex items-center justify-center pointer-events-none z-[110]">
+          <div className="overflow-hidden">
+            <motion.div variants={revealInLogoMoveNoDelay}>
+              <Logo width="w-32 md:w-48 xl:w-56" />
+            </motion.div>
+          </div>
+        </motion.div>
+        
+        <motion.div variants={revealInNoDelay} className="absolute inset-0 w-full h-full bg-blue-dark text-white overflow-visible">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full text-blue-dark absolute top-0 left-0 right-0 mt-[-20vw] will-change">
+            <path fill="currentColor" fill-opacity="1" d="M0,224L48,192C96,160,192,96,288,106.7C384,117,480,203,576,224C672,245,768,203,864,170.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+        </motion.div>
+      </motion.div>
+
       <motion.section
         initial="initial"
         animate="enter"
@@ -20,36 +42,36 @@ export default function Contact() {
         className="bg-blue-dark bg-noise text-white overflow-hidden min-h-screen flex flex-wrap py-12 md:pt-24 md:pb-[14vh] 2xl:pt-32 2xl:pb-[17vh]"
       >
         {/* Lady With Megaphone */}
-        <motion.div variants={fade} className="w-[44%] md:w-[38%] lg:w-[34%] xl:w-[30%] 2xl:w-[480px] absolute bottom-0 right-0 z-10 mr-[-18%] mb-[-5%] md:mr-[-10%] 2xl:mr-[-150px]">
+        <motion.div variants={fadeSmallDelay} className="w-[44%] md:w-[38%] lg:w-[34%] xl:w-[30%] 2xl:w-[480px] absolute bottom-0 right-0 z-10 mr-[-18%] mb-[-5%] md:mr-[-10%] 2xl:mr-[-150px]">
           <Image height={800} width={415} src="/icons/woman-megaphone.svg" alt="Woman With Megaphone Illustration" layout="responsive" priority />
         </motion.div>
 
         {/* Bottom Middle Bigger Leaf */}
-        <motion.div variants={fade} className="w-[45%] md:w-[40%] xl:w-[35%] 2xl:w-[35%] absolute bottom-0 right-0 ml-[-39%] md:mr-[10%] xl:mr-[2%] 2xl:ml-[-19%] mb-[-26%] md:mb-[-24%] xl:mb-[-21%] 2xl:mb-[-20%] z-0 transform -rotate-45">
+        <motion.div variants={fadeSmallDelay} className="w-[45%] md:w-[40%] xl:w-[35%] 2xl:w-[35%] absolute bottom-0 right-0 ml-[-39%] md:mr-[10%] xl:mr-[2%] 2xl:ml-[-19%] mb-[-26%] md:mb-[-24%] xl:mb-[-21%] 2xl:mb-[-20%] z-0 transform -rotate-45">
           <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-90" priority />
         </motion.div>
 
         {/* Middle Right Monsterra */}
-        <motion.div variants={fade} className="w-[33%] md:w-[24%] xl:w-[20%] 2xl:w-[320px] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-140px] mt-[35vh] md:mt-[16vh] xl:mt-[0%] z-0">
+        <motion.div variants={fadeSmallDelay} className="w-[33%] md:w-[24%] xl:w-[20%] 2xl:w-[320px] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-140px] mt-[35vh] md:mt-[16vh] xl:mt-[0%] z-0">
           <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform -rotate-45" priority />
         </motion.div>
 
         {/* Middle Leaf Monsterra */}
-        <motion.div variants={fade} className="w-[35%] md:w-[38%] xl:w-[25%] 2xl:w-[22%] absolute bottom-0 left-0 ml-[-18%] md:ml-[-25%] xl:ml-[-18%] 2xl:ml-[-12%] mb-[70%] md:mb-[40%] xl:mb-[35%] 2xl:mb-[35%] z-0">
+        <motion.div variants={fadeSmallDelay} className="w-[35%] md:w-[38%] xl:w-[25%] 2xl:w-[22%] absolute bottom-0 left-0 ml-[-18%] md:ml-[-25%] xl:ml-[-18%] 2xl:ml-[-12%] mb-[70%] md:mb-[40%] xl:mb-[35%] 2xl:mb-[35%] z-0">
           <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform -rotate-180" priority />
         </motion.div>
 
         {/* Bottom Left Bigger Leaf */}
-        <motion.div variants={fade} className="w-[65%] md:w-[44%] xl:w-[38%] 2xl:w-[35%] absolute bottom-0 left-0 ml-[-39%] md:ml-[-25%] xl:ml-[-20%] 2xl:ml-[-19%] mb-[0%] md:mb-[3%] xl:mb-[4%] 2xl:mb-[2%] z-0">
+        <motion.div variants={fadeSmallDelay} className="w-[65%] md:w-[44%] xl:w-[38%] 2xl:w-[35%] absolute bottom-0 left-0 ml-[-39%] md:ml-[-25%] xl:ml-[-20%] 2xl:ml-[-19%] mb-[0%] md:mb-[3%] xl:mb-[4%] 2xl:mb-[2%] z-0">
           <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-12" priority />
         </motion.div>
 
         {/* Bottom Left Leaf */}
-        <motion.div variants={fade} className="w-[45%] md:w-[30%] xl:w-[28%] 2xl:w-[28%] absolute bottom-0 left-0 ml-[-20%] md:ml-[-15%] xl:ml-[-13%] 2xl:ml-[-12%] mb-[-10%] md:mb-[-7%] xl:mb-[-8%] 2xl:mb-[-10%] z-0">
+        <motion.div variants={fadeSmallDelay} className="w-[45%] md:w-[30%] xl:w-[28%] 2xl:w-[28%] absolute bottom-0 left-0 ml-[-20%] md:ml-[-15%] xl:ml-[-13%] 2xl:ml-[-12%] mb-[-10%] md:mb-[-7%] xl:mb-[-8%] 2xl:mb-[-10%] z-0">
           <Image width={267} height={253} layout="responsive" src="/icons/plant-4.svg" alt="Plant Illustration" className="w-full transform" priority />
         </motion.div>
 
-        <motion.div variants={fade} className="relative z-30 flex flex-wrap w-full">
+        <motion.div variants={fadeSmallDelay} className="relative z-30 flex flex-wrap w-full">
           <div className="mb-auto w-full">
             <Container>
               <div className="flex mb-8 md:mb-12 2xl:mb-20">
@@ -66,7 +88,9 @@ export default function Contact() {
           <div className="mt-auto w-full">
             <Container>
               <div className="mx-8 mb-8 md:mb-0 md:mx-20 xl:mx-32 2xl:mx-40">
-                <span className="block font-bold uppercase mb-6 2xl:mb-8 text-lg tracking-widest">Dear swwim...</span>
+                <span className="block font-bold uppercase mb-6 2xl:mb-8 text-lg tracking-widest overflow-hidden">
+                  <motion.span variants={textRevealSmallDelay} className="block">Dear swwim...</motion.span>
+                </span>
                 <form>
                   <textarea
                     className="bg-transparent text-white font-sans text-xl md:text-2xl 2xl:text-3xl w-full ring-white mb-0 md:mb-12 2xl:mb-20"
