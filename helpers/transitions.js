@@ -37,24 +37,24 @@ export const fadeSmallDelay = {
 export const revealIn = {
 	initial: { y: 0 },
   enter: { 
-    y: "120%",
-    transition: { duration: 1.55, ease: [0.83, 0, 0.17, 1], delay: 0.5 }
+    y: "130%",
+    transition: { duration: 1.6, ease: [0.83, 0, 0.17, 1], delay: 0.5 }
   },
 	exit: {
     y: 0,
-		transition: { duration: 1.55, ease: [0.83, 0, 0.17, 1] }
+		transition: { duration: 1.6, ease: [0.83, 0, 0.17, 1] }
 	}
 }
 
 export const revealInNoDelay = {
 	initial: { y: 0 },
   enter: { 
-    y: "120%",
-    transition: { duration: 1.55, ease: [0.83, 0, 0.17, 1] }
+    y: "130%",
+    transition: { duration: 1.6, ease: [0.83, 0, 0.17, 1] }
   },
 	exit: {
     y: 0,
-		transition: { duration: 1.55, ease: [0.83, 0, 0.17, 1] }
+		transition: { duration: 1.6, ease: [0.83, 0, 0.17, 1] }
 	}
 }
 

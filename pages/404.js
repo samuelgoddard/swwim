@@ -1,21 +1,16 @@
-import { useContext } from 'react'
 import Layout from '../components/layout'
 import Header from '../components/header'
-import Footer from '../components/footer'
 import Container from '../components/container'
 import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../helpers/transitions"
 import Logo from '../components/logo'
 import { motion } from 'framer-motion'
-import SanityPageService from '../services/sanityPageService'
 import { NextSeo } from 'next-seo'
+import SanityPageService from '../services/sanityPageService'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
-import LegalTabs from '../components/legal-tabs'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const query = `{
-  "legal": *[_type == "legal"] {
-    title,
-    content
-  },
   "contact": *[_type == "contact"][0] {
     title,
     email,
@@ -30,8 +25,8 @@ const query = `{
 
 const pageService = new SanityPageService(query)
 
-export default function Legal(initialData) {
-  const { data: { legal, contact }  } = pageService.getPreviewHook(initialData)()
+export default function CustomError(initialData) {
+  const { data: {  contact }  } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
@@ -67,46 +62,56 @@ export default function Legal(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white overflow-hidden pt-24 md:pt-32 xl:pt-40"
+        className="bg-blue bg-noise text-white overflow-hidden h-screen flex items-center justify-center"
       >
-        <motion.div variants={fadeSmallDelay} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="z-10 w-full">
+
+          <div className="w-[55%] md:w-[28%] 2xl:w-[35%] absolute bottom-0 right-0 mr-[-12%] md:mr-[-5%] mb-[-20%] md:mb-[-6%] 2xl:mb-[-6%] z-0">
+            <div className="animate--wave--slow">
+              <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change transform scale-x-[-1]" />
+            </div>
+          </div>
+
+          <motion.div variants={fadeSmallDelay} className="w-[65%] md:w-[44%] xl:w-[38%] 2xl:w-[35%] absolute bottom-0 left-0 ml-[-18%] md:ml-[-12%] xl:ml-[-12%] 2xl:ml-[-12%] mb-[-15%] md:mb-[-8%] xl:mb-[-8%] 2xl:mb-[-8%] z-0">
+            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-12" priority />
+          </motion.div>
+
           <Container>
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
               <div className="overflow-hidden mb-4 md:mb-6 2xl:mb-8">
                 <motion.div variants={textRevealSmallDelay}>
                   <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex justify-center">
-                    <span className="block mx-px animate--letter-float delay-75">L</span>
-                    <span className="block mx-px animate--letter-float">e</span>
-                    <span className="block mx-px animate--letter-float delay-75">g</span>
-                    <span className="block mx-px animate--letter-float">a</span>
-                    <span className="block mx-px animate--letter-float delay-75">l</span>
+                    <span className="block mx-px animate--letter-float delay-75">4</span>
+                    <span className="block mx-px animate--letter-float">0</span>
+                    <span className="block mx-px animate--letter-float delay-75">4</span>
                   </span>
                 </motion.div>
               </div>
 
               <div className="relative">
-                <h1 className="block md:hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Terms &amp; Conditions</h1>
+                <h1 className="block md:hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Page Not Found</h1>
 
                 <h1 className="hidden md:block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">
                   <span className="block overflow-hidden">
                     <motion.span variants={textRevealSmallDelay} className="block">
-                      Terms &amp; Conditions
+                      Page Not Found
                     </motion.span>
                   </span>
                 </h1>
+
+                <p className="text-lg md:text-xl text-center max-w-3xl mx-auto opacity-75 mb-8 md:mb-12">Sorry, but the page you are looking for could not be found. You may have mistyped the URL, or the page may have been deleted.</p>
+
+                <div className="flex justify-center">
+                  <Link href="/">
+                    <a className={`rounded-full text-center inline-block font-bold group relative overflow-hidden transition-colors ease-in-out duration-500 bg-white text-blue ring-white hover:text-white px-6 md:px-8 py-4`}>
+                      <span className="block relative z-10">Return Home</span>
+                      <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                    </a>
+                  </Link>
+                </div>
               </div>
             </div>
           </Container>
-
-          <Container>
-            <div className="relative z-10 overflow-visible pb-12 md:pb-32 2xl:pb-40">
-              <LegalTabs items={legal}></LegalTabs>
-            </div>
-          </Container>
-        </motion.div>
-      
-        <motion.div variants={fadeSmallDelay} className="relative z-10">
-          <Footer contact={contact} />
         </motion.div>
       </motion.section>
       </SmoothScrollProvider>
