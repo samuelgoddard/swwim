@@ -35,7 +35,7 @@ export default function CaseTeaser({ heading, image, tags, index, href }) {
                 <div className="block md:hidden bg-blue">
                   <ImageWrapper
                     image={image}
-                    className="w-full"
+                    className="w-full will-change"
                     baseWidth={520}
                     baseHeight={520}
                     alt={heading}
@@ -45,7 +45,7 @@ export default function CaseTeaser({ heading, image, tags, index, href }) {
                 <div className="hidden md:block bg-blue overflow-hidden">
                   <ImageWrapper
                     image={image}
-                    className="w-full transform ease-in-out duration-500 group-hover:scale-105 group-focus:scale-105"
+                    className="w-full transform ease-in-out duration-500 group-hover:scale-105 group-focus:scale-105 will-change"
                     baseWidth={720}
                     baseHeight={720}
                     alt={heading}

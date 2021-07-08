@@ -25,7 +25,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
                 <div className="block md:hidden transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
                   <ImageWrapper
                     image={image}
-                    className="w-full"
+                    className="w-full will-change"
                     baseWidth={620}
                     baseHeight={380}
                     alt={heading}
@@ -34,7 +34,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
                 <div className="hidden md:block transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
                   <ImageWrapper
                     image={image}
-                    className="w-full"
+                    className="w-full will-change"
                     baseWidth={740}
                     baseHeight={500}
                     alt={heading}
@@ -79,7 +79,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
                   <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
                     <ImageWrapper
                       image={author.image.asset}
-                      className="rounded-full"
+                      className="rounded-full will-change"
                       baseWidth={350}
                       baseHeight={350}
                       alt={author.name}

@@ -86,7 +86,7 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full"
+                            className="w-full will-change"
                             baseWidth={600}
                             baseHeight={400}
                             priority
@@ -96,7 +96,7 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full"
+                            className="w-full will-change"
                             baseWidth={300}
                             baseHeight={550}
                             priority
@@ -109,7 +109,7 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full"
+                            className="w-full will-change"
                             baseWidth={900}
                             baseHeight={650}
                             priority
@@ -119,7 +119,7 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full"
+                            className="w-full will-change"
                             baseWidth={550}
                             baseHeight={850}
                             priority
