@@ -4,13 +4,14 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Container from '../components/container'
-import { fade } from "../helpers/transitions"
+import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 import AboutCarousel from '../components/about-carousel'
 import { NextSeo } from 'next-seo';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import SanityPageService from '../services/sanityPageService'
+import Logo from '../components/logo'
 import ImageWrapper from '../helpers/image-wrapper'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 
@@ -95,7 +96,28 @@ export default function About(initialData) {
         title="About"
       />
 
-      <Header contact={contact} />
+      <motion.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="fixed inset-0 z-[100] pointer-events-none"
+      >
+        <motion.div variants={revealInLogoNoDelay} className="absolute inset-0 w-full h-full text-white flex items-center justify-center pointer-events-none z-[110]">
+          <div className="overflow-hidden">
+            <motion.div variants={revealInLogoMoveNoDelay}>
+              <Logo width="w-32 md:w-48 xl:w-56" />
+            </motion.div>
+          </div>
+        </motion.div>
+        
+        <motion.div variants={revealInNoDelay} className="absolute inset-0 w-full h-full bg-blue-dark text-white overflow-visible">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full text-blue-dark absolute top-0 left-0 right-0 mt-[-20vw] will-change">
+          <path fill="currentColor" fill-opacity="1" d="M0,224L48,192C96,160,192,96,288,106.7C384,117,480,203,576,224C672,245,768,203,864,170.7C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        </motion.div>
+      </motion.div>
+
+      <Header contact={contact} active="about" />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
@@ -106,7 +128,7 @@ export default function About(initialData) {
         exit="exit"
         className="bg-blue bg-noise text-white overflow-hidden pt-24 md:pt-32 xl:pt-40"
       >
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
             <div className="relative mb-16 md:mb-20 2xl:mb-28 mx-[3%] md:mx-[5%] lg:mx-24 2xl:mx-32">
               <span className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex mb-4 md:mb-6 2xl:mb-8 justify-center">
@@ -118,7 +140,19 @@ export default function About(initialData) {
               </span>
 
               <div className="relative">
-                <h1 className="block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">the team behind making communicating your brand a balmy breeze.</h1>
+                <h1 className="font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center block md:hidden">the team behind making communicating your brand a balmy breeze.</h1>
+
+                <h1 className="hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center md:block">
+                  <span className="block overflow-hidden">
+                    <motion.span variants={textRevealSmallDelay} className="block">the team behind making</motion.span>
+                  </span>
+                  <span className="block overflow-hidden">
+                  <motion.span variants={textRevealSmallDelay} className="block">communicating your</motion.span>
+                  </span>
+                  <span className="block overflow-hidden">
+                  <motion.span variants={textRevealSmallDelay} className="block">brand a balmy breeze.</motion.span>
+                  </span>
+                </h1>
                 
                 <div className="absolute bottom-0 right-0 w-[49%] md:w-[32%] mr-[6%] md:mr-[4%] lg:mr-[6%] 2xl:mr-[7%] mb-[-4%] md:mb-[-2%] 2xl:mb-[-3%]">
                   <Image width={369} height={150} layout="responsive" src="/icons/about-header-squiggle.svg" alt="Squiggle Underline" className="w-full" priority />
@@ -179,7 +213,7 @@ export default function About(initialData) {
         className="bg-white bg-noise bg-noise--white text-blue overflow-hidden"
       >
         <Container>
-          <motion.div variants={fade} className="relative z-10 pt-12 md:pt-24 2xl:pt-28">
+          <motion.div variants={fadeSmallDelay} className="relative z-10 pt-12 md:pt-24 2xl:pt-28">
             <div className="flex flex-wrap justify-center">
               <div className="inline-block mb-8 md:mb-12 2xl:mb-16 relative z-10 max-w-xs md:max-w-xl 2xl:max-w-2xl mx-auto">
                 <span className="text-base font-display uppercase flex mb-1 md:mb-2 justify-center">
@@ -253,7 +287,7 @@ export default function About(initialData) {
           </motion.div>
         </Container>
 
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="relative z-10">
           <div className="mb-6 md:mb-12 2xl:mb-16 relative z-10 overflow-hidden">
             <div className="relative flex overflow-x-hidden font-display uppercase text-5xl md:text-[5.5vw] xl:text-[4.5vw] 2xl:text-[80px]">
               <div className="animate-marquee whitespace-nowrap">
@@ -388,7 +422,7 @@ export default function About(initialData) {
           </div>
         </motion.div>
 
-        <motion.div variants={fade} className="relative z-10">
+        <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Footer contact={contact} />
         </motion.div>
       </motion.section>

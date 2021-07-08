@@ -46,7 +46,7 @@ export default function CaseStudiesLanding(initialData) {
         title="Case Studies"
       />
 
-      <Header theme="white" contact={contact} />
+      <Header theme="white" contact={contact} active="case-studies" />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>

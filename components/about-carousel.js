@@ -36,21 +36,18 @@ export default function AboutCarousel({ images }) {
     onSelect();
     setScrollSnaps(embla.scrollSnapList());
     embla.on("select", onSelect);
-    gsap.set(".circle", {xPercent: -50, yPercent: -50});
+    // gsap.set(".circle", {xPercent: -50, yPercent: -50});
 
     const ball = document.querySelector(".circle");
     const container = document.querySelector(".circle-container");
-    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    const mouse = { x: pos.x, y: pos.y };
-    const speed = 0.20;
+    // const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    // const mouse = { x: pos.x, y: pos.y };
+    // const speed = 0.20;
 
-    const xSet = gsap.quickSetter(ball, "x", "px");
-    const ySet = gsap.quickSetter(ball, "y", "px");
-
-    container.addEventListener("mousemove", e => {    
-      mouse.x = e.x;
-      mouse.y = e.y;  
-    });
+    // container.addEventListener("mousemove", e => {    
+    //   mouse.x = e.x;
+    //   mouse.y = e.y;  
+    // });
 
     container.addEventListener("mousedown", e => {    
       ball.classList.add("is--active");
@@ -62,28 +59,21 @@ export default function AboutCarousel({ images }) {
       container.classList.remove("is--active");
     });
 
-    gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio()); 
-      
-      pos.x += (mouse.x - pos.x) * dt;
-      pos.y += (mouse.y - pos.y) * dt;
-      xSet(pos.x);
-      ySet(pos.y);
-    });
-
 
   }, [embla, setScrollSnaps, onSelect]);
 
   return(
     <>
-      <div className="embla embla--staggered circle-container group">
-        <div className="circle cursor-follow group-hover:opacity-100 tracking-wide hidden md:flex">
-          <div className="arrows absolute top-0 left-0 right-0 bottom-0 w-full flex items-center">
-            <svg className="w-4 absolute -ml-8" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.953 1.915L2.99 10.982.97 9.071 9.935 0l2.02 1.915z" fill="#fff"/><path d="M2.915 6.864l9.038 9.04-1.94 1.942L.97 8.806l1.944-1.942z" fill="#fff"/></svg>
+      <div className="embla embla--staggered circle-container group relative">
+        <div className="absolute inset-0 flex items-center justify-center pb-24 pointer-events-none opacity-0 group-hover:opacity-100 transition ease-in-out duration-300 z-40">
+          <div className="circle cursor-follow group-hover:opacity-100 tracking-wide opacity-100 hidden md:flex relative">
+            <div className="arrows w-full flex items-center z-50 absolute inset-0">
+              <svg className="w-4 absolute -ml-8" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.953 1.915L2.99 10.982.97 9.071 9.935 0l2.02 1.915z" fill="#fff"/><path d="M2.915 6.864l9.038 9.04-1.94 1.942L.97 8.806l1.944-1.942z" fill="#fff"/></svg>
 
-            <svg className="w-4 transform rotate-180 absolute right-0 -mr-8" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.953 1.915L2.99 10.982.97 9.071 9.935 0l2.02 1.915z" fill="#fff"/><path d="M2.915 6.864l9.038 9.04-1.94 1.942L.97 8.806l1.944-1.942z" fill="#fff"/></svg>
+              <svg className="w-4 transform rotate-180 absolute right-0 -mr-8" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.953 1.915L2.99 10.982.97 9.071 9.935 0l2.02 1.915z" fill="#fff"/><path d="M2.915 6.864l9.038 9.04-1.94 1.942L.97 8.806l1.944-1.942z" fill="#fff"/></svg>
+            </div>
+            drag
           </div>
-          drag
         </div>
         <div className="embla__viewport" ref={viewportRef}>
           <div className="embla__container">

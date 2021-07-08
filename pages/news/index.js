@@ -58,7 +58,8 @@ export default function NewsLanding(initialData) {
         title="Latest Poolside"
       />
 
-      <Header theme="white" contact={contact} />
+      <Header theme="white" contact={contact} active="news" />
+
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
       

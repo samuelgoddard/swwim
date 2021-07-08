@@ -11,7 +11,7 @@ import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Header({ theme, contact, pinned }) {
+export default function Header({ theme, contact, pinned, active }) {
 
   const { scroll } = useContext(SmoothScrollContext)
 
@@ -88,6 +88,7 @@ export default function Header({ theme, contact, pinned }) {
           <div className="ml-auto">
             <div className="flex items-center space-x-1">
               {/* <Button white overrideClasses="hidden md:inline-block" href="/">Contact Us</Button> */}
+
 
               <Link href="/contact">
                 <a className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-blue text-white ring-blue hidden md:inline-block group relative overflow-hidden transition-colors ease-in-out duration-500 ${themeButtonColors}`}>
@@ -172,41 +173,41 @@ export default function Header({ theme, contact, pinned }) {
                     <ul>
                       <li className="block mb-3 md:mb-8 2xl:mb-10">
                         <Link href="/">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                          <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${active === 'index' ? 'text-stroke--active' : ''}`}>
                             <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
-                            <span className="block">Home</span>
+                            <span className="block text-stroke__item">Home</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block mb-3 md:mb-8 2xl:mb-10">
                         <Link href="/about">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                          <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${active === 'about' ? 'text-stroke--active' : ''}`}>
                             <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
-                            <span className="block">About</span>
+                            <span className="block text-stroke__item">About</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block mb-3 md:mb-8 lg:mb-10">
                         <Link href="/case-studies">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                          <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${active === 'case-studies' ? 'text-stroke--active' : ''}`}>
                             <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
-                            <span className="block">Case Studies</span>
+                            <span className="block text-stroke__item">Case Studies</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block mb-3 md:mb-8 lg:mb-10">
                         <Link href="/news">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                          <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${active === 'news' ? 'text-stroke--active' : ''}`}>
                             <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
-                            <span className="block">News</span>
+                            <span className="block text-stroke__item">News</span>
                           </a>
                         </Link>
                       </li>
                       <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
                         <Link href="/contact">
-                          <a onClick={() => setMenuIsOpen(false)} className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end">
+                          <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${active === 'contact' ? 'text-stroke--active' : ''}`}>
                             <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
-                            <span className="block">Contact Us</span>
+                            <span className="block text-stroke__item">Contact Us</span>
                           </a>
                         </Link>
                       </li>
@@ -224,7 +225,7 @@ export default function Header({ theme, contact, pinned }) {
                           )}
 
                           {contact?.email && (
-                            <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1">hello@weswwim.com</a>
+                            <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1 hover:underline focus:underline">hello@weswwim.com</a>
                           )}
                         </>
                       )}

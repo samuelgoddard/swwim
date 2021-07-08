@@ -66,7 +66,7 @@ export default function NewsSlug(initialData) {
         }}
       />
 
-      <Header />
+      <Header active="news" />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>

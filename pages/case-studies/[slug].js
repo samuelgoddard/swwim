@@ -50,7 +50,7 @@ export default function CaseStudySlug(initialData) {
         }}
       />
 
-      <Header theme="white" pinned />
+      <Header theme="white" pinned active="case-studies" />
 
       <motion.section
         initial="initial"
