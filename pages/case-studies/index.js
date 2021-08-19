@@ -68,15 +68,16 @@ export default function CaseStudiesLanding(initialData) {
         </motion.div>
       </motion.div>
 
-      <Header theme="white" contact={contact} active="case-studies" />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
+      <Header theme="white" contact={contact} active="case-studies" />
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue overflow-hidden pt-24 md:pt-32 xl:pt-40"
+        className="bg-white bg-noise text-blue overflow-hidden pt-[125px] md:pt-[160px] xl:pt-[180px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
@@ -94,7 +95,7 @@ export default function CaseStudiesLanding(initialData) {
                 </div>
               </div>
 
-              <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-48 2xl:mx-64">
+              <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-38 2xl:mx-32">
                 <div className="overflow-hidden mb-4 md:mb-6 2xl:mb-8">
                   <motion.span variants={textRevealSmallDelay} className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex justify-center">
                     <span className="block mx-px animate--letter-float--delay">C</span>
@@ -113,14 +114,11 @@ export default function CaseStudiesLanding(initialData) {
                 </div>
 
                 <div className="relative">
-                  <h1 className="block md:hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Something about Case Studies</h1>
+                  <h1 className="block md:hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">10's across the board</h1>
 
                   <h1 className="hidden md:block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">
                     <span className="block overflow-hidden">
-                      <motion.span variants={textRevealSmallDelay} className="block">something about</motion.span>
-                    </span>
-                    <span className="block overflow-hidden">
-                      <motion.span variants={textRevealSmallDelay} className="block">case studies</motion.span>
+                      <motion.span variants={textRevealSmallDelay} className="block">10's across the board</motion.span>
                     </span>
                   </h1>
                   

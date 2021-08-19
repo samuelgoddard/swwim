@@ -15,51 +15,63 @@ import spacetime from 'spacetime'
 import EditorialContentWrapper from '../../components/editorial-content-wrapper'
 import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 
-const query = `*[_type == "news" && slug.current == $slug][0]{
-  seo {
-    ...,
-    shareGraphic {
-      asset->
-    }
-  },
-  heroImage {
-    asset -> {
-      ...
-    }
-  },
-  categories[]-> {
-    title
-  },
-  content,
-  author-> {
-    firstName,
-    lastName,
-    image {
+const query = `{
+  "news": *[_type == "news" && slug.current == $slug][0]{
+    seo {
+      ...,
+      shareGraphic {
+        asset->
+      }
+    },
+    heroImage {
       asset -> {
         ...
       }
-    }
+    },
+    categories[]-> {
+      title
+    },
+    content,
+    author-> {
+      firstName,
+      lastName,
+      image {
+        asset -> {
+          ...
+        }
+      }
+    },
+    date,
+    introText,
+    title
   },
-  date,
-  introText,
-  title
+  "contact": *[_type == "contact"][0] {
+    title,
+    email,
+    phoneNumber,
+    address,
+    socialLinks[] {
+      title,
+      url
+    }
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, categories, author, date, introText, title, content }  } = pageService.getPreviewHook(initialData)()
+  const { data: { news, contact }  } = pageService.getPreviewHook(initialData)()
 
-  let d = spacetime(date)
+  let d = spacetime(news.date)
   return (
     <Layout>
       <NextSeo
-        title={seo?.metaTitle ? seo?.metaTitle : title }
-        description={seo?.metaDesc ? seo?.metaDesc : introText}
+        title={news.seo?.metaTitle ? news.seo?.metaTitle : news.title }
+        description={news.seo?.metaDesc ? news.seo?.metaDesc : news.introText}
         openGraph={{
           images: [
             {
-              url: seo?.shareGraphic?.asset.url ?? null,
+              url: news.seo?.shareGraphic?.asset.url ?? null,
               width: 1200,
               height: 630
             },
@@ -88,16 +100,17 @@ export default function NewsSlug(initialData) {
         </motion.div>
       </motion.div>
 
-      <Header active="news" />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
+      <Header active="news" />
 
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white pb-8 md:pb-16 2xl:pb-24 pt-24 md:pt-32 xl:pt-40"
+        className="bg-blue bg-noise text-white pb-8 md:pb-16 2xl:pb-24 pt-[125px] md:pt-[160px] xl:pt-[180px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10 overflow-hidden">
           <Container>
@@ -114,19 +127,19 @@ export default function NewsSlug(initialData) {
 
               <div className="relative mb-12 md:mb-20 lg:mb-24 2xl:mb-24 w-11/12 md:w-10/12">
                 <h1 className="block font-display text-[8.45vw] md:text-[4.55vw] lg:text-[4.25vw] 2xl:text-[70px] leading-none relative z-10 text-left align-middle">
-                  {title}
-                  {author && (
+                  {news.title}
+                  {news.author && (
                     <span className="block lg:inline-block align-middle mt-2 lg:mt-0 lg:ml-6">
                       <span className="font-display md:ml-auto flex flex-wrap items-center order-1 md:order-2 mb-3 md:mb-0 text-base">
-                        <span className="block">By {author.firstName}</span>
-                        { author.image && (
+                        <span className="block">By {news.author.firstName}</span>
+                        { news.author.image && (
                           <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
                             <ImageWrapper
-                              image={author.image.asset}
+                              image={news.author.image.asset}
                               className="rounded-full"
                               baseWidth={350}
                               baseHeight={350}
-                              alt={author.firstName}
+                              alt={news.author.firstName}
                             />
                           </div>
                         )}
@@ -142,19 +155,19 @@ export default function NewsSlug(initialData) {
                     <div className="self-start mb-auto w-full">
                       <div className="w-full flex flex-wrap items-end md:items-center pb-3 md:pb-5 md:pt-5 border-b border-white mb-4 md:mb-6 2xl:mb-8">
                         <div className="md:flex md:flex-wrap">
-                          {categories?.map((cat, i) => (
+                          {news.categories?.map((cat, i) => (
                             <span key={i} className="font-display uppercase text-sm mb-1 md:mb-0 mr-3 md:mr-5 block">{cat.title}</span>
                           ))}
                           
-                          {date && (
-                            <span className={`font-display uppercase text-sm mb-1 md:mb-0 opacity-60 mr-3 md:mr-6 block ${categories ? '2xl:px-10' : '2xl:pr-10'}`}>{d.unixFmt('dd.MM.yy')}</span>
+                          {news.date && (
+                            <span className={`font-display uppercase text-sm mb-1 md:mb-0 opacity-60 mr-3 md:mr-6 block ${news.categories ? '2xl:px-10' : '2xl:pr-10'}`}>{d.unixFmt('dd.MM.yy')}</span>
                           )}
                         </div>
                         <span className="ml-auto font-display text-sm mb-1 md:mb-0 block">2 Minute Read</span>
                       </div>
                       
-                      {introText && (
-                        <p className="block font-bold text-xl md:text-xl lg:text-2xl xl:text-3xl w-full self-start mb-auto pb-10">{introText}</p>
+                      {news.introText && (
+                        <p className="block font-bold text-xl md:text-xl lg:text-2xl xl:text-3xl w-full self-start mb-auto pb-10">{news.introText}</p>
                       )}
                     </div>
                     
@@ -182,15 +195,15 @@ export default function NewsSlug(initialData) {
                     </div>
                   </div>
                 </div>
-                {heroImage?.asset && (
+                {news.heroImage?.asset && (
                   <div className="w-full md:w-1/2 md:px-6 2xl:px-10">
                     <div className="bg-blue-dark">
                       <ImageWrapper
-                        image={heroImage}
+                        image={news.heroImage}
                         className="w-full"
                         baseWidth={720}
                         baseHeight={480}
-                        alt={title}
+                        alt={news.title}
                         priority
                       />
                     </div>
@@ -211,7 +224,7 @@ export default function NewsSlug(initialData) {
         <motion.div variants={fadeSmallDelay} className="relative z-10 overflow-hidden">
           <Container>
 
-            <EditorialContentWrapper text={content} />
+            <EditorialContentWrapper text={news.content} />
 
             <div className="w-full md:w-7/12 xl:w-1/2 pt-8 md:pt-12 2xl:pt-16 mb-8 md:mb-12 2xl:mb-16">
               <div className="mb-8 md:mb-12 2xl:mb-16">
@@ -249,17 +262,17 @@ export default function NewsSlug(initialData) {
                   </Link>
                 </div>
                 
-                { author && (
+                { news.author && (
                   <span className="font-display md:ml-auto flex flex-wrap items-center order-1 md:order-2 mb-3 md:mb-0">
-                    <span className="block">By {author.firstName}</span>
-                    { author.image && (
+                    <span className="block">By {news.author.firstName}</span>
+                    { news.author.image && (
                       <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
                         <ImageWrapper
-                          image={author.image.asset}
+                          image={news.author.image.asset}
                           className="rounded-full"
                           baseWidth={350}
                           baseHeight={350}
-                          alt={author.firstName}
+                          alt={news.author.firstName}
                         />
                       </div>
                     )}
@@ -287,7 +300,7 @@ export default function NewsSlug(initialData) {
         exit="exit"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10 overflow-hidden">
-          <Footer />
+          <Footer contact={contact} />
         </motion.div>
       </motion.section>
       </SmoothScrollProvider>

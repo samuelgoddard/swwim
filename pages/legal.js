@@ -58,16 +58,17 @@ export default function Legal(initialData) {
         </motion.div>
       </motion.div>
 
-      <Header contact={contact} />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
+      <Header contact={contact} />
 
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white overflow-hidden pt-24 md:pt-32 xl:pt-40"
+        className="bg-blue bg-noise text-white overflow-hidden pt-[125px] md:pt-[160px] xl:pt-[180px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>

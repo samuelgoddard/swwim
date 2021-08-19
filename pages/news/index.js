@@ -79,12 +79,13 @@ export default function NewsLanding(initialData) {
         </motion.div>
       </motion.div>
 
-      <Header theme="white" contact={contact} active="news" />
 
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
+      <Header theme="white" contact={contact} active="news" />
       
-      <motion.section
+      {/* <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
@@ -95,13 +96,13 @@ export default function NewsLanding(initialData) {
             <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
           </div>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
 
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue pt-24 md:pt-32 xl:pt-40"
+        className="bg-white bg-noise text-blue pt-[125px] md:pt-[160px] xl:pt-[180px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-20 overflow-hidden">
           <Container>

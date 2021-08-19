@@ -14,6 +14,7 @@ import SanityPageService from '../services/sanityPageService'
 import Logo from '../components/logo'
 import ImageWrapper from '../helpers/image-wrapper'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
+import ConditionalWrap from 'conditional-wrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +36,8 @@ const query = `{
       asset->
     },
     instagramImages[] {
-      asset->
+      asset->,
+      instagramImageUrl
     },
   },
   "team": *[_type == "team"] | order(order asc) {
@@ -117,16 +119,16 @@ export default function About(initialData) {
         </motion.div>
       </motion.div>
 
-      <Header contact={contact} active="about" />
-
       <div data-scroll-container id="scroll-container">
       <SmoothScrollProvider options={{ smooth: true, lerp: 0.07 }}>
+
+      <Header contact={contact} active="about" />
 
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white overflow-hidden pt-24 md:pt-32 xl:pt-40"
+        className="bg-blue bg-noise text-white overflow-hidden pt-[125px] md:pt-[160px] xl:pt-[180px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
@@ -144,21 +146,21 @@ export default function About(initialData) {
               </div>
 
               <div className="relative">
-                <h1 className="font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center block md:hidden">the team behind making communicating your brand a balmy breeze.</h1>
+                <h1 className="font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center block md:hidden">It's our job to build a community that's right for your brand</h1>
 
                 <h1 className="hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center md:block">
                   <span className="block overflow-hidden">
-                    <motion.span variants={textRevealSmallDelay} className="block">the team behind making</motion.span>
+                    <motion.span variants={textRevealSmallDelay} className="block">It's our job to build a</motion.span>
                   </span>
                   <span className="block overflow-hidden">
-                  <motion.span variants={textRevealSmallDelay} className="block">communicating your</motion.span>
+                  <motion.span variants={textRevealSmallDelay} className="block">community that's</motion.span>
                   </span>
                   <span className="block overflow-hidden">
-                  <motion.span variants={textRevealSmallDelay} className="block">brand a balmy breeze.</motion.span>
+                  <motion.span variants={textRevealSmallDelay} className="block">right for your brand</motion.span>
                   </span>
                 </h1>
                 
-                <div className="absolute bottom-0 right-0 w-[49%] md:w-[32%] mr-[6%] md:mr-[4%] lg:mr-[6%] 2xl:mr-[7%] mb-[-4%] md:mb-[-2%] 2xl:mb-[-3%]">
+                <div className="absolute bottom-0 left-0 w-[49%] md:w-[32%] ml-[6%] md:ml-[4%] lg:ml-[6%] 2xl:ml-[7%] mb-[-4%] md:mb-[-2%] 2xl:mb-[-3%]">
                   <Image width={369} height={150} layout="responsive" src="/icons/about-header-squiggle.svg" alt="Squiggle Underline" className="w-full will-change" priority />
                 </div>
               </div>
@@ -230,7 +232,7 @@ export default function About(initialData) {
                   <span className="block animate--letter-float--delay">a</span>
                   <span className="block animate--letter-float">m</span>
                 </span>
-                <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">A Group Of Like Minded Individuals</h3>
+                <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">Problem solvers with a passion</h3>
                 
                 <div className="w-7/12 mr-5 ml-auto">
                   <Image width={400} height={34} layout="responsive" src="/icons/title-swipe.svg" alt="Swipe Underline" className="w-full will-change" />
@@ -295,20 +297,20 @@ export default function About(initialData) {
           <div className="mb-6 md:mb-12 2xl:mb-16 relative z-10 overflow-hidden">
             <div className="relative flex overflow-x-hidden font-display uppercase text-5xl md:text-[5.5vw] xl:text-[4.5vw] 2xl:text-[80px]">
               <div className="animate-marquee whitespace-nowrap">
-                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">Building communities with heart</span>
                 <span className="mx-1">&bull;</span>
-                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">Building communities with heart</span>
                 <span className="mx-1">&bull;</span>
-                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">Building communities with heart</span>
                 <span className="mx-1">&bull;</span>
               </div>
 
               <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
-              <span className="mx-1">Communicating Your Brand</span>
+              <span className="mx-1">Building communities with heart</span>
                 <span className="mx-1">&bull;</span>
-                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">Building communities with heart</span>
                 <span className="mx-1">&bull;</span>
-                <span className="mx-1">Communicating Your Brand</span>
+                <span className="mx-1">Building communities with heart</span>
                 <span className="mx-1">&bull;</span>
               </div>
             </div>
@@ -340,46 +342,82 @@ export default function About(initialData) {
               <div className="relative pt-40 pb-32 md:pb-48 md:pt-56 xl:pb-64 xl:pt-80">
                 {/* Top Left */}
                 <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute top-0 top-[10%] left-0 bg-pink border-2 border-blue" ref={fadeRevealRefs}>
-                  <ImageWrapper
-                    image={about.instagramImages[0].asset}
-                    className="w-full h-full"
-                    baseWidth={650}
-                    baseHeight={650}
-                    fill="cover will-change"
-                  />
+                  <ConditionalWrap
+                    condition={!!about.instagramImages[0].instagramImageUrl}
+                    wrap={children => (
+                      <a href={about.instagramImages[0].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    )}
+                  >
+                    <ImageWrapper
+                      image={about.instagramImages[0].asset}
+                      className="w-full h-full"
+                      baseWidth={650}
+                      baseHeight={650}
+                      fill="cover will-change"
+                    />
+                  </ConditionalWrap>
                 </div>
 
                 {/* Bottom Left */}
                 <div className="w-[15vw] md:w-[12vw] h-[15vw] md:h-[12vw] 2xl:w-[155px] 2xl:h-[155px] absolute bottom-0 bottom-[10%] left-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
-                  <ImageWrapper
-                    image={about.instagramImages[1].asset}
-                    className="w-full h-full will-change"
-                    baseWidth={650}
-                    baseHeight={650}
-                    fill="cover"
-                  />
+                  <ConditionalWrap
+                    condition={!!about.instagramImages[1].instagramImageUrl}
+                    wrap={children => (
+                      <a href={about.instagramImages[1].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    )}
+                  >
+                    <ImageWrapper
+                      image={about.instagramImages[1].asset}
+                      className="w-full h-full will-change"
+                      baseWidth={650}
+                      baseHeight={650}
+                      fill="cover"
+                    />
+                  </ConditionalWrap>
                 </div>
 
                 {/* Bottom Right */}
                 <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute bottom-0 bottom-[10%] right-0 border-2 border-blue bg-pink" ref={fadeRevealRefs}>
-                  <ImageWrapper
-                    image={about.instagramImages[2].asset}
-                    className="w-full h-full will-change"
-                    baseWidth={650}
-                    baseHeight={650}
-                    fill="cover"
-                  />
+                  <ConditionalWrap
+                    condition={!!about.instagramImages[2].instagramImageUrl}
+                    wrap={children => (
+                      <a href={about.instagramImages[2].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    )}
+                  >
+                    <ImageWrapper
+                      image={about.instagramImages[2].asset}
+                      className="w-full h-full will-change"
+                      baseWidth={650}
+                      baseHeight={650}
+                      fill="cover"
+                    />
+                  </ConditionalWrap>
                 </div>
 
                 {/* Top Right */}
                 <div className="w-[16vw] md:w-[14vw] h-[16vw] md:h-[14vw] 2xl:w-[190px] 2xl:h-[190px] absolute top-0 top-[10%] right-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
-                  <ImageWrapper
-                    image={about.instagramImages[3].asset}
-                    className="w-full h-full will-change"
-                    baseWidth={650}
-                    baseHeight={650}
-                    fill="cover"
-                  />
+                  <ConditionalWrap
+                    condition={!!about.instagramImages[3].instagramImageUrl}
+                    wrap={children => (
+                      <a href={about.instagramImages[3].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    )}
+                  >
+                    <ImageWrapper
+                      image={about.instagramImages[3].asset}
+                      className="w-full h-full will-change"
+                      baseWidth={650}
+                      baseHeight={650}
+                      fill="cover"
+                    />
+                  </ConditionalWrap>
                 </div>
 
                 {/* Just keep swimming */}
@@ -427,7 +465,7 @@ export default function About(initialData) {
         </motion.div>
 
         <motion.div variants={fadeSmallDelay} className="relative z-10">
-          <Footer contact={contact} />
+          <Footer contact={contact} removeInsta />
         </motion.div>
       </motion.section>
       </SmoothScrollProvider>

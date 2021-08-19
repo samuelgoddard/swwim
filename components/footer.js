@@ -7,7 +7,7 @@ import Logo from './logo'
 import Socials from './socials'
 import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
 
-export default function Footer({ contact }) {
+export default function Footer({ contact, removeInsta }) {
   const { scroll } = useContext(SmoothScrollContext)
 
   const goToTop = event => {
@@ -17,30 +17,34 @@ export default function Footer({ contact }) {
 
   return (
     <footer className="bg-blue-dark bg-noise text-white">
-      {contact?.socialLinks.map((item, i) => {
-        return (
-          <div key={i}>
-            {item.title == 'instagram' || item.title == 'Instagram' && (
-              <div className="bg-blue-light bg-noise py-6 2xl:py-8">
-                <Container>
-                  <div className="flex flex-wrap items-center relative z-10">
-                    <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</a></span>
-                    
-                    
-                    <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
-                      <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</a>
+      {!removeInsta && (
+        <>
+        {contact?.socialLinks.map((item, i) => {
+          return (
+            <div key={i}>
+              {item.title == 'instagram' || item.title == 'Instagram' && (
+                <div className="bg-blue-light bg-noise py-6 2xl:py-8">
+                  <Container>
+                    <div className="flex flex-wrap items-center relative z-10">
+                      <span className="block flex-1 text-xl md:text-2xl 2xl:text-3xl font-bold pr-6 md:pr-0">Soak up the latest from Swwim <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium block md:hidden mt-2">@weswwim</a></span>
+                      
+                      
+                      <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
+                        <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</a>
 
-                      <a href={item.url} target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
-                        <Logo width="w-8/12" />
-                      </a>
+                        <a href={item.url} target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
+                          <Logo width="w-8/12" />
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </Container>  
-              </div>
-            )}
-          </div>
-        )
-      })}
+                  </Container>  
+                </div>
+              )}
+            </div>
+          )
+        })}
+        </>
+      )}
 
       <Container>
         <div className="py-8 md:py-12 2xl:py-16 relative z-10">
@@ -59,8 +63,8 @@ export default function Footer({ contact }) {
           <div className="flex flex-wrap">
             <div className="w-full md:w-7/12 lg:w-5/12 min-h-full flex flex-wrap">
               <span className="block mb-4 md:mb-6 w-full">
-                <span className="block text-2xl md:text-3xl 2xl:text-4xl font-bold">Got a project?</span>
-                <span className="block text-2xl md:text-3xl 2xl:text-4xl font-medium mb-4 md:mb-6">Start a conversation</span>
+                <span className="block text-2xl md:text-3xl 2xl:text-4xl font-bold">You had me at aloha.</span>
+                <span className="block text-2xl md:text-3xl 2xl:text-4xl font-medium mb-4 md:mb-6">Let's chat.</span>
                 
                 <div className="mb-12 md:mb-12 lg:mb-56 2xl:mb-64">
                   <Button white overrideClasses="mb-5 text-blue-dark" href="/contact">Contact Us</Button>
