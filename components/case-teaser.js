@@ -23,7 +23,7 @@ export default function CaseTeaser({ heading, image, tags, index, href }) {
               { tags && (
                 <div className="w-full self-end mt-auto md:pb-12 2xl:pb-16">
                   {tags.map((item, i) => {
-                    return (<span key={i} className="inline-block md:block text-base md:text-xl 2xl:text-2xl leading-snug mb-[2px] mr-3 md:mr-0 md:mb-0">{item.title}</span>)
+                    return (<span key={i} className="inline-block md:block text-[15px] md:text-[15px] 2xl:text-[15px] leading-snug mb-[2px] mr-3 md:mr-0 md:mb-0">{item.title}</span>)
                   })}
                 </div>
               )}

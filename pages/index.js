@@ -71,6 +71,7 @@ const query = `{
     categories[]-> {
       title
     },
+    content,
     author-> {
       firstName,
       image {
@@ -658,6 +659,7 @@ export default function Home(initialData) {
                   date={article.date ?? null}
                   author={article.author ?? null}
                   noBorder={i === news.length - 1}
+                  content={article.content}
                 />
               )
             })}

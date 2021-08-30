@@ -23,6 +23,7 @@ const query = `{
     categories[]-> {
       title
     },
+    date,
     author-> {
       firstName,
       image {
@@ -31,6 +32,7 @@ const query = `{
         }
       }
     },
+    content,
     title,
     slug {
       current
@@ -52,6 +54,11 @@ const pageService = new SanityPageService(query)
 
 export default function NewsLanding(initialData) {
   const { data: { news, contact }  } = pageService.getPreviewHook(initialData)()
+
+  let newsFirst = news.slice(0,3);
+  let newsSecond = news.slice(3,5);
+  let newsThird = news.slice(5,7);
+
   return (
     <Layout>
       <NextSeo
@@ -165,7 +172,7 @@ export default function NewsLanding(initialData) {
             </div>
           
             <div className="mb-8 md:mb-12 2xl:mb-16 relative z-10 overflow-x-hidden">
-              {news.map((article, i) => {
+              {newsFirst.map((article, i) => {
                 return (
                   <NewsTeaser
                     key={i}
@@ -175,6 +182,7 @@ export default function NewsLanding(initialData) {
                     category={article.categories ? article.categories[0].title : null}
                     date={article.date ?? null}
                     author={article.author ?? null}
+                    content={article.content}
                   />
                 )
               })}
@@ -183,12 +191,21 @@ export default function NewsLanding(initialData) {
             <div className="flex flex-wrap w-full mb-3 md:mb-16 2xl:mb-20">
               <div className="w-full md:w-8/12 lg:w-9/12">
                 <div className="flex flex-wrap -mx-3 md:-mx-6">
-                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
-                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
-                  </div>
-                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
-                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
-                  </div>
+                  {newsSecond.map((e, i) => {
+                    return (
+                      <div key={i} className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
+                        <NewsTeaserStacked
+                          heading={e.title}
+                          categories={e.categories}
+                          image={e.heroImage}
+                          author={e.author}
+                          date={e.date}
+                          href={`/news/${e.slug.current}`}
+                          content={e.content}
+                        />
+                      </div>    
+                    )
+                  })}
                 </div>
               </div>
               
@@ -268,12 +285,21 @@ export default function NewsLanding(initialData) {
 
               <div className="w-full md:w-8/12 lg:w-9/12 relative z-10">
                 <div className="flex flex-wrap -mx-3 md:-mx-6">
-                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
-                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
-                  </div>
-                  <div className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
-                    <NewsTeaserStacked heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
-                  </div>
+                  {newsThird.map((e, i) => {
+                    return (
+                      <div key={i} className="w-1/2 md:w-1/2 px-3 md:px-6 mb-5 md:mb-0">
+                        <NewsTeaserStacked
+                          heading={e.title}
+                          categories={e.categories}
+                          image={e.heroImage}
+                          author={e.author}
+                          date={e.date}
+                          href={`/news/${e.slug.current}`}
+                          content={e.content}
+                        />
+                      </div>    
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -281,13 +307,13 @@ export default function NewsLanding(initialData) {
             <div className="w-full mb-12 md:mb-24 2xl:mb-32">
               <div className="flex flex-wrap -mx-3 md:-mx-6">
                 <div className="w-1/2 md:w-1/3 px-3 md:px-6 mb-5 md:mb-0">
-                  <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  {/* <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" /> */}
                 </div>
                 <div className="w-1/2 md:w-1/3 px-3 md:px-6 mb-5 md:mb-0">
-                  <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  {/* <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" /> */}
                 </div>
                 <div className="w-1/2 md:w-1/3 px-3 md:px-6 mb-5 md:mb-0">
-                  <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" />
+                  {/* <NewsTeaserStacked supporting heading="How Alcohol Brands Can Get Seen on TikTok #TheLowdown" /> */}
                 </div>
               </div>
             </div>

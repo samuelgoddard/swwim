@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { useEmblaCarousel } from 'embla-carousel/react'
 import NewsTeaserStacked from './news-teaser-stacked';
 
-export default function NewsCarousel() {
+export default function NewsCarousel({slides}) {
   const [viewportRef, embla] = useEmblaCarousel({
     containScroll: "keepSnaps",
     align: 'start',
@@ -16,8 +16,6 @@ export default function NewsCarousel() {
   const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [
     embla
   ]);
-
-  const slides = Array.from(Array(12).keys());
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -44,7 +42,15 @@ export default function NewsCarousel() {
               <div key={i} className="embla__slide">
                 <div className="embla__slide__inner">
                   <div className="embla__slide__img">
-                      <NewsTeaserStacked heading="5 Brands You'll Want To Have On Your Radar... #TruffleShoutOuts" />
+                      <NewsTeaserStacked
+                        heading={e.title}
+                        categories={e.categories}
+                        image={e.heroImage}
+                        author={e.author}
+                        date={e.date}
+                        href={`/news/${e.slug.current}`}
+                        content={e.content}
+                      />
                   </div>
                 </div>
               </div>

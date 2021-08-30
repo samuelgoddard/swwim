@@ -15,6 +15,9 @@ import spacetime from 'spacetime'
 import EditorialContentWrapper from '../../components/editorial-content-wrapper'
 import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 
+const readingTime = require('reading-time');
+
+
 const query = `
   *[_type == "news" && slug.current == $slug][0]{
     seo {
@@ -53,16 +56,55 @@ const query = `
         title,
         url
       }
+    },
+    "moreNews": *[_type == "news"][0..5] {
+      heroImage {
+        asset -> {
+          ...
+        }
+      },
+      categories[]-> {
+        title
+      },
+      slug {
+        current
+      },
+      content,
+      author-> {
+        firstName,
+        lastName,
+        image {
+          asset -> {
+            ...
+          }
+        }
+      },
+      date,
+      introText,
+      title
     }
   }
 `
 
+function toPlainText(blocks = []) {
+  return blocks
+    .map(block => {
+      if (block._type !== 'block' || !block.children) {
+        return ''
+      }
+      return block.children.map(child => child.text).join('')
+    })
+    .join('\n\n')
+}
+
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, categories, author, date, introText, title, content, contact }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, categories, author, date, introText, title, content, contact, moreNews }  } = pageService.getPreviewHook(initialData)()
 
   let d = spacetime(date)
+  let estimatedReadingTime = readingTime(toPlainText(content));
+
   return (
     <Layout>
       <NextSeo
@@ -163,7 +205,9 @@ export default function NewsSlug(initialData) {
                             <span className={`font-display uppercase text-sm mb-1 md:mb-0 opacity-60 mr-3 md:mr-6 block ${categories ? '2xl:px-10' : '2xl:pr-10'}`}>{d.unixFmt('dd.MM.yy')}</span>
                           )}
                         </div>
-                        <span className="ml-auto font-display text-sm mb-1 md:mb-0 block">2 Minute Read</span>
+                        {estimatedReadingTime && (
+                          <span className="ml-auto font-display text-sm mb-1 md:mb-0 block">{estimatedReadingTime.text}</span>
+                        )}
                       </div>
                       
                       {introText && (
@@ -285,12 +329,14 @@ export default function NewsSlug(initialData) {
               <span className="block font-display uppercase text-[20vw] md:text-[21.75vw] 2xl:text-[336px] leading-none relative text-center">SWWIM©</span>
             </div>
           </Container>
+          
+          {moreNews && (
+            <div className="w-full z-10 border-t border-blue border-opacity-20 pt-12 md:pt-24 2xl:pt-32 mb-8 md:mb-12">
+              <span className="block text-center mb-8 md:mb-12 2xl:mb-16 font-display text-[6.45vw] md:text-[4.55vw] lg:text-[4.25vw] 2xl:text-[70px] leading-none relative z-10">Continue Reading</span>
 
-          <div className="w-full z-10 border-t border-blue border-opacity-20 pt-12 md:pt-24 2xl:pt-32 mb-8 md:mb-12">
-            <span className="block text-center mb-8 md:mb-12 2xl:mb-16 font-display text-[6.45vw] md:text-[4.55vw] lg:text-[4.25vw] 2xl:text-[70px] leading-none relative z-10">Continue Reading</span>
-
-            <NewsCarousel />
-          </div>
+              <NewsCarousel slides={moreNews} />
+            </div>
+          )}
         </motion.div>
       </motion.section>
 

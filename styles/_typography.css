@@ -616,3 +616,9 @@ html.has-scroll-dragging {
   70% {transform: translate(9%,4%);}
   90% {transform: translate(-1%,7%);}
 }
+
+.case-image {
+  & > img, & > picture {
+    @apply object-cover object-center;
+  }
+}

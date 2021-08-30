@@ -9,6 +9,7 @@ import { motion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
 import ImageWrapper from '../../helpers/image-wrapper'
+import CaseCarousel from '../../components/case-carousel'
 
 const query = `*[_type == "caseStudy" && slug.current == $slug][0]{
   seo {
@@ -80,31 +81,24 @@ export default function CaseStudySlug(initialData) {
         exit="exit"
         className="bg-white bg-noise text-blue overflow-hidden w-full min-h-screen"
       >
-        <motion.div variants={fadeSmallDelay} className="relative z-10">
-          <div className="flex flex-wrap md:max-h-screen md:fixed md:inset-0 md:z-0">
-            <div className="w-full md:w-1/2 md:pt-32 2xl:pt-40 flex items-center">
-            </div>
-            <div className="w-full md:w-1/2 relative">
+        <motion.div variants={fadeSmallDelay} className="relative z-20">
+          <div className="flex flex-wrap md:max-h-screen md:fixed md:left-auto md:right-0 md:top-0 md:bottom-0 md:w-1/2 md:z-20">
+            <div className="w-full relative z-20">
               {images?.length > 0 && (
                 <>
-                  <div className="block md:hidden bg-blue">
-                    <ImageWrapper
-                      image={images[0]}
-                      className="w-full"
-                      baseWidth={620}
-                      baseHeight={620}
-                      alt={title}
-                    />
+                  <div className="block md:hidden bg-blue h-[40vh] w-full object-cover max-h-screen">
+                    <CaseCarousel images={images} />
                   </div>
-                  <div className="hidden md:block bg-blue">
-                    <ImageWrapper
+                  <div className="hidden md:block bg-blue w-full h-full object-cover max-h-screen">
+                    <CaseCarousel images={images} />
+                    {/* <ImageWrapper
                       image={images[0]}
                       className="w-full h-full object-cover max-h-screen"
                       baseWidth={730}
                       baseHeight={1000}
                       alt={title}
                       fill="cover"
-                    />
+                    /> */}
                   </div>
                 </>
               )}
