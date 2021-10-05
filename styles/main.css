@@ -10,3 +10,53 @@
 
 /* Tailwind Utilities */
 @import 'tailwindcss/utilities';
+
+.client-logo {
+  min-height: 240px !important;
+
+  @screen md {
+    min-height: 280px !important;
+  }
+
+  @screen xl {
+    min-height: 310px !important;
+  }
+}
+
+.accordion-item {
+  @apply transition-all ease-in-out duration-500 pointer-events-none;
+  max-height: 0;
+
+}
+
+.accordion-item--open {
+  max-height: 1000px;
+  @apply transition-all ease-in-out duration-700 pb-12 md:pb-16 xl:pb-20;
+}
+
+
+.accordion__panel {
+  display: block !important;
+  overflow: hidden;
+  max-height: 1000px;  
+  transition: max-height 1.5s ease-in-out;
+}
+
+.accordion__panel[hidden] {
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;  
+  transition: max-height 0.75s cubic-bezier(0, 1, 0, 1);
+}
+
+.insta-loader {
+  animation: instaLoader 3s;
+  animation-iteration-count: infinite;
+  
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes instaLoader {
+  0% { width: 0 }
+  100% { width: 100%; }
+}

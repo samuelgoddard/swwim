@@ -6,7 +6,7 @@ import ImageWrapper from '../helpers/image-wrapper';
 const AUTOPLAY_INTERVAL = 3000;
 
 export default function InstaCarousel({ stories }) {
-  const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
+  const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false, draggable: false });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
 
@@ -66,7 +66,10 @@ export default function InstaCarousel({ stories }) {
                           className="w-full will-change"
                           baseWidth={550}
                           baseHeight={720}
-                        />     
+                        /> 
+                        <div className="h-[4px] w-full bg-black bg-opacity-20 relative">
+                          <div className="insta-loader h-[4px] absolute inset-0 bg-gradient-to-r from-yellow-500  to-red-700"></div>
+                        </div>
                       </div>
                     </div>
                   </div>

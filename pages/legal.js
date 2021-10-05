@@ -117,8 +117,5 @@ export default function Legal(initialData) {
 }
 
 export async function getStaticProps(context) {
-  const props = await pageService.fetchQuery(context)
-  return { 
-    props
-  };
+  return pageService.fetchQuery(context)
 }

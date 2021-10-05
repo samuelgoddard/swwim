@@ -16,7 +16,7 @@ export default function Footer({ contact, removeInsta }) {
   }
 
   return (
-    <footer className="bg-blue-dark bg-noise text-white">
+    <footer className="bg-blue-dark bg-noise text-white relative z-10">
       {!removeInsta && (
         <>
         {contact?.socialLinks.map((item, i) => {
@@ -32,9 +32,13 @@ export default function Footer({ contact, removeInsta }) {
                       <div className="md:flex md:flex-wrap w-auto ml-auto items-center">
                         <a href={item.url} target="_blank" rel="noopener noreferer" className="w-full md:w-auto text-sm md:text-xl 2xl:text-2xl font-medium hidden md:block mr-5">@weswwim</a>
 
-                        <a href={item.url} target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0">
-                          <Logo width="w-8/12" />
-                        </a>
+                        <div className="relative">
+                          <a href={item.url} target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0 group">
+                            <Logo width="w-8/12" />
+
+                            <img src="https://media.giphy.com/media/26gs78HRO8sOuhTkQ/giphy-downsized.gif" alt="Pop TV Gif" className="w-full h-full absolute inset-0 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500"></img>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </Container>  
@@ -83,7 +87,7 @@ export default function Footer({ contact, removeInsta }) {
               <div className="hidden md:block lg:flex flex-wrap lg:space-x-6 w-full self-end">
                 <span className="block opacity-60">&copy; { new Date().getFullYear() } Swwim</span>              
                 <Link href="/legal"><a className="block opacity-60 hover:opacity-100 focus:opacity-100 ring-white">Legal Information</a></Link>
-                <span className="block opacity-60">Site by Joel &amp; Sam</span>
+                <span className="block opacity-60">Site by <a className="inline-block hover:underline focus:underline" href="https://www.mynrd.co.uk" target="_blank" rel="noopener noreferrer">Joel</a> &amp; <a className="inline-block hover:underline focus:underline" href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer">Sam</a></span>
               </div>
             </div>
             <div className="w-full md:w-5/12 lg:w-7/12">
@@ -124,7 +128,7 @@ export default function Footer({ contact, removeInsta }) {
 
                 
                 <div className="hidden md:block max-w-[300px] w-1/2 md:w-8/12 ml-auto md:mt-8 lg:mt-16 2xl:mt-20 2xl:-mr-16 md:-mb-3 2xl:-mb-6">
-                  <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
+                  <Image width={1128} height={950} layout="responsive" src="/icons/footer-person.svg" alt="placeholder" className="w-full" />
                 </div>
               </div>
               
@@ -132,11 +136,11 @@ export default function Footer({ contact, removeInsta }) {
                 <div className="">
                   <span className="block text-sm opacity-60 mb-1">&copy; { new Date().getFullYear() } Swwim</span>
                   <Link href="/legal"><a className="block text-sm opacity-60 hover:opacity-100 focus:opacity-100 mb-1 ring-white">Legal Information</a></Link>
-                  <span className="block text-sm opacity-60 mb-1">Site by Joel &amp; Sam</span>
+                  <span className="block text-sm opacity-60 mb-1">Site by <a className="inline-block hover:underline focus:underline" href="https://www.mynrd.co.uk" target="_blank" rel="noopener noreferrer">Joel</a> &amp; <a className="inline-block hover:underline focus:underline" href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer">Sam</a></span>
                 </div>
 
                 <div className="block md:hidden w-5/12 md:w-full ml-auto -mb-3">
-                  <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
+                  <Image width={1128} height={950} layout="responsive" src="/icons/footer-person.svg" alt="placeholder" className="w-full" />
                 </div>
               </div>
             </div>

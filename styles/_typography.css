@@ -335,8 +335,8 @@ details ::marker {
     }
   }
   .embla__slide:nth-child(odd) {
-    min-width: 45%;
-    padding-top: 10vw;
+    min-width: 70%;
+    padding-top: 6vw;
   }
 
   @screen md {
@@ -347,7 +347,7 @@ details ::marker {
   }
 
   .embla__slide:nth-child(even) {
-    min-width: 42%;
+    min-width: 50%;
   }
 
   @screen md {
@@ -359,7 +359,7 @@ details ::marker {
   .embla__slide__inner {
     position: relative;
     overflow: hidden;
-    height: 50vw;
+    height: 60vw;
 
     img {
       @apply transition ease duration-700;
@@ -621,4 +621,8 @@ html.has-scroll-dragging {
   & > img, & > picture {
     @apply object-cover object-center;
   }
+}
+
+.tab[aria-selected="false"] {
+  @apply opacity-40 hover:opacity-100 focus:opacity-100;
 }

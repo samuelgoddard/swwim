@@ -128,7 +128,7 @@ export default function App({ Component, pageProps }) {
                       </div>
                     </div>
 
-                    <nav className="mb-auto w-full relative z-50">
+                    <nav className="mb-auto w-full relative z-50 md:pt-20 xl:pt-28">
                       <ul>
                         <li className="block mb-3 md:mb-8 2xl:mb-10">
                           <Link href="/">
@@ -162,7 +162,7 @@ export default function App({ Component, pageProps }) {
                             </a>
                           </Link>
                         </li>
-                        <li className="block md:hidden mb-3 md:mb-8 lg:mb-10">
+                        <li className="block mb-3 md:mb-8 lg:mb-10">
                           <Link href="/contact">
                             <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${router.asPath === '/contact' ? 'text-stroke--active' : ''}`}>
                               <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
@@ -174,21 +174,15 @@ export default function App({ Component, pageProps }) {
                     </nav>
 
                     <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
-                      {/* <div className="w-auto mt-auto">
-                        {contact && (
-                          <>
-                            {contact?.socialLinks && (
+                      <div className="w-auto mt-auto">
+                            {/* {contact?.socialLinks && (
                               <div className="md:mb-3">
                                 <Socials links={contact.socialLinks} />
                               </div>
-                            )}
+                            )} */}
 
-                            {contact?.email && (
-                              <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1 hover:underline focus:underline">hello@weswwim.com</a>
-                            )}
-                          </>
-                        )}
-                      </div> */}
+                            <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1 hover:underline focus:underline">hello@weswwim.com</a>
+                      </div>
 
                       <div className="hidden md:block md:max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">
                         <div className="w-5/12 md:w-9/12 2xl:w-full md:ml-auto">

@@ -7,7 +7,7 @@ export default function FancyLink( {href, a11yText, label, extraClasses} ) {
         <span className="block">{label ? label : 'Learn More'}</span>        
         <div className="absolute bottom-0 left-0 w-full">
 
-          <div className="py-1 relative z-10 overflow-hidden">
+          <div className={`relative z-10 overflow-hidden ${label ? 'py-2' : 'py-1'}`}>
             <div className="absolute bottom-0 left-0 w-full">
               <div className="relative flex overflow-x-hidden">
                 <div className="animate-marquee-fast whitespace-nowrap">

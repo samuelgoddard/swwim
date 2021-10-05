@@ -110,9 +110,9 @@ export default function CaseStudySlug(initialData) {
               <div className="w-full md:w-1/2 py-8 md:pt-32 md:pb-12 2xl:pt-40 2xl:pb-16 flex items-center">
                 <div className="w-11/12 md:w-10/12">
                   <Link href="/case-studies">
-                    <a className="flex flex-wrap space-x-3 items-center ring-white mb-8 md:mb-12 2xl:mb-16">
-                      <svg className="w-8 transform -rotate-90" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
-                      <span className="block font-bold">Back to case studies</span>
+                    <a className="flex flex-wrap space-x-3 items-center ring-white mb-8 md:mb-12 2xl:mb-16 group">
+                      <svg className="w-8 transform -rotate-90 group-hover:scale-125 transition-transform ease-in-out duration-300" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+                      <span className="block font-bold transition-opacity ease-in-out duration-300 group-hover:opacity-60">Back to case studies</span>
                     </a>
                   </Link>
 
@@ -155,10 +155,7 @@ export default function CaseStudySlug(initialData) {
 }
 
 export async function getStaticProps(context) {
-  const props = await pageService.fetchQuery(context)
-  return {
-    props
-  };
+  return pageService.fetchQuery(context)
 }
 
 export async function getStaticPaths() {

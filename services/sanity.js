@@ -42,7 +42,7 @@ class Sanity {
 
   async fetchQuery({ query = '', params }) {
     const res = await this.client.fetch(groq`${query}`, params)
-    if (!res) throw new Error(`Nothing was returned from the query: ${query}, with params: ${JSON.stringify(params)}`)
+    if (!res) console.error(`Nothing was returned from the query: ${query}, with params: ${JSON.stringify(params)}`)
     return res
   }
 

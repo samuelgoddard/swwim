@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Layout from '../../components/layout'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import Link from 'next/link'
 import Container from '../../components/container'
 import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../../helpers/transitions"
 import Logo from '../../components/logo'
@@ -122,8 +123,8 @@ export default function CaseStudiesLanding(initialData) {
                     </span>
                   </h1>
                   
-                  <div className="absolute bottom-0 right-0 w-[60%] md:w-[42%] 2xl:w-[43%] mr-[20%] md:mr-[18%] lg:mr-[18%] 2xl:mr-[16%] mb-[-5%] md:mb-[-3%] 2xl:mb-[-4%]">
-                    <Image width={359} height={113} layout="responsive" src="/icons/case-studies-header-squiggle.svg" alt="Squiggle Underline" className="w-full" priority />
+                  <div className="absolute bottom-0 left-0 w-[20%] md:w-[18%] 2xl:w-[17%] ml-[6%] md:ml-[12%] lg:ml-[3%] 2xl:ml-[7%] mb-[7%] md:mb-[4%] lg:mb-[-5%] 2xl:mb-[-4%]">
+                    <Image width={167} height={169} layout="responsive" src="/icons/case-stroke.svg" alt="Squiggle Underline" className="w-full" priority />
                   </div>
                 </div>
               </div>
@@ -147,15 +148,15 @@ export default function CaseStudiesLanding(initialData) {
             <div className="relative md:mx-16 2xl:mx-20 mb-12 md:mb-16 2xl:mb-32">
               <svg className="w-5/12 md:w-4/12 absolute top-0 right-0 mt-[15%] mr-[2%] md:mr-[13%] lg:mr-[18%] md:mt-[18%] lg:mt-[15%] 2xl:mt-[14%] 2xl:mr-[18%] z-0" viewBox="0 0 447 258" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity=".447"><mask id="squiggleMaskA" maskUnits="userSpaceOnUse" x="0" y="0" width="447" height="258"><path fillRule="evenodd" clipRule="evenodd" d="M0 0h447v258H0V0z" fill="#fff"/></mask><g mask="url(#squiggleMaskA)"><path fillRule="evenodd" clipRule="evenodd" d="M53.828 230.687c-10.89-6.159-20.862-14.418-28.037-24.655-7.078-10.098-11.515-22.131-12.372-34.027a73.814 73.814 0 01-.172-5.233c9.767 16.713 23.923 31.084 39.348 42.517 24.188 17.925 53.103 29.06 82.627 34.699 3.62.69 7.25 1.3 10.891 1.849-1.72.121-3.441.232-5.166.321-29.476 1.522-60.958-.681-87.12-15.471zm-38.8-130.357c8.148-23.03 29.039-40.3 50.082-52.253 26.129-14.84 55.343-24.157 84.81-29.832 30.327-5.84 61.61-8.004 92.464-6.43 28.104 1.435 56.265 6.358 82.558 16.506 18.94 7.308 39.338 18.807 49.708 36.502 2.744 4.677 4.25 8.368 5.542 13.817 1.383 5.82 1.63 11.91.998 18.431-1.378 14.208-7.725 27.581-15.776 39.23-15.112 21.862-35.783 39.678-58.002 54.179-23.274 15.193-48.672 27.354-74.877 36.695-11.839 4.219-23.909 7.839-36.142 10.782-2.137.004-4.274.027-6.412-.003-31.201-.445-62.576-4.828-91.691-16.335-25.07-9.908-48.21-25.476-65.286-46.312-7.17-8.746-13.125-18.779-16.934-29.416 3.937-14.63 11.717-28.368 21.676-39.878 17.88-20.659 42.67-33.85 68.918-41.476 30.031-8.724 61.589-10.138 92.695-8.841 16.243.678 32.443 2.126 48.609 3.817 3.082.323 5.725-2.836 5.725-5.672 0-3.334-2.636-5.348-5.725-5.671-34.274-3.582-68.954-6.115-103.336-2.416-30.385 3.269-60.75 11.556-86.644 28.061-19.82 12.636-36.243 30.36-46.323 51.436-.536-8.297.453-16.694 3.363-24.921zm431.207 63.482c-1.465-2.48-5.29-3.8-7.835-2.034a429.465 429.465 0 01-77.083 42.449c-26.732 11.329-54.754 19.834-83.242 25.549a423.547 423.547 0 01-34.641 5.446 404.608 404.608 0 0033.575-14.547c25.653-12.51 50.162-27.985 71.071-47.409 21.628-20.095 41.423-45.688 44.52-75.785 1.307-12.71-1.046-25.588-7.191-36.847-5.545-10.158-13.889-18.415-23.165-25.264-19.627-14.492-44.136-22.736-67.791-28.016C262.398.201 229.157-1.277 196.445.967c-31.951 2.19-63.885 7.67-94.157 18.2C74.9 28.695 47.45 41.937 26.751 62.543 17.217 72.03 9.38 83.129 4.585 95.687c-5.194 13.611-5.805 28.477-2.692 42.638.61 2.789 1.395 5.52 2.26 8.22-5.062 22.418-1.606 46.334 11.959 65.51 17.163 24.263 45.16 37.95 74.085 42.916 32.283 5.541 66.037 2.964 97.969-3.56 3.065-.625 6.115-1.329 9.159-2.039 11.665-.057 23.323-.637 34.901-1.649 30.533-2.667 60.794-8.471 90.096-17.384 29.268-8.904 57.66-20.834 84.426-35.562a427.403 427.403 0 0037.434-23.205c2.528-1.754 3.704-4.962 2.053-7.76z" fill="#EEE1D9"/></g></g></svg>
               
-              <div className="w-[32%] md:w-[30%] lg:w-[20%] absolute top-0 left-0 ml-[-16%] md:ml-[-24%] lg:ml-[-16%] 2xl:ml-[-9%] mt-[2%] md:mt-[15%] lg:mt-[12%] z-0 transform rotate-45">
+              <div className="w-[32%] md:w-[30%] lg:w-[20%] absolute top-0 left-0 ml-[-16%] md:ml-[-24%] lg:ml-[-20%] 2xl:ml-[-20%] mt-[2%] md:mt-[15%] lg:mt-[30%] z-0 transform rotate-45">
                 <div className="animate--wave--slow origin-bottom-left">
                   <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
                 </div>
               </div>
 
-              <div className="w-[65%] md:w-[65%] lg:w-[50%] 2xl:w-[45%] absolute top-0 right-0 mr-[-30%] md:mr-[-32%] lg:mr-[-22%] 2xl:mr-[-25%] mt-[-35%] md:mt-[-35%] lg:mt-[-25%] xl:mt-[-25%] z-0 transform rotate-6">
+              <div className="w-[65%] md:w-[65%] lg:w-[50%] 2xl:w-[45%] absolute top-0 right-0 mr-[-33%] md:mr-[-37%] lg:mr-[-27%] 2xl:mr-[-30%] mt-[-35%] md:mt-[-35%] lg:mt-[-25%] xl:mt-[-25%] z-0 transform rotate-45">
                 <div className="animate--wave--slow origin-bottom-right">
-                  <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-90" />
+                  <Image width={551} height={555} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full transform -rotate-90" />
                 </div>
               </div>
 
@@ -163,8 +164,11 @@ export default function CaseStudiesLanding(initialData) {
                 <span className="block">
                   See How We
                 </span>
-                <div className="w-[13%] xl:w-[11%] mr-l md:ml-[2%] 2xl:ml-[4%] xl:mb-[-2%] hidden md:block animate--float">
+                {/* <div className="w-[13%] xl:w-[11%] mr-l md:ml-[2%] 2xl:ml-[4%] xl:mb-[-2%] hidden md:block animate--float">
                   <Image width={130} height={115} layout="responsive" src="/icons/speech.svg" alt="Speech Bubble Illustration" className="w-full" />
+                </div> */}
+                <div className="w-[13%] md:w-[23vw] lg:w-[28vw] md:h-[5.3vw] lg:h-[5vw] xl:w-[35%] xl:mb-[-2%] hidden md:block mt-[10px] xl:mt-[15px] xl:h-[88px] absolute top-0 right-0">
+                  <Image layout="fill" src="/images/case-image.png" alt="See how we can help" className="w-full absolute inset-0 object-cover object-center" />
                 </div>
               </span>
 
@@ -177,7 +181,19 @@ export default function CaseStudiesLanding(initialData) {
                 </span>
               </span>
               <span className="block font-display uppercase text-[10.5vw] md:text-[8.5vw] 2xl:text-[125px] leading-none relative z-10">Business Grow</span>
-              <span className="block font-display uppercase text-[10.5vw] md:text-[8.5vw] 2xl:text-[125px] leading-none relative z-10">Today</span>
+
+              <div className="w-[32%] mr-3 md:mr-[4%] 2xl:mr-12 block absolute bottom-0 left-0 z-10 -mb-2 xl:mb-0">
+                <Image width={364} height={181} layout="responsive" src="/icons/case-woman.svg" alt="Woman Illustration" className="w-full" />
+              </div>
+              
+              <span className="block font-display uppercase text-[10.5vw] md:text-[8.5vw] 2xl:text-[125px] leading-none relative z-10 ml-[35%]">Today</span>
+              
+              <Link href="/contact">
+                <a className={`rounded-full text-center inline-block font-bold group overflow-hidden transition-colors ease-in-out duration-500 bg-blue text-white ring-blue px-4 md:px-6 py-4 md:py-6 relative xl:absolute xl:bottom-0 xl:right-0 w-full xl:w-[30%] text-base md:text-2xl xl:text-[1.9vw] mt-5 xl:mt-0 xl:mb-6 xl:max-w-[360px]`}>
+                  <span className="block relative z-10 xl:mb-2">Contact us</span>
+                  <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                </a>
+              </Link>
             </div>
           </Container>
         </motion.div>
@@ -193,8 +209,5 @@ export default function CaseStudiesLanding(initialData) {
 }
 
 export async function getStaticProps(context) {
-  const props = await pageService.fetchQuery(context)
-  return { 
-    props
-  };
+  return pageService.fetchQuery(context)
 }

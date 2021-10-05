@@ -42,8 +42,8 @@ export default function Contact() {
         className="bg-blue-dark bg-noise text-white overflow-hidden min-h-screen flex flex-wrap py-12 md:pt-24 md:pb-[14vh] 2xl:pt-32 2xl:pb-[17vh]"
       >
         {/* Lady With Megaphone */}
-        <motion.div variants={fadeSmallDelay} className="w-[44%] md:w-[38%] lg:w-[34%] xl:w-[30%] 2xl:w-[480px] absolute bottom-0 right-0 z-10 mr-[-18%] mb-[-5%] md:mr-[-10%] 2xl:mr-[-150px]">
-          <Image height={800} width={415} src="/icons/woman-megaphone.svg" alt="Woman With Megaphone Illustration" layout="responsive" priority />
+        <motion.div variants={fadeSmallDelay} className="w-[44%] md:w-[32%] lg:w-[30%] xl:w-[30%] 2xl:w-[420px] absolute bottom-0 right-0 z-10 mr-[-10%] mb-[0%] md:mr-[-6%] 2xl:mr-[-80px] md:max-h-[550px] 2xl:max-h-[700px]">
+          <Image height={900} width={400} src="/icons/contact-lady.svg" alt="Woman With Megaphone Illustration" layout="responsive" priority />
         </motion.div>
 
         {/* Bottom Middle Bigger Leaf */}

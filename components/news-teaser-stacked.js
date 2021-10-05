@@ -66,7 +66,7 @@ export default function NewsTeaserStacked({ heading, author, theme, supporting, 
                 </div>
               </div>
 
-              <h3 className={`block font-display pr-5 leading-snug ${supporting ? 'text-base md:text-lg xl:text-2xl 2xl:text-3xl' : 'text-lg md:text-xl xl:text-3xl 2xl:text-4xl'}`}>{heading}</h3>
+              <h3 className={`block font-display pr-5 leading-snug group-hover:opacity-60 transition-opacity ease-in-out duration-300 ${supporting ? 'text-base md:text-lg xl:text-2xl 2xl:text-3xl' : 'text-lg md:text-xl xl:text-3xl 2xl:text-4xl'}`}>{heading}</h3>
 
               {author && (
                 <span className="text-sm md:text-base font-display flex flex-wrap items-center">

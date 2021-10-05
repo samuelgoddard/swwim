@@ -11,12 +11,14 @@ export default function LegalTabs({ items }) {
   }
 
   return (
-    <Tabs selectedTabClassName="bg-white block text-blue px-2">
+    <Tabs selectedTabClassName="bg-white text-blue block text-blue px-2 opacity-100 transition-none">
       <TabList className="md:mx-[10%] lg:mx-32 xl:mx-40 2xl:mx-56 flex flex-wrap mb-8 md:mb-10 2xl:mb-12 font-bold">
 
         {items.map((item, i) => {
           return (
-            <Tab key={i} className="border-b border-white mr-5 px-1 block cursor-pointer" onClick={() => updateHeight()}>{item.title}</Tab>
+            <Tab key={i} className="border-b tab border-white mr-5 px-1 block cursor-pointer relative group" onClick={() => updateHeight()}>
+              <div className="bg-white absolute bottom-0 left-0 right-0 w-full h-0 group-hover:h-full transition-all ease-in-out duration-300 z-10"></div>
+              <span className="z-[100] group-hover:text-blue relative block transition-colors duration-300 ease-in">{item.title}</span></Tab>
           )
         })}
       </TabList>

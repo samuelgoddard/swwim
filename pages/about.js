@@ -234,8 +234,8 @@ export default function About(initialData) {
                 </span>
                 <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">Problem solvers with a passion</h3>
                 
-                <div className="w-7/12 mr-5 ml-auto">
-                  <Image width={400} height={34} layout="responsive" src="/icons/title-swipe.svg" alt="Swipe Underline" className="w-full will-change" />
+                <div className="w-full ml-auto mr-[-8vw] md:mr-[-2vw] 2xl:mr-[-6vw]">
+                  <Image width={268} height={4} layout="responsive" src="/icons/team-stroke.svg" alt="Swipe Underline" className="w-full will-change" />
                 </div>
               </div>
             </div>
@@ -297,21 +297,19 @@ export default function About(initialData) {
           <div className="mb-6 md:mb-12 2xl:mb-16 relative z-10 overflow-hidden">
             <div className="relative flex overflow-x-hidden font-display uppercase text-5xl md:text-[5.5vw] xl:text-[4.5vw] 2xl:text-[80px]">
               <div className="animate-marquee whitespace-nowrap">
-                <span className="mx-1">Building communities with heart</span>
-                <span className="mx-1">&bull;</span>
-                <span className="mx-1">Building communities with heart</span>
-                <span className="mx-1">&bull;</span>
-                <span className="mx-1">Building communities with heart</span>
-                <span className="mx-1">&bull;</span>
+              <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
               </div>
 
               <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
-              <span className="mx-1">Building communities with heart</span>
-                <span className="mx-1">&bull;</span>
-                <span className="mx-1">Building communities with heart</span>
-                <span className="mx-1">&bull;</span>
-                <span className="mx-1">Building communities with heart</span>
-                <span className="mx-1">&bull;</span>
+
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
               </div>
             </div>
           </div>
@@ -323,13 +321,13 @@ export default function About(initialData) {
                   image={about.inPageImage.asset}
                   className="w-full will-change"
                   baseWidth={1200}
-                  baseHeight={600}
+                  baseHeight={800}
                 />
               </div>
             </div>
           )}
 
-          <div className="w-full relative">
+          <div className="w-full relative z-[1000] pb-48">
 
           <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0 animate--float" ref={fadeRevealRefs}>
             <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full will-change" />
@@ -339,7 +337,7 @@ export default function About(initialData) {
             <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90 will-change" />
           </div>
             <Container>
-              <div className="relative pt-40 pb-32 md:pb-48 md:pt-56 xl:pb-64 xl:pt-80">
+              <div className="relative pt-40 pb-32 md:pb-48 md:pt-56 xl:pb-64 xl:pt-80 z-[1000]">
                 {/* Top Left */}
                 <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute top-0 top-[10%] left-0 bg-pink border-2 border-blue" ref={fadeRevealRefs}>
                   <ConditionalWrap
@@ -459,8 +457,17 @@ export default function About(initialData) {
                     <Image width={167} height={102} layout="responsive" src="/icons/dive-in.svg" alt="Dive In in handwritten text" className="w-full will-change" />
                   </div>
                 </div>
+                
+
               </div>
             </Container>
+            
+
+            <div className="absolute bottom-0 left-0 w-full max-w-[200px] md:max-w-[280px] xl:max-w-[380px] ml-[44vw] md:ml-[50vw] xl:ml-[45vw] md:mb-[0px] xl:mb-[10px] z-50" ref={fadeRevealRefs}>
+              <Image width={360} height={319} layout="responsive" src="/icons/flamingo.svg" alt="Flamingo Illustration" className="w-full will-change" />
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 xl:h-48 bg-blue-dark bg-noise -mb-1 z-10"></div>
           </div>
         </motion.div>
 
@@ -475,8 +482,5 @@ export default function About(initialData) {
 }
 
 export async function getStaticProps(context) {
-  const props = await pageService.fetchQuery(context)
-  return { 
-    props
-  };
+  return pageService.fetchQuery(context)
 }

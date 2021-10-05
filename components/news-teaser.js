@@ -62,7 +62,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
         <div className="w-full md:w-7/12 md:px-3 2xl:px-5">
           <div className="flex flex-wrap items-start min-h-full">
             <div className="w-full flex flex-wrap items-start pb-5">
-              <h3 className="block text-2xl md:text-3xl lg:text-4xl font-display w-10/12 xl:w-7/12 pr-8 md:pr-16 md:pt-2">{heading}</h3>
+              <h3 className="block text-2xl md:text-3xl lg:text-4xl font-display w-10/12 xl:w-7/12 pr-8 md:pr-16 md:pt-2 group-hover:opacity-60 transition-opacity ease-in-out duration-500">{heading}</h3>
 
               <svg className="w-10 ml-auto transform hover:scale-125 transition ease-in-out duration-300 mr-1" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21.5" r="21" fill={arrowBackground}/><path d="M12.227 20.603H27.86v2.017H12.227v-2.017z" fill={arrowForeground}/><path d="M23.523 28.37l-1.413-1.413 5.346-5.345-5.346-5.345 1.413-1.412 6.757 6.757-6.757 6.758z" fill={ arrowForeground }/></svg>
             </div>
