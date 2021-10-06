@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Logo from '../components/logo'
 import Image from 'next/image'
+import LottieTest from '../components/lottie-test'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
@@ -116,10 +117,10 @@ export default function App({ Component, pageProps }) {
 
                           <button
                             onClick={() => setMenuIsOpen(false)}
-                            className="rounded-full text-center block font-bold px-4 md:px-4 py-2 bg-transparent text-white ring-blue"
+                            className="rounded-full text-center block font-bold px-4 md:px-4 py-2 bg-transparent text-white ring-blue group"
                             aria-label="Close Menu"
                           >
-                            <div className="flex items-center">
+                            <div className="flex items-center group-hover:opacity-60 transition-opacity ease-in-out duration-500">
                               <span className="block mr-2">Close</span>
                               <svg className="w-4 transform mt-[3px]" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.305 27.132L26.354 2.084M26.354 27.132L1.306 2.083" stroke="currentColor" strokeWidth="3.24"/></svg>
                             </div>
@@ -132,7 +133,7 @@ export default function App({ Component, pageProps }) {
                       <ul>
                         <li className="block mb-3 md:mb-8 2xl:mb-10">
                           <Link href="/">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${router.asPath === '/' ? 'text-stroke--active' : ''}`}>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/' ? 'text-stroke--active' : ''}`}>
                               <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
                               <span className="block text-stroke__item">Home</span>
                             </a>
@@ -140,7 +141,7 @@ export default function App({ Component, pageProps }) {
                         </li>
                         <li className="block mb-3 md:mb-8 2xl:mb-10">
                           <Link href="/about">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${router.asPath === '/about' ? 'text-stroke--active' : ''}`}>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/about' ? 'text-stroke--active' : ''}`}>
                               <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
                               <span className="block text-stroke__item">About</span>
                             </a>
@@ -148,7 +149,7 @@ export default function App({ Component, pageProps }) {
                         </li>
                         <li className="block mb-3 md:mb-8 lg:mb-10">
                           <Link href="/case-studies">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${router.asPath.includes('/case-studies') ? 'text-stroke--active' : ''}`}>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath.includes('/case-studies') ? 'text-stroke--active' : ''}`}>
                               <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
                               <span className="block text-stroke__item">Case Studies</span>
                             </a>
@@ -156,7 +157,7 @@ export default function App({ Component, pageProps }) {
                         </li>
                         <li className="block mb-3 md:mb-8 lg:mb-10">
                           <Link href="/news">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${router.asPath.includes('/news') ? 'text-stroke--active' : ''}`}>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath.includes('/news') ? 'text-stroke--active' : ''}`}>
                               <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
                               <span className="block text-stroke__item">News</span>
                             </a>
@@ -164,7 +165,7 @@ export default function App({ Component, pageProps }) {
                         </li>
                         <li className="block mb-3 md:mb-8 lg:mb-10">
                           <Link href="/contact">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl flex items-end text-stroke ${router.asPath === '/contact' ? 'text-stroke--active' : ''}`}>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/contact' ? 'text-stroke--active' : ''}`}>
                               <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
                               <span className="block text-stroke__item">Contact Us</span>
                             </a>
@@ -174,7 +175,7 @@ export default function App({ Component, pageProps }) {
                     </nav>
 
                     <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
-                      <div className="w-auto mt-auto">
+                      <div className="w-auto mt-auto pb-8">
                             {/* {contact?.socialLinks && (
                               <div className="md:mb-3">
                                 <Socials links={contact.socialLinks} />
@@ -184,11 +185,14 @@ export default function App({ Component, pageProps }) {
                             <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1 hover:underline focus:underline">hello@weswwim.com</a>
                       </div>
 
-                      <div className="hidden md:block md:max-w-[280px] w-full md:w-1/2 ml-auto mb-5 md:-mb-3 2xl:-mb-6 order-1 md:order-2">
-                        <div className="w-5/12 md:w-9/12 2xl:w-full md:ml-auto">
-                          <Image width={1128} height={950} layout="responsive" src="/images/drink.webp" alt="placeholder" className="w-full" />
-                        </div>
-                      </div>
+
+                      {/* <LottieTest/> */}
+                    </div>
+                  </div>
+
+                  <div className="w-full absolute bottom-0 left-0 right-0">
+                    <div className="w-full">
+                      <Image width={741} height={260} layout="responsive" src="/icons/menu-woman.svg" alt="placeholder" className="w-full" />
                     </div>
                   </div>
                 </motion.div>

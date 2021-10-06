@@ -182,7 +182,7 @@ export default function About(initialData) {
                       <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full ml-[3px] will-change" />
                     </div>
 
-                    <div className="absolute top-0 animate-marquee2 whitespace-nowrap w-full">
+                    <div className="absolute top-0 animate-marquee2 whitespace-nowrap w-full -ml-5">
                       <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full will-change" />
                     </div>
                   </div>
@@ -244,18 +244,21 @@ export default function About(initialData) {
               {team?.map((person, i) => {
                 return (
                   <div className="w-full mb-3 md:mb-5 2xl:mb-8" key={i}>
-                    <div className="border-blue border-2 mb-3 md:mb-4 bg-pink">
-                      {person.image && (
-                        <div ref={fadeRevealRefs}>
-                          <ImageWrapper
-                            image={person.image.asset}
-                            className="w-full will-change"
-                            baseWidth={520}
-                            baseHeight={660}
-                            alt={`${person.firstName} ${person.secondName}`}
-                          />
-                        </div>
-                      )}
+                    <div className="border-blue border-2 mb-3 md:mb-4 bg-pink h-[50vw] md:h-[27vw] lg:h-[29vw] xl:h-[33vw] 2xl:h-[31.5vw] max-h-[480px] relative team-image">
+                      <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
+                        {person.image && (
+                          <div className="w-[700%] team-image--hover">
+                            <Image
+                              src={person.image.asset.url}
+                              className="w-full will-change"
+                              width={5334}
+                              height={920}
+                              layout="responsive"
+                              alt={`${person.firstName} ${person.secondName}`}
+                            />
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     <span className="text-lg md:text-xl 2xl:text-2xl font-display block mb-0 pb-0 leading-tight">{person.firstName } { person.secondName }</span>
@@ -267,14 +270,12 @@ export default function About(initialData) {
               })}
 
               <div className="w-full mb-3 md:mb-5 2xl:mb-8">
-                <div className="border-blue border-2 mb-3 md:mb-4 bg-pink">
+                <div className="border-blue border-2 mb-3 md:mb-4 bg-pink h-[50vw] md:h-[27vw] lg:h-[29vw] xl:h-[33vw] 2xl:h-[31.5vw] max-h-[480px] relative">
                   <div ref={fadeRevealRefs}>
                     <Image
                       src={'/images/person-fallback.jpg'}
-                      className="w-full will-change"
-                      width={520}
-                      height={660}
-                      layout="responsive"
+                      className="w-full will-change absolute inset-0"
+                      layout="fill"
                       alt="Think you're fit?"
                     />
                   </div>

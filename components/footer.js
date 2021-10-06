@@ -59,8 +59,14 @@ export default function Footer({ contact, removeInsta }) {
               </a>
             </Link>
 
-            <button onClick={goToTop} className="block rounded-full ml-auto ring-white transform hover:scale-125 transition ease-in-out duration-300">
-              <svg className="w-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+            <button onClick={goToTop} className="flex space-x-3 items-center ring-white group ml-auto">
+              {/* <svg className="w-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg> */}
+
+              <span className="border border-white border-opacity-40 rounded-full relative overflow-hidden group-hover:border-opacity-100 ease-in-out transition-all duration-500">
+                <svg className="absolute top-0 left-0 translate-y-12 group-hover:translate-y-0 transition ease-in-out duration-500 w-8 transform " viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+
+                <svg className="group-hover:-translate-y-12 transition ease-in-out duration-500 w-8 transform " viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+              </span>
             </button>
           </div>
 

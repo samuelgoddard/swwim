@@ -60,3 +60,47 @@
   0% { width: 0 }
   100% { width: 100%; }
 }
+
+.hero-top-right {
+  max-height: 128px;
+}
+
+.fancy-link {
+
+  & .animation {
+    animation-play-state: paused;
+  }
+
+  &:hover {
+    & .animation {
+      animation-play-state: running;
+    }
+  }
+}
+
+.team-image {
+  &:hover {
+    & .team-image--hover {
+      animation-play-state: running;
+    }
+  }
+}
+
+.team-image--hover {
+  animation: teamImage 2s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  animation-timing-function: steps(1, end);
+}
+
+
+@keyframes teamImage {
+  0% { transform: translateX(0%); }
+  14% { transform: translateX(-14.285%); }
+  28% { transform: translateX(-28.57%); }
+  42% { transform: translateX(-42.855%); }
+  57% { transform: translateX(-57.14%); }
+  71% {  transform: translateX(-71.425%); }
+  85% {  transform: translateX(-85.71%); }
+  100% {  transform: translateX(-99.985%); }
+}

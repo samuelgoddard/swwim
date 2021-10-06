@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from './lottie-animations-2.js'
+import animationData from '../public/images/lady-ring.json'
 
 export default class LottieTest extends React.Component {
   constructor(props) {
@@ -19,6 +19,9 @@ export default class LottieTest extends React.Component {
       loop: false,
       autoplay: false, 
       animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+      }
     };
 
     return <Lottie options={defaultOptions} isStopped={this.state.isStopped} />

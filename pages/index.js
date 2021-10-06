@@ -35,6 +35,9 @@ const query = `{
     heroImage {
       asset->
     },
+    heroSupportingImage {
+      asset->
+    },
     welcomeHeading,
     welcomeText,
     welcomeSectionImages[] {
@@ -223,7 +226,7 @@ export default function Home(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white pb-8 md:pb-12 2xl:pb-16 pt-[125px] md:pt-[160px] xl:pt-[180px]"
+        className="bg-blue bg-noise text-white pt-[125px] md:pt-[160px] xl:pt-[180px]"
       >
         <motion.div variants={fadeDelay} className="relative z-10">
 
@@ -253,6 +256,23 @@ export default function Home(initialData) {
                   </motion.div>
                 </div>
               </div>
+
+              <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[7.8vw] 2xl:h-[11vw] absolute top-0 right-0 z-10 bg-blue-dark bg-opacity-50 overflow-hidden hero-top-right md:mt-[11px] 2xl:mt-[15px]">
+                {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
+                <div className="absolute inset-0 w-full h-full">
+                  <motion.div className="w-full h-full" variants={fade}>
+                    <ImageWrapper
+                      image={home.heroSupportingImage.asset}
+                      className="w-full h-full object-cover object-center transform scale-[1.15]"
+                      baseWidth={704}
+                      baseHeight={230}
+                      fill={true}
+                      alt={'Delivering Creative Campaigns That Float'}
+                      priority
+                    />
+                  </motion.div>
+                </div>
+              </div>
               
               <div className="overflow-hidden">
                 <motion.span variants={textReveal} className="block font-display uppercase text-[14vw] md:text-[10.5vw] 2xl:text-[170px] leading-none relative z-10">Delivering</motion.span>
@@ -270,14 +290,14 @@ export default function Home(initialData) {
                 <motion.span variants={textReveal} className="block md:text-right font-display uppercase text-[14vw] md:text-[10.5vw] 2xl:text-[170px] leading-none relative z-10">That Float</motion.span>
               </div>
 
-              <motion.div variants={fadeDelay} className="w-1/2 md:w-4/12 absolute top-0 right-0 mt-[32vw] mr-[4vw] md:mr-0 md:mt-[28vw] 2xl:mt-[32%] z-0">
-                {/* <LottieTest/> */}
-              </motion.div>
+              {/* <motion.div variants={fadeDelay} className="w-1/2 md:w-4/12 absolute top-0 right-0 mt-[32vw] mr-[4vw] md:mr-0 md:mt-[28vw] 2xl:mt-[32%] z-0">
+                <LottieTest/>
+              </motion.div> */}
 
 
               <svg className="w-1/2 md:w-4/12 absolute top-0 right-0 mt-[35vw] mr-[4vw] md:mr-0 md:mt-[28vw] 2xl:mt-[32%] z-0" viewBox="0 0 447 258" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity=".447"><mask id="mask-a" maskUnits="userSpaceOnUse" x="0" y="0" width="447" height="258"><path fillRule="evenodd" clipRule="evenodd" d="M0 0h447v258H0V0z" fill="#fff"/></mask><g mask="url(#mask-a)"><path fillRule="evenodd" clipRule="evenodd" d="M53.828 230.687c-10.89-6.159-20.862-14.418-28.037-24.655-7.078-10.098-11.515-22.131-12.372-34.027a73.814 73.814 0 01-.172-5.233c9.767 16.713 23.923 31.084 39.348 42.517 24.188 17.925 53.103 29.06 82.627 34.699 3.62.69 7.25 1.3 10.891 1.849-1.72.121-3.441.232-5.166.321-29.476 1.522-60.958-.681-87.12-15.471zm-38.8-130.357c8.148-23.03 29.039-40.3 50.082-52.253 26.129-14.84 55.343-24.157 84.81-29.832 30.327-5.84 61.61-8.004 92.464-6.43 28.104 1.435 56.265 6.358 82.558 16.506 18.94 7.308 39.338 18.807 49.708 36.502 2.744 4.677 4.25 8.368 5.542 13.817 1.383 5.82 1.63 11.91.998 18.431-1.378 14.208-7.725 27.581-15.776 39.23-15.112 21.862-35.783 39.678-58.002 54.179-23.274 15.193-48.672 27.354-74.877 36.695-11.839 4.219-23.909 7.839-36.142 10.782-2.137.004-4.274.027-6.412-.003-31.201-.445-62.576-4.828-91.691-16.335-25.07-9.908-48.21-25.476-65.286-46.312-7.17-8.746-13.125-18.779-16.934-29.416 3.937-14.63 11.717-28.368 21.676-39.878 17.88-20.659 42.67-33.85 68.918-41.476 30.031-8.724 61.589-10.138 92.695-8.841 16.243.678 32.443 2.126 48.609 3.817 3.082.323 5.725-2.836 5.725-5.672 0-3.334-2.636-5.348-5.725-5.671-34.274-3.582-68.954-6.115-103.336-2.416-30.385 3.269-60.75 11.556-86.644 28.061-19.82 12.636-36.243 30.36-46.323 51.436-.536-8.297.453-16.694 3.363-24.921zm431.207 63.482c-1.465-2.48-5.29-3.8-7.835-2.034a429.465 429.465 0 01-77.083 42.449c-26.732 11.329-54.754 19.834-83.242 25.549a423.547 423.547 0 01-34.641 5.446 404.608 404.608 0 0033.575-14.547c25.653-12.51 50.162-27.985 71.071-47.409 21.628-20.095 41.423-45.688 44.52-75.785 1.307-12.71-1.046-25.588-7.191-36.847-5.545-10.158-13.889-18.415-23.165-25.264-19.627-14.492-44.136-22.736-67.791-28.016C262.398.201 229.157-1.277 196.445.967c-31.951 2.19-63.885 7.67-94.157 18.2C74.9 28.695 47.45 41.937 26.751 62.543 17.217 72.03 9.38 83.129 4.585 95.687c-5.194 13.611-5.805 28.477-2.692 42.638.61 2.789 1.395 5.52 2.26 8.22-5.062 22.418-1.606 46.334 11.959 65.51 17.163 24.263 45.16 37.95 74.085 42.916 32.283 5.541 66.037 2.964 97.969-3.56 3.065-.625 6.115-1.329 9.159-2.039 11.665-.057 23.323-.637 34.901-1.649 30.533-2.667 60.794-8.471 90.096-17.384 29.268-8.904 57.66-20.834 84.426-35.562a427.403 427.403 0 0037.434-23.205c2.528-1.754 3.704-4.962 2.053-7.76z" fill="#01295F"/></g></g></svg>
 
-              <span className="relative md:absolute z-10 top-0 right-0 block text-lg md:text-[2vw] lg:text-[1.4vw] 2xl:text-lg w-10/12 md:w-[33%] 2xl:w-[35%] leading-tight 2xl:leading-snug font-medium mt-2 md:mt-[6vw] lg:mt-[13vw] 2xl:mt-[15%]">
+              <span className="relative md:absolute z-10 top-0 right-0 block text-lg md:text-[1.6vw] lg:text-[1.4vw] 2xl:text-[19px] w-10/12 md:w-[33%] 2xl:w-[30%] leading-tight 2xl:leading-snug font-medium mt-2 md:mt-[11vw] lg:mt-[13vw] 2xl:mt-[14.3%]">
                 <span className="2xl:max-w-md block ">
                   Collaborating with content specialists, influencers and all-round creative types, to make communicating your brand a balmy breeze.
                 </span>
@@ -285,20 +305,21 @@ export default function Home(initialData) {
             </div>
 
             <div className="block w-full md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 z-10 bg-blue-dark bg-opacity-50 overflow-hidden md:hidden">
-                {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
-                <div className="">
-                  <motion.div className="w-full" variants={fade}>
-                    <ImageWrapper
-                      image={home.heroImage.asset}
-                      className="w-full"
-                      baseWidth={720}
-                      baseHeight={500}
-                      alt={'Delivering Creative Campaigns That Float'}
-                      priority
-                    />
-                  </motion.div>
-                </div>
+              {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
+              <div className="">
+                <motion.div className="w-full" variants={fade}>
+                  <ImageWrapper
+                    image={home.heroImage.asset}
+                    className="w-full"
+                    baseWidth={720}
+                    baseHeight={500}
+                    alt={'Delivering Creative Campaigns That Float'}
+                    priority
+                  />
+                </motion.div>
               </div>
+            </div>
+
 
 
             <div className="border-t border-b border-white py-4 md:py-6 relative z-10 overflow-hidden">
@@ -410,10 +431,10 @@ export default function Home(initialData) {
                       <div className="w-1/2 md:w-full px-4 md:px-0 mt-16 md:mt-24 lg:mt-32 xl:mt-40 relative">
                         { home.welcomeSectionImages[1].asset && (
                           <div className="w-full max-w-[380px] mr-auto bg-blue-dark overflow-hidden" ref={fadeRevealRefs}>
-                            <div data-scroll data-scroll-speed={0.45}>
-                            <ImageWrapper
+                            <div>
+                              <ImageWrapper
                                 image={home.welcomeSectionImages[1].asset}
-                                className="w-full will-change transform scale-[1.15]"
+                                className="w-full will-change "
                                 baseWidth={550}
                                 baseHeight={720}
                               />
@@ -429,11 +450,27 @@ export default function Home(initialData) {
             </div>
           </Container>
 
-          <div className="mb-8 md:mb-12 2xl:mb-16">
+          <div className="relative pb-[60vw] md:pb-[280px] 2xl:pb-[320px]">
+
+            <div className="w-[90vw] md:w-[70vw] xl:w-[70vw] absolute bottom-0 left-0 z-50 max-w-[1200px]">
+              <div className="" ref={fadeRevealRefs}>
+              <Image width={1059} height={526} layout="responsive" src="/icons/sit-back.svg" alt="placeholder" className="w-full" />
+              </div>
+            </div>
+
+            <div className="w-[400px] md:w-[65vw] xl:w-[70vw] absolute bottom-0 left-0 z-20 max-w-[900px] md:-ml-8">
+              <div className="" ref={fadeRevealRefs}>
+              <Image width={733} height={955} layout="responsive" src="/icons/the-doing-palm.svg" alt="placeholder" className="w-full" />
+              </div>
+            </div>
+
+            <div className="w-full bg-white bg-noise bg-noise--white h-24 absolute bottom-0 left-0 right-0 z-30 pb-0 -mb-6">
+            </div>
+
             <Container>
-              <div className="flex flex-wrap mb-3 md:mb-16 2xl:mb-24">
+              <div className="flex flex-wrap pb-3 md:pb-16 2xl:pb-24">
                 <div className="w-full md:ml-auto">
-                  <div className="relative">
+                  <div className="relative z-40">
                     <h2 className="relative z-10 font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[160px] leading-none md:text-right hidden md:block">
                       <span className="block overflow-hidden">
                         <motion.span variants={textReveal} className="block">We're all about</motion.span>
@@ -451,21 +488,9 @@ export default function Home(initialData) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap">
-                {home.justGettingOnWithItImage && (
-                  <div className="w-full md:w-7/12 mb-6 md:mb-0 md:-mt-16 2xl:-mt-24">
-                    <div className="w-8/12 md:w-10/12 max-w-2xl" ref={fadeRevealRefs}>
-                      <ImageWrapper
-                        image={home.justGettingOnWithItImage.asset}
-                        className="w-full will-change"
-                        baseWidth={1128}
-                        baseHeight={950}
-                        alt={"Just Getting On With It Illustration"}
-                      />
-                    </div>
-                  </div>
-                )}
-                <div className="w-full md:w-5/12">
+              <div className="flex flex-wrap relative z-40">
+
+                <div className="w-full md:w-5/12 md:ml-auto">
                   <div className="w-11/12">
 
                     <div className="content content--opaque content--fancy text-lg 2xl:text-xl">
@@ -489,7 +514,7 @@ export default function Home(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise bg-noise--white text-blue py-10 md:py-16 2xl:py-20 overflow-hidden"
+        className="bg-white bg-noise bg-noise--white text-blue py-10 md:py-16 2xl:py-20 overflow-hidden relative z-10"
       >
         <Container>
           <motion.div variants={fadeDelay} className="relative z-10">

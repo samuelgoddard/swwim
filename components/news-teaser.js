@@ -64,7 +64,17 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
             <div className="w-full flex flex-wrap items-start pb-5">
               <h3 className="block text-2xl md:text-3xl lg:text-4xl font-display w-10/12 xl:w-7/12 pr-8 md:pr-16 md:pt-2 group-hover:opacity-60 transition-opacity ease-in-out duration-500">{heading}</h3>
 
-              <svg className="w-10 ml-auto transform hover:scale-125 transition ease-in-out duration-300 mr-1" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21.5" r="21" fill={arrowBackground}/><path d="M12.227 20.603H27.86v2.017H12.227v-2.017z" fill={arrowForeground}/><path d="M23.523 28.37l-1.413-1.413 5.346-5.345-5.346-5.345 1.413-1.412 6.757 6.757-6.757 6.758z" fill={ arrowForeground }/></svg>
+              <span className={` rounded-full relative overflow-hidden transform -rotate-90 ml-auto group-hover:scale-125 transition-transform ease-in-out duration-500 mr-1 ${theme === 'blue' ? 'bg-white text-blue-dark group-hover:text-white' : 'bg-blue text-white group-hover:text-white'}`}>
+                <svg className="absolute top-0 left-0 -translate-y-12 group-hover:translate-y-0 transition ease-in-out duration-500 w-8 transform rotate-180 z-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+
+                <svg className="group-hover:translate-y-12 transition ease-in-out duration-500 w-8 relative z-10 transform rotate-180" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+
+                <span className="absolute inset-0 flex flex-wrap z-1 items-center justify-center">
+                  <span className="w-0 h-0 rounded-full bg-black group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
+                </span>
+              </span>
+
+              {/* <svg className="w-10 ml-auto transform hover:scale-125 transition ease-in-out duration-300 mr-1" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21.5" r="21" fill={arrowBackground}/><path d="M12.227 20.603H27.86v2.017H12.227v-2.017z" fill={arrowForeground}/><path d="M23.523 28.37l-1.413-1.413 5.346-5.345-5.346-5.345 1.413-1.412 6.757 6.757-6.757 6.758z" fill={ arrowForeground }/></svg> */}
             </div>
 
             <div className="w-full flex flex-wrap items-end md:items-center mt-auto md:pb-2">
