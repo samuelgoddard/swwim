@@ -488,7 +488,7 @@ export default function Home(initialData) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap relative z-40">
+              <div className="flex flex-wrap relative z-50">
 
                 <div className="w-full md:w-5/12 md:ml-auto">
                   <div className="w-11/12">
