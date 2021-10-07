@@ -372,7 +372,7 @@ details ::marker {
 
   @screen md {
     .embla__slide__inner {
-      position: relative;
+      /* position: relative; */
       overflow: hidden;
       height: 35vw;
     }

@@ -92,7 +92,7 @@ export default function AboutCarousel({ images }) {
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
@@ -108,7 +108,7 @@ export default function AboutCarousel({ images }) {
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
@@ -127,7 +127,7 @@ export default function AboutCarousel({ images }) {
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
@@ -143,7 +143,7 @@ export default function AboutCarousel({ images }) {
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
