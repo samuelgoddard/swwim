@@ -95,7 +95,18 @@ export default function About(initialData) {
   return (
     <Layout>
       <NextSeo
-        title="About"
+        title={about.seo?.metaTitle ? about.seo.metaTitle : about.title}
+        description={about.seo?.metaDesc ? about.seo.metaDesc : null}
+        openGraph={{
+          description: about.seo?.metaDesc ? about.seo.metaDesc : null,
+          images: [
+            {
+              url: about.seo?.shareGraphic?.asset.url ?? null,
+              width: 1200,
+              height: 630
+            },
+          ]
+        }}
       />
 
       <motion.div

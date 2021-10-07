@@ -192,7 +192,18 @@ export default function Home(initialData) {
   return (    
     <Layout>
       <NextSeo
-        title="Social, Digital &amp; Content Creation"
+        title={home.seo?.metaTitle ? home.seo.metaTitle : home.title}
+        description={home.seo?.metaDesc ? home.seo.metaDesc : null}
+        openGraph={{
+          description: home.seo?.metaDesc ? home.seo.metaDesc : null,
+          images: [
+            {
+              url: home.seo?.shareGraphic?.asset.url ?? null,
+              width: 1200,
+              height: 630
+            },
+          ]
+        }}
       />
 
       <motion.div
