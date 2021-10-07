@@ -34,6 +34,18 @@ export const fadeSmallDelay = {
 	}
 }
 
+export const fadeSmallerDelay = {
+	initial: { opacity: 0 },
+  enter: { 
+    opacity: 1,
+    transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.55 }
+  },
+	exit: {
+    opacity: 0,
+		transition: { duration: 0.55, ease: [0.83, 0, 0.17, 1], delay: 0.55 }
+	}
+}
+
 export const revealIn = {
 	initial: { y: 0 },
   enter: { 

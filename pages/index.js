@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Container from '../components/container'
-import { fade, fadeDelay, revealIn, revealInLogo, revealInLogoMove, textReveal } from "../helpers/transitions"
+import { fade, fadeDelay, fadeSmallerDelay, revealIn, revealInLogo, revealInLogoMove, textReveal } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 import FancyLink from '../components/fancy-link'
 import Accordion from '../components/accordion'
@@ -248,13 +248,15 @@ export default function Home(initialData) {
 
             <div className="relative mb-8 md:mb-6 2xl:mb-8">
               <div className="w-[30%] md:w-[20%] absolute top-0 left-0 mt-[6%] ml-[65%] md:mt-[10%] md:ml-[46%] z-20 animate--wiggle">
-                <Image height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" priority />
+                <motion.div variants={fade}>
+                  <Image height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" priority />
+                </motion.div>
               </div>
 
               <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 absolute bottom-0 left-0 z-10 bg-blue-dark bg-opacity-50 overflow-hidden">
                 {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
                 <div className="absolute inset-0 w-full h-full" data-scroll data-scroll-speed={0.25}>
-                  <motion.div className="w-full h-full" variants={fade}>
+                  <motion.div className="w-full h-full" variants={fadeSmallerDelay}>
                     <ImageWrapper
                       image={home.heroImage.asset}
                       className="w-full h-full object-cover object-center transform scale-[1.15]"
@@ -271,7 +273,7 @@ export default function Home(initialData) {
               <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[7.8vw] 2xl:h-[11vw] absolute top-0 right-0 z-10 bg-blue-dark bg-opacity-50 overflow-hidden hero-top-right md:mt-[11px] 2xl:mt-[15px]">
                 {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
                 <div className="absolute inset-0 w-full h-full">
-                  <motion.div className="w-full h-full" variants={fade}>
+                  <motion.div className="w-full h-full" variants={fadeSmallerDelay}>
                     <ImageWrapper
                       image={home.heroSupportingImage.asset}
                       className="w-full h-full object-cover object-center transform scale-[1.15]"
@@ -318,7 +320,7 @@ export default function Home(initialData) {
             <div className="block w-full md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 z-10 bg-blue-dark bg-opacity-50 overflow-hidden md:hidden">
               {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
               <div className="">
-                <motion.div className="w-full" variants={fade}>
+                <motion.div className="w-full" variants={fadeSmallerDelay}>
                   <ImageWrapper
                     image={home.heroImage.asset}
                     className="w-full"
