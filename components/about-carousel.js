@@ -83,7 +83,7 @@ export default function AboutCarousel({ images }) {
                   <div className="embla__slide__img">
                     <div className="block md:hidden">
                       { (i%2 == 0) ? (
-                        <div className="bg-blue-dark">
+                        <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
                             className="w-full will-change"
@@ -91,9 +91,15 @@ export default function AboutCarousel({ images }) {
                             baseHeight={400}
                             priority
                           />
+                          { e.video && (
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                              <source src={e.video} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          )}
                         </div>
                       ) : (
-                        <div className="bg-blue-dark">
+                        <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
                             className="w-full will-change"
@@ -101,12 +107,18 @@ export default function AboutCarousel({ images }) {
                             baseHeight={550}
                             priority
                           />
+                          { e.video && (
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                              <source src={e.video} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          )}
                         </div>
                       )}
                     </div>
                     <div className="hidden md:block">
                       { (i%2 == 0) ? (
-                        <div className="bg-blue-dark">
+                        <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
                             className="w-full will-change"
@@ -114,9 +126,15 @@ export default function AboutCarousel({ images }) {
                             baseHeight={650}
                             priority
                           />
+                          { e.video && (
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                              <source src={e.video} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          )}
                         </div>
                       ) : (
-                        <div className="bg-blue-dark">
+                        <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
                             className="w-full will-change"
@@ -124,6 +142,12 @@ export default function AboutCarousel({ images }) {
                             baseHeight={850}
                             priority
                           />
+                          { e.video && (
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0">
+                              <source src={e.video} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                            </video>
+                          )}
                         </div>
                       )}
                     </div>

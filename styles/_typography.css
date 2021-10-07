@@ -364,6 +364,10 @@ details ::marker {
     img {
       @apply transition ease duration-700;
     }
+
+    video {
+      @apply transition ease duration-700;
+    }
   }
 
   @screen md {
@@ -378,6 +382,9 @@ details ::marker {
 .embla.is--active {
   .embla__slide__inner {
     img {
+      @apply transform scale-110 origin-center;
+    }
+    video {
       @apply transform scale-110 origin-center;
     }
   }

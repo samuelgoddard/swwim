@@ -29,8 +29,9 @@ const query = `{
     title,
     introText,
     values,
-    heroImageCarousel[] {
-      asset->
+    heroImageCarousell[] {
+      asset->,
+      video
     },
     inPageImage {
       asset->
@@ -179,7 +180,7 @@ export default function About(initialData) {
           </Container>
 
           <div className="mb-5 md:mb-12 2xl:mb-16">
-            <AboutCarousel images={about.heroImageCarousel} />
+            <AboutCarousel images={about.heroImageCarousell} />
           </div>
 
           <Container>
