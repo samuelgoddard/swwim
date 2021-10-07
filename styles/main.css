@@ -81,26 +81,33 @@
 .team-image {
   &:hover {
     & .team-image--hover {
-      animation-play-state: running;
+      animation: teamImage 0.45s;
+      animation-iteration-count: 1;
+      animation-timing-function: steps(1, end);
+      animation-fill-mode: forwards;
     }
   }
 }
 
 .team-image--hover {
-  animation: teamImage 2s;
-  animation-iteration-count: infinite;
-  animation-play-state: paused;
+  animation: teamImageReverse 0.45s;
+  animation-iteration-count: 1;
+  /* animation-play-state: paused; */
   animation-timing-function: steps(1, end);
+  animation-fill-mode: forwards;
 }
 
 
 @keyframes teamImage {
   0% { transform: translateX(0%); }
-  14% { transform: translateX(-14.285%); }
-  28% { transform: translateX(-28.57%); }
-  42% { transform: translateX(-42.855%); }
-  57% { transform: translateX(-57.14%); }
-  71% {  transform: translateX(-71.425%); }
-  85% {  transform: translateX(-85.71%); }
-  100% {  transform: translateX(-99.985%); }
+  33% { transform: translateX(-14.285%); }
+  66% { transform: translateX(-28.57%); }
+  100% { transform: translateX(-42.855%); }
+}
+
+@keyframes teamImageReverse {
+  0% { transform: translateX(-42.855%); }
+  33% { transform: translateX(-28.57%); }
+  66% { transform: translateX(-14.285%); }
+  100% { transform: translateX(0%); }
 }
