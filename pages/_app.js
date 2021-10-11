@@ -129,44 +129,44 @@ export default function App({ Component, pageProps }) {
                       </div>
                     </div>
 
-                    <nav className="mb-auto w-full relative z-50 md:pt-20 xl:pt-28">
+                    <nav className="mb-auto w-full relative z-50 md:pt-[5vh]  open-nav">
                       <ul>
-                        <li className="block mb-3 md:mb-8 2xl:mb-10">
+                        <li className="block mb-3 md:mb-5 2xl:mb-10">
                           <Link href="/">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/' ? 'text-stroke--active' : ''}`}>
-                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-[8.5vw] md:text-4xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/' ? 'text-stroke--active' : ''}`}>
+                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[3vw] md:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">01</span>
                               <span className="block text-stroke__item">Home</span>
                             </a>
                           </Link>
                         </li>
-                        <li className="block mb-3 md:mb-8 2xl:mb-10">
+                        <li className="block mb-3 md:mb-5 2xl:mb-10">
                           <Link href="/about">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/about' ? 'text-stroke--active' : ''}`}>
-                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-[8.5vw] md:text-4xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/about' ? 'text-stroke--active' : ''}`}>
+                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[3vw] md:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">02</span>
                               <span className="block text-stroke__item">About</span>
                             </a>
                           </Link>
                         </li>
-                        <li className="block mb-3 md:mb-8 lg:mb-10">
+                        <li className="block mb-3 md:mb-5 2xl:mb-10">
                           <Link href="/case-studies">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath.includes('/case-studies') ? 'text-stroke--active' : ''}`}>
-                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-[8.5vw] md:text-4xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath.includes('/case-studies') ? 'text-stroke--active' : ''}`}>
+                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[3vw] md:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">03</span>
                               <span className="block text-stroke__item">Case Studies</span>
                             </a>
                           </Link>
                         </li>
-                        <li className="block mb-3 md:mb-8 lg:mb-10">
+                        <li className="block mb-3 md:mb-5 2xl:mb-10">
                           <Link href="/news">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath.includes('/news') ? 'text-stroke--active' : ''}`}>
-                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-[8.5vw] md:text-4xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath.includes('/news') ? 'text-stroke--active' : ''}`}>
+                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[3vw] md:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">04</span>
                               <span className="block text-stroke__item">News</span>
                             </a>
                           </Link>
                         </li>
-                        <li className="block mb-3 md:mb-8 lg:mb-10">
+                        <li className="block mb-3 md:mb-5 2xl:mb-10">
                           <Link href="/contact">
-                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-2xl sm:text-3xl md:text-5xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/contact' ? 'text-stroke--active' : ''}`}>
-                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[4px] lg:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
+                            <a onClick={() => setMenuIsOpen(false)} className={`font-display text-[8.5vw] md:text-4xl lg:text-5xl 2xl:text-5xl flex items-end text-stroke ${router.asPath === '/contact' ? 'text-stroke--active' : ''}`}>
+                              <span className="block font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mr-2 sm:mr-4 md:mr-8 mb-[3vw] md:mb-[5px] 2xl:mb-[7px] w-8 md:w-6 lg:w-10">05</span>
                               <span className="block text-stroke__item">Contact Us</span>
                             </a>
                           </Link>

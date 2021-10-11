@@ -91,28 +91,28 @@ export default function AboutCarousel({ images }) {
                             baseHeight={400}
                             priority
                           />
-                          { e.video && (
+                          {/* { e.video && (
                             <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
-                          )}
+                          )} */}
                         </div>
                       ) : (
                         <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
                             className="w-full will-change"
-                            baseWidth={300}
-                            baseHeight={550}
+                            baseWidth={400}
+                            baseHeight={560}
                             priority
                           />
-                          { e.video && (
+                          {/* { e.video && (
                             <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
-                          )}
+                          )} */}
                         </div>
                       )}
                     </div>
@@ -126,12 +126,12 @@ export default function AboutCarousel({ images }) {
                             baseHeight={650}
                             priority
                           />
-                          { e.video && (
+                          {/* { e.video && (
                             <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
-                          )}
+                          )} */}
                         </div>
                       ) : (
                         <div className="bg-blue-dark relative overflow-hidden">
@@ -142,12 +142,12 @@ export default function AboutCarousel({ images }) {
                             baseHeight={850}
                             priority
                           />
-                          { e.video && (
+                          {/* { e.video && (
                             <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
                               <source src={e.video} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
-                          )}
+                          )} */}
                         </div>
                       )}
                     </div>

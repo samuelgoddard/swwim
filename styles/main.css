@@ -111,3 +111,25 @@
   66% { transform: translateX(-14.285%); }
   100% { transform: translateX(0%); }
 }
+
+.home-squiggle {
+  margin-top: 20px;
+
+  @screen lg {
+    margin-top: 75px;
+  }
+
+  @screen 2xl {
+    margin-top: 100px;
+  }
+}
+
+.open-nav {
+  @screen md {
+    padding-top: 5vh;
+  }
+
+  @screen xl {
+    padding-top: 10vh;
+  }
+}

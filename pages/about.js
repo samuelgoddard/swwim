@@ -172,8 +172,8 @@ export default function About(initialData) {
                   </span>
                 </h1>
                 
-                <div className="absolute bottom-0 left-0 w-[49%] md:w-[32%] ml-[6%] md:ml-[4%] lg:ml-[6%] 2xl:ml-[7%] mb-[-4%] md:mb-[-2%] 2xl:mb-[-3%]">
-                  <Image width={369} height={150} layout="responsive" src="/icons/about-header-squiggle.svg" alt="Squiggle Underline" className="w-full will-change" priority />
+                <div className="absolute bottom-0 left-0 w-[49%] md:w-[35%] ml-[17%] md:ml-[-2%] lg:ml-[-2%] 2xl:ml-[0%] mb-[-4%] md:mb-[-2%] 2xl:mb-[-3%]">
+                  <Image width={369} height={150} layout="responsive" src="/icons/about-hero-swirl.svg" alt="Squiggle Underline" className="w-full will-change" priority />
                 </div>
               </div>
             </div>
@@ -294,7 +294,7 @@ export default function About(initialData) {
                 </div>
 
                 <span className="text-lg md:text-xl 2xl:text-2xl font-display block mb-0 pb-0 leading-tight">Think you're fit?</span>
-                <span className="text-base font-medium block leading-tight">Email us at <a className="underline" href="mailto:careers@weswwim.com">careers@weswwim.com</a></span>
+                <span className="text-base font-medium block leading-tight">Email us at <a className="underline hover:opacity-60 transition-opacity ease-in-out duration-500" href="mailto:careers@weswwim.com">careers@weswwim.com</a></span>
               </div>
             </div>
 
@@ -310,19 +310,22 @@ export default function About(initialData) {
           <div className="mb-6 md:mb-12 2xl:mb-16 relative z-10 overflow-hidden">
             <div className="relative flex overflow-x-hidden font-display uppercase text-5xl md:text-[5.5vw] xl:text-[4.5vw] 2xl:text-[80px]">
               <div className="animate-marquee whitespace-nowrap">
-              <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
               </div>
 
               <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
 
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
-                <span className="ml-2 mr-3">Building communities with heart <div className="inline-block w-[6vw] max-w-[60px] align-center"><Image width={91} height={74} layout="responsive" src="/icons/heart.svg" alt="Heart" className="inline-block w-full will-change" /></div></span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
+                <span className="ml-2 mr-3">Building communities with heart &bull;</span>
               </div>
             </div>
           </div>
@@ -352,12 +355,16 @@ export default function About(initialData) {
             <Container>
               <div className="relative pt-40 pb-32 md:pb-48 md:pt-56 xl:pb-64 xl:pt-80 z-[1000]">
                 {/* Top Left */}
-                <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute top-0 top-[10%] left-0 bg-pink border-2 border-blue" ref={fadeRevealRefs}>
+                <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute z-30 top-0 top-[10%] left-0 bg-pink border-2 border-blue" ref={fadeRevealRefs}>
                   <ConditionalWrap
-                    condition={!!about.instagramImages[0].instagramImageUrl}
+                    condition={about.instagramImages[0].instagramImageUrl}
                     wrap={children => (
-                      <a href={about.instagramImages[0].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={about.instagramImages[0].instagramImageUrl} target="_blank" rel="noopener noreferrer" className="group">
                         {children}
+
+                        <div className="absolute z-40 inset-0 bg-blue bg-opacity-80 flex flex-wrap items-center justify-center opacity-0 transition-opacity ease-in-out duration-500 group-hover:opacity-100">
+                          <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#FFF" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
                       </a>
                     )}
                   >
@@ -372,12 +379,16 @@ export default function About(initialData) {
                 </div>
 
                 {/* Bottom Left */}
-                <div className="w-[15vw] md:w-[12vw] h-[15vw] md:h-[12vw] 2xl:w-[155px] 2xl:h-[155px] absolute bottom-0 bottom-[10%] left-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
+                <div className="w-[15vw] md:w-[12vw] h-[15vw] md:h-[12vw] 2xl:w-[155px] 2xl:h-[155px] absolute z-30 bottom-0 bottom-[10%] left-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
                   <ConditionalWrap
-                    condition={!!about.instagramImages[1].instagramImageUrl}
+                    condition={about.instagramImages[1].instagramImageUrl}
                     wrap={children => (
-                      <a href={about.instagramImages[1].instagramImageUrl} target="_blank" rel="noopener noreferrer">
-                        {children}
+                      <a href={about.instagramImages[1].instagramImageUrl} target="_blank" rel="noopener noreferrer" className="group">
+                      {children}
+
+                      <div className="absolute z-40 inset-0 bg-blue bg-opacity-80 flex flex-wrap items-center justify-center opacity-0 transition-opacity ease-in-out duration-500 group-hover:opacity-100">
+                        <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#FFF" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                      </div>
                       </a>
                     )}
                   >
@@ -392,12 +403,16 @@ export default function About(initialData) {
                 </div>
 
                 {/* Bottom Right */}
-                <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute bottom-0 bottom-[10%] right-0 border-2 border-blue bg-pink" ref={fadeRevealRefs}>
+                <div className="w-[22vw] md:w-[15vw] h-[22vw] md:h-[15vw] 2xl:w-[270px] 2xl:h-[270px] absolute z-30 bottom-0 bottom-[10%] right-0 border-2 border-blue bg-pink" ref={fadeRevealRefs}>
                   <ConditionalWrap
-                    condition={!!about.instagramImages[2].instagramImageUrl}
+                    condition={about.instagramImages[2].instagramImageUrl}
                     wrap={children => (
-                      <a href={about.instagramImages[2].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={about.instagramImages[2].instagramImageUrl} target="_blank" rel="noopener noreferrer" className="group">
                         {children}
+
+                        <div className="absolute z-40 inset-0 bg-blue bg-opacity-80 flex flex-wrap items-center justify-center opacity-0 transition-opacity ease-in-out duration-500 group-hover:opacity-100">
+                          <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#FFF" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
                       </a>
                     )}
                   >
@@ -412,12 +427,16 @@ export default function About(initialData) {
                 </div>
 
                 {/* Top Right */}
-                <div className="w-[16vw] md:w-[14vw] h-[16vw] md:h-[14vw] 2xl:w-[190px] 2xl:h-[190px] absolute top-0 top-[10%] right-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
+                <div className="w-[16vw] md:w-[14vw] h-[16vw] md:h-[14vw] 2xl:w-[190px] 2xl:h-[190px] absolute z-30 top-0 top-[10%] right-[15%] border-2 border-blue bg-pink" ref={fadeRevealRefs}>
                   <ConditionalWrap
-                    condition={!!about.instagramImages[3].instagramImageUrl}
+                    condition={about.instagramImages[3].instagramImageUrl}
                     wrap={children => (
-                      <a href={about.instagramImages[3].instagramImageUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={about.instagramImages[3].instagramImageUrl} target="_blank" rel="noopener noreferrer"className="group">
                         {children}
+
+                        <div className="absolute z-40 inset-0 bg-blue bg-opacity-80 flex flex-wrap items-center justify-center opacity-0 transition-opacity ease-in-out duration-500 group-hover:opacity-100">
+                          <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#FFF" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
                       </a>
                     )}
                   >

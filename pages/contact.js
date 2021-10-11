@@ -39,7 +39,7 @@ export default function Contact() {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue-dark bg-noise text-white overflow-hidden min-h-screen flex flex-wrap py-12 md:pt-24 md:pb-[14vh] 2xl:pt-32 2xl:pb-[17vh]"
+        className="bg-blue-dark bg-noise text-white overflow-hidden min-h-screen flex md:flex-wrap py-12 md:pt-24 md:pb-[14vh] 2xl:pt-32 2xl:pb-[17vh]"
       >
         {/* Lady With Megaphone */}
         <motion.div variants={fadeSmallDelay} className="w-[44%] md:w-[32%] lg:w-[30%] xl:w-[30%] 2xl:w-[420px] absolute bottom-0 right-0 z-10 mr-[-10%] mb-[0%] md:mr-[-6%] 2xl:mr-[-80px] md:max-h-[550px] 2xl:max-h-[700px]">
@@ -72,7 +72,7 @@ export default function Contact() {
         </motion.div>
 
         <motion.div variants={fadeSmallDelay} className="relative z-30 flex flex-wrap w-full">
-          <div className="mb-auto w-full">
+          <div className="md:mb-auto w-full">
             <Container>
               <div className="flex mb-8 md:mb-12 2xl:mb-20">
                 <Link href="/">
@@ -92,9 +92,9 @@ export default function Contact() {
             </Container>
           </div>
 
-          <div className="mt-auto w-full">
+          <div className="md:mt-auto w-full">
             <Container>
-              <div className="mx-8 mb-8 md:mb-0 md:mx-20 xl:mx-32 2xl:mx-40">
+              <div className="mb-8 md:mb-0 md:mx-20 xl:mx-32 2xl:mx-40">
                 <span className="block font-bold uppercase mb-6 2xl:mb-8 text-lg tracking-widest overflow-hidden">
                   <motion.span variants={textRevealSmallDelay} className="block">Dear swwim...</motion.span>
                 </span>
@@ -105,7 +105,7 @@ export default function Contact() {
                     rows="7"
                   />
 
-                  <div className="border border-white w-full flex flex-wrap">
+                  <div className="border border-white w-full flex flex-wrap mt-auto">
                     <input
                       className="flex-1 p-5 md:p-8 bg-transparent text-white font-sans font-bold w-full focus:outline-none ring-white"
                       placeholder="Your email address.."

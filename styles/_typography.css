@@ -336,7 +336,7 @@ details ::marker {
   }
   .embla__slide:nth-child(odd) {
     min-width: 70%;
-    padding-top: 6vw;
+    padding-top: 7vw;
   }
 
   @screen md {

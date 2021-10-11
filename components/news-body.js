@@ -126,7 +126,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
           <Container>
             <div className="relative overflow-visible">
               <div className="relative mb-12 md:mb-20 lg:mb-24 2xl:mb-24 flex flex-wrap items-center justify-center">
-                <span className="w-full xl:w-auto flex items-center justify-center mb-8 xl:mb-0">
+                <span className="w-full xl:w-auto items-center justify-center mb-8 xl:mb-0 hidden md:flex">
                   {contact && (
                     <>
                       {contact.socialLinks && (
@@ -144,7 +144,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
                     </motion.span>
                   </span>
                 </h1>
-              <span className="block"><FancyLink href="/about" label="Learn about us" /></span>
+              <span className="hidden md:block"><FancyLink href="/about" label="Learn about us" /></span>
               </div>
             </div>
 
@@ -291,21 +291,25 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
             <div className="mt-4 2xl:mt-8 relative z-10 overflow-hidden">
               <div className="relative flex overflow-x-hidden font-display uppercase text-5xl md:text-[5.5vw] xl:text-[4.5vw] 2xl:text-[80px]">
                 <div className="animate-marquee whitespace-nowrap">
-                  <span className="mx-1">Communicating <div className="inline-block w-[90px] align-bottom"><Image width={111} height={79} layout="responsive" src="/icons/binoculars.svg" alt="Binoculars" className="inline-block w-full will-change" /></div> Your Brand</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Communicating <div className="inline-block w-[90px] align-bottom"><Image width={111} height={79} layout="responsive" src="/icons/binoculars.svg" alt="Binoculars" className="inline-block w-full will-change" /></div> Your Brand</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Communicating <div className="inline-block w-[90px] align-bottom"><Image width={111} height={79} layout="responsive" src="/icons/binoculars.svg" alt="Binoculars" className="inline-block w-full will-change" /></div> Your Brand</span>
-                  <span className="mx-1">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
                 </div>
 
                 <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
-                <span className="mx-1">Communicating <div className="inline-block w-[90px] align-bottom"><Image width={111} height={79} layout="responsive" src="/icons/binoculars.svg" alt="Binoculars" className="inline-block w-full will-change" /></div> Your Brand</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Communicating <div className="inline-block w-[90px] align-bottom"><Image width={111} height={79} layout="responsive" src="/icons/binoculars.svg" alt="Binoculars" className="inline-block w-full will-change" /></div> Your Brand</span>
-                  <span className="mx-1">&bull;</span>
-                  <span className="mx-1">Communicating <div className="inline-block w-[90px] align-bottom"><Image width={111} height={79} layout="responsive" src="/icons/binoculars.svg" alt="Binoculars" className="inline-block w-full will-change" /></div> Your Brand</span>
-                  <span className="mx-1">&bull;</span>
+                <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
+                  <span className="mx-1">Communicating Your Brand</span>
+                  <span className="mx-2">&bull;</span>
                 </div>
               </div>
             </div>

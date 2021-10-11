@@ -9,7 +9,7 @@ export default function InstaStories({stories}) {
 
   return (
     <>
-      <button onClick={() => newRef.current.open()} className="absolute bottom-0 mb-6 left-0 w-[30vw] h-[30vw] ml-[-15vw] lg:-ml-40 flex flex-wrap items-center justify-center max-w-xs max-h-[20rem] border-none hover:border-none focus:border-none outline-none focus:outline-none transform hover:scale-[1.15] focus:scale-[1.15] transition ease-in-out duration-500">
+      <button onClick={() => newRef.current.open()} className="absolute bottom-0 mb-6 left-0 w-[55vw] h-[55vw] md:w-[30vw] md:h-[30vw] ml-[-28vw] md:-[-ml-15vw] lg:-ml-40 flex flex-wrap items-center justify-center max-w-xs max-h-[20rem] border-none hover:border-none focus:border-none outline-none focus:outline-none transform hover:scale-[1.15] focus:scale-[1.15] transition ease-in-out duration-500">
         <div className="absolute bottom-0 left-0 w-full animate-spin-slow">
           <Image width={301} height={304} layout="responsive" src="/icons/just-keep-swimming.svg" alt="Just Keep Swimming" className="w-full will-change" />
         </div>
