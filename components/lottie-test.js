@@ -16,8 +16,8 @@ export default class LottieTest extends React.Component {
     );
 
     const defaultOptions = {
-      loop: false,
-      autoplay: false, 
+      loop: true,
+      autoplay: true, 
       animationData: animationData,
       rendererSettings: {
         preserveAspectRatio: 'xMidYMid slice'

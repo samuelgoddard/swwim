@@ -176,23 +176,17 @@ export default function App({ Component, pageProps }) {
 
                     <div className="flex flex-wrap items-end w-full mt-auto relative z-50 max-w-2xl 2xl:pr-8">
                       <div className="w-auto mt-auto pb-8">
-                            {/* {contact?.socialLinks && (
-                              <div className="md:mb-3">
-                                <Socials links={contact.socialLinks} />
-                              </div>
-                            )} */}
 
                             <a href="mailto:hello@weswwim.com" className="text-right md:text-left md:text-lg font-medium block w-full md:w-auto order-2 md:order-1 hover:underline focus:underline">hello@weswwim.com</a>
                       </div>
 
-
-                      {/* <LottieTest/> */}
                     </div>
                   </div>
 
                   <div className="w-full absolute bottom-0 left-0 right-0">
                     <div className="w-full">
-                      <Image width={741} height={260} layout="responsive" src="/icons/menu-woman.svg" alt="placeholder" className="w-full" />
+                      <LottieTest/>
+                      {/* <Image width={741} height={260} layout="responsive" src="/icons/menu-woman.svg" alt="placeholder" className="w-full" /> */}
                     </div>
                   </div>
                 </motion.div>
