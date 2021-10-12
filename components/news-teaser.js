@@ -37,7 +37,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
 
             {image && (
               <>
-                <div className="block md:hidden transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
+                <div className="block md:hidden transform scale-[1.01] group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
                   <ImageWrapper
                     image={image}
                     className="w-full will-change"
@@ -46,7 +46,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
                     alt={heading}
                   />
                 </div>
-                <div className="hidden md:block transform group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
+                <div className="hidden md:block transform scale-[1.01] group-hover:scale-110 group-focus:scale-110 transition ease-in-out duration-500">
                   <ImageWrapper
                     image={image}
                     className="w-full will-change"
@@ -64,13 +64,17 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
             <div className="w-full flex flex-wrap items-start pb-5">
               <h3 className="block text-2xl md:text-3xl lg:text-4xl font-display w-full xl:w-7/12 pr-8 md:pr-16 md:pt-2 group-hover:opacity-60 transition-opacity ease-in-out duration-500">{heading}</h3>
 
-              <span className={` rounded-full relative overflow-hidden transform -rotate-90 ml-auto group-hover:scale-125 transition-transform ease-in-out duration-500 mr-1 hidden md:block ${theme === 'blue' ? 'bg-white text-blue-dark group-hover:text-white' : 'bg-blue text-white group-hover:text-white'}`}>
-                <svg className="absolute top-0 left-0 -translate-y-12 group-hover:translate-y-0 transition ease-in-out duration-500 w-8 transform rotate-180 z-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+              <span className={` rounded-full relative overflow-hidden transform -rotate-90 ml-auto group-hover:scale-125 transition-transform  ease-in-out duration-500 mr-1 hidden md:block`}>
+                <span className={`block transition-colors ease-in-out duration-500 ${theme === 'blue' ? 'bg-white group-hover:bg-opacity-0' : 'bg-blue text-white group-hover:text-white'}`}>
+                  <span className={`block ${theme === 'blue' ? 'text-blue-dark group-hover:text-white' : 'text-white group-hover:text-white'}`}>
+                  <svg className="absolute top-0 left-0 -translate-y-12 group-hover:translate-y-0 transition ease-in-out duration-500 w-8 transform rotate-180 z-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
 
-                <svg className="group-hover:translate-y-12 transition ease-in-out duration-500 w-8 relative z-10 transform rotate-180" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
+                  <svg className="group-hover:translate-y-12 transition ease-in-out duration-500 w-8 relative z-10 transform rotate-180" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
 
-                <span className="absolute inset-0 flex flex-wrap z-1 items-center justify-center">
-                  <span className="w-0 h-0 rounded-full bg-black group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
+                  <span className="absolute inset-0 flex flex-wrap z-1 items-center justify-center">
+                    <span className="w-0 h-0 rounded-full bg-black group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
+                  </span>
+                  </span>
                 </span>
               </span>
 
@@ -106,7 +110,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
                   <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
                     <ImageWrapper
                       image={author.image.asset}
-                      className="rounded-full will-change"
+                      className="rounded-full will-change object-cover object-left"
                       baseWidth={350}
                       baseHeight={350}
                       alt={author.name}

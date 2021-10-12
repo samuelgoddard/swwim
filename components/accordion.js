@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import Image from "next/image";
 import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
+import ImageStandard from '../helpers/image-standard';
 
 export default function Accordion({ children, heading, index, icon, openOverride}) {
   const [open, setOpen] = useState(openOverride)
@@ -22,7 +23,7 @@ export default function Accordion({ children, heading, index, icon, openOverride
               <div className="flex flex-wrap items-center -mx-3">
                 { icon && (
                   <div className="w-6 md:w-10 xl:w-14 ml-5 md:ml-0 mr-1 md:mr-3 xl:mr-5 wiggle-on-hover__item">
-                    <Image
+                    <ImageStandard
                       src={icon.url}
                       width={icon.metadata.dimensions.width}
                       height={icon.metadata.dimensions.height}

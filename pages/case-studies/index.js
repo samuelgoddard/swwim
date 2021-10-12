@@ -11,6 +11,7 @@ import CaseTeaser from '../../components/case-teaser'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
 import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
+import ImageStandard from '../../helpers/image-standard'
 
 const query = `{
   "cases": *[_type == "caseStudy"] {
@@ -86,13 +87,13 @@ export default function CaseStudiesLanding(initialData) {
 
               <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0">
                 <div className="animate--wave--slow origin-bottom-right">
-                  <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full" />
+                  <ImageStandard width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full" />
                 </div>
               </div>
 
               <div className="w-[55%] md:w-[40%] 2xl:w-[35%] absolute top-0 left-0 ml-[-32%] md:ml-[-18%] 2xl:ml-[-13%] mt-[0%] md:mt-[0%] xl:mt-[0%] z-0">
                 <div className="animate--wave--slow origin-bottom-left">
-                  <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full" />
+                  <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full" />
                 </div>
               </div>
 
@@ -124,7 +125,7 @@ export default function CaseStudiesLanding(initialData) {
                   </h1>
                   
                   <div className="absolute bottom-0 left-0 w-[28%] md:w-[18%] 2xl:w-[17%] ml-[-3%] md:ml-[12%] lg:ml-[3%] 2xl:ml-[7%] mb-[6%] md:mb-[4%] lg:mb-[-5%] 2xl:mb-[-4%]">
-                    <Image width={167} height={169} layout="responsive" src="/icons/case-stroke.svg" alt="Squiggle Underline" className="w-full" priority />
+                    <ImageStandard width={167} height={169} layout="responsive" src="/icons/case-stroke.svg" alt="Squiggle Underline" className="w-full" priority />
                   </div>
                 </div>
               </div>
@@ -150,13 +151,13 @@ export default function CaseStudiesLanding(initialData) {
               
               <div className="w-[32%] md:w-[30%] lg:w-[20%] absolute top-0 left-0 ml-[-16%] md:ml-[-24%] lg:ml-[-20%] 2xl:ml-[-20%] mt-[2%] md:mt-[15%] lg:mt-[30%] z-0 transform rotate-45">
                 <div className="animate--wave--slow origin-bottom-left">
-                  <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
+                  <ImageStandard width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
                 </div>
               </div>
 
               <div className="w-[65%] md:w-[65%] lg:w-[50%] 2xl:w-[45%] absolute top-0 right-0 mr-[-33%] md:mr-[-37%] lg:mr-[-27%] 2xl:mr-[-30%] mt-[-35%] md:mt-[-35%] lg:mt-[-25%] xl:mt-[-25%] z-0 transform rotate-45">
                 <div className="animate--wave--slow origin-bottom-right">
-                  <Image width={551} height={555} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full transform -rotate-90" />
+                  <ImageStandard width={551} height={555} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full transform -rotate-90" />
                 </div>
               </div>
 
@@ -165,16 +166,16 @@ export default function CaseStudiesLanding(initialData) {
                   See How We
                 </span>
                 {/* <div className="w-[13%] xl:w-[11%] mr-l md:ml-[2%] 2xl:ml-[4%] xl:mb-[-2%] hidden md:block animate--float">
-                  <Image width={130} height={115} layout="responsive" src="/icons/speech.svg" alt="Speech Bubble Illustration" className="w-full" />
+                  <ImageStandard width={130} height={115} layout="responsive" src="/icons/speech.svg" alt="Speech Bubble Illustration" className="w-full" />
                 </div> */}
                 <div className="w-[13%] md:w-[23vw] lg:w-[28vw] md:h-[5.3vw] lg:h-[5vw] xl:w-[35%] xl:mb-[-2%] hidden md:block mt-[10px] xl:mt-[15px] xl:h-[88px] absolute top-0 right-0">
-                  <Image layout="fill" src="/images/case-image.png" alt="See how we can help" className="w-full absolute inset-0 object-cover object-center" />
+                  <ImageStandard layout="fill" src="/images/case-image.png" alt="See how we can help" className="w-full absolute inset-0 object-cover object-center" />
                 </div>
               </span>
 
               <span className="md:text-right font-display uppercase text-[10.5vw] md:text-[8.5vw] 2xl:text-[125px] leading-none relative z-10 flex items-center justify-end">
                 <div className="w-[11%] mr-3 md:mr-[4%] 2xl:mr-12 hidden md:block animate--float animate--stagger">
-                  <Image width={157} height={134} layout="responsive" src="/icons/camera-coloured.svg" alt="Camera Illustration" className="w-full" />
+                  <ImageStandard width={157} height={134} layout="responsive" src="/icons/camera-coloured.svg" alt="Camera Illustration" className="w-full" />
                 </div>
                 <span className="block">
                   Can Help Your
@@ -183,7 +184,7 @@ export default function CaseStudiesLanding(initialData) {
               <span className="block font-display uppercase text-[10.5vw] md:text-[8.5vw] 2xl:text-[125px] leading-none relative z-10">Business Grow</span>
 
               <div className="w-[32%] mr-3 md:mr-[4%] 2xl:mr-12 block absolute bottom-0 left-0 z-10 -mb-2 xl:mb-0">
-                <Image width={364} height={181} layout="responsive" src="/icons/case-woman.svg" alt="Woman Illustration" className="w-full" />
+                <ImageStandard width={364} height={181} layout="responsive" src="/icons/case-woman.svg" alt="Woman Illustration" className="w-full" />
               </div>
               
               <span className="block font-display uppercase text-[10.5vw] md:text-[8.5vw] 2xl:text-[125px] leading-none relative z-10 ml-[35%]">Today</span>

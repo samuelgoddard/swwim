@@ -9,6 +9,7 @@ import SanityPageService from '../services/sanityPageService'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import Link from 'next/link'
 import Image from 'next/image'
+import ImageStandard from '../helpers/image-standard'
 
 const query = `{
   "contact": *[_type == "contact"][0] {
@@ -68,12 +69,12 @@ export default function CustomError(initialData) {
 
           <div className="w-[55%] md:w-[28%] 2xl:w-[35%] absolute bottom-0 right-0 mr-[-12%] md:mr-[-5%] mb-[-20%] md:mb-[-6%] 2xl:mb-[-6%] z-0">
             <div className="animate--wave--slow">
-              <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change transform scale-x-[-1]" />
+              <ImageStandard width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change transform scale-x-[-1]" />
             </div>
           </div>
 
           <div className="w-[55%] md:w-[28%] 2xl:w-[32%] absolute bottom-0 left-0 ml-[17%] md:ml-[22%] mb-[-20%] md:mb-[-6%] 2xl:mb-[-6%] z-0 2xl:max-w-[550px]">
-              <Image width={775} height={1092} layout="responsive" src="/icons/404.svg" alt="Plant Illustration" className="w-full will-change transform" />
+              <ImageStandard width={775} height={1092} layout="responsive" src="/icons/404.svg" alt="Plant Illustration" className="w-full will-change transform" />
           </div>
 
           <img src="https://media.giphy.com/media/22CEvbj04nLLq/giphy-downsized.gif" alt="Angry Dwight Gif" className="w-full max-w-[120px] md:max-w-[200px] absolute bottom-0 right-0 transform rotate-[9deg] mr-[20%] mb-[40%] md:mb-[20%]" />
@@ -81,7 +82,7 @@ export default function CustomError(initialData) {
           <img src="https://media.giphy.com/media/g01ZnwAUvutuK8GIQn/giphy-downsized.gif" alt="Confused John Travolta Gif" className="w-full max-w-[150px] md:max-w-[240px] absolute top-0 left-0 transform rotate-[-9deg] ml-[12%] mt-[40%] md:mt-[18%]" />
 
           <motion.div variants={fadeSmallDelay} className="w-[65%] md:w-[44%] xl:w-[38%] 2xl:w-[35%] absolute bottom-0 left-0 ml-[-18%] md:ml-[-12%] xl:ml-[-12%] 2xl:ml-[-12%] mb-[-15%] md:mb-[-8%] xl:mb-[-8%] 2xl:mb-[-8%] z-0">
-            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-12" priority />
+            <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-12" priority />
           </motion.div>
 
           <Container>

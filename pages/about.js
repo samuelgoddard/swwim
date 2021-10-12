@@ -15,6 +15,7 @@ import Logo from '../components/logo'
 import ImageWrapper from '../helpers/image-wrapper'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import ConditionalWrap from 'conditional-wrap';
+import ImageStandard from '../helpers/image-standard'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -173,7 +174,7 @@ export default function About(initialData) {
                 </h1>
                 
                 <div className="absolute bottom-0 left-0 w-[49%] md:w-[40%] ml-[40%] md:ml-[-2%] lg:ml-[-2%] 2xl:ml-[0%] mb-[10%] md:mb-[-2%] 2xl:mb-[-3%]">
-                  <Image width={369} height={150} layout="responsive" src="/icons/about-hero-swirl.svg" alt="Squiggle Underline" className="w-full will-change" priority />
+                  <ImageStandard width={369} height={150} layout="responsive" src="/icons/about-hero-swirl.svg" alt="Squiggle Underline" className="w-full will-change" priority />
                 </div>
               </div>
             </div>
@@ -191,11 +192,11 @@ export default function About(initialData) {
                 <div className="w-full mb-8 md:mb-10 2xl:mb-16">
                   <div className="relative flex overflow-x-hidden">
                     <div className="animate-marquee whitespace-nowrap w-full">
-                      <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full ml-[3px] will-change" />
+                      <ImageStandard width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full ml-[3px] will-change" />
                     </div>
 
                     <div className="absolute top-0 animate-marquee2 whitespace-nowrap w-full -ml-5">
-                      <Image width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full will-change" />
+                      <ImageStandard width={935} height={8} layout="responsive" src="/icons/about-underline-squiggle.svg" alt="Squiggle Underline" className="w-full will-change" />
                     </div>
                   </div>
 
@@ -216,7 +217,7 @@ export default function About(initialData) {
 
               <div className="w-[55%] md:w-[35%] lg:w-[30%] 2xl:w-[33%] absolute bottom-0 right-0 mr-[-16%] md:mr-[-10%] lg:mr-[-8%] mb-[-18%] md:mb-[-13%] lg:mb-[-12%] 2xl:mr-[-13%] z-0 transform -rotate-12">
                 <div className="animate--wave--slow origin-bottom-left" ref={fadeRevealRefs}>
-                  <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform will-change" />
+                  <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform will-change" />
                 </div>
               </div>
             </div>
@@ -247,7 +248,7 @@ export default function About(initialData) {
                 <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">Problem solvers with a passion</h3>
                 
                 <div className="w-full ml-auto mr-[-8vw] md:mr-[-2vw] 2xl:mr-[-6vw]">
-                  <Image width={268} height={4} layout="responsive" src="/icons/team-stroke.svg" alt="Swipe Underline" className="w-full will-change" />
+                  <ImageStandard width={268} height={4} layout="responsive" src="/icons/team-stroke.svg" alt="Swipe Underline" className="w-full will-change" />
                 </div>
               </div>
             </div>
@@ -300,7 +301,7 @@ export default function About(initialData) {
 
             <div className="w-[80%] md:w-[60%] 2xl:w-[50%] absolute top-0 md:bottom-0 left-0 ml-[-28%] md:ml-[-20%] mt-[4%] md:mt-[6%] 2xl:mt-[4%] z-0">
               <div className="animate--wave--slow" ref={fadeRevealRefs}>
-                <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change" />
+                <ImageStandard width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change" />
               </div>
             </div>
           </motion.div>
@@ -346,11 +347,11 @@ export default function About(initialData) {
           <div className="w-full relative z-[1000] pb-48">
 
           <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0 animate--float" ref={fadeRevealRefs}>
-            <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full will-change" />
+            <ImageStandard width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full will-change" />
           </div>
 
           <div className="w-[65%] md:w-[40%] 2xl:w-[35%] absolute top-0 left-0 ml-[-32%] md:ml-[-18%] 2xl:ml-[-13%] mt-[5%] md:mt-[0%] xl:mt-[0%] z-0 animate--float" ref={fadeRevealRefs}>
-            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90 will-change" />
+            <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90 will-change" />
           </div>
             <Container>
               <div className="relative pt-40 pb-32 md:pb-48 md:pt-56 xl:pb-64 xl:pt-80 z-[1000]">
@@ -453,11 +454,11 @@ export default function About(initialData) {
                 {/* Just keep swimming */}
                 <div className="absolute bottom-0 mb-6 left-0 w-[28vw] h-[28vw] ml-[-20vw] lg:-ml-40 flex flex-wrap items-center justify-center max-w-xs max-h-[20rem]">
                   <div className="absolute bottom-0 left-0 w-full animate-spin-slow" ref={fadeRevealRefs}>
-                    <Image width={301} height={304} layout="responsive" src="/icons/just-keep-swimming-dark.svg" alt="Just Keep Swimming" className="w-full will-change" />
+                    <ImageStandard width={301} height={304} layout="responsive" src="/icons/just-keep-swimming-dark.svg" alt="Just Keep Swimming" className="w-full will-change" />
                   </div>
 
                   <div className="w-4/12" ref={fadeRevealRefs}>
-                    <Image width={112} height={96} layout="responsive" src="/icons/camera.svg" alt="Camera Illustration" className="w-full will-change" />
+                    <ImageStandard width={112} height={96} layout="responsive" src="/icons/camera.svg" alt="Camera Illustration" className="w-full will-change" />
                   </div>
                 </div>
 
@@ -486,7 +487,7 @@ export default function About(initialData) {
 
                 <div className="flex justify-center">
                   <div className="w-32 md:w-40 -mr-20 md:-mr-24 xl:-mr-32">
-                    <Image width={167} height={102} layout="responsive" src="/icons/dive-in.svg" alt="Dive In in handwritten text" className="w-full will-change" />
+                    <ImageStandard width={167} height={102} layout="responsive" src="/icons/dive-in.svg" alt="Dive In in handwritten text" className="w-full will-change" />
                   </div>
                 </div>
                 
@@ -496,7 +497,7 @@ export default function About(initialData) {
             
 
             <div className="absolute bottom-0 left-0 w-full max-w-[200px] md:max-w-[280px] xl:max-w-[380px] ml-[44vw] md:ml-[50vw] xl:ml-[45vw] md:mb-[0px] xl:mb-[10px] z-50" ref={fadeRevealRefs}>
-              <Image width={360} height={319} layout="responsive" src="/icons/flamingo.svg" alt="Flamingo Illustration" className="w-full will-change" />
+              <ImageStandard width={360} height={319} layout="responsive" src="/icons/flamingo.svg" alt="Flamingo Illustration" className="w-full will-change" />
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 xl:h-48 bg-blue-dark bg-noise -mb-1 z-10"></div>

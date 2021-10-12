@@ -20,6 +20,7 @@ import ImageWrapper from '../helpers/image-wrapper';
 import Logo from '../components/logo';
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import LottieTest from '../components/lottie-test'
+import ImageStandard from '../helpers/image-standard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +79,11 @@ const query = `{
     author-> {
       firstName,
       image {
+        asset -> {
+          ...
+        }
+      },
+      imageAuthor {
         asset -> {
           ...
         }
@@ -249,12 +255,12 @@ export default function Home(initialData) {
             <div className="relative mb-8 md:mb-6 2xl:mb-8">
               <div className="w-[30%] md:w-[20%] absolute top-0 left-0 mt-[6%] ml-[65%] md:mt-[10%] md:ml-[46%] z-20 animate--wiggle">
                 <motion.div variants={fade}>
-                  <Image height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" priority />
+                  <ImageStandard height={242} width={250} src="/icons/megaphone.svg" alt="Megaphone Icon" layout="responsive" priority />
                 </motion.div>
               </div>
 
               <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 absolute bottom-0 left-0 z-10 bg-blue-dark bg-opacity-50 overflow-hidden">
-                {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
+                {/* <ImageStandard src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
                 <div className="absolute inset-0 w-full h-full" data-scroll data-scroll-speed={0.25}>
                   <motion.div className="w-full h-full" variants={fadeSmallerDelay}>
                     <ImageWrapper
@@ -271,7 +277,7 @@ export default function Home(initialData) {
               </div>
 
               <div className="hidden md:block md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[7.8vw] 2xl:h-[11vw] absolute top-0 right-0 z-10 bg-blue-dark bg-opacity-50 overflow-hidden hero-top-right md:mt-[11px] 2xl:mt-[15px]">
-                {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
+                {/* <ImageStandard src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
                 <div className="absolute inset-0 w-full h-full">
                   <motion.div className="w-full h-full" variants={fadeSmallerDelay}>
                     <ImageWrapper
@@ -318,7 +324,7 @@ export default function Home(initialData) {
             </div>
 
             <div className="block w-full md:w-[31vw] lg:w-[32vw] 2xl:w-[30%] md:h-[18.5vw] 2xl:h-[44%] md:mb-[1.75vw] 2xl:mb-7 z-10 bg-blue-dark bg-opacity-50 overflow-hidden md:hidden">
-              {/* <Image src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
+              {/* <ImageStandard src="https://placedog.net/500/280" alt="Placeholder Dog" layout="fill" className="absolute inset-0 w-full h-full object-cover object-center" priority /> */}
               <div className="">
                 <motion.div className="w-full" variants={fadeSmallerDelay}>
                   <ImageWrapper
@@ -373,11 +379,11 @@ export default function Home(initialData) {
           <Container overflowHidden>
             <div className="relative mb-16 md:mb-32 2xl:mb-40 pt-20 md:pt-24 2xl:pt-32" id="intro-area">
               <div className="w-[38%] md:w-[40%] absolute top-auto md:top-0 bottom-0 z-20 md:bottom-auto right-0 mb-28 md:mb-0 md:mt-[25%] max-w-xs -mr-16 md:-mr-28 2xl:-mr-6 hidden md:block animate--float" ref={fadeRevealRefs}>
-                <Image width={279} height={418} layout="responsive" src="/icons/unicorn-left.svg" alt="Unicorn Illustration" className="w-full will-change" />
+                <ImageStandard width={279} height={418} layout="responsive" src="/icons/unicorn-left.svg" alt="Unicorn Illustration" className="w-full will-change" />
               </div>
 
               <div className="hidden md:block md:w-[14%] absolute top-auto md:top-0 bottom-0 z-20 md:bottom-auto left-0 mb-28 md:mb-0 md:mt-[50%] 2xl:mt-[42%] max-w-[170px] -ml-16 md:ml-[-8%] 2xl:ml-20 animate--float animate--stagger" ref={fadeRevealRefs}>
-                <Image width={151} height={230} layout="responsive" src="/icons/bottle-right.svg" alt="Bottle Illustration" className="w-full will-change" />
+                <ImageStandard width={151} height={230} layout="responsive" src="/icons/bottle-right.svg" alt="Bottle Illustration" className="w-full will-change" />
               </div>
               
               <div className="md:mx-12 2xl:mx-16">
@@ -476,13 +482,13 @@ export default function Home(initialData) {
 
             <div className="w-[90vw] md:w-[70vw] xl:w-[70vw] absolute bottom-0 left-0 z-50 max-w-[1200px]">
               <div className="" ref={fadeRevealRefs}>
-              <Image width={1059} height={526} layout="responsive" src="/icons/sit-back.svg" alt="placeholder" className="w-full" />
+              <ImageStandard width={1059} height={526} layout="responsive" src="/icons/sit-back.svg" alt="placeholder" className="w-full" />
               </div>
             </div>
 
             <div className="w-[400px] md:w-[65vw] xl:w-[70vw] absolute bottom-0 left-0 z-20 max-w-[900px] md:-ml-8">
               <div className="" ref={fadeRevealRefs}>
-              <Image width={733} height={955} layout="responsive" src="/icons/the-doing-palm.svg" alt="placeholder" className="w-full" />
+              <ImageStandard width={733} height={955} layout="responsive" src="/icons/the-doing-palm.svg" alt="placeholder" className="w-full" />
               </div>
             </div>
 
@@ -505,7 +511,7 @@ export default function Home(initialData) {
                     <h2 className="relative z-10 block md:hidden font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none md:text-right">We're all about <span className="stroke">the doing</span></h2>
 
                     {/* <div className="w-5/12 md:w-4/12 absolute bottom-0 right-0 mr-[73%] md:mr-[49%] 2xl:mr-[53%] -mb-2 xl:-mb-5 z-0" ref={fadeRevealRefs}>
-                      <Image width={417} height={220} layout="responsive" src="/icons/circle-squiggle.svg" alt="Circle Illustration" className="w-full will-change" />
+                      <ImageStandard width={417} height={220} layout="responsive" src="/icons/circle-squiggle.svg" alt="Circle Illustration" className="w-full will-change" />
                     </div> */}
                   </div>
                 </div>
@@ -541,11 +547,11 @@ export default function Home(initialData) {
         <Container>
           <motion.div variants={fadeDelay} className="relative z-10">
             <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[1%] z-0 animate--float" ref={fadeRevealRefs}>
-              <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full will-change" />
+              <ImageStandard width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full will-change" />
             </div>
 
             <div className="w-[65%] md:w-[40%] 2xl:w-[35%] absolute top-0 left-0 ml-[-32%] md:ml-[-18%] 2xl:ml-[-13%] mt-[50%] md:mt-[25%] xl:mt-[20%] z-0 animate--float" ref={fadeRevealRefs}>
-              <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full will-change" />
+              <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full will-change" />
             </div>
             
             <div className="inline-block mb-8 md:mb-16 2xl:mb-24 relative z-10">
@@ -567,7 +573,7 @@ export default function Home(initialData) {
               <h2 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0">Our Services</h2>
               
               <div className="w-full -mt-1 md:-mt-2" ref={fadeRevealRefs}>
-                <Image width={400} height={34} layout="responsive" src="/icons/services-underline.svg" alt="Swipe Underline" className="w-full will-change" />
+                <ImageStandard width={400} height={34} layout="responsive" src="/icons/services-underline.svg" alt="Swipe Underline" className="w-full will-change" />
               </div>
             </div>
 
@@ -606,14 +612,14 @@ export default function Home(initialData) {
               </div>
 
               <div className="w-[80%] md:w-[60%] 2xl:w-[45%] absolute top-0 md:bottom-0 left-0 ml-[-28%] md:ml-[-20%] md:mt-[0] z-0 animate--float" ref={fadeRevealRefs}>
-                <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change" />
+                <ImageStandard width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full will-change" />
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 border-r border-b border-blue mb-16 md:mb-24 2xl:mb-32 relative z-20">
                 {clients.map((client, i) => {
                   return (
                     <div className="bg-white border-l border-t border-blue flex flex-wrap items-center justify-center p-[10vw] md:p-[3.35rem] lg:p-[5.25rem] client-logo" key={i}>
                       <div ref={fadeRevealRefs} className="">
-                        <Image
+                        <ImageStandard
                           src={client.logo.asset.url}
                           width={client.logo.asset.metadata.dimensions.width}
                           height={client.logo.asset.metadata.dimensions.height}
@@ -632,13 +638,13 @@ export default function Home(initialData) {
               
                 <div className="w-[32%] md:w-[30%] lg:w-[20%] absolute top-0 left-0 ml-[-16%] md:ml-[-24%]  lg:ml-[-16%] 2xl:ml-[-9%] mt-[-8%] md:mt-[10%] z-0 transform rotate-45" ref={fadeRevealRefs}>
                   <div className="animate--float">
-                    <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-90 will-change" />
+                    <ImageStandard width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-90 will-change" />
                   </div>
                 </div>
                 
                 <div className="w-[65%] md:w-[65%] lg:w-[50%] 2xl:w-[45%] absolute top-0 right-0 mr-[-30%] md:mr-[-32%] lg:mr-[-22%] 2xl:mr-[-25%] mt-[-35%] md:mt-[-35%] lg:mt-[-25%] xl:mt-[-25%] z-0 transform rotate-6" ref={fadeRevealRefs}>
                   <div className="animate--float">
-                    <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-90 will-change" />
+                    <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform -rotate-90 will-change" />
                   </div>
                 </div>
 
@@ -648,7 +654,7 @@ export default function Home(initialData) {
                 </span>
                 <div className="w-[13%] xl:w-[12%] mr-l md:ml-[2%] 2xl:ml-[4%] xl:mb-[-2%] hidden md:block" ref={fadeRevealRefs}>
                   <div className="animate--float">
-                    <Image width={193} height={82} layout="responsive" src="/icons/sunglasses.svg" alt="Sunglasses Illustration" className="w-full will-change" />
+                    <ImageStandard width={193} height={82} layout="responsive" src="/icons/sunglasses.svg" alt="Sunglasses Illustration" className="w-full will-change" />
                   </div>
                 </div>
               </span>
@@ -656,7 +662,7 @@ export default function Home(initialData) {
               <span className="md:text-right font-display uppercase text-[11.5vw] md:text-[7.7vw] 2xl:text-[125px] leading-none relative z-10 flex items-center justify-end">
                 <div className="w-[13%] mr-3 md:mr-[0%] 2xl:mr-2 hidden md:block" ref={fadeRevealRefs}>
                   <div className="animate--float">
-                    <Image width={130} height={115} layout="responsive" src="/icons/speech.svg" alt="Speech Bubble Illustration" className="w-full will-change" />
+                    <ImageStandard width={130} height={115} layout="responsive" src="/icons/speech.svg" alt="Speech Bubble Illustration" className="w-full will-change" />
                   </div>
                 </div>
                 <span className="block">
@@ -667,12 +673,12 @@ export default function Home(initialData) {
               <span className="block font-display uppercase text-[11.5vw] md:text-[7.7vw] 2xl:text-[125px] leading-none relative z-10">our team”</span>
 
               {/* <div className="absolute bottom-0 right-0 w-[12%] md:mr-[12%] xl:mr-[5%] md:mb-[5%] xl:mb-[-3%] 2xl:mb-[0%] 2xl:mr-[12%] hidden md:block animate--float" ref={fadeRevealRefs}>
-                <Image width={133} height={202} layout="responsive" src="/icons/bottle-coloured.svg" alt="Bottle Illustration" className="w-full will-change" />
+                <ImageStandard width={133} height={202} layout="responsive" src="/icons/bottle-coloured.svg" alt="Bottle Illustration" className="w-full will-change" />
               </div> */}
               
               <div className="flex flex-wrap items-center xl:absolute bottom-0 left-0 mt-4 xl:mt-0 xl:ml-[53%] 2xl:ml-[56%] xl:mb-[2.3%]">
                 <div className="w-12 md:w-16 h-12 md:h-16 rounded-full border-blue border-2" ref={fadeRevealRefs}>
-                  <Image width={320} height={320} layout="responsive" src="/images/laura.png" alt="Laura" className="w-full rounded-full will-change" />
+                  <ImageStandard width={320} height={320} layout="responsive" src="/images/laura.png" alt="Laura" className="w-full rounded-full will-change" />
                 </div>
 
                 <div className="ml-3 md:ml-5 pl-3 md:pl-5 border-l-2 border-blue flex-1">

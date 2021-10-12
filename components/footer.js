@@ -6,6 +6,7 @@ import Container from './container'
 import Logo from './logo'
 import Socials from './socials'
 import { SmoothScrollContext } from '../contexts/SmoothScroll.context'
+import ImageStandard from '../helpers/image-standard'
 
 export default function Footer({ contact, removeInsta }) {
   const { scroll } = useContext(SmoothScrollContext)
@@ -134,7 +135,7 @@ export default function Footer({ contact, removeInsta }) {
 
                 
                 <div className="hidden md:block max-w-[300px] w-1/2 md:w-8/12 ml-auto md:mt-8 lg:mt-16 2xl:mt-20 2xl:-mr-16 md:-mb-3 2xl:-mb-6">
-                  <Image width={1128} height={950} layout="responsive" src="/icons/footer-person.svg" alt="placeholder" className="w-full" />
+                  <ImageStandard width={1128} height={950} layout="responsive" src="/icons/footer-person.svg" alt="placeholder" className="w-full" />
                 </div>
               </div>
               
@@ -146,7 +147,7 @@ export default function Footer({ contact, removeInsta }) {
                 </div>
 
                 <div className="block md:hidden w-5/12 md:w-full ml-auto -mb-3">
-                  <Image width={1128} height={950} layout="responsive" src="/icons/footer-person.svg" alt="placeholder" className="w-full" />
+                  <ImageStandard width={1128} height={950} layout="responsive" src="/icons/footer-person.svg" alt="placeholder" className="w-full" />
                 </div>
               </div>
             </div>

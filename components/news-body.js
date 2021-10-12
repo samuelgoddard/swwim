@@ -15,6 +15,7 @@ import { NextSeo } from 'next-seo'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import Socials from './socials'
 import SkipButtons from './skip-buttons'
+import ImageStandard from '../helpers/image-standard'
 
 export const articlesPerPage = 7;
 
@@ -105,7 +106,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
       >
         <motion.div variants={fadeSmallDelay} className="w-[260px] md:w-[420px] xl:w-[500px] 2xl:w-[580px] absolute top-0 left-0 ml-[15%] md:ml-[35%] xl:ml-[40%] 2xl:ml-[45%] mt-[-200px] md:mt-[-300px] 2xl:mt-[-200px] z-0 transform rotate-6">
           <div className="animate--wave--slow origin-top-left">
-            <Image width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
+            <ImageStandard width={551} height={555} layout="responsive" src="/icons/plant-3.svg" alt="Plant Illustration" className="w-full transform rotate-90" />
           </div>
         </motion.div>
       </motion.section> */}
@@ -120,7 +121,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
 
           <div className="w-[55%] md:w-[30%] 2xl:w-[25%] absolute top-0 left-0 ml-[-6%] md:ml-[-4%] md:mt-[-5%] 2xl:mt-[-5%] z-0">
             <div className="animate--wave--slow origin-bottom-left">
-              <Image width={302} height={479} layout="responsive" src="/icons/news-leaf.svg" alt="Plant Illustration" className="w-full" />
+              <ImageStandard width={302} height={479} layout="responsive" src="/icons/news-leaf.svg" alt="Plant Illustration" className="w-full" />
             </div>
           </div>
           <Container>
@@ -275,7 +276,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
 
                             <div className="w-full hidden md:block">
                               <div className="w-10/12 mx-auto animate--float">
-                                <Image width={210} height={105} layout="responsive" src="/icons/soak-up.svg" alt="Soak Up The Latest handwritten text" className="w-full" />
+                                <ImageStandard width={210} height={105} layout="responsive" src="/icons/soak-up.svg" alt="Soak Up The Latest handwritten text" className="w-full" />
                               </div>
                             </div>
                           </div>
@@ -320,12 +321,12 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
             <div className="flex flex-wrap w-full mb-12 md:mb-16 2xl:mb-20 relative overflow-visible pt-8 md:pt-16 2xl:pt-24">
               <div className="w-[80%] md:w-[45%] 2xl:w-[45%] absolute top-0 left-0 ml-[-28%] md:ml-[-20%] md:mt-[-0%] 2xl:mt-[-5%] z-0">
                 <div className="animate--wave--slow origin-bottom-left">
-                  <Image width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full" />
+                  <ImageStandard width={775} height={1092} layout="responsive" src="/icons/palm-tree.svg" alt="Plant Illustration" className="w-full" />
                 </div>
               </div>
 
               <div className="w-[24%] md:w-[20%] absolute top-0 right-0 mr-[-14%] md:mr-[-10%] 2xl:mr-[-9%] mt-[100%] md:mt-[30%] z-0">
-                <Image width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-12" />
+                <ImageStandard width={278} height={276} layout="responsive" src="/icons/plant-2.svg" alt="Plant Illustration" className="w-full transform rotate-12" />
               </div>
 
               <div className="w-full md:w-4/12 lg:w-3/12 mb-8 md:mb-0 relative z-10">

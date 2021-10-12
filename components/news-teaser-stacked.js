@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ImageWrapper from "../helpers/image-wrapper";
 import spacetime from 'spacetime'
-
 const readingTime = require('reading-time');
 
 function toPlainText(blocks = []) {
@@ -72,12 +71,13 @@ export default function NewsTeaserStacked({ heading, author, theme, supporting, 
                 <span className="text-sm md:text-base font-display flex flex-wrap items-center">
                   <span className="block">By {author.firstName}</span>
                   {author.image && (
-                  <div className="w-10 h-10 rounded-full border-white border-2 ml-3">
+                  <div className="w-10 h-10 rounded-full border-white border-2 ml-3 relative">
                     <ImageWrapper
                       image={author.image.asset}
-                      className="rounded-full will-change"
+                      className="rounded-full will-change object-cover object-left absolute inset-0"
                       baseWidth={350}
                       baseHeight={350}
+                      fill
                       alt={author.name}
                     />
                   </div>
