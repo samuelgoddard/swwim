@@ -50,7 +50,7 @@ export default function CaseCarousel({ images }) {
 
             <div className="absolute bottom-0 left-0 md:left-auto md:right-0 flex mx-[25px] md:mx-[50px] mb-[25px] md:mb-[50px] space-x-4 z-50">
               <button
-                className={`w-10 lg:w-16 h-10 lg:h-16 focus:border-none focus:outline-none rounded-full flex items-center justify-center bg-blue text-white transform transition ease-in-out duration-500 overflow-hidden ${!prevBtnEnabled ? 'opacity-50' : 'hover:scale-110 group' }`}
+                className={`w-10 lg:w-16 h-10 lg:h-16 focus:border-none focus:outline-none rounded-full flex items-center justify-center bg-blue text-white transform transition ease-in-out duration-500 relative overflow-hidden ${!prevBtnEnabled ? 'opacity-50' : 'hover:scale-110 group' }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
               >
@@ -64,7 +64,7 @@ export default function CaseCarousel({ images }) {
               </button>
               
               <button
-                className={`w-10 lg:w-16 h-10 lg:h-16 focus:border-none focus:outline-none rounded-full flex items-center justify-center bg-blue text-white transform transition ease-in-out duration-500 overflow-hidden ${!nextBtnEnabled ? 'opacity-50' : 'hover:scale-110 group' }`}
+                className={`w-10 lg:w-16 h-10 lg:h-16 focus:border-none focus:outline-none rounded-full flex items-center justify-center bg-blue text-white transform transition ease-in-out duration-500 relative overflow-hidden ${!nextBtnEnabled ? 'opacity-50' : 'hover:scale-110 group' }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
               >

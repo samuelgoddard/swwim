@@ -26,11 +26,13 @@
 .accordion-item {
   @apply transition-all ease-in-out duration-500 pointer-events-none;
   max-height: 0;
+  height: 100% !important;
 
 }
 
 .accordion-item--open {
   max-height: 1000px;
+  height: 100% !important;
   @apply transition-all ease-in-out duration-700 pb-12 md:pb-16 xl:pb-20;
 }
 
@@ -132,4 +134,8 @@
   @screen xl {
     padding-top: 10vh;
   }
+}
+
+.index-layer {
+  margin-bottom: -10px;
 }

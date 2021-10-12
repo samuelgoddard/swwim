@@ -486,7 +486,7 @@ export default function Home(initialData) {
               </div>
             </div>
 
-            <div className="w-full bg-white bg-noise bg-noise--white h-24 absolute bottom-0 left-0 right-0 z-30 pb-0 -mb-6">
+            <div className="w-full bg-white bg-noise bg-noise--white h-24 absolute bottom-0 left-0 right-0 z-30 pb-0 index-layer" data-scroll data-scroll-speed={0.16}>
             </div>
 
             <Container>

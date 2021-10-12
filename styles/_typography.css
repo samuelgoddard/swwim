@@ -362,11 +362,11 @@ details ::marker {
     height: 60vw;
 
     img {
-      @apply transition ease duration-700;
+      @apply transition-transform ease-in-out duration-700;
     }
 
     video {
-      @apply transition ease duration-700;
+      @apply transition-transform ease-in-out duration-700;
     }
   }
 
@@ -384,9 +384,9 @@ details ::marker {
     img {
       @apply transform scale-110 origin-center;
     }
-    video {
+    /* video {
       @apply transform scale-110 origin-center;
-    }
+    } */
   }
 }
 

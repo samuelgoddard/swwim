@@ -123,7 +123,7 @@ export default function CaseStudiesLanding(initialData) {
                     </span>
                   </h1>
                   
-                  <div className="absolute bottom-0 left-0 w-[20%] md:w-[18%] 2xl:w-[17%] ml-[6%] md:ml-[12%] lg:ml-[3%] 2xl:ml-[7%] mb-[7%] md:mb-[4%] lg:mb-[-5%] 2xl:mb-[-4%]">
+                  <div className="absolute bottom-0 left-0 w-[28%] md:w-[18%] 2xl:w-[17%] ml-[-3%] md:ml-[12%] lg:ml-[3%] 2xl:ml-[7%] mb-[6%] md:mb-[4%] lg:mb-[-5%] 2xl:mb-[-4%]">
                     <Image width={167} height={169} layout="responsive" src="/icons/case-stroke.svg" alt="Squiggle Underline" className="w-full" priority />
                   </div>
                 </div>

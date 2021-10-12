@@ -172,7 +172,7 @@ export default function About(initialData) {
                   </span>
                 </h1>
                 
-                <div className="absolute bottom-0 left-0 w-[49%] md:w-[35%] ml-[17%] md:ml-[-2%] lg:ml-[-2%] 2xl:ml-[0%] mb-[-4%] md:mb-[-2%] 2xl:mb-[-3%]">
+                <div className="absolute bottom-0 left-0 w-[49%] md:w-[40%] ml-[40%] md:ml-[-2%] lg:ml-[-2%] 2xl:ml-[0%] mb-[10%] md:mb-[-2%] 2xl:mb-[-3%]">
                   <Image width={369} height={150} layout="responsive" src="/icons/about-hero-swirl.svg" alt="Squiggle Underline" className="w-full will-change" priority />
                 </div>
               </div>
