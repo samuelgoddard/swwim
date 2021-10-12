@@ -37,8 +37,8 @@ export default function CaseCarousel({ images }) {
                       <ImageWrapper
                         image={image}
                         className="w-full h-full object-cover object-center case-image"
-                        baseWidth={420}
-                        baseHeight={720}
+                        baseWidth={840}
+                        baseHeight={1440}
                         fill={true}
                       />
                     </div>
