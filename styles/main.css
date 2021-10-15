@@ -12,7 +12,7 @@
 @import 'tailwindcss/utilities';
 
 .client-logo {
-  min-height: 240px !important;
+  min-height: 170px !important;
 
   @screen md {
     min-height: 280px !important;

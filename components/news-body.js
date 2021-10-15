@@ -15,6 +15,7 @@ import { NextSeo } from 'next-seo'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import Socials from './socials'
 import SkipButtons from './skip-buttons'
+import Link from 'next/link'
 import ImageStandard from '../helpers/image-standard'
 
 export const articlesPerPage = 7;
@@ -268,7 +269,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
                               <a href={item.url} target="_blank" rel="noopener noreferrer" className="bg-blue bg-noise mx-auto w-24 md:w-32 h-24 md:h-32 flex items-center justify-center mb-3 md:mb-5 group relative">
                                 <Logo width="w-8/12" />
 
-                                <img src="https://media.giphy.com/media/26gs78HRO8sOuhTkQ/giphy-downsized.gif" alt="Pop TV Gif" className="w-full h-full absolute inset-0 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500"></img>
+                                <img src="/images/insta.gif" alt="Insta Gif" className="w-full h-full absolute inset-0 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500"></img>
                               </a>
                               
                               <a href={item.url} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto text-sm md:text-lg 2xl:text-xl font-medium block text-center">@weswwim</a>
@@ -331,11 +332,18 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
 
               <div className="w-full md:w-4/12 lg:w-3/12 mb-8 md:mb-0 relative z-10">
                 <div className="md:pr-12 w-full">
-                  <div className="w-full bg-brown text-white p-5 md:p-6 2xl:p-10">
+                  <div className="w-full bg-[#07398A] text-white p-5 md:p-6 2xl:p-10">
                     <span className="block font-display uppercase text-xl md:text-2xl 2xl:text-3xl text-center mb-5 md:mb-8">See how we can help your business grow today</span>
 
                     <div className="flex items-center justify-center">
-                      <Button white overrideClasses="text-black" href="/contact">Contact Us</Button>
+                      <div className={`inline-block p-px overflow-hidden relative mb-0 pb-0`}>
+                        <Link href="/contact">
+                          <a className={`rounded-full text-center inline-block font-bold group transition-colors ease-in-out duration-500 bg-white text-blue ring-white px-4 md:px-6 py-2 relative overflow-hidden`}>
+                            <span className="block relative z-10">Contact Us</span>
+                            <div className="absolute bottom-0 left-0 w-full h-0 bg-[#EEE1D9] group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0 scale-110 rounded-full"></div>
+                          </a>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

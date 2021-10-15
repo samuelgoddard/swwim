@@ -192,7 +192,7 @@ export default function CaseStudiesLanding(initialData) {
               <Link href="/contact">
                 <a className={`rounded-full text-center inline-block font-bold group overflow-hidden transition-colors ease-in-out duration-500 bg-blue text-white ring-blue px-4 md:px-6 py-4 md:py-6 relative xl:absolute xl:bottom-0 xl:right-0 w-full xl:w-[30%] text-base md:text-2xl xl:text-[1.9vw] mt-5 xl:mt-0 xl:mb-6 xl:max-w-[360px]`}>
                   <span className="block relative z-10 xl:mb-2">Contact us</span>
-                  <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                  <div className="absolute bottom-0 left-0 w-full h-0 bg-blue-dark group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
                 </a>
               </Link>
             </div>

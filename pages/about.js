@@ -245,7 +245,7 @@ export default function About(initialData) {
                   <span className="block animate--letter-float--delay">a</span>
                   <span className="block animate--letter-float">m</span>
                 </span>
-                <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">Problem solvers with a passion</h3>
+                <h3 className="text-3xl md:text-5xl 2xl:text-6xl font-display uppercase mb-0 pb-0 text-center">Problem solvers with passion</h3>
                 
                 <div className="w-full ml-auto mr-[-8vw] md:mr-[-2vw] 2xl:mr-[-6vw]">
                   <ImageStandard width={268} height={4} layout="responsive" src="/icons/team-stroke.svg" alt="Swipe Underline" className="w-full will-change" />
@@ -481,7 +481,7 @@ export default function About(initialData) {
                 <div className="mx-auto flex justify-center">
                   <a href="https://www.instagram.com/weswwim" target="_blank" rel="noopener noreferrer" className={`rounded-full text-center inline-block font-bold group relative overflow-hidden transition-colors ease-in-out duration-500 bg-blue text-white px-5 md:px-8 py-3 md:py-4 font-display text-lg`}>
                     <span className="block relative z-10">@weswwim</span>
-                    <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-0 bg-blue-dark group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
                   </a>
                 </div>
 
@@ -497,7 +497,7 @@ export default function About(initialData) {
             
 
             <div className="absolute bottom-0 left-0 w-full max-w-[200px] md:max-w-[280px] xl:max-w-[380px] ml-[44vw] md:ml-[50vw] xl:ml-[45vw] md:mb-[0px] xl:mb-[10px] z-50" ref={fadeRevealRefs}>
-              <ImageStandard width={360} height={319} layout="responsive" src="/icons/flamingo.svg" alt="Flamingo Illustration" className="w-full will-change" />
+              <ImageStandard width={360} height={319} layout="responsive" src="/icons/rubber-ring.svg" alt="Flamingo Illustration" className="w-full will-change" />
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 xl:h-48 bg-blue-dark bg-noise -mb-1 z-10"></div>

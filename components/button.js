@@ -14,11 +14,13 @@ export default function Button({ href, children, white, opaque, narrow, override
     spacing = 'px-4 md:px-4 py-2'
   }
   return (
-    <Link href={href}>
-      <a className={`rounded-full text-center inline-block font-bold group relative overflow-hidden transition-colors ease-in-out duration-500 ${theme} ${spacing} ${overrideClasses}`}>
-        <span className="block relative z-10">{children}</span>
-        <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
-      </a>
-    </Link>
+    <div className={`inline-block p-px overflow-hidden relative mb-0 pb-0 ${overrideClasses}`}>
+      <Link href={href}>
+        <a className={`rounded-full text-center inline-block font-bold group transition-colors ease-in-out duration-500 ${theme} ${spacing}`}>
+          <span className="block relative z-10">{children}</span>
+          <div className="absolute bottom-0 left-0 w-full h-0 bg-blue-dark group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0 scale-110 rounded-full"></div>
+        </a>
+      </Link>
+    </div>
   )
 }

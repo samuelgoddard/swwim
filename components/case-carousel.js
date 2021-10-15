@@ -59,7 +59,7 @@ export default function CaseCarousel({ images }) {
                 </svg>
                 
                 <span className="absolute inset-0 flex flex-wrap z-1 items-center justify-center">
-                  <span className="w-0 h-0 rounded-full bg-black group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
+                  <span className="w-0 h-0 rounded-full bg-blue-dark group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
                 </span>
               </button>
               
@@ -73,7 +73,7 @@ export default function CaseCarousel({ images }) {
                 </svg>
 
                 <span className="absolute inset-0 flex flex-wrap z-1 items-center justify-center">
-                  <span className="w-0 h-0 rounded-full bg-black group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
+                  <span className="w-0 h-0 rounded-full bg-blue-dark group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
                 </span>
               </button>
             </div>

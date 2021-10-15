@@ -72,7 +72,7 @@ const NewsTeaser = React.forwardRef(({href, heading, noBorder, image, author, th
                   <svg className="group-hover:translate-y-12 transition ease-in-out duration-500 w-8 relative z-10 transform rotate-180" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg>
 
                   <span className="absolute inset-0 flex flex-wrap z-1 items-center justify-center">
-                    <span className="w-0 h-0 rounded-full bg-black group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
+                    <span className="w-0 h-0 rounded-full bg-blue-dark group-hover:w-full group-hover:h-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 transform scale-110"></span>
                   </span>
                   </span>
                 </span>

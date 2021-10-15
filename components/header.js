@@ -113,7 +113,7 @@ export default function Header({ theme, contact, pinned, active }) {
                 <Link href="/contact">
                   <a className={`rounded-full text-center font-bold px-4 md:px-6 py-2 bg-blue text-white ring-blue hidden md:inline-block group overflow-hidden transition-colors ease-in-out duration-500 relative z-10 ${themeButtonColors}`}>
                     <span className="block relative z-10">Contact Us</span>
-                    <div className="absolute bottom-0 left-0 w-full h-0 bg-black group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-0 bg-blue-dark group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
                   </a>
                 </Link>
                 <button

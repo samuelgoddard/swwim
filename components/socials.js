@@ -1,4 +1,4 @@
-export default function Socials({ links, large }) {
+export default function Socials({ links, large, blue }) {
 
   function logoSwitcher(param) {
     switch(param) {
@@ -20,7 +20,7 @@ export default function Socials({ links, large }) {
     <div className="flex flex-wrap items-center space-x-4">
       {links.map((item, i) => {
         return (
-          <a key={i} href={item.url} className="block ring-white hover:text-black focus:text-black" target="_blank" rel="noopener noreferrer">
+          <a key={i} href={item.url} className={`block ring-white ${blue ? 'hover:text-blue-light focus:text-blue-light' : 'hover:text-blue-dark focus:blue-dark' }`} target="_blank" rel="noopener noreferrer">
             {logoSwitcher(item.title.toLowerCase())}
           </a>
         )

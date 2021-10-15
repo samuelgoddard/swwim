@@ -379,7 +379,7 @@ export default function Home(initialData) {
           <Container overflowHidden>
             <div className="relative mb-16 md:mb-32 2xl:mb-40 pt-20 md:pt-24 2xl:pt-32" id="intro-area">
               <div className="w-[38%] md:w-[40%] absolute top-auto md:top-0 bottom-0 z-20 md:bottom-auto right-0 mb-28 md:mb-0 md:mt-[25%] max-w-xs -mr-16 md:-mr-28 2xl:-mr-6 hidden md:block animate--float" ref={fadeRevealRefs}>
-                <ImageStandard width={279} height={418} layout="responsive" src="/icons/unicorn-left.svg" alt="Unicorn Illustration" className="w-full will-change" />
+                <ImageStandard width={279} height={418} layout="responsive" src="/icons/rubber-ring.svg" alt="Unicorn Illustration" className="w-full will-change" />
               </div>
 
               <div className="hidden md:block md:w-[14%] absolute top-auto md:top-0 bottom-0 z-20 md:bottom-auto left-0 mb-28 md:mb-0 md:mt-[50%] 2xl:mt-[42%] max-w-[170px] -ml-16 md:ml-[-8%] 2xl:ml-20 animate--float animate--stagger" ref={fadeRevealRefs}>
@@ -504,11 +504,11 @@ export default function Home(initialData) {
                         <motion.span variants={textReveal} className="block">We're all about</motion.span>
                       </span>
                       <span className="block overflow-hidden">
-                        <motion.span variants={textReveal} className="block"> <span className="stroke">The Doing</span></motion.span>
+                        <motion.span variants={textReveal} className="block"> <span className="stroke">The Graft</span></motion.span>
                       </span>
                     </h2>
 
-                    <h2 className="relative z-10 block md:hidden font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none md:text-right">We're all about <span className="stroke">the doing</span></h2>
+                    <h2 className="relative z-10 block md:hidden font-display uppercase text-[13vw] md:text-[10.5vw] 2xl:text-[170px] leading-none md:text-right">We're all about <span className="stroke">the graft</span></h2>
 
                     {/* <div className="w-5/12 md:w-4/12 absolute bottom-0 right-0 mr-[73%] md:mr-[49%] 2xl:mr-[53%] -mb-2 xl:-mb-5 z-0" ref={fadeRevealRefs}>
                       <ImageStandard width={417} height={220} layout="responsive" src="/icons/circle-squiggle.svg" alt="Circle Illustration" className="w-full will-change" />
@@ -662,7 +662,7 @@ export default function Home(initialData) {
               <span className="md:text-right font-display uppercase text-[11.5vw] md:text-[7.7vw] 2xl:text-[125px] leading-none relative z-10 flex items-center justify-end">
                 <div className="w-[13%] mr-3 md:mr-[0%] 2xl:mr-2 hidden md:block" ref={fadeRevealRefs}>
                   <div className="animate--float">
-                    <ImageStandard width={130} height={115} layout="responsive" src="/icons/speech.svg" alt="Speech Bubble Illustration" className="w-full will-change" />
+                    <ImageStandard width={130} height={115} layout="responsive" src="/icons/speech-bubbles.svg" alt="Speech Bubble Illustration" className="w-full will-change" />
                   </div>
                 </div>
                 <span className="block">

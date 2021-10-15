@@ -37,7 +37,7 @@ export default function Footer({ contact, removeInsta }) {
                           <a href={item.url} target="_blank" rel="noopener noreferer" className="bg-blue-dark bg-noise w-20 md:w-24 h-20 md:h-24 flex items-center justify-center mb-1 md:mb-0 group">
                             <Logo width="w-8/12" />
 
-                            <img src="https://media.giphy.com/media/26gs78HRO8sOuhTkQ/giphy-downsized.gif" alt="Pop TV Gif" className="w-full h-full absolute inset-0 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500"></img>
+                            <img src="/images/insta.gif" alt="Instagram Gif" className="w-full h-full absolute inset-0 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-500"></img>
                           </a>
                         </div>
                       </div>
@@ -59,7 +59,7 @@ export default function Footer({ contact, removeInsta }) {
                 <Logo width="w-24 md:w-28 2xl:w-32" />
               </a>
             </Link>
-
+            
             <button onClick={goToTop} className="flex space-x-3 items-center ring-white group ml-auto">
               {/* <svg className="w-10" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"><circle opacity=".324" cx="17.5" cy="17.5" r="16.5" transform="rotate(-180 17.5 17.5)" stroke="currentColor" strokeWidth="1.12"/><path d="M24 16.57l-6.188-6.232-6.188 6.231M17.812 10.338V25" stroke="currentColor" strokeWidth="1.008"/></svg> */}
 
@@ -82,8 +82,8 @@ export default function Footer({ contact, removeInsta }) {
                   {contact && (
                     <>
                       {contact.socialLinks && (
-                        <div className="mb-auto">
-                          <Socials links={contact.socialLinks} />
+                        <div className="mb-auto mt-5">
+                          <Socials blue links={contact.socialLinks} />
                         </div>
                       )}
                     </>
