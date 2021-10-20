@@ -19,7 +19,7 @@ import BlockContentWrapper from '../components/block-content-wrapper'
 import ImageWrapper from '../helpers/image-wrapper';
 import Logo from '../components/logo';
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
-import LottieTest from '../components/lottie-test'
+import LottieAnimation from '../components/lottie-animations'
 import ImageStandard from '../helpers/image-standard';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -482,7 +482,8 @@ export default function Home(initialData) {
 
             <div className="w-[90vw] md:w-[70vw] xl:w-[70vw] absolute bottom-0 left-0 z-50 max-w-[1200px]">
               <div className="" ref={fadeRevealRefs}>
-              <ImageStandard width={1059} height={526} layout="responsive" src="/icons/sit-back.svg" alt="placeholder" className="w-full" />
+              {/* <ImageStandard width={1059} height={526} layout="responsive" src="/icons/sit-back.svg" alt="placeholder" className="w-full" /> */}
+              <LottieAnimation />
               </div>
             </div>
 
