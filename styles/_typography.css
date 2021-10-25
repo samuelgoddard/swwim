@@ -360,14 +360,6 @@ details ::marker {
     position: relative;
     overflow: hidden;
     height: 60vw;
-
-    img {
-      @apply transition-transform ease-in-out duration-700;
-    }
-
-    video {
-      @apply transition-transform ease-in-out duration-700;
-    }
   }
 
   @screen md {
@@ -380,13 +372,11 @@ details ::marker {
 }
 
 .embla.is--active {
-  .embla__slide__inner {
-    img {
-      @apply transform scale-110 origin-center;
-    }
-    video {
-      @apply transform scale-110 origin-center;
-    }
+  img {
+    @apply transform scale-110 origin-center !important;
+  }
+  video {
+    @apply transform scale-110 origin-center !important;
   }
 }
 

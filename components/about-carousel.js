@@ -86,13 +86,13 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full will-change"
+                            className="w-full will-change transition-transform ease-in-out duration-700"
                             baseWidth={600}
                             baseHeight={400}
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute top-0 left-0 z-50 transition-transform ease-in-out duration-700">
                               <source src={e.video.asset.url} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
@@ -102,13 +102,13 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full will-change"
+                            className="w-full will-change transition-transform ease-in-out duration-700"
                             baseWidth={400}
                             baseHeight={560}
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute top-0 left-0 z-50 transition-transform ease-in-out duration-700">
                               <source src={e.video.asset.url} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
@@ -121,13 +121,13 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full will-change"
+                            className="w-full will-change transition-transform ease-in-out duration-700"
                             baseWidth={900}
                             baseHeight={650}
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute top-0 left-0 z-50 transition-transform ease-in-out duration-700">
                               <source src={e.video.asset.url} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
@@ -137,13 +137,13 @@ export default function AboutCarousel({ images }) {
                         <div className="bg-blue-dark relative overflow-hidden">
                           <ImageWrapper
                             image={e.asset}
-                            className="w-full will-change"
+                            className="w-full will-change transition-transform ease-in-out duration-700"
                             baseWidth={550}
                             baseHeight={850}
                             priority
                           />
                           { e.video && (
-                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute inset-0 z-50">
+                            <video playsInline loop={true} autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute top-0 left-0 z-50 transition-transform ease-in-out duration-700">
                               <source src={e.video.asset.url} type="video/mp4"/>
                               Your browser does not support the video tag.
                             </video>
