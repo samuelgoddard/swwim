@@ -373,10 +373,10 @@ details ::marker {
 
 .embla.is--active {
   img {
-    @apply transform scale-110 origin-center !important;
+    transform: scale(1.1)
   }
   video {
-    @apply transform scale-110 origin-center !important;
+    transform: scale(1.1)
   }
 }
 
