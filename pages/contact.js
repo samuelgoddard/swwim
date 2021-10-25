@@ -99,16 +99,20 @@ export default function Contact() {
                 <span className="block font-bold uppercase mb-6 2xl:mb-8 text-lg tracking-widest overflow-hidden">
                   <motion.span variants={textRevealSmallDelay} className="block">Dear swwim...</motion.span>
                 </span>
-                <form>
+
+                <form action="https://formspree.io/f/xpzkerjy" method="POST">
                   <textarea
                     className="bg-transparent text-white font-sans text-xl md:text-2xl 2xl:text-3xl w-full ring-white mb-0 md:mb-12 2xl:mb-20"
                     placeholder="What can we do for you...?"
+                    name="message"
                     rows="7"
                   />
 
                   <div className="border border-white w-full flex flex-wrap mt-auto">
                     <input
                       className="flex-1 p-5 md:p-8 bg-transparent text-white font-sans font-bold w-full focus:outline-none ring-white"
+                      name="_replyto"
+                      type="email"
                       placeholder="Your email address.."
                     />
                     <div className="w-auto border-l border-white">

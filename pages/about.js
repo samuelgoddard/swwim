@@ -32,7 +32,9 @@ const query = `{
     values,
     heroImageCarousell[] {
       asset->,
-      video
+      video {
+        asset->
+      }
     },
     inPageImage {
       asset->
