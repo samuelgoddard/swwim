@@ -89,7 +89,7 @@ export default function Header({ theme, contact, pinned, active }) {
   return (
     <>
     <header data-scroll data-scroll-sticky data-scroll-position="top" data-scroll-target="#scroll-container" className={`fixed top-0 left-0 right-0 z-30 header ${themeColors} ${pinned ? 'absolute top-0 left-0 right-0 w-full z-20 bg-opacity-0' : 'bg-noise'}`}>
-      <div className={`pt-3 pb-3 md:pt-4 md:pb-4 xl:pt-5 xl:pb-5 flex items-center transition-all ease-in-out duration-500 overflow-visible ${showLogo ? 'h-[65px] md:h-[80px] 2xl:h-[90px]' : ' h-[110px] md:h-[140px] 2xl:h-[160px]'}`}>
+      <div className={`pt-3 pb-3 md:pt-4 md:pb-4 xl:pt-5 xl:pb-5 flex items-center transition-all ease-in-out duration-500 overflow-visible ${showLogo ? 'h-[65px] md:h-[80px] 2xl:h-[80px]' : ' h-[110px] md:h-[140px] 2xl:h-[140px]'}`}>
         <Container>
           <div className="flex flex-wrap items-center relative z-10" id="header-wrap">
             <div className="flex flex-wrap items-center">

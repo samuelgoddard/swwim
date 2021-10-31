@@ -78,7 +78,7 @@ export default function Footer({ contact, removeInsta }) {
                 <span className="block text-2xl md:text-3xl 2xl:text-4xl font-medium mb-4 md:mb-6">Let's chat.</span>
                 
                 <div className="mb-12 md:mb-12 lg:mb-56 2xl:mb-64">
-                  <Button white overrideClasses="mb-5 text-blue-dark" href="/contact">Contact Us</Button>
+                  <Button whiteLight overrideClasses="mb-5 text-blue-dark" href="/contact">Contact Us</Button>
                   {contact && (
                     <>
                       {contact.socialLinks && (
