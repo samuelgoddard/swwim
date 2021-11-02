@@ -56,7 +56,7 @@ const query = `{
       asset->
     }
   },
-  "clients": *[_type == "client"] {
+  "clients": *[_type == "client"] | order(order asc) {
     title,
     logo {
       asset->
