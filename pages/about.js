@@ -289,7 +289,7 @@ export default function About(initialData) {
                   <div className="absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
                     <div className="w-[700%] team-image--hover">
                       <ImageStandard
-                        src={'/images/person-fallback.png'}
+                        src={'/images/person-fallback.jpg'}
                         className="w-full will-change"
                         layout="responsive"
                         width={5334}
