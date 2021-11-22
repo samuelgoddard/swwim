@@ -38,18 +38,13 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <DefaultSeo
-        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
-        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
-        noindex={true}
-        // REMOVE THIS BEFORE LAUNCH !!!!!!!!!
-        // REMOVE THIS BEFORE LAUNCH !!!!!!!!
         titleTemplate = "%s | Swwim"
         defaultTitle="Social, Digital &amp; Content Creation"
         description="We specialise in influencer marketing, social media, content creation and copywriting. Our experience spans lifestyle, health and beauty and home and interiors."
         openGraph={{
           type: 'website',
           locale: 'en_GB',
-          url: 'https://swwim.vercel.app/',
+          url: 'https://www.weswwim.com/',
           site_name: 'Swwim',
           images: [
             {
