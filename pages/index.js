@@ -354,7 +354,7 @@ export default function Home(initialData) {
                       <span className="mx-1">&bull;</span>
                       <span className="mx-1">Content Creation</span>
                       <span className="mx-1">&bull;</span>
-                      <span className="mx-1">Copy Writing</span>
+                      <span className="mx-1">Copywriting</span>
                       <span className="mx-1">&bull;</span>
                     </div>
 
@@ -367,7 +367,7 @@ export default function Home(initialData) {
                       <span className="mx-1">&bull;</span>
                       <span className="mx-1">Content Creation</span>
                       <span className="mx-1">&bull;</span>
-                      <span className="mx-1">Copy Writing</span>
+                      <span className="mx-1">Copywriting</span>
                       <span className="mx-1">&bull;</span>
                     </div>
                   </div>
