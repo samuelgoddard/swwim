@@ -44,6 +44,12 @@ const query = `{
     welcomeSectionImages[] {
       asset->
     },
+    welcomeSectionInstaStories[] {
+      asset->,
+      video {
+        asset->
+      }
+    },
     justGettingOnWithItText,
     justGettingOnWithItImage {
       asset ->
@@ -469,7 +475,7 @@ export default function Home(initialData) {
                             </div>
                           </div>
                         )}
-                        <InstaStories stories={home.welcomeSectionImages}/>
+                        <InstaStories stories={home.welcomeSectionInstaStories}/>
                       </div>
                     </div>
                   </div>

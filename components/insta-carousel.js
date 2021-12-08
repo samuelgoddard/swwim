@@ -64,11 +64,19 @@ export default function InstaCarousel({ stories }) {
                         <ImageWrapper
                           image={e.asset}
                           className="w-full will-change"
-                          baseWidth={550}
+                          baseWidth={480}
                           baseHeight={720}
                         /> 
+
+                        { e.video && (
+                          <video loop={true} playsInline autoPlay="autoplay" muted className="w-full h-full object-center object-cover absolute top-0 left-0 z-50 transition-transform ease-in-out duration-700">
+                            <source src={e.video.asset.url} type="video/mp4"/>
+                            Your browser does not support the video tag.
+                          </video>
+                        )}
+                        
                         <div className="h-[4px] w-full bg-black bg-opacity-20 relative">
-                          <div className="insta-loader h-[4px] absolute inset-0 bg-gradient-to-r from-yellow-500  to-red-700"></div>
+                          <div className="insta-loader h-[4px] absolute inset-0 z-[51] bg-gradient-to-r from-yellow-500  to-red-700"></div>
                         </div>
                       </div>
                     </div>

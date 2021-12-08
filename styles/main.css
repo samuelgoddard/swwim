@@ -52,7 +52,7 @@
 }
 
 .insta-loader {
-  animation: instaLoader 3s;
+  animation: instaLoader 20s;
   animation-iteration-count: infinite;
   
   animation-timing-function: ease-in-out;
