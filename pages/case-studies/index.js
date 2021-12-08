@@ -14,7 +14,7 @@ import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 import ImageStandard from '../../helpers/image-standard'
 
 const query = `{
-  "cases": *[_type == "caseStudy"] {
+  "cases": *[_type == "caseStudy"] | order(order asc) {
     title,
     about,
     images[] {
