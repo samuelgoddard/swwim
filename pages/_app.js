@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import { Context } from '../contexts/state';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '../components/logo'
 import Image from 'next/image'
@@ -13,6 +13,19 @@ import LottieTest from '../components/lottie-test'
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  useEffect(() => {
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('425081434701643') // facebookPixelId
+        ReactPixel.pageView()
+
+        router.events.on('routeChangeComplete', () => {
+          ReactPixel.pageView()
+        })
+      })
+  }, [router.events])
 
   const popupNavVariant = {
     initial: { opacity: 0 },

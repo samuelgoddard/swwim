@@ -21,7 +21,7 @@ import ImageStandard from '../helpers/image-standard'
 export const articlesPerPage = 7;
 
 export const query = `{
-  "news": *[_type == "news"] | order(publishedAt desc) [$start ... $stop] {
+  "news": *[_type == "news"] | order(date desc) [$start ... $stop] {
     heroImage {
       asset -> {
         ...
