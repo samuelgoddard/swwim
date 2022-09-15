@@ -9,10 +9,21 @@ import Link from 'next/link'
 import Logo from '../components/logo'
 import Image from 'next/image'
 import LottieTest from '../components/lottie-test'
+import * as gtag from '../lib/gtag'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   useEffect(() => {
     import('react-facebook-pixel')
