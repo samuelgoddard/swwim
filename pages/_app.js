@@ -1,5 +1,6 @@
 import '../styles/main.css'
 import Head from 'next/head'
+import Script from 'next/script'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
@@ -9,19 +10,16 @@ import Link from 'next/link'
 import Logo from '../components/logo'
 import Image from 'next/image'
 import LottieTest from '../components/lottie-test'
-import * as gtag from '../lib/gtag'
+import { GTM_ID, pageview } from '../lib/gtag'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on('routeChangeComplete', pageview)
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
+      router.events.off('routeChangeComplete', pageview)
     }
   }, [router.events])
 
@@ -60,6 +58,20 @@ export default function App({ Component, pageProps }) {
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+
+      <Script
+        id="gtag-base"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer', '${GTM_ID}');
+          `,
+        }}
+      />
 
       <DefaultSeo
         titleTemplate = "%s | Swwim"
