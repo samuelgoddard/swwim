@@ -91,10 +91,14 @@ export default function Footer({ contact, removeInsta }) {
                 </div>
               </span>
 
-              <div className="hidden md:block lg:flex flex-wrap lg:space-x-6 w-full self-end">
+              <div className="hidden md:block lg:flex flex-wrap w-full self-end">
+                <div className="flex flex-wrap lg:space-x-6">
                 <span className="block opacity-60">&copy; { new Date().getFullYear() } Swwim</span>              
                 <Link href="/legal"><a className="block opacity-60 hover:opacity-100 focus:opacity-100 ring-white">Legal Information</a></Link>
                 <span className="block opacity-60">Site by <a className="inline-block hover:underline focus:underline" href="https://www.mynrd.co.uk" target="_blank" rel="noopener noreferrer">Joel</a> &amp; <a className="inline-block hover:underline focus:underline" href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer">Sam</a></span>
+                </div>
+
+                <span className="block opacity-60 mb-1 px-0 mx-0"><a className="inline-block hover:underline focus:underline" href="https://www.designrush.com/agency/social-media-marketing/uk" target="_blank" rel="noopener noreferrer">Top Social Media Marketing Companies</a></span>
               </div>
             </div>
             <div className="w-full md:w-5/12 lg:w-7/12">
@@ -144,6 +148,8 @@ export default function Footer({ contact, removeInsta }) {
                   <span className="block text-sm opacity-60 mb-1">&copy; { new Date().getFullYear() } Swwim</span>
                   <Link href="/legal"><a className="block text-sm opacity-60 hover:opacity-100 focus:opacity-100 mb-1 ring-white">Legal Information</a></Link>
                   <span className="block text-sm opacity-60 mb-1">Site by <a className="inline-block hover:underline focus:underline" href="https://www.mynrd.co.uk" target="_blank" rel="noopener noreferrer">Joel</a> &amp; <a className="inline-block hover:underline focus:underline" href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer">Sam</a></span>
+
+                  <span className="block text-sm opacity-60 mb-1"><a className="inline-block hover:underline focus:underline" href="https://www.designrush.com/agency/social-media-marketing/uk" target="_blank" rel="noopener noreferrer">Top Social Media Marketing Companies</a></span>
                 </div>
 
                 <div className="block md:hidden w-5/12 md:w-full ml-auto -mb-3">
