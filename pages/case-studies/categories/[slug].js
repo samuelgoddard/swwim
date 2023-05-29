@@ -294,6 +294,6 @@ export async function getStaticPaths() {
   const paths = await pageService.fetchPaths('service')
   return {
     paths: paths,
-    fallback: true,
+    fallback: false,
   };
 }

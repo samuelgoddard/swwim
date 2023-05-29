@@ -299,6 +299,6 @@ export async function getStaticPaths() {
   const paths = await pageService.fetchPaths('newsCategory')
   return {
     paths: paths,
-    fallback: true,
+    fallback: false,
   };
 }
