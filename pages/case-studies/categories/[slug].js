@@ -27,7 +27,10 @@ const query = `{
       title
     },
     services[]-> {
-      title
+      title,
+      slug {
+        current
+      }
     },
     slug {
       current
@@ -194,7 +197,7 @@ export default function CaseStudiesLanding(initialData) {
                 <div className="flex justify-center">
                   <span className="block w-auto text-center">
                     <span className="block mb-1">Filter By Industry:</span>
-                    <select onChange={handleChange} name="services" id="services" className="bg-blue bg-opacity-20 text-center rounded-full appearance-none font-bold w-auto py-2 focus:outline-none focus:border-none">
+                    <select onChange={handleChange} name="services" id="services" className="bg-blue bg-opacity-20  rounded-full appearance-none font-bold w-auto py-2 px-3 focus:outline-none focus:border-none text-center">
                       <option value={'all'}>{currentService.title}</option>
                       {services?.map((e, i) => {
                         return (
@@ -210,7 +213,7 @@ export default function CaseStudiesLanding(initialData) {
           
             <div className="border-t border-current mb-12 md:mb-16 2xl:mb-24 relative z-10">
               {cases.map((item, i) => {
-                return (
+                return item.services.some(service => service.slug.current == currentService.slug.current) && (
                   <CaseTeaser
                     href={`/case-studies/${item.slug.current}`}
                     key={i}
@@ -221,6 +224,10 @@ export default function CaseStudiesLanding(initialData) {
                   />
                 )
               })}
+
+              {cases.length < 1 && (
+                <>No Articles...</>
+              )}
             </div>
 
             <div className="relative md:mx-16 2xl:mx-20 mb-12 md:mb-16 2xl:mb-32">
