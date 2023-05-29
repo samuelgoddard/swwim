@@ -8,9 +8,9 @@ const pageService = new SanityPageService(query)
 export default function News(initialData) {
   const startArticleIndex = initialData.index * articlesPerPage
   const stopArticleIndex = startArticleIndex + articlesPerPage
-  const { data: { news, contact, numberOfArticles, index }  } = pageService.getPreviewHook(initialData, { start: startArticleIndex, stop: stopArticleIndex})()
+  const { data: { news, contact, cats, popup, numberOfArticles, index }  } = pageService.getPreviewHook(initialData, { start: startArticleIndex, stop: stopArticleIndex})()
 
-  return <NewsBody news={news} contact={contact} index={Number(index)} numberOfArticles={Number(numberOfArticles)} subPage />
+  return <NewsBody news={news} cats={cats} contact={contact} popup={popup} index={Number(index)} numberOfArticles={Number(numberOfArticles)} subPage />
 }
 
 export async function getStaticProps(context) {

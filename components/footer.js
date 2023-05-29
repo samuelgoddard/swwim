@@ -108,6 +108,7 @@ export default function Footer({ contact, removeInsta }) {
                   <nav>
                     <ul>
                       <li className="block mb-1"><Link href="/about"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">About</a></Link></li>
+                      <li className="block mb-1"><Link href="/services"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">Services</a></Link></li>
                       <li className="block mb-1"><Link href="/case-studies"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">Case Studies</a></Link></li>
                       <li className="block mb-1"><Link href="/news"><a className="inline-block opacity-60 hover:opacity-100 focus:opacity-100 font-medium ring-white">News</a></Link></li>
                     </ul>

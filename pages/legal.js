@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -10,6 +10,7 @@ import SanityPageService from '../services/sanityPageService'
 import { NextSeo } from 'next-seo'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import LegalTabs from '../components/legal-tabs'
+import { PopupContext } from '../contexts/popup'
 
 const query = `{
   "legal": *[_type == "legal"] {
@@ -25,13 +26,47 @@ const query = `{
       title,
       url
     }
+  },
+  "popup": *[_type == "popups"][0] {
+    popupTitle,
+    popupText,
+    popupBannerText,
+    popupImage {
+      asset-> {
+        ...
+      }
+    },
+    popupEnabled,
+    popupNewsletter,
+    popupArticle,
+    popupArticleLink-> {
+      _type,
+      title,
+      slug {
+        current
+      }
+    }
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Legal(initialData) {
-  const { data: { legal, contact }  } = pageService.getPreviewHook(initialData)()
+  const { data: { legal, contact, popup }  } = pageService.getPreviewHook(initialData)()
+  const [popupContext, setPopupContext] = useContext(PopupContext);
+
+  useEffect(() => {
+    setPopupContext([{
+      popupEnabled: popup.popupEnabled,
+      title: popup.popupTitle,
+      bannerText: popup.popupBannerText,
+      text: popup.popupText,
+      newsletter: popup.popupNewsletter,
+      article: popup.popupArticle,
+      articleLink: popup.popupArticleLink,
+      image: popup.popupImage,
+    }])
+  }, [])
 
   return (
     <Layout>
@@ -68,7 +103,7 @@ export default function Legal(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white overflow-hidden pt-[125px] md:pt-[160px] xl:pt-[180px]"
+        className="bg-blue bg-noise text-white overflow-hidden pt-[160px] md:pt-[190px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>

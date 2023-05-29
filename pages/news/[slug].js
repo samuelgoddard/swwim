@@ -14,6 +14,8 @@ import ImageWrapper from '../../helpers/image-wrapper'
 import spacetime from 'spacetime'
 import EditorialContentWrapper from '../../components/editorial-content-wrapper'
 import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
+import { PopupContext } from '../../contexts/popup'
+import { useContext, useEffect } from 'react'
 
 const readingTime = require('reading-time');
 
@@ -82,6 +84,26 @@ const query = `
       date,
       introText,
       title
+    },
+    "popup": *[_type == "popups"][0] {
+      popupTitle,
+      popupText,
+      popupBannerText,
+      popupImage {
+        asset-> {
+          ...
+        }
+      },
+      popupEnabled,
+      popupNewsletter,
+      popupArticle,
+      popupArticleLink-> {
+        _type,
+        title,
+        slug {
+          current
+        }
+      }
     }
   }
 `
@@ -100,10 +122,25 @@ function toPlainText(blocks = []) {
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, categories, author, date, introText, title, content, contact, moreNews }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, categories, author, date, introText, title, content, contact, moreNews, popup }  } = pageService.getPreviewHook(initialData)()
 
   let d = spacetime(date)
   let estimatedReadingTime = readingTime(toPlainText(content));
+
+  const [popupContext, setPopupContext] = useContext(PopupContext);
+
+  useEffect(() => {
+    setPopupContext([{
+      popupEnabled: popup.popupEnabled,
+      title: popup.popupTitle,
+      bannerText: popup.popupBannerText,
+      text: popup.popupText,
+      newsletter: popup.popupNewsletter,
+      article: popup.popupArticle,
+      articleLink: popup.popupArticleLink,
+      image: popup.popupImage,
+    }])
+  }, [])
 
   return (
     <Layout>
@@ -152,7 +189,7 @@ export default function NewsSlug(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-blue bg-noise text-white pb-8 md:pb-16 2xl:pb-24 pt-[125px] md:pt-[160px] xl:pt-[180px]"
+        className="bg-blue bg-noise text-white pb-8 md:pb-16 2xl:pb-24 pt-[160px] md:pt-[190px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10 overflow-hidden">
           <Container>

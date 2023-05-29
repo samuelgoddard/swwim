@@ -64,7 +64,7 @@
 }
 
 .hero-top-right {
-  max-height: 128px;
+  max-height: 122px;
 }
 
 .fancy-link {
@@ -138,4 +138,20 @@
 
 .index-layer {
   margin-bottom: -10px;
+}
+
+.content--guide > * {
+  @apply max-w-screen-xl mx-auto px-6 lg:px-12;
+}
+
+.content--guide > .single-image {
+  @apply max-w-screen-3xl mx-auto overflow-hidden px-6 2xl:px-16 lg:py-16 !important;
+}
+
+.content--guide--mini > * {
+  @apply max-w-[1200px] mx-auto px-6 lg:px-12;
+}
+
+.content--guide--mini > .single-image {
+  @apply max-w-screen-3xl mx-auto overflow-hidden px-6 2xl:px-16 lg:py-16 !important;
 }

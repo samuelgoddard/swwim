@@ -1,19 +1,19 @@
 import Image from 'next/image'
-import Layout from '../../components/layout'
-import Header from '../../components/header'
-import Footer from '../../components/footer'
+import Layout from '../../../components/layout'
+import Header from '../../../components/header'
+import Footer from '../../../components/footer'
 import Link from 'next/link'
-import Container from '../../components/container'
-import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../../helpers/transitions"
-import Logo from '../../components/logo'
+import Container from '../../../components/container'
+import { fade, fadeSmallDelay, revealInNoDelay, revealInLogoNoDelay, revealInLogoMoveNoDelay, textRevealSmallDelay } from "../../../helpers/transitions"
+import Logo from '../../../components/logo'
 import { motion } from 'framer-motion'
-import CaseTeaser from '../../components/case-teaser'
+import CaseTeaser from '../../../components/case-teaser'
 import { NextSeo } from 'next-seo'
-import SanityPageService from '../../services/sanityPageService'
-import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
-import ImageStandard from '../../helpers/image-standard'
+import SanityPageService from '../../../services/sanityPageService'
+import { SmoothScrollProvider } from '../../../contexts/SmoothScroll.context'
+import ImageStandard from '../../../helpers/image-standard'
 import { useContext, useEffect } from 'react'
-import { PopupContext } from '../../contexts/popup'
+import { PopupContext } from '../../../contexts/popup'
 import { useRouter } from 'next/router'
 
 const query = `{
@@ -33,7 +33,13 @@ const query = `{
       current
     }
   },
-  "services": *[_type == "service"] | order(order asc) {
+  "services": *[_type == "service" && slug.current != $slug] {
+    title,
+    slug {
+      current
+    }
+  },
+  "currentService": *[_type == "service" && slug.current == $slug][0] {
     title,
     slug {
       current
@@ -74,7 +80,7 @@ const query = `{
 const pageService = new SanityPageService(query)
 
 export default function CaseStudiesLanding(initialData) {
-  const { data: { cases, contact, popup, services}  } = pageService.getPreviewHook(initialData)()
+  const { data: { cases, contact, popup, services, currentService}  } = pageService.getPreviewHook(initialData)()
   const [popupContext, setPopupContext] = useContext(PopupContext);
   const router = useRouter();
 
@@ -189,12 +195,13 @@ export default function CaseStudiesLanding(initialData) {
                   <span className="block w-auto text-center">
                     <span className="block mb-1">Filter By Industry:</span>
                     <select onChange={handleChange} name="services" id="services" className="bg-blue bg-opacity-20 text-center rounded-full appearance-none font-bold w-auto py-2 focus:outline-none focus:border-none">
-                      <option value={'all'}>All Industries</option>
+                      <option value={'all'}>{currentService.title}</option>
                       {services?.map((e, i) => {
                         return (
                           <option key={i} value={e.slug.current}>{e.title}</option>
                         )
                       })}
+                      <option value={'all'}>All Industries</option>
                     </select>
                   </span>
                 </div>
@@ -281,4 +288,12 @@ export default function CaseStudiesLanding(initialData) {
 
 export async function getStaticProps(context) {
   return pageService.fetchQuery(context)
+}
+
+export async function getStaticPaths() {
+  const paths = await pageService.fetchPaths('service')
+  return {
+    paths: paths,
+    fallback: true,
+  };
 }

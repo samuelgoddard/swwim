@@ -12,29 +12,17 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '../../services/sanityPageService'
 import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 import ImageStandard from '../../helpers/image-standard'
-import { useContext, useEffect } from 'react'
 import { PopupContext } from '../../contexts/popup'
-import { useRouter } from 'next/router'
+import { useContext, useEffect } from 'react'
 
 const query = `{
-  "cases": *[_type == "caseStudy"] | order(order asc) {
+  "services": *[_type == "service"] | order(order asc) {
     title,
     about,
     images[] {
       asset->
     },
-    deliverables[]-> {
-      title
-    },
-    services[]-> {
-      title
-    },
-    slug {
-      current
-    }
-  },
-  "services": *[_type == "service"] | order(order asc) {
-    title,
+    content,
     slug {
       current
     }
@@ -73,18 +61,9 @@ const query = `{
 
 const pageService = new SanityPageService(query)
 
-export default function CaseStudiesLanding(initialData) {
-  const { data: { cases, contact, popup, services}  } = pageService.getPreviewHook(initialData)()
+export default function ServicesLandingPage(initialData) {
+  const { data: { services, contact, popup}  } = pageService.getPreviewHook(initialData)()
   const [popupContext, setPopupContext] = useContext(PopupContext);
-  const router = useRouter();
-
-  const handleChange = event => {
-    if (event.target.value == 'all') {
-      router.push(`/case-studies`);
-    } else {
-      router.push(`/case-studies/categories/${event.target.value}`);
-    }
-  };
 
   useEffect(() => {
     setPopupContext([{
@@ -98,7 +77,6 @@ export default function CaseStudiesLanding(initialData) {
       image: popup.popupImage,
     }])
   }, [])
-
   return (
     <Layout>
       <NextSeo
@@ -156,27 +134,23 @@ export default function CaseStudiesLanding(initialData) {
               <div className="relative mb-20 md:mb-32 lg:mb-40 2xl:mb-48 mx-[3%] md:mx-[10%] lg:mx-38 2xl:mx-32">
                 <div className="overflow-hidden mb-4 md:mb-6 2xl:mb-8">
                   <motion.span variants={textRevealSmallDelay} className="text-xl md:text-2xl 2xl:text-3xl font-display uppercase flex justify-center">
-                    <span className="block mx-px animate--letter-float--delay">C</span>
-                    <span className="block mx-px animate--letter-float">a</span>
-                    <span className="block mx-px animate--letter-float--delay">s</span>
+                    <span className="block mx-px animate--letter-float--delay">S</span>
                     <span className="block mx-px animate--letter-float">e</span>
-                    <span className="block mx-px animate--letter-float--delay">&nbsp;</span>
-                    <span className="block mx-px animate--letter-float">S</span>
-                    <span className="block mx-px animate--letter-float--delay">t</span>
-                    <span className="block mx-px animate--letter-float">u</span>
-                    <span className="block mx-px animate--letter-float--delay">d</span>
-                    <span className="block mx-px animate--letter-float">i</span>
+                    <span className="block mx-px animate--letter-float--delay">r</span>
+                    <span className="block mx-px animate--letter-float">v</span>
+                    <span className="block mx-px animate--letter-float--delay">i</span>
+                    <span className="block mx-px animate--letter-float">c</span>
                     <span className="block mx-px animate--letter-float--delay">e</span>
                     <span className="block mx-px animate--letter-float">s</span>
                   </motion.span>
                 </div>
 
                 <div className="relative">
-                  <h1 className="block md:hidden font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">10's across the board</h1>
+                  <h1 className="block md:hidden font-display text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Lorem ipsum dolor sit amet</h1>
 
-                  <h1 className="hidden md:block font-display uppercase text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">
+                  <h1 className="hidden md:block font-display text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">
                     <span className="block overflow-hidden">
-                      <motion.span variants={textRevealSmallDelay} className="block">10's across the board</motion.span>
+                      <motion.span variants={textRevealSmallDelay} className="block">Lorem ipsum dolor sit amet</motion.span>
                     </span>
                   </h1>
                   
@@ -184,33 +158,20 @@ export default function CaseStudiesLanding(initialData) {
                     <ImageStandard width={167} height={169} layout="responsive" src="/icons/case-stroke.svg" alt="Squiggle Underline" className="w-full" priority />
                   </div>
                 </div>
-
-                <div className="flex justify-center">
-                  <span className="block w-auto text-center">
-                    <span className="block mb-1">Filter By Industry:</span>
-                    <select onChange={handleChange} name="services" id="services" className="bg-blue bg-opacity-20 text-center rounded-full appearance-none font-bold w-auto py-2 focus:outline-none focus:border-none">
-                      <option value={'all'}>All Industries</option>
-                      {services?.map((e, i) => {
-                        return (
-                          <option key={i} value={e.slug.current}>{e.title}</option>
-                        )
-                      })}
-                    </select>
-                  </span>
-                </div>
               </div>
             </div>
           
             <div className="border-t border-current mb-12 md:mb-16 2xl:mb-24 relative z-10">
-              {cases.map((item, i) => {
+              {services.map((item, i) => {
                 return (
                   <CaseTeaser
-                    href={`/case-studies/${item.slug.current}`}
+                    href={`/services/${item.slug.current}`}
                     key={i}
                     index={`0${i + 1}`}
                     heading={item.title}
-                    image={item.images[0]}
-                    tags={item.services}
+                    text={item.content}
+                    images={item.images}
+                    service
                   />
                 )
               })}

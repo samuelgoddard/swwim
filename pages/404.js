@@ -10,6 +10,8 @@ import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import Link from 'next/link'
 import Image from 'next/image'
 import ImageStandard from '../helpers/image-standard'
+import { PopupContext } from '../contexts/popup'
+import { useContext, useEffect } from 'react'
 
 const query = `{
   "contact": *[_type == "contact"][0] {
@@ -21,13 +23,47 @@ const query = `{
       title,
       url
     }
+  },
+  "popup": *[_type == "popups"][0] {
+    popupTitle,
+    popupText,
+    popupBannerText,
+    popupImage {
+      asset-> {
+        ...
+      }
+    },
+    popupEnabled,
+    popupNewsletter,
+    popupArticle,
+    popupArticleLink-> {
+      _type,
+      title,
+      slug {
+        current
+      }
+    }
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function CustomError(initialData) {
-  const { data: {  contact }  } = pageService.getPreviewHook(initialData)()
+  const { data: {  contact, popup }  } = pageService.getPreviewHook(initialData)()
+  const [popupContext, setPopupContext] = useContext(PopupContext);
+
+  useEffect(() => {
+    setPopupContext([{
+      popupEnabled: popup.popupEnabled,
+      bannerText: popup.popupBannerText,
+      title: popup.popupTitle,
+      text: popup.popupText,
+      newsletter: popup.popupNewsletter,
+      article: popup.popupArticle,
+      articleLink: popup.popupArticleLink,
+      image: popup.popupImage,
+    }])
+  }, [])
 
   return (
     <Layout>

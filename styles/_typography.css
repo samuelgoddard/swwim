@@ -629,3 +629,13 @@ html.has-scroll-dragging {
 .tab[aria-selected="false"] {
   @apply opacity-40 hover:opacity-100 focus:opacity-100;
 }
+
+.content--guide > h2, .content--guide > .h2 {
+  @apply text-4xl font-display;
+}
+
+@screen md {
+  .content--guide > h2, .content > .h2 {
+    @apply text-5xl;
+  } 
+}

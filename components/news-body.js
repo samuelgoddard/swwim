@@ -17,6 +17,9 @@ import Socials from './socials'
 import SkipButtons from './skip-buttons'
 import Link from 'next/link'
 import ImageStandard from '../helpers/image-standard'
+import { useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { PopupContext } from '../contexts/popup'
 
 export const articlesPerPage = 7;
 
@@ -28,7 +31,10 @@ export const query = `{
       }
     },
     categories[]-> {
-      title
+      title,
+      slug {
+        current
+      }
     },
     date,
     author-> {
@@ -45,6 +51,12 @@ export const query = `{
       current
     }
   },
+  "cats": *[_type == "newsCategory"] {
+    title,
+    slug {
+      current
+    }
+  },
   "contact": *[_type == "contact"][0] {
     title,
     email,
@@ -55,16 +67,59 @@ export const query = `{
       url
     }
   },
-  "numberOfArticles": count(*[_type == "news"]) 
+  "numberOfArticles": count(*[_type == "news"]),
+  "popup": *[_type == "popups"][0] {
+    popupTitle,
+    popupBannerText,
+    popupText,
+    popupImage {
+      asset-> {
+        ...
+      }
+    },
+    popupEnabled,
+    popupNewsletter,
+    popupArticle,
+    popupArticleLink-> {
+      title,
+      slug {
+        current
+      }
+    }
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
-export default function NewsBody({news, contact, numberOfArticles, subPage, index}) {
+export default function NewsBody({news, contact, numberOfArticles, subPage, index, cats, popup }) {
+  const router = useRouter();
 
-  let newsFirst = news.slice(0,3);
-  let newsSecond = news.slice(3,5);
-  let newsThird = news.slice(5,7);
+  let newsFirst = news?.slice(0,3);
+  let newsSecond = news?.slice(3,5);
+  let newsThird = news?.slice(5,7);
+  
+  const handleChange = event => {
+    if (event.target.value == 'all') {
+      router.push(`/news`);
+    } else {
+      router.push(`/news/categories/${event.target.value}`);
+    }
+  };
+
+  const [popupContext, setPopupContext] = useContext(PopupContext);
+
+  useEffect(() => {
+    setPopupContext([{
+      popupEnabled: popup.popupEnabled,
+      title: popup.popupTitle,
+      bannerText: popup.popupBannerText,
+      text: popup.popupText,
+      newsletter: popup.popupNewsletter,
+      article: popup.popupArticle,
+      articleLink: popup.popupArticleLink,
+      image: popup.popupImage
+    }])
+  }, [])
 
   return (
     <Layout>
@@ -116,7 +171,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue pt-[125px] md:pt-[160px] xl:pt-[180px]"
+        className="bg-white bg-noise text-blue pt-[160px] md:pt-[190px]"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-20 overflow-hidden">
 
@@ -146,7 +201,18 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
                     </motion.span>
                   </span>
                 </h1>
-              <span className="hidden md:block"><FancyLink href="/about" label="Learn about us" /></span>
+                
+                <span className="block bg-blue-light bg-opacity-20 rounded-full px-4">
+                  Filter By:&nbsp;
+                  <select onChange={handleChange} name="cats" id="cats" className="bg-transparent appearance-none font-bold w-auto py-2 focus:outline-none focus:border-none">
+                    <option value={'all'}>All Posts</option>
+                    {cats?.map((e, i) => {
+                      return (
+                        <option key={i} value={e.slug.current}>{e.title}</option>
+                      )
+                    })}
+                  </select>
+                </span>
               </div>
             </div>
 
@@ -198,7 +264,7 @@ export default function NewsBody({news, contact, numberOfArticles, subPage, inde
             
             { subPage ? (
               <div className="mb-8 md:mb-12 2xl:mb-16 relative z-10 overflow-x-hidden">
-                {news.map((article, i) => {
+                {news?.map((article, i) => {
                   return (
                     <NewsTeaser
                       key={i}
