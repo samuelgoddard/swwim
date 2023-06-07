@@ -144,7 +144,7 @@ export default function CaseStudiesLanding(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue overflow-hidden pt-[160px] md:pt-[190px]"
+        className="bg-white bg-noise text-blue overflow-hidden top-padding"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>

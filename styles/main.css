@@ -155,3 +155,12 @@
 .content--guide--mini > .single-image {
   @apply max-w-screen-3xl mx-auto overflow-hidden px-6 2xl:px-16 lg:py-16 !important;
 }
+
+
+.top-padding {
+  @apply pt-[180px] md:pt-[250px] !important;
+}
+
+.header--alert {
+  @apply mt-[32px] md:mt-[47px] !important;
+}

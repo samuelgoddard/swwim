@@ -113,7 +113,7 @@ export default function ServicesLandingPage(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue overflow-hidden pt-[160px] md:pt-[190px]"
+        className="bg-white bg-noise text-blue overflow-hidden top-padding"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
@@ -146,11 +146,11 @@ export default function ServicesLandingPage(initialData) {
                 </div>
 
                 <div className="relative">
-                  <h1 className="block md:hidden font-display text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Lorem ipsum dolor sit amet</h1>
+                  <h1 className="block md:hidden font-display text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">Making waves in digital</h1>
 
                   <h1 className="hidden md:block font-display text-[9.7vw] md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none relative z-10 text-center">
                     <span className="block overflow-hidden">
-                      <motion.span variants={textRevealSmallDelay} className="block">Lorem ipsum dolor sit amet</motion.span>
+                      <motion.span variants={textRevealSmallDelay} className="block">Making waves in digital</motion.span>
                     </span>
                   </h1>
                   

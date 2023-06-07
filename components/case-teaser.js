@@ -5,8 +5,8 @@ import ImageWrapper from "../helpers/image-wrapper";
 export default function CaseTeaser({ heading, image, images, tags, index, text, href, service }) {
   return(
     <Link href={href}>
-      <a className="flex flex-wrap text-current border-b border-current pt-6 pb-4 md:py-12 2xl:py-14 md:-mx-8 group">
-        <div className={`flex flex-wrap w-full md:px-8 2xl:px-12 ${service ? 'items-' : '' }`}>
+      <a className="flex flex-wrap text-current border-b border-current pt-6 pb-4 md:py-12 2xl:py-14 group">
+        <div className={`flex flex-wrap w-full ${service ? 'items-' : '' }`}>
           <div className={`lg:px-8 flex flex-wrap order-2 md:order-1 relative ${service ? 'w-full md:w-[45%]' : 'w-full md:w-1/2' }`}>
             <div className="w-10 md:w-full self-end mb-auto hidden md:block">
               <span className={`block stroke stroke--thin text-2xl md:text-4xl 2xl:text-5xl font-bold mt-[0px] md:-mt-1 md:w-1/3 pr-2 ${service && 'pb-6'}`}>{index}</span>

@@ -135,7 +135,7 @@ export default function CaseStudiesLanding(initialData) {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="bg-white bg-noise text-blue overflow-hidden pt-[160px] md:pt-[190px]"
+        className="bg-white bg-noise text-blue overflow-hidden top-padding"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10">
           <Container>
@@ -201,7 +201,7 @@ export default function CaseStudiesLanding(initialData) {
               </div>
             </div>
           
-            <div className="border-t border-current mb-12 md:mb-16 2xl:mb-24 relative z-10">
+            <div className="border-t border-current mb-12 md:mb-16 2xl:mb-24 relative z-10 px-">
               {cases.map((item, i) => {
                 return (
                   <CaseTeaser
