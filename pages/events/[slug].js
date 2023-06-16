@@ -223,8 +223,36 @@ export default function NewsSlug(initialData) {
         className="bg-white bg-noise text-blue py-8 md:py-12 2xl:py-16"
       >
         <motion.div variants={fadeSmallDelay} className="relative z-10 overflow-hidden">
-          <div className="lg:py-12">
+          <div className="lg:py-12 mb-20 lg:mb-32">
             <GuidesContentWrapper text={content} full />
+          </div>
+          
+          <div className="text-center flex flex-wrap justify-center">
+            <div className="mb-12 lg:mb-20 w-full">
+              <h2 className="font-display text-5xl md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none uppercase mb-1 lg:mb-3">Register your interest</h2>
+              <p className="text-lg lg:text-xl">Register your interest below and we'll be in touch.</p>
+            </div>
+            
+            <div className="w-10/12 lg:w-8/12 max-w-2xl mx-auto mb-20 lg:mb-32">
+              <form action="https://weswwim.us13.list-manage.com/subscribe/post?u=a15d6a11b0fb279a814280022&amp;id=23124acf1f&amp;f_id=00e593e2f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate w-full relative" target="_blank">
+                <div className="mc-field-group w-full">
+                  <label htmlFor="mce-EMAIL" className="hidden">Email Address  <span className="inline">*</span></label>
+                  <input type="email" placeholder="Email Address" name="EMAIL" className="required email w-full border border-blue border-opacity-50 rounded-full p-[12px] md:p-[14px] px-6 pr-[130px] pl-5 md:pl-6 md:pr-40 text-blue placeholder-blue placeholder-opacity-50" id="mce-EMAIL" required />
+                </div>
+                <div id="mce-responses">
+                  <div className="hidden" id="mce-error-response"></div>
+                  <div className="hidden" id="mce-success-response"></div>
+                </div> 
+                <div className="absolute left-[-5000px]" aria-hidden="true">
+                  <input type="text" name="b_a15d6a11b0fb279a814280022_23124acf1f" tabIndex="-1" value="" />
+                </div>
+
+                <button type="submit" className={`rounded-full text-center font-bold px-8 md:px-[34px] py-[11px] bg-blue text-white ring-blue block group overflow-hidden transition-colors ease-in-out duration-500 z-10 absolute top-0 right-0 mt-1 mr-1 text-sm md:text-base`} name="subscribe" id="mc-embedded-subscribe">
+                  <span className="block relative z-10">Sign Up</span>
+                  <div className="absolute bottom-0 left-0 w-full h-0 bg-blue-dark group-hover:h-full group-focus:h-full transition-all ease-in-out duration-500 z-0"></div>
+                </button>
+              </form>
+            </div>
           </div>
         </motion.div>
       </motion.section>
