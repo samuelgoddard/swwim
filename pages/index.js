@@ -23,6 +23,7 @@ import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
 import LottieAnimation from '../components/lottie-animations'
 import ImageStandard from '../helpers/image-standard';
 import { PopupContext } from '../contexts/popup'
+import ConditionalWrap from 'conditional-wrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +70,13 @@ const query = `{
   },
   "clients": *[_type == "client"] | order(order asc) {
     title,
+    externalWebsite,
+    internalCaseStudy-> {
+      title,
+      slug {
+        current
+      }
+    },
     logo {
       asset->
     }
@@ -699,17 +707,37 @@ export default function Home(initialData) {
               <div className="grid grid-cols-2 md:grid-cols-4 border-r border-b border-blue mb-16 md:mb-24 2xl:mb-32 relative z-20">
                 {clients.map((client, i) => {
                   return (
-                    <div className="bg-white border-l border-t border-blue flex flex-wrap items-center justify-center p-[10vw] md:p-[3.35rem] lg:p-[5.25rem] client-logo" key={i}>
-                      <div ref={fadeRevealRefs} className="">
-                        <ImageStandard
-                          src={client.logo.asset.url}
-                          width={client.logo.asset.metadata.dimensions.width}
-                          height={client.logo.asset.metadata.dimensions.height}
-                          alt={client.title}
-                          className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%] will-change"
-                        />
-                      </div>
-                    </div>
+                    <ConditionalWrap
+                      condition={client.externalWebsite}
+                      wrap={children => (
+                        <a href={client.externalWebsite} target="_blank" rel="noopener noreferrer" className="group">
+                          {children}
+                        </a>
+                      )}
+                    >
+                      <ConditionalWrap
+                        condition={client.internalCaseStudy}
+                        wrap={children => (
+                          <Link href={`/case-studies/${client.internalCaseStudy.slug.current}`}>
+                            <a className="block group">
+                              {children}
+                            </a>
+                          </Link>
+                        )}
+                      >
+                        <div className="bg-white border-l border-t border-blue flex flex-wrap items-center justify-center p-[10vw] md:p-[3.35rem] lg:p-[5.25rem] client-logo" key={i}>
+                          <div ref={fadeRevealRefs} className="">
+                            <ImageStandard
+                              src={client.logo.asset.url}
+                              width={client.logo.asset.metadata.dimensions.width}
+                              height={client.logo.asset.metadata.dimensions.height}
+                              alt={client.title}
+                              className="h-16 max-w-[50%] lg:h-24 lg:max-w-[60%] will-change transform group-hover:scale-[0.9] transition-transform ease-in-out duration-500"
+                            />
+                          </div>
+                        </div>
+                      </ConditionalWrap>
+                    </ConditionalWrap>
                   )
                 })}
               </div>

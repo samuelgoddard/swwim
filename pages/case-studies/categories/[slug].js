@@ -196,7 +196,7 @@ export default function CaseStudiesLanding(initialData) {
 
                 <div className="flex justify-center">
                   <span className="block w-auto text-center">
-                    <span className="block mb-1">Filter By Industry:</span>
+                    <span className="block mb-1">Filter By Service:</span>
                     <select onChange={handleChange} name="services" id="services" className="bg-blue bg-opacity-20  rounded-full appearance-none font-bold w-auto py-2 px-3 focus:outline-none focus:border-none text-center">
                       <option value={'all'}>{currentService.title}</option>
                       {services?.map((e, i) => {
@@ -204,7 +204,7 @@ export default function CaseStudiesLanding(initialData) {
                           <option key={i} value={e.slug.current}>{e.title}</option>
                         )
                       })}
-                      <option value={'all'}>All Industries</option>
+                      <option value={'all'}>All Services</option>
                     </select>
                   </span>
                 </div>

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.weswwim.com/
+
+# Sitemaps
+Sitemap: https://www.weswwim.com/sitemap.xml
