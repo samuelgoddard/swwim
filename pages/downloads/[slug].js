@@ -34,6 +34,8 @@ const query = `
     content,
     introText,
     title,
+    newsletterSignupHeading,
+    newsletterSignupText,
     "contact": *[_type == "contact"][0] {
       title,
       email,
@@ -70,7 +72,8 @@ const query = `
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, introText, title, download, content, contact, popup }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, introText, title, download, content, contact, newsletterSignupHeading,
+    newsletterSignupText, popup }  } = pageService.getPreviewHook(initialData)()
   const [popupContext, setPopupContext] = useContext(PopupContext);
 
   useEffect(() => {
@@ -193,9 +196,11 @@ export default function NewsSlug(initialData) {
 
             {download && (
               <div className="max-w-screen-2xl mx-auto px-6 text-center mt-16 md:mt-24 lg:mt-32 xl:mt-40 mb-6 md:mb-3">
-                <h3 className="text-[32px] md:text-[4.5vw] 2xl:text-[70px] font-display uppercase mb-0 pb-0">Download Guide</h3>
+                <h3 className="text-[32px] md:text-[4.5vw] 2xl:text-[70px] font-display uppercase mb-0 pb-0">{newsletterSignupHeading ? newsletterSignupHeading : 'Download Guide'}</h3>
                 
-                <p className="text-lg md:text-xl max-w-[800px] mx-auto px-8 mb-8">Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                {newsletterSignupText && (
+                  <p className="text-lg md:text-xl max-w-[800px] mx-auto px-8 mb-8">{newsletterSignupText}</p>
+                )}
 
                 <a href={download.asset.url} download className={`rounded-full text-center font-bold px-6 md:px-8 py-2 md:py-3 bg-blue text-white hover:text-white ring-blue inline-block group overflow-hidden transition-colors ease-in-out duration-500 relative z-10`}>
                   <span className="block relative z-10">Download</span>

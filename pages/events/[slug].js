@@ -38,6 +38,8 @@ const query = `
     location,
     introText,
     title,
+    newsletterSignupHeading,
+    newsletterSignupText,
     "contact": *[_type == "contact"][0] {
       title,
       email,
@@ -85,7 +87,7 @@ function toPlainText(blocks = []) {
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, date, location, time, introText, title, content, contact, popup }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, date, location, time, introText, title, content, newsletterSignupHeading, newsletterSignupText, contact, popup }  } = pageService.getPreviewHook(initialData)()
 
   const [popupContext, setPopupContext] = useContext(PopupContext);
 
@@ -229,8 +231,8 @@ export default function NewsSlug(initialData) {
           
           <div className="text-center flex flex-wrap justify-center">
             <div className="mb-12 lg:mb-20 w-full">
-              <h2 className="font-display text-5xl md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none uppercase mb-1 lg:mb-3">Register your interest</h2>
-              <p className="text-lg lg:text-xl">Register your interest below and we'll be in touch.</p>
+              <h2 className="font-display text-5xl md:text-[6.45vw] lg:text-[5.75vw] 2xl:text-[80px] leading-none uppercase mb-1 lg:mb-3">{newsletterSignupHeading ? newsletterSignupHeading : 'Register your interest'}</h2>
+              <p className="text-lg lg:text-xl">{newsletterSignupText ? newsletterSignupText : 'Register your interest below and we will be in touch.'}</p>
             </div>
             
             <div className="w-10/12 lg:w-8/12 max-w-2xl mx-auto mb-20 lg:mb-32">
