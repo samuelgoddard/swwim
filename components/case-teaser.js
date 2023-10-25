@@ -84,7 +84,7 @@ export default function CaseTeaser({ heading, image, images, tags, index, text, 
                     <div className="w-1/2 px-3 lg:px-4">
                     <div className="block md:hidden bg-blue">
                       <ImageWrapper
-                        image={images[1]}
+                        image={images[1] ? images[1] : images[0]}
                         className="w-full will-change"
                         baseWidth={350}
                         baseHeight={500}
@@ -95,7 +95,7 @@ export default function CaseTeaser({ heading, image, images, tags, index, text, 
                     <div className="hidden md:block bg-blue overflow-hidden">
                       <div className="transform ease-in-out duration-500 scale-[1.01] group-hover:scale-105 group-focus:scale-105 will-change">
                         <ImageWrapper
-                          image={images[1]}
+                          image={images[1] ? images[1] : images[0]}
                           className="w-full"
                           baseWidth={450}
                           baseHeight={720}
