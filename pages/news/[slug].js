@@ -28,6 +28,9 @@ const query = `
         asset->
       }
     },
+    slug {
+      current
+    },
     heroImage {
       asset -> {
         ...
@@ -122,7 +125,7 @@ function toPlainText(blocks = []) {
 const pageService = new SanityPageService(query)
 
 export default function NewsSlug(initialData) {
-  const { data: { seo, heroImage, categories, author, date, introText, title, content, contact, moreNews, popup }  } = pageService.getPreviewHook(initialData)()
+  const { data: { seo, heroImage, categories, author, date, introText, title, content, contact, moreNews, popup, slug }  } = pageService.getPreviewHook(initialData)()
 
   let d = spacetime(date)
   let estimatedReadingTime = readingTime(toPlainText(content));
@@ -148,6 +151,7 @@ export default function NewsSlug(initialData) {
         title={seo?.metaTitle ? seo?.metaTitle : title }
         description={seo?.metaDesc ? seo?.metaDesc : introText}
         openGraph={{
+          url: `https://weswwim.com/news/${slug}`,
           images: [
             {
               url: seo?.shareGraphic?.asset.url ?? null,
