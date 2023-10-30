@@ -151,7 +151,7 @@ export default function NewsSlug(initialData) {
         title={seo?.metaTitle ? seo?.metaTitle : title }
         description={seo?.metaDesc ? seo?.metaDesc : introText}
         openGraph={{
-          url: `https://weswwim.com/news/${slug}`,
+          url: `https://www.weswwim.com/news/${slug}`,
           images: [
             {
               url: seo?.shareGraphic?.asset.url ?? null,
